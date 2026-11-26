@@ -192,6 +192,22 @@ class UploadApplyTests(unittest.TestCase):
             self.assertEqual(result["platform_install_status"], 204)
             self.assertEqual(result["upload_response"], {"projectName": "pilot"})
 
+    def test_upload_apply_uses_digit_leading_project_name_from_admin(self):
+        with tempfile.TemporaryDirectory() as temp:
+            path = Path(temp) / "3d-gallery-1.0.0.zip"
+            with ZipFile(path, "w") as archive:
+                archive.writestr("3d-gallery/web/plugins/3d-gallery/lib/gallery-web-plugin-1.0.0.jar", "sample")
+
+            with mock.patch.object(PLUGIN, "open_admin_session", return_value="opener"), \
+                    mock.patch.object(PLUGIN, "upload_project_zip", return_value=(200, '{"projectName":"3d-gallery"}')), \
+                    mock.patch.object(PLUGIN, "admin_request", side_effect=[
+                        (200, "[]"), (204, ""), (200, '["web-plugin"]'), (204, ""),
+                    ]) as request:
+                result = PLUGIN.upload_and_apply_zip("http://admin.test", "admin", "secret", path)
+
+            self.assertEqual(request.call_args.args[2:4], ("/api/v1/projects/3d-gallery/activate", "POST"))
+            self.assertEqual(result["activation_status"], 204)
+
     def test_upload_apply_rejects_damaged_zip_before_login(self):
         with tempfile.TemporaryDirectory() as temp, mock.patch.object(PLUGIN, "open_admin_session") as login:
             path = Path(temp) / "pilot.zip"

@@ -12,6 +12,7 @@ from zipfile import BadZipFile, ZipFile
 
 EZY = Path(__file__).resolve().with_name("ezy")
 PROJECT_NAME = re.compile(r"[a-z][a-z0-9-]{1,59}")
+UPLOAD_PROJECT_NAME = re.compile(r"[a-z0-9][a-z0-9-]{1,59}")
 JAVA_NAME = re.compile(r"[a-z][a-z0-9_]*(?:\.[a-z][a-z0-9_]*)+")
 MODULE_TYPES = {"admin-plugin", "web-plugin", "theme", "socket-plugin", "socket-app"}
 CORE_JAR = re.compile(
@@ -149,7 +150,7 @@ def upload_and_apply_zip(admin_url, username, password, zip_path):
     upload_status, upload_body = upload_project_zip(opener, admin_url, zip_path)
     upload_response = json.loads(upload_body or "{}")
     project_name = upload_response.get("projectName") if isinstance(upload_response, dict) else None
-    if not isinstance(project_name, str) or not PROJECT_NAME.fullmatch(project_name):
+    if not isinstance(project_name, str) or not UPLOAD_PROJECT_NAME.fullmatch(project_name):
         raise ValueError("Project upload did not return a valid projectName")
 
     check_status, _ = admin_request(opener, admin_url, "/api/v1/projects/check-dependencies")
