@@ -38,10 +38,10 @@ The stack's own [plugin build skill](../skills/ezy-build-plugin/SKILL.md) is tra
 
 - **Project owner:** Approves production work, database/volume deletion, real `.env` or secret changes, high-risk architecture, public releases, and product decisions.
 - **Chief of Staff:** Splits work on Devin Boards, assigns one writer per branch, checks evidence, and merges PRs for bot-owned repositories after CI and Devin Review pass.
-- **Platform Engineer:** Owns the core repository, dev runtime, shared tooling, and verified pin updates.
+- **Platform Engineer:** Owns the core repository, dev runtime, and shared tooling. It is the only Bot that writes to `kaynt-mt/ezyplatform-stack`, including applying and verifying version and pin upgrades.
 - **Product Engineer:** Owns app implementation in separate repositories and hands changes to QA.
 - **QA Engineer:** Independently verifies the tested revision on dev and reports evidence and gaps.
-- **Upstream Watcher:** Tracks new versions of EzyPlatform, CPPAI, and AgentKit.
+- **Upstream Watcher:** Tracks new versions of EzyPlatform, CPPAI, and AgentKit, scans and reports what changed, and hands each upgrade to the Platform Engineer. It does not write to `kaynt-mt/ezyplatform-stack`: no branches, commits, or PRs.
 - **Devin sessions:** Run real checks and open PRs. Do not merge unless explicitly delegated for a bot-owned repository.
 
 ## 3. Rules for every workflow
