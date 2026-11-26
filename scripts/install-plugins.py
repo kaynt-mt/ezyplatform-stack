@@ -7,7 +7,7 @@ import subprocess
 import time
 from graphlib import TopologicalSorter
 from pathlib import Path
-from urllib.request import HTTPCookieProcessor, HTTPRedirectHandler, Request, build_opener, urlopen
+from urllib.request import HTTPCookieProcessor, HTTPRedirectHandler, ProxyHandler, Request, build_opener, urlopen
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -152,7 +152,7 @@ def main():
     if args.admin_cookie_jar:
         jar = http.cookiejar.MozillaCookieJar(str(args.admin_cookie_jar))
         jar.load(ignore_discard=True)
-        opener = build_opener(HTTPCookieProcessor(jar), NoRedirect())
+        opener = build_opener(ProxyHandler({}), HTTPCookieProcessor(jar), NoRedirect())
     graph = {}
     for name, (release, version, kinds) in manifest.items():
         graph[name] = install(name, release, version, kinds, admin, opener)
