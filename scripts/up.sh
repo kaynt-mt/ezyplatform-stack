@@ -73,6 +73,19 @@ if ! wait_http "$admin/login" 600; then
     exit 1
 fi
 
+container_id="$(docker compose ps -q ezyplatform)"
+image_version="$(docker inspect --format '{{index .Config.Labels "org.opencontainers.image.version"}}' "$container_id")"
+runtime_version="$(docker compose exec -T ezyplatform sed -n 's/^ezyplatform\.version=//p' /app/ezyplatform/settings/platform.properties)"
+if [[ -z "$image_version" || -z "$runtime_version" ]]; then
+    echo 'Could not determine the EzyPlatform image or runtime version.' >&2
+    exit 1
+fi
+if [[ "$runtime_version" != "$image_version" ]]; then
+    printf 'The EzyPlatform volume is running %s, but the image pins %s. Rebuilding does not upgrade an existing volume.\n' "$runtime_version" "$image_version" >&2
+    printf 'Back up both volumes and follow the existing-volume upgrade instructions in README.md. Admin is available at %s/ezyplatform.\n' "$admin" >&2
+    exit 1
+fi
+
 echo "Waiting for Web at $web ..."
 if ! wait_http "$web/" 90; then
     echo 'Restarting EzyPlatform once so Web can pick up the initialized database.'

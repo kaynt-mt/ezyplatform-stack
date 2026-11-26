@@ -25,7 +25,7 @@ On a fresh clone, start the runtime with `up.sh` first, then run the full sync i
 
 On first startup, Web `/` can temporarily return HTTP 404 while Admin is available. Wait for `up.sh` to finish its readiness checks and, if needed, restart EzyPlatform once. After recovery, a fresh core without a custom theme can show a default welcome page; that page does not verify that a plugin has loaded.
 
-**Upgrading from 1.5.9:** Admin compares the running core to the latest marketplace release before opening the manual ZIP picker. Pinning 1.6.0 restores Upload while 1.6.0 is the latest; the upstream gate is still in place. If the prompt returns after a newer release, use `scripts/ezy-plugin.py upload-apply` for a trusted, compatible ZIP. [EzyPlatform 1.6.0](https://ezyplatform.com/api/v1/platforms/1.6.0/release-notes) also adds bulk plugin updates and dependency actions in Admin, custom media types, and an Admin login-validation event.
+**Upgrading from 1.5.9:** Admin compares the running core to the latest marketplace release before opening the manual ZIP picker. Running 1.6.0 restores Upload while 1.6.0 is the latest; the upstream gate is still in place. If the prompt returns after a newer release, use `scripts/ezy-plugin.py upload-apply` for a trusted, compatible ZIP. [EzyPlatform 1.6.0](https://ezyplatform.com/api/v1/platforms/1.6.0/release-notes) also adds bulk plugin updates and dependency actions in Admin, custom media types, and an Admin login-validation event.
 
 ### Docker Hub rate limits
 
@@ -52,7 +52,13 @@ docker compose stop   # retain data
 ./scripts/up.sh       # start again
 ```
 
-Compose stores the database and runtime in separate volumes. Back up both before upgrading; rebuilding the image does not replace core or modules in an existing runtime volume. `docker compose down -v` **deletes** all local data; use only when deliberately starting over.
+### Upgrade an existing 1.5.9 volume
+
+Compose stores the database and runtime in separate volumes. Rebuilding the image does not replace the core or modules in an existing runtime volume. When the two core versions differ, `./scripts/up.sh` prints the mismatch and leaves Admin running so you can upgrade explicitly.
+
+1. Back up both volumes before installing the upgrade. Keep the same Compose project and `.env`. Do not use `docker compose down -v`; it deletes both volumes.
+2. Sign in as a super admin and open [EzyPlatform in Admin](http://127.0.0.1:9090/ezyplatform) (use the port printed by `up.sh`). Choose **Download version 1.6.0**, then **Install version 1.6.0**. Only proceed if Admin offers the version pinned by the stack: this page downloads the latest release, which may change.
+3. Wait for the installation and restart to finish, then run `./scripts/up.sh` again. Check your installed plugins and settings before using the upgraded stack. The upstream installer replaces some core configuration files; reapply any local edits to those files against the new defaults from your backup.
 
 Run the stack tooling tests from the repository root:
 
