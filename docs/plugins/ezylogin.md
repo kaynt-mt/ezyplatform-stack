@@ -106,4 +106,6 @@ Admin `/ezylogin/settings/regular` returned 200. External OAuth or SSO was not c
 
 Reuse core identity and sessions where appropriate, but keep resource authorization separate. Test sign-in, theme-specific redirects, OAuth, and 2FA in a sandbox.
 
+Activation is transitive: both EzyLogin lanes depend on EzyArticle and EzyMail. Install and activate EzyMail before EzyLogin, or run `python3 scripts/install-plugins.py --only ezylogin` from the stack checkout to resolve the pinned closure. A custom plugin that only uses EzyLogin should declare `dependencies=ezylogin`; it does not need to repeat EzyMail.
+
 [Back to the plugin index](README.md)

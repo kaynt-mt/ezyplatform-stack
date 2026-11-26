@@ -153,15 +153,62 @@ def wait_for_http(urls):
         raise ValueError(f"not ready: {', '.join(sorted(pending))}; inspect docker compose logs ezyplatform")
 
 
-def main():
+def read_manifest():
     manifest = {}
     for line in Path(__file__).with_name("plugin-versions.tsv").read_text().splitlines():
         if line and not line.startswith("#"):
             name, versions, kinds = line.split("\t")
             release, _, installed = versions.partition("/")
             manifest[name] = (release, installed or release, kinds.split(","))
+    return manifest
+
+
+def parse_only(value, manifest):
+    names = [name.strip() for name in value.split(",") if name.strip()]
+    if not names:
+        raise ValueError("--only must name at least one plugin")
+    if len(set(names)) != len(names):
+        raise ValueError("--only contains duplicate plugin names")
+    unknown = sorted(set(names).difference(manifest))
+    if unknown:
+        raise ValueError(f"unknown tested plugin(s): {', '.join(unknown)}")
+    return names
+
+
+def selected_plugins(value, manifest):
+    return parse_only(value, manifest) if value is not None else list(manifest)
+
+
+def add_requested_theme(names, theme, manifest):
+    if theme in manifest and theme not in names:
+        return [*names, theme]
+    return names
+
+
+def install_closure(manifest, names, admin, opener):
+    graph = {}
+    queue = list(names)
+    while queue:
+        name = queue.pop(0)
+        if name in graph:
+            continue
+        release, version, kinds = manifest[name]
+        dependencies = install(name, release, version, kinds, admin, opener)
+        if missing := dependencies.difference(manifest):
+            raise ValueError(f"{name}: dependencies outside the tested set: {', '.join(sorted(missing))}")
+        graph[name] = dependencies
+        for dependency in sorted(dependencies):
+            if dependency not in graph and dependency not in queue:
+                queue.append(dependency)
+        print(f"Verified {name} {version}: {', '.join(kinds)}", flush=True)
+    return graph
+
+
+def main():
+    manifest = read_manifest()
     themes = [name for name, (_, _, kinds) in manifest.items() if "theme" in kinds]
     parser = argparse.ArgumentParser(description="Install the tested plugin versions on a local Compose sandbox.")
+    parser.add_argument("--only", help="comma-separated plugins to install with their dependency closure instead of every tested plugin")
     parser.add_argument("--theme", choices=["welcome", *themes], help="switch to one theme (default: keep current theme)")
     parser.add_argument("--admin-cookie-jar", type=Path, help="use the signed Admin marketplace installer with a local Netscape cookie jar instead of the CLI")
     args = parser.parse_args()
@@ -175,12 +222,8 @@ def main():
         jar = http.cookiejar.MozillaCookieJar(str(args.admin_cookie_jar))
         jar.load(ignore_discard=True)
         opener = build_opener(ProxyHandler({}), HTTPCookieProcessor(jar), NoRedirect())
-    graph = {}
-    for name, (release, version, kinds) in manifest.items():
-        graph[name] = install(name, release, version, kinds, admin, opener)
-        if missing := graph[name].difference(manifest):
-            raise ValueError(f"{name}: dependencies outside the tested set: {', '.join(sorted(missing))}")
-        print(f"Verified {name} {version}: {', '.join(kinds)}", flush=True)
+    names = add_requested_theme(selected_plugins(args.only, manifest), args.theme, manifest)
+    graph = install_closure(manifest, names, admin, opener)
     order = list(TopologicalSorter(graph).static_order())
     activate(manifest, order, args.theme)
     run([*COMPOSE, "restart", "ezyplatform"], timeout=120)

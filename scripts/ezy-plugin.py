@@ -61,7 +61,11 @@ def create_project(name, native_options, group, package, modules, output):
             assembly = project / f"{name}-{module}" / "assembly.xml"
             fix_assembly_exclusions(assembly, group)
     except (OSError, ValueError, subprocess.CalledProcessError) as error:
-        raise ValueError(f"Scaffold failed; inspect the new directory {project}: {error}") from error
+        try:
+            project.rmdir()
+        except OSError:
+            pass
+        raise ValueError(f"Scaffold failed; inspect any files left in {project}: {error}") from error
     return project
 
 
