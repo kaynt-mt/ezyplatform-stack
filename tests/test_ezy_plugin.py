@@ -127,8 +127,6 @@ class UploadApplyTests(unittest.TestCase):
 
             def request(opener, admin_url, path, method="GET", data=None, headers=None):
                 calls.append((path, method, json.loads(data) if data else data, headers))
-                if path == "/api/v1/projects/version-status":
-                    return 200, '[{"projectName":"other","status":"INSTALLED"}]'
                 if path.endswith("/module-types"):
                     return 200, '["admin-plugin","web-plugin"]'
                 return 204, ""
@@ -141,7 +139,6 @@ class UploadApplyTests(unittest.TestCase):
                 )
             login.assert_called_once_with("http://admin.test", "admin", "secret")
             self.assertEqual(calls, [
-                ("/api/v1/projects/version-status", "GET", None, None),
                 ("/api/v1/projects/check-dependencies", "GET", None, None),
                 ("/api/v1/projects/pilot/module-types", "GET", None, None),
                 ("/api/v1/projects/pilot/activate", "POST",
@@ -153,7 +150,7 @@ class UploadApplyTests(unittest.TestCase):
             self.assertEqual(result["activation_status"], 204)
             self.assertEqual(result["upload_response"], {"projectName": "pilot"})
 
-    def test_upload_apply_checks_zip_and_calls_installer_in_order(self):
+    def test_upload_apply_reactivates_installed_project_without_core_install(self):
         with tempfile.TemporaryDirectory() as temp:
             path = Path(temp) / "pilot.zip"
             with ZipFile(path, "w") as archive:
@@ -161,11 +158,7 @@ class UploadApplyTests(unittest.TestCase):
             calls = []
 
             def request(opener, admin_url, path, method="GET", data=None, headers=None):
-                calls.append((path, method, data))
-                if path == "/api/v1/projects/version-status":
-                    return 200, '[{"projectName":"pilot","version":"1.0.0","status":"INSTALLED"}]'
-                if path.endswith("?active=true"):
-                    return 200, "[]"
+                calls.append((path, method, json.loads(data) if data else data))
                 if path.endswith("/module-types"):
                     return 200, '["web-plugin"]'
                 return 204, ""
@@ -174,23 +167,21 @@ class UploadApplyTests(unittest.TestCase):
                 calls.append(("/api/v1/projects/upload", "POST", None))
                 return 200, '{"projectName":"pilot"}'
 
-            with mock.patch.object(PLUGIN, "open_admin_session", return_value="opener") as login, \
+            with mock.patch.object(PLUGIN, "open_admin_session", return_value="opener"), \
                     mock.patch.object(PLUGIN, "upload_project_zip", side_effect=upload), \
                     mock.patch.object(PLUGIN, "admin_request", side_effect=request):
                 result = PLUGIN.upload_and_apply_zip(
                     "http://admin.test", "admin", "secret", path
                 )
-            login.assert_called_once_with("http://admin.test", "admin", "secret")
             self.assertEqual(calls, [
-                ("/api/v1/projects/version-status", "GET", None),
                 ("/api/v1/projects/upload", "POST", None),
                 ("/api/v1/projects/check-dependencies", "GET", None),
-                ("/api/v1/platform/install", "POST", b""),
+                ("/api/v1/projects/pilot/module-types", "GET", None),
+                ("/api/v1/projects/pilot/activate", "POST",
+                 {"moduleTypes": ["web-plugin"], "restart": True}),
             ])
-            self.assertEqual(result["upload_status"], 200)
-            self.assertEqual(result["check_dependencies_status"], 204)
-            self.assertEqual(result["platform_install_status"], 204)
-            self.assertEqual(result["upload_response"], {"projectName": "pilot"})
+            self.assertNotIn("/api/v1/platform/install", [call[0] for call in calls])
+            self.assertEqual(result["activation_status"], 204)
 
     def test_upload_apply_uses_digit_leading_project_name_from_admin(self):
         with tempfile.TemporaryDirectory() as temp:
@@ -201,7 +192,7 @@ class UploadApplyTests(unittest.TestCase):
             with mock.patch.object(PLUGIN, "open_admin_session", return_value="opener"), \
                     mock.patch.object(PLUGIN, "upload_project_zip", return_value=(200, '{"projectName":"3d-gallery"}')), \
                     mock.patch.object(PLUGIN, "admin_request", side_effect=[
-                        (200, "[]"), (204, ""), (200, '["web-plugin"]'), (204, ""),
+                        (204, ""), (200, '["web-plugin"]'), (204, ""),
                     ]) as request:
                 result = PLUGIN.upload_and_apply_zip("http://admin.test", "admin", "secret", path)
 

@@ -109,7 +109,7 @@ python3 "$STACK/scripts/ezy-plugin.py" upload-apply "$ZIP" \
   --password-file /secure/local/admin-password-file
 ```
 
-The helper checks the ZIP, logs in through the Admin form, records which projects are already installed, uploads the project, and checks dependencies. On a first install, it activates all reported module types and requests a restart. If you want to activate only some module types on a first install, use the Admin UI instead. For already-installed projects, the helper retains the platform Apply flow even if all modules are inactive. Store the password only in a local secret file outside Git.
+The helper checks the ZIP, logs in through the Admin form, uploads the project (Admin installs the files during the upload), checks dependencies, then activates all reported module types and requests a Web/Admin restart. This works for a first install and for re-uploading an installed project. It never calls `POST /api/v1/platform/install`, which only installs a staged EzyPlatform core update. If you want to activate only some module types, use the Admin UI instead. Store the password only in a local secret file outside Git.
 
 Application is asynchronous. Poll all of these before declaring success:
 
@@ -119,7 +119,7 @@ Application is asynchronous. Poll all of these before declaring success:
 - migration schema/data changed as expected;
 - plugin smoke APIs/pages return the expected results.
 
-A plain `docker compose restart` after upload is not a substitute for the platform Apply/install step. Conversely, the reference versioned upgrades did not require deactivate/delete/upload/activate once Apply was invoked.
+A plain `docker compose restart` after upload is not a substitute for activating the project with a restart request. Versioned upgrades do not need deactivate/delete before the re-upload.
 
 ## 4. Rehearse backup and restore in an isolated sandbox
 
