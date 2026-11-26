@@ -100,14 +100,7 @@ Use `MediaControllerService` with `notPublic=true` and a caller-supplied predica
 
 ## 3. Install and apply the ZIP in Docker dev
 
-First installation:
-
-1. Start the stack from a fresh clone with `./scripts/up.sh` and create/sign in the dev super admin.
-2. Upload the ZIP in Admin and activate the intended Admin/Web modules.
-3. Use the platform's Apply flow when prompted.
-4. Verify the installed version and routes before continuing.
-
-For upgrades, bump the bundle version first. Uploading alone does not apply the artifact. After upload, explicitly run the platform installer and poll the result. The stack helper performs the verified Admin API sequence without copying JARs into volumes:
+Start the stack with `./scripts/up.sh`, create the local super admin, and install any declared Marketplace dependencies. For upgrades, bump the bundle version before exporting. Use the helper to upload the project without copying JARs into volumes:
 
 ```bash
 python3 "$STACK/scripts/ezy-plugin.py" upload-apply "$ZIP" \
@@ -116,7 +109,7 @@ python3 "$STACK/scripts/ezy-plugin.py" upload-apply "$ZIP" \
   --password-file /secure/local/admin-password-file
 ```
 
-The helper checks the ZIP, logs in through the Admin form, posts `/api/v1/projects/upload`, checks `/api/v1/projects/check-dependencies`, then posts `/api/v1/platform/install`. It does not activate modules for a first install; activate them in Admin first. Store the password only in a local secret file outside Git.
+The helper checks the ZIP, logs in through the Admin form, uploads the project, and checks dependencies. If none of the project's modules are active, it activates all reported module types and requests a restart. If you want to activate only some module types on a first install, use the Admin UI instead. For projects with active modules, the helper retains the existing platform Apply flow. Store the password only in a local secret file outside Git.
 
 Application is asynchronous. Poll all of these before declaring success:
 

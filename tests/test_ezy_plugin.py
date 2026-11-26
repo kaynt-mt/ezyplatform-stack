@@ -1,4 +1,5 @@
 import importlib.util
+import json
 import subprocess
 import tempfile
 import unittest
@@ -117,6 +118,41 @@ class ProjectZipTests(unittest.TestCase):
 
 
 class UploadApplyTests(unittest.TestCase):
+    def test_upload_apply_checks_zip_and_activates_fresh_project_in_order(self):
+        with tempfile.TemporaryDirectory() as temp:
+            path = Path(temp) / "pilot.zip"
+            with ZipFile(path, "w") as archive:
+                archive.writestr("pilot/web/plugins/pilot/lib/pilot-web-plugin-1.0.0.jar", "sample")
+            calls = []
+
+            def request(opener, admin_url, path, method="GET", data=None, headers=None):
+                calls.append((path, method, json.loads(data) if data else data, headers))
+                if path.endswith("?active=true"):
+                    return 200, "[]"
+                if path.endswith("/module-types"):
+                    return 200, '["admin-plugin","web-plugin"]'
+                return 204, ""
+
+            with mock.patch.object(PLUGIN, "open_admin_session", return_value="opener") as login, \
+                    mock.patch.object(PLUGIN, "upload_project_zip", return_value=(200, '{"projectName":"pilot"}')), \
+                    mock.patch.object(PLUGIN, "admin_request", side_effect=request):
+                result = PLUGIN.upload_and_apply_zip(
+                    "http://admin.test", "admin", "secret", path
+                )
+            login.assert_called_once_with("http://admin.test", "admin", "secret")
+            self.assertEqual(calls, [
+                ("/api/v1/projects/check-dependencies", "GET", None, None),
+                ("/api/v1/projects/pilot/module-types?active=true", "GET", None, None),
+                ("/api/v1/projects/pilot/module-types", "GET", None, None),
+                ("/api/v1/projects/pilot/activate", "POST",
+                 {"moduleTypes": ["admin-plugin", "web-plugin"], "restart": True},
+                 {"Content-Type": "application/json"}),
+            ])
+            self.assertEqual(result["upload_status"], 200)
+            self.assertEqual(result["check_dependencies_status"], 204)
+            self.assertEqual(result["activation_status"], 204)
+            self.assertEqual(result["upload_response"], {"projectName": "pilot"})
+
     def test_upload_apply_checks_zip_and_calls_installer_in_order(self):
         with tempfile.TemporaryDirectory() as temp:
             path = Path(temp) / "pilot.zip"
@@ -126,6 +162,8 @@ class UploadApplyTests(unittest.TestCase):
 
             def request(opener, admin_url, path, method="GET", data=None, headers=None):
                 calls.append((path, method, data))
+                if path.endswith("?active=true"):
+                    return 200, '["web-plugin"]'
                 return 204, ""
 
             with mock.patch.object(PLUGIN, "open_admin_session", return_value="opener") as login, \
@@ -137,6 +175,7 @@ class UploadApplyTests(unittest.TestCase):
             login.assert_called_once_with("http://admin.test", "admin", "secret")
             self.assertEqual(calls, [
                 ("/api/v1/projects/check-dependencies", "GET", None),
+                ("/api/v1/projects/pilot/module-types?active=true", "GET", None),
                 ("/api/v1/platform/install", "POST", b""),
             ])
             self.assertEqual(result["upload_status"], 200)
