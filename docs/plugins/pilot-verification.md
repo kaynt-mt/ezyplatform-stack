@@ -126,7 +126,7 @@ Back up the database and the runtime volume as a matched pair while the system i
 ```bash
 BACKUP_DIR="$HOME/ezyplatform-backups/$(date +%Y%m%d-%H%M%S)"
 mkdir -p "$BACKUP_DIR" && chmod 700 "$BACKUP_DIR"
-MYSQL_ROOT_PASSWORD="$(grep '^MYSQL_ROOT_PASSWORD=' .env | cut -d= -f2-)"
+MYSQL_ROOT_PASSWORD="$(docker compose exec -T mysql printenv MYSQL_ROOT_PASSWORD)"
 
 docker compose exec -T mysql mysqldump -uroot -p"$MYSQL_ROOT_PASSWORD" \
   --single-transaction --routines --triggers ezyplatform > "$BACKUP_DIR/ezyplatform-db.sql"
