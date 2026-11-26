@@ -11,6 +11,7 @@ To use AgentKit through the stack's session-friendly sync entrypoint, supply you
 ```sh
 ./scripts/sync-agent-skills.sh
 ./scripts/ak --version
+./scripts/ak login --no-interactive --json  # needed once on a clean machine when using AGENTKIT_API_KEY
 ./scripts/ak kit list-kits --json
 ```
 
