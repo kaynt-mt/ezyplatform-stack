@@ -7,6 +7,7 @@ if [[ ! -d "$src/ezyplatform_cli" ]]; then
     exit 1
 fi
 export PYTHONPATH="$src${PYTHONPATH:+:$PYTHONPATH}"
-# -P keeps the working directory off sys.path so an untrusted checkout cannot
-# shadow the pinned CLI module.
-exec python3 -P -m ezyplatform_cli "$@"
+# Run the pinned package as a directory: sys.path[0] becomes the package itself
+# instead of the working directory, so an untrusted checkout cannot shadow the
+# CLI module. Works on Python 3.9+ (unlike -P, which needs 3.11).
+exec python3 "$src/ezyplatform_cli" "$@"
