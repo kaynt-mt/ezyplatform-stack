@@ -142,11 +142,6 @@ def upload_project_zip(opener, admin_url, zip_path):
 def upload_and_apply_zip(admin_url, username, password, zip_path):
     check_zip(zip_path)
     opener = open_admin_session(admin_url, username, password)
-    _, status_body = admin_request(opener, admin_url, "/api/v1/projects/version-status")
-    projects = json.loads(status_body)
-    if not isinstance(projects, list) or not all(isinstance(project, dict) for project in projects):
-        raise ValueError("Admin did not return valid project version status")
-
     upload_status, upload_body = upload_project_zip(opener, admin_url, zip_path)
     upload_response = json.loads(upload_body or "{}")
     project_name = upload_response.get("projectName") if isinstance(upload_response, dict) else None
@@ -160,13 +155,6 @@ def upload_and_apply_zip(admin_url, username, password, zip_path):
         "upload_response": upload_response,
         "check_dependencies_status": check_status,
     }
-    if any(project.get("projectName") == project_name and project.get("status") == "INSTALLED"
-           for project in projects):
-        result["platform_install_status"], _ = admin_request(
-            opener, admin_url, "/api/v1/platform/install", "POST", b""
-        )
-        return result
-
     _, types_body = admin_request(opener, admin_url, f"{project_path}/module-types")
     module_types = json.loads(types_body)
     if not isinstance(module_types, list) or not module_types or not all(
