@@ -1,7 +1,12 @@
 #!/usr/bin/env python3
 import argparse
+import http.cookiejar
+import json
 import re
 import subprocess
+import urllib.error
+import urllib.parse
+import urllib.request
 from pathlib import Path
 from zipfile import BadZipFile, ZipFile
 
@@ -80,6 +85,75 @@ def check_zip(path):
             raise ValueError(f"Project ZIP contains a corrupt entry: {damaged}")
 
 
+def open_admin_session(admin_url, username, password):
+    parsed = urllib.parse.urlparse(admin_url)
+    loopback = parsed.hostname in {"localhost", "127.0.0.1", "::1"}
+    if parsed.scheme != "https" and not loopback:
+        raise ValueError("Remote Admin URLs must use HTTPS; plain HTTP is allowed only on loopback")
+    cookies = http.cookiejar.CookieJar()
+    opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(cookies))
+    body = urllib.parse.urlencode({"username": username, "password": password}).encode()
+    request = urllib.request.Request(admin_url.rstrip("/") + "/login", data=body, method="POST")
+    with opener.open(request, timeout=30) as response:
+        if response.status >= 400:
+            raise ValueError(f"Admin login failed with HTTP {response.status}")
+    return opener
+
+
+def admin_request(opener, admin_url, path, method="GET", data=None, headers=None):
+    request = urllib.request.Request(
+        admin_url.rstrip("/") + path,
+        data=data,
+        headers=headers or {},
+        method=method,
+    )
+    try:
+        with opener.open(request, timeout=60) as response:
+            return response.status, response.read().decode("utf-8", "replace")
+    except urllib.error.HTTPError as error:
+        body = error.read().decode("utf-8", "replace")
+        raise ValueError(f"{method} {path} failed with HTTP {error.code}: {body[:300]}") from error
+
+
+def upload_project_zip(opener, admin_url, zip_path):
+    boundary = "----ezy-plugin-upload-boundary"
+    content = zip_path.read_bytes()
+    body = b"".join((
+        ("--" + boundary + "\r\n").encode(),
+        (
+            'Content-Disposition: form-data; name="file"; filename="' +
+            zip_path.name + '"\r\n'
+        ).encode(),
+        b"Content-Type: application/zip\r\n\r\n",
+        content,
+        ("\r\n--" + boundary + "--\r\n").encode(),
+    ))
+    return admin_request(
+        opener,
+        admin_url,
+        "/api/v1/projects/upload",
+        "POST",
+        body,
+        {"Content-Type": "multipart/form-data; boundary=" + boundary},
+    )
+
+
+def upload_and_apply_zip(admin_url, username, password, zip_path):
+    check_zip(zip_path)
+    opener = open_admin_session(admin_url, username, password)
+    upload_status, upload_body = upload_project_zip(opener, admin_url, zip_path)
+    check_status, _ = admin_request(opener, admin_url, "/api/v1/projects/check-dependencies")
+    install_status, _ = admin_request(
+        opener, admin_url, "/api/v1/platform/install", "POST", b""
+    )
+    return {
+        "upload_status": upload_status,
+        "upload_response": json.loads(upload_body or "{}"),
+        "check_dependencies_status": check_status,
+        "platform_install_status": install_status,
+    }
+
+
 def main():
     parser = argparse.ArgumentParser(description="Scaffold an EzyPlatform project or check its exported ZIP")
     commands = parser.add_subparsers(dest="command", required=True)
@@ -94,6 +168,14 @@ def main():
     create.add_argument("--out", type=Path, required=True)
     check = commands.add_parser("check-zip", help="Check ZIP integrity and reject bundled core JARs")
     check.add_argument("zip", type=Path)
+    upload = commands.add_parser(
+        "upload-apply",
+        help="Upload a checked ZIP to Docker dev Admin and apply it through the platform installer",
+    )
+    upload.add_argument("zip", type=Path)
+    upload.add_argument("--admin-url", default="http://127.0.0.1:9090")
+    upload.add_argument("--username", default="admin")
+    upload.add_argument("--password-file", type=Path, required=True)
     args = parser.parse_args()
 
     try:
@@ -101,9 +183,19 @@ def main():
             native_options = ["--dir", str(args.dir.resolve())] if args.dir else ["--home", str(args.home.resolve())]
             project = create_project(args.name, native_options, args.group, args.package, args.modules, args.out)
             print(f"Project created: {project}")
-        else:
+        elif args.command == "check-zip":
             check_zip(args.zip)
             print(f"ZIP passed integrity and core JAR checks: {args.zip}")
+        else:
+            password = args.password_file.read_text(encoding="utf-8").rstrip("\r\n")
+            result = upload_and_apply_zip(
+                args.admin_url, args.username, password, args.zip
+            )
+            print(json.dumps(result, indent=2, sort_keys=True))
+            print(
+                "Uploaded and applied. Poll the installed module version, route registrations, "
+                "migration schema, and plugin-specific smoke routes before declaring success."
+            )
     except (OSError, ValueError, BadZipFile) as error:
         parser.exit(1, f"ezy-plugin: {error}\n")
 
