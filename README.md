@@ -87,6 +87,8 @@ python3 scripts/install-plugins.py --only ezylogin --theme freestyle --browser-a
 
 This installs the pinned EzyLogin dependency closure, activates Freestyle, seeds `/login` and `/register` EzyArticle pages that submit to `/ezylogin/api/v1/login` and `/ezylogin/api/v1/register`, disables email activation in the **local** sandbox database, restarts the runtime, and verifies the rendered pages and login settings. Register a unique user on Web `/register`, then sign in on `/login`; both forms report `Access token status: ACTIVATED` on success. Do not use this fixture as a production or product-theme authentication UI.
 
+When a protected Web page sends you to `/login`, the fixture returns you to the original path and query after an activated sign-in. Opening `/login` directly or supplying an unsafe return URL leaves you on the sign-in page. Re-run the command above to update an existing fixture.
+
 ### Update upstream pins
 
 1. Verify the desired revisions of the [CLI](https://github.com/cppai-vn/ezyplatform-cli), [Docker](https://github.com/cppai-vn/ezyplatform-docker), and [Agents Plugins](https://github.com/cppai-vn/agents-plugins) (for example, `git ls-remote https://github.com/cppai-vn/agents-plugins.git HEAD`), then update `git` in the lock.

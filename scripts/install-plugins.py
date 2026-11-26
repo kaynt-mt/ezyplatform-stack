@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 import argparse
+import base64
 import http.cookiejar
 import json
 import re
 import subprocess
 import time
 from graphlib import TopologicalSorter
+from html import escape
 from pathlib import Path
 from urllib.error import HTTPError
 from urllib.request import HTTPCookieProcessor, HTTPRedirectHandler, ProxyHandler, Request, build_opener, urlopen
@@ -26,6 +28,12 @@ FOLDERS = {
 THEME_CACHE = ".runtime/web/themes.txt"
 BROWSER_AUTH_MARKER = "ezyplatform-stack-browser-auth-v1"
 BROWSER_AUTH_SLUGS = ("login", "register")
+THEME_PAGE_CONTENT = '<th:block layout:fragment="content">'
+BROWSER_AUTH_RETURN_BRIDGE = """
+    <span hidden id="stack-login-return"
+          th:if="${page.slug == 'login' && #strings.contains(page.content, 'stack-login-form')}"
+          th:attr="data-return-url=${loginCallbackUrl}"></span>"""
+BROWSER_AUTH_RETURN_PROBE = "/__stack_login_return_probe?view=queue&from=qa%20deck"
 
 BROWSER_AUTH_STYLE = """
 <style>
@@ -41,10 +49,24 @@ BROWSER_AUTH_STYLE = """
 </style>
 """
 
-BROWSER_AUTH_SCRIPT = """
+BROWSER_AUTH_SCRIPT = r"""
 <script>
 (function () {
-  function submitAuth(form, endpoint, status, successPrefix) {
+  function loginReturnUrl() {
+    const path = document.getElementById('stack-login-return')?.dataset.returnUrl;
+    if (!path || !path.startsWith('/') || path.startsWith('//') || /[\\\x00-\x1f\x7f-\x9f#]/.test(path)) {
+      return;
+    }
+    try {
+      const url = new URL(path, location.origin);
+      const pathname = decodeURIComponent(url.pathname);
+      if (url.origin === location.origin && !/^\/(?:pages\/)?login(?:[/;]|$)/i.test(pathname)) {
+        return path;
+      }
+    } catch (error) {}
+  }
+
+  function submitAuth(form, endpoint, status, successPrefix, returnUrl) {
     form.addEventListener('submit', async function (event) {
       event.preventDefault();
       const button = form.querySelector('button[type="submit"]');
@@ -79,6 +101,9 @@ BROWSER_AUTH_SCRIPT = """
         status.dataset.result = 'success';
         status.textContent = successPrefix + ' Access token status: ' + (data.accessTokenStatus || 'unknown') + '.';
         form.reset();
+        if (returnUrl && data.accessTokenStatus === 'ACTIVATED') {
+          location.assign(returnUrl);
+        }
       } catch (error) {
         status.dataset.result = 'error';
         status.textContent = error.message;
@@ -90,7 +115,7 @@ BROWSER_AUTH_SCRIPT = """
 
   const loginForm = document.getElementById('stack-login-form');
   if (loginForm) {
-    submitAuth(loginForm, '/ezylogin/api/v1/login', document.getElementById('stack-login-status'), 'Signed in.');
+    submitAuth(loginForm, '/ezylogin/api/v1/login', document.getElementById('stack-login-status'), 'Signed in.', loginReturnUrl());
   }
   const registerForm = document.getElementById('stack-register-form');
   if (registerForm) {
@@ -332,8 +357,33 @@ def browser_auth_sql():
     return "START TRANSACTION;\n" + "".join(statements) + "COMMIT;\n"
 
 
-def install_browser_auth_fixture():
+def browser_auth_theme_template(template):
+    if BROWSER_AUTH_RETURN_BRIDGE in template:
+        return template
+    if template.count(THEME_PAGE_CONTENT) != 1:
+        raise ValueError("browser auth fixture requires a theme with an EzyArticle page content fragment; use --theme freestyle")
+    return template.replace(THEME_PAGE_CONTENT, THEME_PAGE_CONTENT + BROWSER_AUTH_RETURN_BRIDGE)
+
+
+def install_browser_auth_fixture(theme):
     validate_browser_auth_rows(browser_auth_rows())
+    if not theme:
+        themes = active_modules()["theme"]
+        if len(themes) != 1:
+            raise ValueError("browser auth fixture needs an active Web theme; use --theme freestyle")
+        theme = next(iter(themes))
+    if not re.fullmatch(r"[a-z0-9_-]+", theme):
+        raise ValueError("browser auth fixture could not determine the Web theme; use --theme freestyle")
+    path = f"web/themes/{theme}/resources/templates/pages/details.html"
+    original = read_files([path]).get(path, "")
+    template = browser_auth_theme_template(original)
+    if template != original:
+        run([*CONTAINER, "bash", "-ec",
+             """temp=$(mktemp "$1.XXXXXX")
+trap 'rm -f "$temp"' EXIT
+cat > "$temp"
+chmod --reference="$1" "$temp"
+mv -f "$temp" "$1" """, "bash", path], input=template)
     mysql_exec(browser_auth_sql())
     print("Installed browser signup/login fixture pages", flush=True)
 
@@ -367,6 +417,11 @@ def verify_browser_auth_fixture(web):
         activation_required = None
     if activation_required is not False:
         errors.append("EzyLogin activationRequired is not false")
+    cookie = base64.b64encode(json.dumps({"callbackUri": BROWSER_AUTH_RETURN_PROBE}).encode()).decode()
+    probe = Request(f"{web}/login", headers={"Cookie": f"ezyRedirectAttributes={cookie}"})
+    status, body = fetch_text(probe)
+    if status != 200 or f'data-return-url="{escape(BROWSER_AUTH_RETURN_PROBE)}"' not in body:
+        errors.append("/login did not render the original login return URL")
     if errors:
         detail = "; ".join(errors)
         raise ValueError(f"browser auth fixture verification failed: {detail}; use --theme freestyle or another EzyArticle page-rendering theme")
@@ -449,7 +504,7 @@ def main():
     if args.browser_auth and "ezylogin" not in graph:
         raise ValueError("--browser-auth requires ezylogin; use --only ezylogin or include it in the installed set")
     if args.browser_auth:
-        install_browser_auth_fixture()
+        install_browser_auth_fixture(args.theme)
     activate(manifest, order, args.theme)
     run([*COMPOSE, "restart", "ezyplatform"], timeout=120)
     wait_for_http(urls)
