@@ -41,7 +41,7 @@ cleanup_compose_log() {
 trap cleanup_compose_log EXIT
 
 if ! docker compose up -d --build 2>&1 | tee "$compose_log"; then
-    if grep -qiE '429|too many requests' "$compose_log"; then
+    if grep -qiE '429|too many requests|toomanyrequests' "$compose_log"; then
         echo 'Docker Hub rate-limited the pull; retrying with mirror.gcr.io at the same digests.' >&2
         retry_overrides="$(python3 scripts/docker-image-fallback.py --docker-hub-failed)"
         if apply_image_overrides "$retry_overrides"; then
