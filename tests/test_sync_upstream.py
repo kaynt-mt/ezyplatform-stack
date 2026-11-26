@@ -105,20 +105,52 @@ class AgentKitSyncTests(unittest.TestCase):
                 SYNC.sync_skills(plugins, {}, agentkit_skill_dirs=[eng], root=root)
 
     def test_rejects_invalid_agentkit_lock_tokens(self):
+        good_sha = "a" * 64
         with tempfile.TemporaryDirectory() as temp:
             for bad in (
-                {"cli_version": "../bad", "kits": {"engineer": "3.2.0"}},
-                {"cli_version": "3.2.0", "kits": {"../eng": "3.2.0"}},
-                {"cli_version": "3.2.0", "kits": {"engineer": "3.2.0;rm"}},
+                {"cli_version": "../bad", "installer_sha256": good_sha, "kits": {"engineer": "3.2.0"}},
+                {"cli_version": "3.2.0", "installer_sha256": "not-a-sha", "kits": {"engineer": "3.2.0"}},
+                {"cli_version": "3.2.0", "installer_sha256": good_sha, "kits": {"../eng": "3.2.0"}},
+                {"cli_version": "3.2.0", "installer_sha256": good_sha, "kits": {"engineer": "3.2.0;rm"}},
             ):
                 with self.subTest(bad=bad), self.assertRaisesRegex(ValueError, "Invalid"):
                     SYNC.sync_agentkit(bad, root=Path(temp))
+
+    def test_installer_verifies_sha256_and_strips_api_key(self):
+        script = b"#!/bin/sh\nexit 0\n"
+        good_sha = hashlib.sha256(script).hexdigest()
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            fake_resp = mock.MagicMock()
+            fake_resp.__enter__.return_value = io.BytesIO(script)
+            with mock.patch.object(SYNC, "urlopen", return_value=fake_resp):
+                with self.assertRaisesRegex(ValueError, "SHA-256 mismatch"):
+                    SYNC.ensure_ak_cli("3.2.0", "0" * 64, root=root)
+
+            fake_resp2 = mock.MagicMock()
+            fake_resp2.__enter__.return_value = io.BytesIO(script)
+            captured_env = {}
+
+            def fake_run(cmd, input=None, env=None, check=False):
+                captured_env.update(env or {})
+                ak_bin = root / ".upstream" / "agentkit" / "bin" / "ak"
+                ak_bin.write_text("#!/bin/sh\necho 'ak 3.2.0'\n")
+                ak_bin.chmod(0o755)
+
+            with mock.patch.dict("os.environ", {"AGENTKIT_API_KEY": "secret-val"}), \
+                 mock.patch.object(SYNC, "urlopen", return_value=fake_resp2), \
+                 mock.patch.object(SYNC.subprocess, "run", side_effect=fake_run):
+                with mock.patch.object(SYNC, "ak_version_matches", side_effect=[False, True]):
+                    SYNC.ensure_ak_cli("3.2.0", good_sha, root=root)
+            self.assertNotIn("AGENTKIT_API_KEY", captured_env)
+            self.assertEqual(captured_env["AK_VERSION"], "3.2.0")
 
     def test_uses_cached_agentkit_kits_without_network(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
             config = {
                 "cli_version": "3.2.0",
+                "installer_sha256": "a" * 64,
                 "channel": "stable",
                 "target": "portable",
                 "kits": {"engineer": "3.2.0"},
@@ -146,6 +178,7 @@ class AgentKitSyncTests(unittest.TestCase):
             root = Path(temp)
             config = {
                 "cli_version": "3.2.0",
+                "installer_sha256": "a" * 64,
                 "channel": "stable",
                 "target": "portable",
                 "kits": {"engineer": "3.2.0"},

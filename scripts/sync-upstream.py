@@ -20,6 +20,7 @@ MAX_PACKAGE_SIZE = 16 * 1024 * 1024
 MAX_INSTALLER_SIZE = 2 * 1024 * 1024
 AGENTKIT_INSTALL_URL = "https://agentkit.best/install.sh"
 SAFE_TOKEN = re.compile(r"^[A-Za-z0-9._-]+$")
+SHA256_HEX = re.compile(r"^[0-9a-f]{64}$")
 
 
 def git(directory, *args):
@@ -85,8 +86,10 @@ def ak_version_matches(ak_bin, expected_version):
     return probe.returncode == 0 and probe.stdout.strip() == f"ak {expected_version}"
 
 
-def ensure_ak_cli(cli_version, root=ROOT):
+def ensure_ak_cli(cli_version, installer_sha256, root=ROOT):
     validate_token("agentkit.cli_version", cli_version)
+    if not isinstance(installer_sha256, str) or not SHA256_HEX.match(installer_sha256):
+        raise ValueError(f"Invalid agentkit.installer_sha256: {installer_sha256!r}")
     bin_dir = root / ".upstream" / "agentkit" / "bin"
     ak_bin = bin_dir / "ak"
     if ak_version_matches(ak_bin, cli_version):
@@ -97,7 +100,11 @@ def ensure_ak_cli(cli_version, root=ROOT):
         installer = response.read(MAX_INSTALLER_SIZE + 1)
     if len(installer) > MAX_INSTALLER_SIZE:
         raise ValueError("AgentKit installer script too large")
-    env = {**os.environ, "AK_VERSION": cli_version, "AK_INSTALL_DIR": str(bin_dir)}
+    if hashlib.sha256(installer).hexdigest() != installer_sha256:
+        raise ValueError("AgentKit installer SHA-256 mismatch")
+    env = {k: v for k, v in os.environ.items() if k != "AGENTKIT_API_KEY"}
+    env["AK_VERSION"] = cli_version
+    env["AK_INSTALL_DIR"] = str(bin_dir)
     subprocess.run(["sh"], input=installer, env=env, check=True)
     if not ak_version_matches(ak_bin, cli_version):
         raise ValueError(f"Installed ak binary does not match pinned version {cli_version}")
@@ -141,6 +148,9 @@ def sync_agentkit(config, require=False, root=ROOT):
     if not config:
         return []
     cli_version = validate_token("agentkit.cli_version", config.get("cli_version"))
+    installer_sha256 = config.get("installer_sha256")
+    if not isinstance(installer_sha256, str) or not SHA256_HEX.match(installer_sha256):
+        raise ValueError(f"Invalid agentkit.installer_sha256: {installer_sha256!r}")
     channel = validate_token("agentkit.channel", config.get("channel", "stable"))
     target = validate_token("agentkit.target", config.get("target", "portable"))
     kits = config.get("kits") or {}
@@ -165,7 +175,7 @@ def sync_agentkit(config, require=False, root=ROOT):
             print(f"agentkit/{name}: {version} (cached)")
         return [kits_root / name / "skills" for name, _ in validated_kits]
 
-    ak_bin = ensure_ak_cli(cli_version, root=root)
+    ak_bin = ensure_ak_cli(cli_version, installer_sha256, root=root)
     if all_cached:
         for name, version in validated_kits:
             print(f"agentkit/{name}: {version} (cached)")

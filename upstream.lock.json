@@ -15,6 +15,7 @@
   },
   "agentkit": {
     "cli_version": "3.2.0",
+    "installer_sha256": "04f6a1e3fd9291a660d592062577ff7bb7af8ec7e06235394ba607d9cafc2817",
     "channel": "stable",
     "target": "portable",
     "kits": {
