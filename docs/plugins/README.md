@@ -2,6 +2,8 @@
 
 This catalog covers **37/37** ZIP packages downloaded from Marketplace and tested on core **1.5.9**. See the [test report](test-report.md) to reproduce the sandbox, read the HTTP and Socket results, and learn why 18 packages requiring download permission are out of scope.
 
+This is a historical snapshot; see the [installer manifest](../../scripts/plugin-versions.tsv) for the current stack's versions and module types.
+
 ## How to read
 
 - Versions and module types were checked against the [manifest](../../scripts/plugin-versions.tsv) and the installed package's `module.properties`. When the ZIP and module metadata disagree, the version column lists both (`ZIP/module`).

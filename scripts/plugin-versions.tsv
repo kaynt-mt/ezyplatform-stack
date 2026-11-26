@@ -1,12 +1,12 @@
-# Project	Release[/module.properties version] on core 1.5.9	Verified module types
+# Project	Release[/module.properties version] on core 1.6.0	Verified module types
 ezyarticle	1.5.6	admin-plugin,web-plugin,socket-plugin
 ecommerce	1.5.8	admin-plugin,web-plugin,socket-plugin
 postgresql	0.0.1	admin-plugin
-sites	0.0.3	admin-plugin
+sites	0.0.4	admin-plugin,web-plugin
 ezyvector	0.0.5	admin-plugin,web-plugin
 semi-theme	1.0.2/1.0.1	admin-plugin
-game-master-server	0.0.7	admin-plugin,web-plugin,socket-plugin
-ezygame	0.0.8	admin-plugin,web-plugin
+game-master-server	0.0.8	admin-plugin,web-plugin,socket-plugin
+ezygame	0.1.0	admin-plugin,web-plugin,socket-plugin
 logs-monitor	0.0.5	admin-plugin,web-plugin,socket-plugin
 data-backup	0.0.9	admin-plugin
 markdown	0.2.6	admin-plugin,web-plugin
@@ -15,7 +15,7 @@ ezydefence	0.1.5	admin-plugin,web-plugin
 ezyblockchain	0.0.3	admin-plugin,web-plugin
 lucky-wheel	0.0.1	admin-plugin,web-plugin,theme,socket-plugin,socket-app
 ezypayment	0.2.5	admin-plugin,web-plugin
-ezyiot	0.0.3	admin-plugin,web-plugin,socket-plugin
+ezyiot	0.0.4	admin-plugin,web-plugin,socket-plugin
 accounting	0.3.8	admin-plugin,web-plugin
 ezyocr	0.0.3	admin-plugin
 graphql	0.3.1	admin-plugin,web-plugin,socket-plugin
@@ -23,10 +23,10 @@ freestyle	0.2.9	admin-plugin,theme
 wordpress	0.1.4	admin-plugin,web-plugin
 ezyaccount	0.2.4	admin-plugin,web-plugin
 ezyseo	0.1.2	admin-plugin,web-plugin
-ezychat	0.3.6	admin-plugin,web-plugin,socket-plugin,socket-app
+ezychat	0.3.9	admin-plugin,web-plugin,socket-plugin,socket-app
 ezymail	0.3.3	admin-plugin,web-plugin
 ezydelivery	0.7.7	admin-plugin,web-plugin
-ezyai	0.1.8	admin-plugin,web-plugin,socket-plugin
+ezyai	0.1.9	admin-plugin,web-plugin,socket-plugin
 ezyrag	0.0.6	admin-plugin,web-plugin,socket-plugin
 ezycrm	0.6.3	admin-plugin,web-plugin
 ezyrating	0.4.5	admin-plugin,web-plugin

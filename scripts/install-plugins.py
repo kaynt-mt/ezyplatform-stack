@@ -14,7 +14,7 @@ from urllib.request import HTTPCookieProcessor, HTTPRedirectHandler, ProxyHandle
 
 
 ROOT = Path(__file__).resolve().parents[1]
-CORE = "1.5.9"
+CORE = "1.6.0"
 MARKET = "https://ezyplatform.com"
 COMPOSE = ["docker", "compose"]
 CONTAINER = [*COMPOSE, "exec", "-T", "ezyplatform"]
