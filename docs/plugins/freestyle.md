@@ -73,8 +73,8 @@ Class và resource xác nhận có cấu trúc mở rộng trong bản đóng g�
 
 Admin `/freestyle/settings` → 200; theme render được bài EzyArticle ở Web.
 
-## Áp dụng cho plugin quản lý công việc
+## Lưu ý khi tích hợp
 
-Mẫu cho layout, fragment, template riêng từng khu vực. Dùng làm chứng thực Web renders đúng dữ liệu; task plugin nên có template UI của nó và test với một theme xác định.
+Tham khảo layout, fragment và template theo khu vực. Kiểm render bằng fixture trên theme đã chọn.
 
 [Về chỉ mục plugin](README.md)

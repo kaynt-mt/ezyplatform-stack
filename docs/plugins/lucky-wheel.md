@@ -102,8 +102,8 @@ Admin `/lucky-wheel/settings` → 200. Theme Lucky Wheel đưa `/` đến `/inde
 
 Xem bằng chứng nạp module và cổng TCP trong [kiểm thử Socket](test-report.md#gói-cài-được-và-kiểm-thử-http). Không kiểm chứng trao đổi Socket bằng client.
 
-## Áp dụng cho plugin quản lý công việc
+## Lưu ý khi tích hợp
 
-Có giá trị vì minh họa đủ năm loại module trong một gói. Đừng sao chép game rule vào issue; test riêng theme/route và Socket, API JSON không chứng minh giao diện chạy.
+Ví dụ cả năm loại module trong một gói; kiểm theme/route và Socket riêng, JSON không chứng minh UI chạy.
 
 [Về chỉ mục plugin](README.md)

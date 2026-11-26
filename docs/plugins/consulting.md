@@ -94,8 +94,8 @@ Class và resource xác nhận có cấu trúc mở rộng trong bản đóng g�
 
 Admin `/consulting/customers` → danh sách người dùng; Web `/api/v1/documents` → 200; theme Consulting render được `/services`, `/documents`.
 
-## Áp dụng cho plugin quản lý công việc
+## Lưu ý khi tích hợp
 
-Tách module nghiệp vụ khỏi template của theme. Các trang danh sách Admin có thể chuyển hướng tới CRUD người dùng/role của core; không nên xem redirect HTTP 200 là bảng dữ liệu riêng của Consulting.
+Tách module nghiệp vụ khỏi template của theme. Redirect HTTP 200 sang CRUD của core không chứng minh plugin có màn hình riêng.
 
 [Về chỉ mục plugin](README.md)

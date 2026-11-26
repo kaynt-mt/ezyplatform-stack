@@ -73,8 +73,8 @@ Admin `/logs-monitor/console` và `/logs-monitor/log-folder` → 200.
 
 Xem bằng chứng nạp module và cổng TCP trong [kiểm thử Socket](test-report.md#gói-cài-được-và-kiểm-thử-http). Không kiểm chứng trao đổi Socket bằng client.
 
-## Áp dụng cho plugin quản lý công việc
+## Lưu ý khi tích hợp
 
-Tham khảo quan sát runtime để chẩn đoán module/job. Không ghi nội dung issue riêng, token hoặc cookie vào log; chỉ log correlation ID, loại sự kiện và kết quả có kiểm soát.
+Tham khảo chẩn đoán module/job; không ghi dữ liệu nghiệp vụ nhạy cảm, token hay cookie vào log.
 
 [Về chỉ mục plugin](README.md)

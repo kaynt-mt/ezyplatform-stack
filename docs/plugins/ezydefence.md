@@ -77,8 +77,8 @@ Class và resource xác nhận có cấu trúc mở rộng trong bản đóng g�
 
 Admin `/ezydefence/blacklist`, `/ezydefence/whitelist` → 200; không thay chính sách.
 
-## Áp dụng cho plugin quản lý công việc
+## Lưu ý khi tích hợp
 
-Dùng làm lớp vận hành bổ sung, không thay quyền nghiệp vụ. Quyền truy cập issue phải được phục vụ từ workspace membership, kể cả khi deployment không cài plugin này.
+Dùng như lớp vận hành bổ sung; ứng dụng vẫn tự xác thực và kiểm quyền nghiệp vụ ở mọi deployment.
 
 [Về chỉ mục plugin](README.md)

@@ -65,8 +65,8 @@ Class và resource xác nhận có cấu trúc mở rộng trong bản đóng g�
 
 Admin `/sites/servers` và `/sites/settings` → 200; chưa tạo site/host mới.
 
-## Áp dụng cho plugin quản lý công việc
+## Lưu ý khi tích hợp
 
-Nghiên cứu ở cấp vận hành nhiều site, không dùng một site thay ACL workspace. Tách cấu hình host/deployment khỏi mô hình workspace để vẫn chạy single-host trong development.
+Tham khảo cấu hình host và vận hành nhiều site. Giữ cấu hình deployment tách khỏi chính sách quyền nghiệp vụ.
 
 [Về chỉ mục plugin](README.md)

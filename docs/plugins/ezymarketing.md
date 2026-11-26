@@ -96,8 +96,8 @@ Class và resource xác nhận có cấu trúc mở rộng trong bản đóng g�
 
 Admin `/ezymarketing/advertisements` và Web `/ezymarketing/api/v1/advertisements` → 200.
 
-## Áp dụng cho plugin quản lý công việc
+## Lưu ý khi tích hợp
 
-Nếu cần liên kết thông báo, học xử lý định danh và tracking nhưng không bật tracking mặc định với issue riêng tư. Mã nhúng và provider vẫn là giao diện ngoài phạm vi.
+Tham khảo định danh liên kết và tracking; không nhúng mã theo dõi vào URL riêng tư mặc định.
 
 [Về chỉ mục plugin](README.md)

@@ -44,8 +44,8 @@ Class và resource xác nhận có cấu trúc mở rộng trong bản đóng g�
 
 Xem bằng chứng nạp module và cổng TCP trong [kiểm thử Socket](test-report.md#gói-cài-được-và-kiểm-thử-http). Không kiểm chứng trao đổi Socket bằng client.
 
-## Áp dụng cho plugin quản lý công việc
+## Lưu ý khi tích hợp
 
-Là ví dụ nhỏ để học điểm vào Socket: package, zone, loader và controller đăng ký. Làm Socket tests theo handshake và quyền app; log đăng ký không xác thực payload hay tính năng end-to-end.
+Ví dụ package, zone và loader đăng ký handler. Kiểm handshake/quyền app và xử lý payload riêng; log startup không đủ.
 
 [Về chỉ mục plugin](README.md)

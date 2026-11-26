@@ -77,8 +77,8 @@ Class và resource xác nhận có cấu trúc mở rộng trong bản đóng g�
 
 Admin `/ezyseo/sitemaps`, Web `/robots.txt` và `/api/v1/sitemaps` → 200.
 
-## Áp dụng cho plugin quản lý công việc
+## Lưu ý khi tích hợp
 
-Mẫu xuất XML/text và nội dung Web công khai; không để URL workspace, issue hay attachment riêng vào sitemap, và không dùng robots.txt làm ACL.
+Mẫu xuất XML/text cho dữ liệu công khai. Không đưa URL riêng tư vào sitemap hoặc dùng robots.txt thay ACL.
 
 [Về chỉ mục plugin](README.md)

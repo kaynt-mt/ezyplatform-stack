@@ -12,7 +12,7 @@
 | [Java docs](https://ezyplatform.com/java-docs) | Theo `allclasses-noframe.html` và `overview-summary.html` dưới đường dẫn 1.5.9: lấy được 962 trang (881 class/interface và 81 package summary). Admin 552 + 35, Common 7 + 3, Web 241 + 25, Socket 81 + 18. Tra sâu các lớp liên quan tới plugin, không diễn giải từng method/overload. Tiêu đề trang có thể ghi module `0.0.2 API`; đó không phải số phiên bản distribution `1.5.9` trong URL. |
 | [Marketplace](https://ezyplatform.com/market) | [Danh mục công khai](https://ezyplatform.com/api/v1/market/items?limit=100&lang=vi) trả 60 mục; lấy danh sách tab Tài liệu của từng mục, thu được nội dung 532 bài công khai. Đọc sâu phần liên quan đến thiết kế dưới đây; việc tải nội dung không đồng nghĩa với phân tích từng tài liệu Marketplace hay chạy plugin. |
 
-Đọc tiếp: [tổng hợp kỹ thuật](ezyplatform-deep-research.md) · [thiết kế plugin](plane-plugin-design-notes.md).
+Đọc tiếp: [tổng hợp kỹ thuật](ezyplatform-deep-research.md) · [nghiên cứu framework Young Monkeys](youngmonkeys/index.md).
 
 ## Toàn bộ Guide theo chủ đề
 
@@ -25,7 +25,7 @@
 | [Cấu trúc runtime](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-structure?lang=vi) | Admin/Web/Socket; theme duy nhất, nhiều plugin, token socket phân loại. |
 | [Tech stack](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-tech-stack?lang=vi) | EzyHTTP–Jetty–Thymeleaf, EzyData–Hibernate/JPA, EzyFox Server. |
 | [Theme và plugin](https://youngmonkeys.org/ezyplatform/guides/understanding-ezyplatform-themes-and-plugins?lang=vi) | Bốn loại phần mở rộng runtime, theme, phối hợp và vị trí lưu module. |
-| [Bảo mật](https://youngmonkeys.org/ezyplatform/guides/why-ezyplatform?lang=vi) | Tách Admin/Web, BCrypt, mã hóa, chính sách URI và upload; không tự cung cấp ACL workspace. |
+| [Bảo mật](https://youngmonkeys.org/ezyplatform/guides/why-ezyplatform?lang=vi) | Tách Admin/Web, BCrypt, mã hóa, chính sách URI và upload; không tự cung cấp ACL của ứng dụng. |
 | [Lộ trình](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-development-roadmap?lang=vi) | Phát triển cộng đồng/thị trường, tiến tới giảm code và AI; không coi roadmap là tính năng đã phát hành. |
 | [Mô hình cho nhà phát triển](https://youngmonkeys.org/ezyplatform/guides/how-do-developers-make-money-through-ezyplatform?lang=vi) | Làm sản phẩm/module, phân phối qua Marketplace; cân nhắc điều kiện FAQ. |
 
@@ -60,7 +60,7 @@
 | [Menu Admin](https://youngmonkeys.org/ezyplatform/guides/create-menus-for-admin-plugin?lang=vi) | `menus.properties`, vùng menu, icon, i18n và badge. |
 | [Badge](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-add-badge-to-admin-menu-item?lang=vi) | Cung cấp dữ liệu số lượng theo menu item; tránh đếm dữ liệu ngoài quyền. |
 | [Toolbar phải](https://youngmonkeys.org/ezyplatform/guides/add-admin-right-toolbar-tool?lang=vi) | `rightToolbarToolFragments`, region `content`, CSS/JS riêng và message key. |
-| [Hotkeys](https://youngmonkeys.org/ezyplatform/guides/hotkeys-in-ezyplatform?lang=vi) | Phím toàn cục và theo màn; kiểm tra xung đột với editor/board. |
+| [Hotkeys](https://youngmonkeys.org/ezyplatform/guides/hotkeys-in-ezyplatform?lang=vi) | Phím toàn cục và theo màn; kiểm tra xung đột với trình soạn thảo và UI riêng của plugin. |
 | [Popup xác nhận](https://youngmonkeys.org/ezyplatform/guides/confirmation-popup-usage?lang=vi) | Luồng Admin/Web cho thao tác nhạy cảm; server vẫn kiểm tra quyền. |
 | [Điều hướng previousScreen](https://youngmonkeys.org/ezyplatform/guides/using-previousscreen-to-link-admin-screens?lang=vi) | Giữ filter/pagination và quay về màn hợp lệ khi lưu/redirect. |
 | [JavaScript Admin](https://youngmonkeys.org/ezyplatform/guides/available-javascript-functions-in-admin?lang=vi) | `ezyadmin`: i18n, date/number, data table, toast, form errors, session, xử lý server. |
@@ -82,7 +82,7 @@
 | [Tìm kiếm Admin](https://youngmonkeys.org/ezyplatform/guides/integrating-admin-global-search?lang=vi) | `AdminSearchService` và `SearchResultModel`; kiểm tra dữ liệu trả về theo người gọi. |
 | [Cấu hình setting](https://youngmonkeys.org/ezyplatform/guides/setting-feature?lang=vi) | Kiểu dữ liệu, cập nhật cache, mã hóa, prefix key có tên plugin. |
 | [Bảng link](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-insert-data-to-link-table?lang=vi) | `ezy_links`, `LinkService` và appender; không index deep link riêng tư. |
-| [Hàm record ngẫu nhiên](https://youngmonkeys.org/ezyplatform/guides/how-to-install-the-random-record-query-function?lang=vi) | Phương án random skip/limit tránh `ORDER BY RAND` trên tập lớn; không cần cho board. |
+| [Hàm record ngẫu nhiên](https://youngmonkeys.org/ezyplatform/guides/how-to-install-the-random-record-query-function?lang=vi) | Phương án random skip/limit tránh `ORDER BY RAND` trên tập lớn. |
 | [Event nội bộ](https://youngmonkeys.org/ezyplatform/guides/create-and-handle-internal-events-in-ezyplatform?lang=vi) | Phân luồng theo tên, priority, `VoidEvent` và handler trả kết quả. |
 | [Batch AdminDataAppender](https://youngmonkeys.org/ezyplatform/guides/guide-to-implementing-batch-jobs-with-admindataappender?lang=vi) | Query/transform/save, checkpoint, kiểm soát batch và lifecycle. |
 | [Cron](https://youngmonkeys.org/ezyplatform/guides/guide-to-using-cron-expressions-supported-by-ezyplatform?lang=vi) | 5/6 trường, chủ nhật = 0, không `? L W #` hoặc trường năm. |
@@ -115,16 +115,16 @@
 | [Tối ưu cấu hình](https://youngmonkeys.org/ezyplatform/guides/toi-uu-cau-hinh-cho-ezyplatform?lang=vi) | Có thể tắt Socket; heap/CPU/thread theo từng runtime và tải thực. |
 | [LogbackAppender](https://youngmonkeys.org/ezyplatform/guides/installing-a-log-appender-in-ezyplatform?lang=vi) | Đăng ký và cấu hình appender, tách log vận hành khỏi audit dữ liệu. |
 | [API thống kê](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-statistics-apis?lang=vi) | Events vòng đời server/module; điều khiển qua `allow_send_statistics_data`. |
-| [Nhận diện riêng](https://youngmonkeys.org/ezyplatform/guides/brand-your-ezyplatform?lang=vi) | Chợ, logo, footer, liên hệ và fallback; ngoài phạm vi MVP công việc. |
+| [Nhận diện riêng](https://youngmonkeys.org/ezyplatform/guides/brand-your-ezyplatform?lang=vi) | Chợ, logo, footer, liên hệ và fallback. |
 
 ## Tài liệu Marketplace có ích cho quyết định thiết kế
 
 | Ứng viên | Chứng cứ và kết luận |
 | --- | --- |
-| **EzyArticle** | [Tổng quan](https://ezyplatform.com/market/items/ezyarticle/docs/gioi-thieu-plugin-ezyarticle), [tag dữ liệu](https://ezyplatform.com/market/items/ezyarticle/docs/huong-dan-tich-hop-cho-phep-tag-duoc-du-lieu), [bình luận dữ liệu](https://ezyplatform.com/market/items/ezyarticle/docs/gioi-thieu-tinh-nang-binh-luan-du-lieu-voi-ezyarticle), [page fragments](https://ezyplatform.com/market/items/ezyarticle/docs/huong-dan-su-dung-page-fragment). Ngoài CMS, tài liệu có tag tích hợp loại entity và thảo luận nội bộ Admin (luồng, mention, resolve). Đây là pattern có ích, nhưng chưa chứng minh có API Web bảo đảm ACL workspace, càng không mặc định tính năng tài liệu hiện tại có trong artifact **1.5.6** đã pin. Giữ label/comment trong domain công việc; xem xét docs/fragment về sau. |
+| **EzyArticle** | [Tổng quan](https://ezyplatform.com/market/items/ezyarticle/docs/gioi-thieu-plugin-ezyarticle), [tag dữ liệu](https://ezyplatform.com/market/items/ezyarticle/docs/huong-dan-tich-hop-cho-phep-tag-duoc-du-lieu), [bình luận dữ liệu](https://ezyplatform.com/market/items/ezyarticle/docs/gioi-thieu-tinh-nang-binh-luan-du-lieu-voi-ezyarticle), [page fragments](https://ezyplatform.com/market/items/ezyarticle/docs/huong-dan-su-dung-page-fragment). Ngoài CMS, tài liệu có tag tích hợp loại entity và thảo luận nội bộ Admin (luồng, mention, resolve). Đây là pattern có ích, nhưng chưa chứng minh có API Web bảo đảm ACL của ứng dụng, càng không mặc định tính năng tài liệu hiện tại có trong artifact **1.5.6** đã pin. |
 | **EzyLogin / EzyAccount** | [EzyLogin](https://ezyplatform.com/market/items/ezylogin/docs/tong-quan-plugin-ezylogin) mô tả đăng ký/đăng nhập/khôi phục, OAuth/SSO, 2FA và session; [EzyAccount](https://ezyplatform.com/market/items/ezyaccount/docs/mo-ta-chi-tiet-tinh-nang-quan-ly-thong-bao-va-hom-thu) cho người dùng xem thông báo/hộp thư. Là ứng viên cho identity UI và inbox, không sở hữu membership/ACL hay mặc định đã cài. |
 | **EzyMail** | [Tổng quan](https://ezyplatform.com/market/items/ezymail/docs/tong-quan-MjU4): gửi email, mẫu, nháp, theo dõi gửi, thiết lập SMTP. Dùng qua adapter nếu thực sự cần email/invite; notification core là kênh khác. |
 | **Markdown** | [Tổng quan](https://ezyplatform.com/market/items/markdown/docs/tong-quan-plugin-markdown): editor và render cho CMS; có cú pháp HTML trực tiếp nên không mặc định an toàn khi render mô tả do user cung cấp. |
-| **EzyChat / EzyOA / EzyCRM** | [Kiến trúc EzyChat](https://ezyplatform.com/market/items/ezychat/docs/kien-truc-cua-plugin-ezychat) hữu ích khi tham khảo Socket/channel; [EzyOA](https://ezyplatform.com/market/items/ezyoa/docs/tong-quan-plugin-ezyoa) là tích hợp Official Account/webhook, không phải công cụ project; [EzyCRM](https://ezyplatform.com/market/items/ezycrm/docs/tong-quan-MzUw) xoay quanh khách hàng và nhóm người dùng, không thay được workspace/project/board. Không thêm các module này làm phụ thuộc MVP. |
+| **EzyChat / EzyOA / EzyCRM** | [Kiến trúc EzyChat](https://ezyplatform.com/market/items/ezychat/docs/kien-truc-cua-plugin-ezychat) hữu ích khi tham khảo Socket/channel; [EzyOA](https://ezyplatform.com/market/items/ezyoa/docs/tong-quan-plugin-ezyoa) là tích hợp Official Account/webhook; [EzyCRM](https://ezyplatform.com/market/items/ezycrm/docs/tong-quan-MzUw) xoay quanh khách hàng và nhóm người dùng. Chỉ cân nhắc phụ thuộc khi plugin thật sự dùng các tính năng đó. |
 
 Không kiểm tra nội dung cần tài khoản/mua, các video khóa học ngoài website, phiên bản tài liệu không còn được liên kết hoặc hành vi thực tế của các plugin.

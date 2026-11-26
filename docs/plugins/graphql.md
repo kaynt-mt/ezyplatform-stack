@@ -108,8 +108,8 @@ Admin `/graphql/system-endpoints` → 200; `/rest/swagger` và URL schema đã t
 
 Xem bằng chứng nạp module và cổng TCP trong [kiểm thử Socket](test-report.md#gói-cài-được-và-kiểm-thử-http). Không kiểm chứng trao đổi Socket bằng client.
 
-## Áp dụng cho plugin quản lý công việc
+## Lưu ý khi tích hợp
 
-Tham khảo cách tổ chức schema/fetcher nếu thật sự cần GraphQL. Lõi task nên đi từ API HTTP dễ thử; cân nhắc chi phí phụ thuộc Ecommerce và ACL ở resolver trước khi bật.
+Tham khảo schema/fetcher; cân nhắc dependency Ecommerce, quyền resolver và số query trước khi bật.
 
 [Về chỉ mục plugin](README.md)

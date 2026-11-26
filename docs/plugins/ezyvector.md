@@ -69,8 +69,8 @@ Class và resource xác nhận có cấu trúc mở rộng trong bản đóng g�
 
 Admin `/ezyvector/vector-collections` → 200; chưa nạp bộ dữ liệu/đo truy vấn vector.
 
-## Áp dụng cho plugin quản lý công việc
+## Lưu ý khi tích hợp
 
-Chỉ thử sau khi tìm kiếm SQL đã có đường cơ sở. Kiểm quyền theo workspace và đánh giá chất lượng truy vấn trước khi dùng vector cho nội dung riêng tư.
+Chỉ thêm vector khi có nhu cầu đã đo được; kiểm chất lượng kết quả và phạm vi truy cập của dữ liệu riêng tư.
 
 [Về chỉ mục plugin](README.md)

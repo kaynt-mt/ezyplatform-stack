@@ -1,0 +1,18 @@
+# EzyPlatform: nối các framework vào runtime plugin
+
+Đọc [Overview/Guide/Samples của EzyPlatform](https://youngmonkeys.org/projects/ezyplatform?tab=guide&lang=vi) cùng [mục lục 76 bài riêng](../ezyplatform-guide-inventory.md), [nghiên cứu core](../ezyplatform-deep-research.md) và [báo cáo smoke test plugin runtime](../../plugins/test-report.md). Không lặp lại những nguồn đó; trang này nối vai trò của EzyHTTP, EzyData, Bean và Socket từ danh mục Young Monkeys với plugin Java.
+
+| Phần mở rộng | Dùng từ framework | Giữ quy ước của core |
+| --- | --- | --- |
+| Web/API và Admin | EzyHTTP binding/interceptors/exceptions và View. | Route prefix, `@Authenticated`/identity resolvers, feature/role theo lane, `menus.properties`, view/fragment đúng theme. Kiểm quyền tài nguyên ở domain; không chỉ kiểm `@EzyFeature`. |
+| Dữ liệu | EzyData JPA repository, projection, query và transaction. | Dùng datasource runtime, schema SQL riêng trong Admin module; kiểm lịch chạy migration, tránh tự tạo schema từ ví dụ Boot. |
+| Wiring | EzyFox Bean scan, injection và lifecycle. | `module.properties`/dependency, Maven artifact/assembly, scan đúng module; không nâng phiên bản từng framework để làm giống tài liệu mới. |
+| Socket | EzyFox Server zone/app/command, client SDK. | Slot Socket của EzyPlatform, phiên Web/Socket đúng loại và activation riêng; không cần cho CRUD MVP. |
+
+[Quickstart plugin](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-plugin-development-quickstart?lang=vi) và [structure](https://youngmonkeys.org/ezyplatform/guides/the-structure-of-a-plugin-project?lang=vi) dùng SDK native. Bắt đầu với repo riêng và [skill tạo plugin](../../../skills/ezy-build-plugin/SKILL.md), build native và cài artifact **của mình** trên Compose dev. Phiên bản hiển thị trên trang framework không phải SBOM của image; đối chiếu POM hiệu lực, JAR/annotations và build trên đúng bộ SDK/runtime đã pin.
+
+**i18n và bảo mật:** [đa ngôn ngữ](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-multi-languages?lang=vi) mô tả bundle, Thymeleaf và JavaScript; dùng `messages.properties` làm mặc định và `messages_vi.properties` cho tiếng Việt. Giữ mã nghiệp vụ ổn định, không dịch định danh ở DB. Theo [Web auth](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-web-authentication?lang=vi), Web không bật xác thực mặc định: kiểm `WebAuthenticationInterceptor` của theme/module đang active, đường dẫn cho phép danh tính tùy chọn và việc bật feature permissions. [Phân quyền](https://youngmonkeys.org/ezyplatform/guides/permission-in-ezyplatform?lang=vi) không thay ACL của plugin. [Media Controller Service](https://youngmonkeys.org/ezyplatform/guides/mediacontrollerservice-usage-guide?lang=vi) là ứng viên cho attachment private, chưa chứng minh đường URL gốc, preview và thu hồi quyền.
+
+**Event và job:** [EventHandlerManager](https://youngmonkeys.org/ezyplatform/guides/create-and-handle-internal-events-in-ezyplatform?lang=vi) mô tả đăng ký/dispatch nội bộ, không chứng minh giao hàng bền vững sau commit. [AdminDataAppender](https://youngmonkeys.org/ezyplatform/guides/guide-to-implementing-batch-jobs-with-admindataappender?lang=vi) là ví dụ batch query/transform/save theo scheduler; nếu áp dụng cho notification hoặc thống kê, kiểm chạy nhiều instance và retry riêng. Không thay audit/outbox bằng hook chưa xác minh.
+
+**Thứ tự làm:** scanner/context startup → Admin/Web route + auth không data → schema và transaction rollback → API kiểm phạm vi truy cập → attachment riêng tư → outbox/notification → Socket (nếu cần). Đừng đồng nhất blog/samples standalone với hành vi đã kiểm thử trên core 1.5.9.

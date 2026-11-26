@@ -84,8 +84,8 @@ Admin `/ezyrag/settings` → 200; phụ thuộc `ezyai`; chưa gọi nhà cung c
 
 Xem bằng chứng nạp module và cổng TCP trong [kiểm thử Socket](test-report.md#gói-cài-được-và-kiểm-thử-http). Không kiểm chứng trao đổi Socket bằng client.
 
-## Áp dụng cho plugin quản lý công việc
+## Lưu ý khi tích hợp
 
-Chỉ cân nhắc cho tìm kiếm tri thức giai đoạn sau. Các kết quả truy xuất phải lọc đúng workspace; cài plugin và mở settings không chứng minh chuỗi embedding/truy vấn.
+Kiểm phạm vi truy cập trên kết quả truy xuất; mở settings không chứng minh chuỗi embedding/truy vấn.
 
 [Về chỉ mục plugin](README.md)

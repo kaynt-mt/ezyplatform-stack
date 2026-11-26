@@ -92,8 +92,8 @@ Class và resource xác nhận có cấu trúc mở rộng trong bản đóng g�
 
 Admin `/ezyrating/dashboard` và Web `/ezyrating/user-ratings` → 200.
 
-## Áp dụng cho plugin quản lý công việc
+## Lưu ý khi tích hợp
 
-Mẫu endpoint tổng hợp và hiển thị công khai, không phù hợp thay cho priority hay severity. Với issue riêng tư, không thể áp dụng nguyên phạm vi truy cập của trang đánh giá công khai.
+Mẫu endpoint tổng hợp và hiển thị công khai; không áp nguyên quyền của trang đánh giá cho dữ liệu riêng tư.
 
 [Về chỉ mục plugin](README.md)

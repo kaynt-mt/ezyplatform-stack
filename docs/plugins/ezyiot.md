@@ -77,8 +77,8 @@ Admin `/ezyiot/devices` → 200; chưa thử thiết bị vật lý.
 
 Xem bằng chứng nạp module và cổng TCP trong [kiểm thử Socket](test-report.md#gói-cài-được-và-kiểm-thử-http). Không kiểm chứng trao đổi Socket bằng client.
 
-## Áp dụng cho plugin quản lý công việc
+## Lưu ý khi tích hợp
 
-Mẫu bề mặt quản trị và luồng sự kiện thiết bị, không phải dịch vụ quản lý nhóm. Không suy ra giao thức thiết bị hoạt động chỉ từ danh sách Admin.
+Ví dụ Admin cấu hình thiết bị và xử lý sự kiện. Không suy giao thức thiết bị hoạt động chỉ từ danh sách Admin.
 
 [Về chỉ mục plugin](README.md)

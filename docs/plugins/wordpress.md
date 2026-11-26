@@ -79,8 +79,8 @@ Class và resource xác nhận có cấu trúc mở rộng trong bản đóng g�
 
 Admin `/wordpress/migration` → 200; chưa nhập dữ liệu từ WordPress.
 
-## Áp dụng cho plugin quản lý công việc
+## Lưu ý khi tích hợp
 
-Mẫu cho màn hình migration. Import issue sau này nên có dry-run, mapping ID và báo cáo lỗi từng dòng; chưa có bằng chứng kết nối WordPress trên sandbox.
+Mẫu giao diện import: tách dry run và áp dụng, báo lỗi theo bản ghi; chưa kiểm kết nối WordPress trên sandbox.
 
 [Về chỉ mục plugin](README.md)

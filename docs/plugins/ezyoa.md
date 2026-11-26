@@ -84,8 +84,8 @@ Class và resource xác nhận có cấu trúc mở rộng trong bản đóng g�
 
 Admin `/ezyoa/oa-services`, `/ezyoa/templates` → 200. Chưa tích hợp tài khoản Official Account.
 
-## Áp dụng cho plugin quản lý công việc
+## Lưu ý khi tích hợp
 
-Mẫu cho automation: template, parameter, kịch bản và connector tách nhau. File task_list_message.properties là template phản hồi OA, không phải engine quản lý task. Để OA là kênh tùy chọn, không phụ thuộc lúc triển khai MVP.
+Tách kết nối Official Account, template, tham số và kịch bản; giữ connector ngoài là tùy chọn.
 
 [Về chỉ mục plugin](README.md)

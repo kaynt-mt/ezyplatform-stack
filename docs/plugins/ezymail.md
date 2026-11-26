@@ -93,10 +93,8 @@ Class và resource xác nhận có cấu trúc mở rộng trong bản đóng g�
 
 Admin `/ezymail/templates`, `/ezymail/sent-mails` → 200. Không gửi email thật.
 
-## Áp dụng cho plugin quản lý công việc
+## Lưu ý khi tích hợp
 
-Đọc tiếp từ `AdminSendTemplatedMailEventHandler` và `MailDeliveryServiceManager`: schema thông báo issue nên chỉ truyền dữ liệu template cần dùng, có khóa chống gửi trùng theo sự kiện/người nhận. Tách test chọn template khỏi test kích hoạt việc gửi.
-
-Dùng template cho lời mời, nhắc hạn và thông báo. Đưa gửi mail vào job/outbox sau giao dịch, có idempotency; trên local dùng SMTP giả lập trước khi kiểm nhánh gửi.
+Đọc tiếp `AdminSendTemplatedMailEventHandler` và `MailDeliveryServiceManager`; chỉ gửi dữ liệu template cần dùng, áp dụng dedupe và thử SMTP giả lập.
 
 [Về chỉ mục plugin](README.md)

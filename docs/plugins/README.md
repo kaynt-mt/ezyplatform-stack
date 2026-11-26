@@ -50,18 +50,13 @@ Danh mục nghiên cứu **37/37** gói ZIP tải được từ Marketplace trê
 | [socket-monitor](socket-monitor.md) | `0.0.3` | socket-plugin | Module Socket giám sát và entry loader |
 | [wordpress](wordpress.md) | `0.1.4` | admin-plugin, web-plugin | Cấu hình và luồng nhập dữ liệu WordPress |
 
-## Tái sử dụng cho plugin quản lý công việc kiểu Plane
+## Mẫu tái sử dụng khi phát triển plugin
 
-| Ưu tiên | Plugin/mẫu | Nên lấy | Không nên sao chép |
-|---|---|---|---|
-| 1 — nền nhận dạng | [EzyAccount](ezyaccount.md), [EzyLogin](ezylogin.md) | Định danh và phiên core; bề mặt tài khoản và đăng nhập | Quyền hệ thống không cấp quyền xem issue. Tự xây workspace membership, lời mời, permission và audit theo workspace. |
-| 2 — mẫu nghiệp vụ | [EzyCRM](ezycrm.md) | Gán người phụ trách, lọc/danh sách nhóm, lịch sử và dữ liệu mở rộng | Không dùng khách hàng làm issue hoặc kéo Ecommerce vào MVP chỉ để lấy assignment. |
-| 3 — intake | [EzySupport](ezysupport.md) | Form tiếp nhận, danh sách triage, template thông báo | Form hỗ trợ không phải board. Tạo bản ghi intake riêng; chuyển thành issue có idempotency và quyền rõ ràng. |
-| 4 — thông báo | [EzyMail](ezymail.md), [EzyChat](ezychat.md) | Template email; tách HTTP, Socket app/plugin và event lifecycle; dùng SMTP giả lập và Socket client local khi kiểm thử | Không lấy chat làm nguồn dữ liệu issue; chỉ phát sau commit, kiểm quyền mỗi subscription, không gửi mail thật trong smoke test. |
-| 5 — automation đa kênh | [EzyOA](ezyoa.md), [Omnichannel](omnichannel.md) | Tách connector, template, tham số và kịch bản; adapter kênh bổ sung sau MVP | Không coi mẫu `task_list_message.properties` là engine task hoặc biến OA thành phụ thuộc bắt buộc. |
-| 6 — nội dung và giao diện | [EzyArticle](ezyarticle.md), [Freestyle](freestyle.md), [Markdown](markdown.md) | Wiki, template/fragment Web, nội dung mô tả và kiểm thử render có fixture | Không lấy post làm issue; không để template, Markdown hay Media làm lộ dữ liệu nội bộ. |
-| Sau MVP | [GraphQL](graphql.md), [EzyAI](ezyai.md), [EzyRAG](ezyrag.md), [EzyVector](ezyvector.md) | Giao diện truy vấn, bot hoặc tìm kiếm có lọc quyền, nếu SQL/HTTP không còn đáp ứng | Tránh kéo phụ thuộc Ecommerce, provider AI và vector vào luồng tạo/sửa issue. Phải kiểm quyền ở resolver và ở bước truy xuất. |
+| Nhu cầu | Plugin/mẫu tham khảo | Giới hạn cần kiểm |
+| --- | --- | --- |
+| Đăng nhập, tài khoản và thông báo | [EzyAccount](ezyaccount.md), [EzyLogin](ezylogin.md), [EzyMail](ezymail.md) | Dùng danh tính core khi phù hợp; quyền tài nguyên của ứng dụng vẫn độc lập. Test email qua SMTP giả lập. |
+| Form, lọc và lịch sử | [EzyCRM](ezycrm.md), [EzySupport](ezysupport.md) | Tham khảo luồng và cách tổ chức dữ liệu; không cần phụ thuộc runtime nếu chỉ lấy pattern. |
+| Nội dung, giao diện | [EzyArticle](ezyarticle.md), [Freestyle](freestyle.md), [Markdown](markdown.md) | Kiểm render với fixture và theme cụ thể; kiểm quyền media và sanitize nội dung do người dùng nhập. |
+| Realtime, connector và truy vấn | [EzyChat](ezychat.md), [EzyOA](ezyoa.md), [Omnichannel](omnichannel.md), [GraphQL](graphql.md) | Chỉ thêm khi có nhu cầu, kiểm quyền trên đường truy cập thật và kiểm phụ thuộc đi kèm. |
 
-**Lộ trình đề xuất:** bắt đầu bằng Admin module cấu hình và Web module có CRUD workspace → project → issue. Tạo schema/migration riêng cho trạng thái, assignee, thứ tự trên board, cycle và lịch sử; dùng session core nhưng kiểm membership trên từng API, kể cả truy vấn con theo ID. Viết test hai workspace để phát hiện đọc/ghi chéo, test migration từ database trống và khi nâng phiên bản. Thêm intake, email và Socket theo từng đợt; kiểm tra Web với fixture riêng thay vì chỉ dựa vào HTTP 200.
-
-Phần Ezy skills/build plugin mới thuộc tài liệu riêng; chỉ mục này chỉ bao quát plugin runtime và bằng chứng từ các gói đã cài.
+Phần Ezy skills/build plugin mới thuộc [tài liệu riêng](../../skills/ezy-build-plugin/SKILL.md); chỉ mục này bao quát plugin runtime và bằng chứng từ các gói đã cài.

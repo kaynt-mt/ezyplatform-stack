@@ -114,8 +114,8 @@ Admin `/ezyai/ai-chat-services` và Web `/ezyai/skill-library` → 200; không g
 
 Xem bằng chứng nạp module và cổng TCP trong [kiểm thử Socket](test-report.md#gói-cài-được-và-kiểm-thử-http). Không kiểm chứng trao đổi Socket bằng client.
 
-## Áp dụng cho plugin quản lý công việc
+## Lưu ý khi tích hợp
 
-Tách adapter nhà cung cấp khỏi feature issue; thư viện skill có thể dùng cho tích hợp bot sau, nhưng không coi một HTTP 200 của danh mục là việc gọi model thành công.
+Tách adapter nhà cung cấp khỏi logic ứng dụng. HTTP 200 trên trang danh mục không chứng minh gọi model thành công.
 
 [Về chỉ mục plugin](README.md)

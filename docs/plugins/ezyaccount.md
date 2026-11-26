@@ -81,10 +81,8 @@ Class và resource xác nhận có cấu trúc mở rộng trong bản đóng g�
 
 Admin `/ezyaccount/settings` → 200; Web `/ezyaccount/api/v1/account` → 401 khi chưa đăng nhập.
 
-## Áp dụng cho plugin quản lý công việc
+## Lưu ý khi tích hợp
 
-`AccountMemberEntity`, `AccountMemberEntityRole` và `AccountMemberEntityActivityHistory` cho thấy ba trách nhiệm có thể lưu riêng: quan hệ thành viên, role và hoạt động. `AccountMemberEntityRoleManager` là điểm đọc tiếp nếu muốn tái sử dụng cơ chế role, nhưng chưa xác minh contract của nó cho entity mới. Ưu tiên kiểm trên API với guest, người chưa tham gia và thành viên có role khác nhau.
-
-Tái sử dụng định danh core và bề mặt tài khoản sẵn có nếu tương thích với theme. Thành viên workspace, lời mời và quyền xem issue vẫn là dữ liệu riêng của task plugin; HTTP 401 chỉ chứng minh cổng xác thực từ chối guest.
+Các entity thành viên, role và lịch sử hoạt động là mẫu tách ba trách nhiệm. Không dùng quyền tài khoản hệ thống thay ACL của plugin.
 
 [Về chỉ mục plugin](README.md)

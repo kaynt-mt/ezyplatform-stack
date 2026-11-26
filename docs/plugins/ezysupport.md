@@ -95,10 +95,8 @@ Class và resource xác nhận có cấu trúc mở rộng trong bản đóng g�
 
 Admin `/ezysupport/contact-us` và Web `/contact-us`, `/faq` → 200; không gửi yêu cầu ra ngoài.
 
-## Áp dụng cho plugin quản lý công việc
+## Lưu ý khi tích hợp
 
-`ApiContactUsController` có thao tác đánh dấu/bỏ spam riêng với chức năng đọc và xóa. Giữ trạng thái sàng lọc của intake tách khỏi trạng thái issue. Hai người xử lý cùng yêu cầu phải nhận lại một liên kết issue duy nhất nếu thao tác chuyển đã thành công.
-
-Tham khảo form tiếp nhận và màn hình triage để làm inbox chuyển yêu cầu thành issue. Giữ trạng thái của inbox khác workflow dự án, thêm kiểm tra quyền, chống trùng và audit cho bước chuyển.
+`ApiContactUsController` tách đánh dấu/bỏ spam khỏi đọc và xóa, là mẫu quản lý vòng đời yêu cầu tiếp nhận.
 
 [Về chỉ mục plugin](README.md)
