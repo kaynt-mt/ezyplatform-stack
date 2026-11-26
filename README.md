@@ -2,6 +2,8 @@
 
 A shared foundation for developing multiple EzyPlatform apps, not a landing page app. The stack includes EzyPlatform **1.5.9**, EzyArticle **1.5.6** already active, Java 11 in the container, and MySQL 8.0. The runtime builds from CPPAI's Dockerfile; the ezy CLI, CPPAI agent plugin repository, and Young Monkeys public skill packages are pinned in `upstream.lock.json`.
 
+New team? [Create your own core repository from this template and set up Devin Bots](docs/template-setup.md). Neither Devin nor AgentKit is required to run the core.
+
 ## Start on a development machine or cloud VM
 
 Requires Git, Bash, curl, Python 3.9+, and Docker Engine or Docker Desktop with Docker Compose V2. The Docker runtime does not require Java or MySQL on the host. The EzyPlatform image runs on `linux/amd64`; ARM hosts need amd64 emulation. The first run needs internet access to fetch source, releases, and base images.
@@ -57,14 +59,14 @@ python3 -m unittest discover -s tests -v
 The [catalog of 19 Ezy skills](skills/README.md) explains when to use each skill. All 19 upstream copies are tracked in [`skills/upstream/`](skills/upstream/) for reading on GitHub; the agent copies are synced to `.agents/skills/`.
 
 ```bash
-python3 scripts/sync-upstream.py
+python3 scripts/sync-upstream.py --skip-agentkit
 ./scripts/ezy --version
 ```
 
-The CLIs run from pinned source or binaries in `.upstream/`, not from a global install. Sync fetches the full [CPPAI Agents Plugins](https://github.com/cppai-vn/agents-plugins) repository into `.upstream/agents-plugins/`, installs skills from that repository and the [EzyPlatform Skill Library](https://ezyplatform.com/ezyai/skill-library?lang=vi) into `.agents/skills/`, and downloads the pinned [AgentKit](https://docs.agentkit.best/en/stable/getting-started/quickstart) kits (`engineer` and `marketing`, exported as `portable`) into `.upstream/agentkit/` and loads their `ak-*` skills into `.agents/skills/`.
+The CLIs run from pinned source or binaries in `.upstream/`, not from a global install. Sync fetches the [CPPAI Agents Plugins](https://github.com/cppai-vn/agents-plugins) repository and installs the pinned skills from that repository and the [EzyPlatform Skill Library](https://ezyplatform.com/ezyai/skill-library?lang=vi) into `.agents/skills/`.
 
-- **EzyPlatform only:** Run `python3 scripts/sync-upstream.py --skip-agentkit` instead of the default sync. This rebuilds the agent skill directory without the `ak-*` skills.
-- **AgentKit on a fresh checkout:** Without credentials, the default sync installs the pinned `ak` launcher but skips the kits. Set `AGENTKIT_API_KEY` before syncing, or run `./scripts/ak login` after the initial sync to sign in interactively. Credentials are stored under `~/.agentkit/`, not in the repo. Run `python3 scripts/sync-upstream.py --require-agentkit` when AgentKit is required, then verify the launcher with `./scripts/ak --version`.
+- **EzyPlatform only:** The command above rebuilds the agent skill directory without AgentKit. It does not need an AgentKit account, key, or CLI.
+- **Optional AgentKit:** Set your own licensed `AGENTKIT_API_KEY` in the environment and run `python3 scripts/sync-upstream.py --require-agentkit`. Sync exports the licensed `engineer` and/or `marketing` kit to the local `.upstream/agentkit/` cache and loads its `ak-*` skills into `.agents/skills/`. See the [optional setup and license boundaries](docs/template-setup.md#4-optional-add-agentkit).
 - `.upstream/` and `.agents/skills/` are generated from the lock; do not edit them by hand. Choose **one** way to load skills per agent: the synced `.agents/skills/` directory or the marketplace described by the upstream README, not both. Application runtime plugins are separate from coding agent plugins: the stack includes EzyArticle; install or activate other modules as needed, not all marketplace modules by default.
 - When an agent runs on another VM, configure the Admin URL via an authorized private connection rather than using another machine's loopback address.
 
@@ -76,7 +78,7 @@ See the [runtime plugin catalog](docs/plugins/README.md) and [sandbox installati
 2. Public skill catalog: <https://ezyplatform.com/api/v1/skill-library/skills?limit=100>. For each updated package, download it from `https://ezyplatform.com/api/v1/skill-library/skills/<id>/package`, inspect the contents and name in `SKILL.md`, then record the ZIP's SHA-256 in `skill_library`. Sync rejects changed packages without a matching checksum. After changing Ezy pins, run `python3 scripts/sync-upstream.py --refresh-ezy-skills`, review the diff, and commit `skills/upstream/` with the lock. This command does not touch AgentKit or `.agents/skills/`.
 3. To upgrade AgentKit, list versions using `./scripts/ak kit list-kits --json` and update `agentkit.cli_version` / `agentkit.kits` in `upstream.lock.json`. Do not run `ak self-update` on the pinned launcher.
 4. When changing Docker or an EzyPlatform/EzyArticle version, update the build arguments and image tag in `compose.yaml`; test with new volumes before planning an upgrade of volumes containing data.
-5. Run `python3 scripts/sync-upstream.py --require-agentkit` to apply the lock, then verify the CLIs (`./scripts/ezy`, `./scripts/ak`), Admin, and Web.
+5. Run `python3 scripts/sync-upstream.py --skip-agentkit` to apply the EzyPlatform pins and verify `./scripts/ezy`, Admin, and Web. For AgentKit changes, also run the licensed sync and verify `./scripts/ak` and the updated kit.
 
 ## Create an application on the core
 
