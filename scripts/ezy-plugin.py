@@ -12,6 +12,7 @@ from zipfile import BadZipFile, ZipFile
 
 EZY = Path(__file__).resolve().with_name("ezy")
 PROJECT_NAME = re.compile(r"[a-z][a-z0-9-]{1,59}")
+UPLOAD_PROJECT_NAME = re.compile(r"[a-z0-9][a-z0-9-]{1,59}")
 JAVA_NAME = re.compile(r"[a-z][a-z0-9_]*(?:\.[a-z][a-z0-9_]*)+")
 MODULE_TYPES = {"admin-plugin", "web-plugin", "theme", "socket-plugin", "socket-app"}
 CORE_JAR = re.compile(
@@ -141,17 +142,43 @@ def upload_project_zip(opener, admin_url, zip_path):
 def upload_and_apply_zip(admin_url, username, password, zip_path):
     check_zip(zip_path)
     opener = open_admin_session(admin_url, username, password)
+    _, status_body = admin_request(opener, admin_url, "/api/v1/projects/version-status")
+    projects = json.loads(status_body)
+    if not isinstance(projects, list) or not all(isinstance(project, dict) for project in projects):
+        raise ValueError("Admin did not return valid project version status")
+
     upload_status, upload_body = upload_project_zip(opener, admin_url, zip_path)
+    upload_response = json.loads(upload_body or "{}")
+    project_name = upload_response.get("projectName") if isinstance(upload_response, dict) else None
+    if not isinstance(project_name, str) or not UPLOAD_PROJECT_NAME.fullmatch(project_name):
+        raise ValueError("Project upload did not return a valid projectName")
+
     check_status, _ = admin_request(opener, admin_url, "/api/v1/projects/check-dependencies")
-    install_status, _ = admin_request(
-        opener, admin_url, "/api/v1/platform/install", "POST", b""
-    )
-    return {
+    project_path = f"/api/v1/projects/{project_name}"
+    result = {
         "upload_status": upload_status,
-        "upload_response": json.loads(upload_body or "{}"),
+        "upload_response": upload_response,
         "check_dependencies_status": check_status,
-        "platform_install_status": install_status,
     }
+    if any(project.get("projectName") == project_name and project.get("status") == "INSTALLED"
+           for project in projects):
+        result["platform_install_status"], _ = admin_request(
+            opener, admin_url, "/api/v1/platform/install", "POST", b""
+        )
+        return result
+
+    _, types_body = admin_request(opener, admin_url, f"{project_path}/module-types")
+    module_types = json.loads(types_body)
+    if not isinstance(module_types, list) or not module_types or not all(
+        isinstance(kind, str) and kind in MODULE_TYPES for kind in module_types
+    ):
+        raise ValueError(f"Project {project_name} did not return valid module types")
+    activation_status, _ = admin_request(
+        opener, admin_url, f"{project_path}/activate", "POST",
+        json.dumps({"moduleTypes": module_types, "restart": True}).encode(),
+        {"Content-Type": "application/json"},
+    )
+    return dict(result, activation_status=activation_status, module_types=module_types)
 
 
 def main():
@@ -170,7 +197,7 @@ def main():
     check.add_argument("zip", type=Path)
     upload = commands.add_parser(
         "upload-apply",
-        help="Upload a checked ZIP to Docker dev Admin and apply it through the platform installer",
+        help="Upload a checked ZIP to Docker dev Admin and activate or apply it",
     )
     upload.add_argument("zip", type=Path)
     upload.add_argument("--admin-url", default="http://127.0.0.1:9090")
@@ -192,8 +219,10 @@ def main():
                 args.admin_url, args.username, password, args.zip
             )
             print(json.dumps(result, indent=2, sort_keys=True))
+            action = ("Uploaded and activated; restart requested."
+                      if "activation_status" in result else "Uploaded and applied.")
             print(
-                "Uploaded and applied. Poll the installed module version, route registrations, "
+                f"{action} Poll the installed module version, route registrations, "
                 "migration schema, and plugin-specific smoke routes before declaring success."
             )
     except (OSError, ValueError, BadZipFile) as error:
