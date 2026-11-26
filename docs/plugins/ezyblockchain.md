@@ -84,8 +84,8 @@ Class và resource xác nhận có cấu trúc mở rộng trong bản đóng g�
 
 Admin `/ezyblockchain/control-panel` và Web `/ezyblockchain/api/v1/chains/current` → 200; log Admin cảnh báo migration xóa index không tồn tại. Chưa nối ví hoặc chạy giao dịch.
 
-## Áp dụng cho plugin quản lý công việc
+## Lưu ý khi tích hợp
 
-Nên để ngoài MVP; ví dụ cho tích hợp ngoài có schema và migration độc lập. Quan sát cảnh báo khi migration cố xóa index không tồn tại; đừng bỏ qua drift schema chỉ vì API danh sách trả 200.
+Tách schema/migration cho tích hợp ngoài. Cảnh báo khi migration xóa index không tồn tại cần điều tra, kể cả khi API danh sách trả 200.
 
 [Về chỉ mục plugin](README.md)

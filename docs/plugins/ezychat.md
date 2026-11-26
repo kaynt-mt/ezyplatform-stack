@@ -127,10 +127,8 @@ Admin `/ezychat/channels` → 200, Web API channels chưa đăng nhập → 401.
 
 Xem bằng chứng nạp module và cổng TCP trong [kiểm thử Socket](test-report.md#gói-cài-được-và-kiểm-thử-http). Không kiểm chứng trao đổi Socket bằng client.
 
-## Áp dụng cho plugin quản lý công việc
+## Lưu ý khi tích hợp
 
-Phân vai quan sát được: persistence có `ezychat_channels` và `ezychat_channel_members`; Web đọc channel/message; app Socket ở zone `chat`. Log khởi động app ghi các hook `USER_ACCESSED_APP`, `USER_REMOVED` và `SESSION_REMOVED`. Với task realtime, chỉ dùng các hook phiên để quản lý kết nối; lấy quyền nhận sự kiện từ membership hiện hành và gửi lại danh sách issue qua HTTP khi reconnect.
-
-Tham khảo tách dữ liệu chat, API HTTP và lifecycle Socket. Issue nên có sự kiện riêng và chỉ phát sau commit; kiểm tra quyền subscription theo workspace/issue, không dùng việc biết tên channel làm quyền truy cập.
+Persistence có `ezychat_channels` và `ezychat_channel_members`; Web đọc channel/message, app Socket thuộc zone `chat`. Log hook `USER_ACCESSED_APP`, `USER_REMOVED` và `SESSION_REMOVED` chỉ chứng minh đăng ký, không chứng minh quyền subscription hay push.
 
 [Về chỉ mục plugin](README.md)

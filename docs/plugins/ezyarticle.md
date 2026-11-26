@@ -118,8 +118,8 @@ Admin tạo và đọc bài `PUBLISHED`; Freestyle hiển thị đúng nội dun
 
 Xem bằng chứng nạp module và cổng TCP trong [kiểm thử Socket](test-report.md#gói-cài-được-và-kiểm-thử-http). Không kiểm chứng trao đổi Socket bằng client.
 
-## Áp dụng cho plugin quản lý công việc
+## Lưu ý khi tích hợp
 
-Phù hợp cho wiki, tài liệu và nội dung hướng dẫn. Không dùng bảng post làm issue: workflow, assignee, ACL theo workspace, thứ tự trong cột và audit trail là miền khác. Kiểm tra route bằng nội dung bài đã biết, không chỉ status.
+Ứng viên cho trang nội dung và tài liệu. Kiểm route với fixture đã biết, cùng quyền ở đường đọc, preview và media; không dùng bài CMS để thay entity nghiệp vụ riêng.
 
 [Về chỉ mục plugin](README.md)

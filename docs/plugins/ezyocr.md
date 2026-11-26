@@ -61,8 +61,8 @@ Class và resource xác nhận có cấu trúc mở rộng trong bản đóng g�
 
 Admin `/ezyocr/ocr-business-scripts` → 200. Chưa cấu hình OCR bên ngoài.
 
-## Áp dụng cho plugin quản lý công việc
+## Lưu ý khi tích hợp
 
-Thích hợp là bước tùy chọn cho đính kèm. Bước xử lý nền phải có retry, giới hạn dữ liệu gửi ra ngoài và quyền tệp; màn hình cấu hình không chứng minh OCR hoạt động.
+Nếu dùng OCR bất đồng bộ, kiểm retry, quyền tệp và giới hạn dữ liệu gửi ra ngoài. Màn hình cấu hình không chứng minh OCR chạy.
 
 [Về chỉ mục plugin](README.md)

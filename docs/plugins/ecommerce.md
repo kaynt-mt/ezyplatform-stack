@@ -123,8 +123,8 @@ Admin `/ecommerce/orders`, `/ecommerce/products` → 200; trang Web `/products` 
 
 Xem bằng chứng nạp module và cổng TCP trong [kiểm thử Socket](test-report.md#gói-cài-được-và-kiểm-thử-http). Không kiểm chứng trao đổi Socket bằng client.
 
-## Áp dụng cho plugin quản lý công việc
+## Lưu ý khi tích hợp
 
-Đơn hàng là ví dụ về mã nghiệp vụ, lọc/phân trang và các trạng thái có quy tắc chuyển. Tái sử dụng thiết kế, không đưa catalog, thanh toán hoặc bảng order vào MVP issue.
+Đơn hàng minh họa mã nghiệp vụ, lọc/phân trang và quy tắc chuyển trạng thái. Chỉ thêm dependency Ecommerce nếu cần hành vi của module này.
 
 [Về chỉ mục plugin](README.md)

@@ -101,8 +101,8 @@ Class và resource xác nhận có cấu trúc mở rộng trong bản đóng g�
 
 Admin `/ezydelivery/scan-delivery-order-codes` → 200; `/track-shipment` chưa có trong Freestyle. Không gọi đơn vị vận chuyển.
 
-## Áp dụng cho plugin quản lý công việc
+## Lưu ý khi tích hợp
 
-Mẫu cho tiếp nhận mã và phân luồng trạng thái, nhưng cần tách thao tác nội bộ khỏi callback nhà vận chuyển. Không kéo phụ thuộc Accounting/Ecommerce vào task plugin chỉ để có trạng thái.
+Tách luồng chuyển trạng thái nội bộ khỏi callback của nhà cung cấp vận chuyển.
 
 [Về chỉ mục plugin](README.md)

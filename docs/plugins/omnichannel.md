@@ -68,8 +68,8 @@ Class và resource xác nhận có cấu trúc mở rộng trong bản đóng g�
 
 Admin `/omnichannel/social-networks` → 200; chưa nối kênh bên ngoài.
 
-## Áp dụng cho plugin quản lý công việc
+## Lưu ý khi tích hợp
 
-Xây abstraction kênh thông báo riêng nếu cần nhiều adapter. Chi phí phụ thuộc nhiều plugin lớn; chỉ thử connector bên ngoài sau khi workflow issue nội bộ ổn định.
+Nếu cần nhiều kênh, giữ adapter độc lập và thử từng connector ngoài; lưu ý chi phí dependency.
 
 [Về chỉ mục plugin](README.md)

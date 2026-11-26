@@ -61,8 +61,8 @@ Class và resource xác nhận có cấu trúc mở rộng trong bản đóng g�
 
 Admin `/data-backup/backup-clients` → 200; backup tự động lỗi vì container ứng dụng thiếu MySQL/MariaDB CLI; chưa thử restore.
 
-## Áp dụng cho plugin quản lý công việc
+## Lưu ý khi tích hợp
 
-Mẫu hữu ích là tách scheduler, client đích và cấu hình vận hành khỏi giao diện quản trị. Kế hoạch sao lưu task plugin phải thử restore trên DB khác; mở được trang Backup Clients không chứng minh có bản sao.
+Tách scheduler, đích sao lưu và cấu hình vận hành. Kiểm restore trên DB khác; mở trang Backup Clients không chứng minh bản sao lưu dùng được.
 
 [Về chỉ mục plugin](README.md)

@@ -66,8 +66,8 @@ Class và resource xác nhận có cấu trúc mở rộng trong bản đóng g�
 
 Admin `/markdown/` hiển thị trang Markdown (200).
 
-## Áp dụng cho plugin quản lý công việc
+## Lưu ý khi tích hợp
 
-Mẫu cho nội dung mô tả issue. Dùng sanitizer, chặn nội dung chủ động và kiểm quyền ảnh/đính kèm; không suy từ việc trang soạn thảo mở được rằng mọi cấu hình render đều an toàn.
+Dùng sanitizer, chặn nội dung chủ động và kiểm quyền tệp/ảnh. Trang soạn thảo mở được không chứng minh render an toàn.
 
 [Về chỉ mục plugin](README.md)

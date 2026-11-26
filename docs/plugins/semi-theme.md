@@ -44,8 +44,8 @@ Class và resource xác nhận có cấu trúc mở rộng trong bản đóng g�
 
 Admin `/semi-theme/` → 200; ZIP `1.0.2` khai `version=1.0.1` trong `module.properties`; đây là module Admin chứ không có Web theme.
 
-## Áp dụng cho plugin quản lý công việc
+## Lưu ý khi tích hợp
 
-Phân biệt tên thương mại, bản ZIP và lane đã cài. Không chọn Semi Theme trong trình chạy theme Web, không suy ra tùy biến theme từ trang Admin có tiêu đề Unknown.
+Đối chiếu tên thương mại, bản ZIP và lane thực tế; trang Admin có tiêu đề Unknown không chứng minh theme đã render.
 
 [Về chỉ mục plugin](README.md)

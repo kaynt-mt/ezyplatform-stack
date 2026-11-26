@@ -1,6 +1,6 @@
 # Kiểm thử plugin Marketplace trên EzyPlatform 1.5.9
 
-Xem [chỉ mục phân tích 37 plugin miễn phí](README.md) để tra JAR, API, dữ liệu, menu/template, điểm mở rộng và ưu tiên tái sử dụng cho dự án quản lý công việc.
+Xem [chỉ mục phân tích 37 plugin miễn phí](README.md) để tra JAR, API, dữ liệu, menu/template và điểm mở rộng có thể tái sử dụng.
 
 Ngày 26/11/2026, sandbox Compose local: EzyPlatform **1.5.9**, Java **11**, MySQL **8.0.46**. [Danh mục công khai](https://ezyplatform.com/api/v1/market/items?limit=100&type=plugin) trả đủ **55** mục (`total=55`, `hasNext=false`). Endpoint ZIP có `platformVersion=1.5.9` trả `200 application/zip` cho **37** mục miễn phí và `403` cho **18** mục trả phí. Đã cài và đối chiếu phiên bản/module thực tế của **37/37** gói tải được; 403 không phải kết luận không tương thích.
 
@@ -98,9 +98,9 @@ Mỗi mục dưới đây trả HTTP 403 cho yêu cầu ZIP không xác thực n
 - `ezyarticle` → `ezychat`; `graphql` + `ezychat` → `ezyai` → `ezyrag`. `ezyoa` cần EzyArticle, EzySupport và EzyChat. `consulting` cần CRM, OA, Account, Login, Support, Article và Ecommerce.
 - Lần bật hàng loạt đầu tiên, khi Admin và Web khởi động song song, log có lỗi thiếu bảng (`ecommerce_product_categories`, `ecommerce_shops`, `ecommerce_product_currencies`, `ezydefence_white_uri_ips`, `ezygame_metrics`) và một số request Web lỗi. Chạy lại sau khi Admin/Web đã lên thì route bài kiểm thử trả đúng nội dung. Sandbox không đạt tiêu chí log hoàn toàn sạch: Admin vẫn cảnh báo SQL của EzyBlockchain và lỗi backup định kỳ của Data Backup. Đánh giá log theo lần khởi động, không coi HTTP 200 là bằng chứng migration hay backup đã chạy thành công.
 
-## Bài học cho plugin quản lý công việc kiểu Plane
+## Bài học chung khi phát triển plugin
 
-1. Dùng phân lane Admin/Web/Socket của core, nhưng xây schema riêng cho workspace, membership, dự án, issue, trạng thái, assignee, chu kỳ và lịch sử thay đổi. Không mượn `post` làm issue: EzyArticle hữu ích cho wiki và nội dung, còn tên trạng thái, truy vấn và phân quyền của issue khác hẳn.
-2. Tận dụng tài khoản/phiên của core cùng EzyLogin/EzyAccount cho đăng nhập; xác thực và kiểm quyền theo workspace ở mỗi API của plugin. Không đồng nhất quyền global Admin với quyền xem/sửa issue của thành viên. Core Media API là ứng viên cho đính kèm nếu kiểm tra quyền truy cập và không đặt tệp nội bộ ở chế độ public.
-3. Bắt đầu với API CRUD, danh sách phân trang và lọc trạng thái ở Web; dùng Admin cho cấu hình, không bắt người dùng dự án vào Admin. GraphQL plugin có màn hình schema/system endpoints, nhưng có thêm phụ thuộc Ecommerce; chỉ chọn khi lợi ích vượt chi phí. EzyChat/Socket hữu ích để nghiên cứu thông báo realtime; dùng sự kiện issue riêng và kiểm quyền subscription thay vì dùng kênh chat làm nguồn dữ liệu.
-4. EzyMail phù hợp cho template thông báo/mời thành viên. Giữ SMTP, OAuth ngoài, AI, thanh toán và backup tách khỏi smoke test local; dùng adapter/mock hoặc sandbox của nhà cung cấp trong giai đoạn tiếp theo. Tách theme UI khỏi logic plugin; theme Welcome mặc định không render bài EzyArticle, còn Freestyle đã render được cùng một fixture.
+1. Dùng từng lane Admin/Web/Socket theo nhu cầu. Tách dữ liệu và quyền nghiệp vụ khỏi quyền hệ thống; kiểm truy cập theo tài nguyên ngay cả khi request đã xác thực.
+2. Kiểm migration cài mới và nâng cấp trước khi xác nhận Web hoạt động ổn định. Đánh giá log theo lần boot riêng thay vì chỉ nhìn HTTP 200.
+3. Kiểm giao diện với theme đang hoạt động: theme Welcome mặc định không render bài EzyArticle, còn Freestyle đã render được cùng fixture.
+4. Tách SMTP, OAuth, AI, thanh toán và backup khỏi smoke test; kiểm tích hợp bằng adapter, mock hoặc sandbox thích hợp.

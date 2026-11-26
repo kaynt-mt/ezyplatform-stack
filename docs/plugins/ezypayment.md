@@ -92,8 +92,8 @@ Class và resource xác nhận có cấu trúc mở rộng trong bản đóng g�
 
 Admin `/ezypayment/payment-services` và Web `/api/v1/payment-plans` → 200; không gọi cổng thanh toán.
 
-## Áp dụng cho plugin quản lý công việc
+## Lưu ý khi tích hợp
 
-Để ngoài MVP. Nếu sau này cần billing, giữ webhook/trạng thái thanh toán tách khỏi schema issue và chỉ thử bằng nhà cung cấp sandbox.
+Tách webhook và trạng thái thanh toán khỏi ghi dữ liệu nghiệp vụ, chỉ thử với sandbox nhà cung cấp.
 
 [Về chỉ mục plugin](README.md)

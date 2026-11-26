@@ -84,8 +84,8 @@ Class và resource xác nhận có cấu trúc mở rộng trong bản đóng g�
 
 Admin `/ezygame/metrics` → 200. Danh mục ghi S, G nhưng ZIP thực tế không chứa hai module này.
 
-## Áp dụng cho plugin quản lý công việc
+## Lưu ý khi tích hợp
 
-Có thể học cách tách chỉ số dẫn xuất khỏi thao tác chính. Không cần điểm/thành tích trong vòng đời issue; kiểm thực tế lane từ thư mục module thay vì lấy loại từ Marketplace.
+Tách chỉ số dẫn xuất khỏi thao tác chính; đối chiếu lane với module thực tế, không chỉ nhãn Marketplace.
 
 [Về chỉ mục plugin](README.md)

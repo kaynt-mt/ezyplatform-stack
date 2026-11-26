@@ -93,10 +93,8 @@ Class và resource xác nhận có cấu trúc mở rộng trong bản đóng g�
 
 Admin `/ezycrm/customers`, `/ezycrm/user-groups` → 200. Chưa bắn thông báo hoặc nhập dữ liệu khách hàng.
 
-## Áp dụng cho plugin quản lý công việc
+## Lưu ý khi tích hợp
 
-Luồng tham khảo: `AdminApiCustomerAssignedStaffController` tách danh sách phụ trách, thêm, sửa và liên kết theo cặp `userId/adminId`; module còn tách màn hình nhóm và lịch sử. Khi chuyển sang issue, lưu assignment theo cặp `issueId/memberId` với unique constraint, từ chối member ngoài workspace và thêm sự kiện audit trong cùng giao dịch. Không coi quyền truy cập API Admin của CRM là bằng chứng có cách ly tenant.
-
-Mẫu gần nhất cho assignee, nhóm, thuộc tính mở rộng và timeline. Đổi mô hình khách hàng–nhân viên thành issue–thành viên workspace; kiểm quyền ở lớp ghi, không sao chép nguyên schema hoặc phụ thuộc Ecommerce chỉ để có assignment.
+`AdminApiCustomerAssignedStaffController` là mẫu tách danh sách, thêm/sửa và liên kết `userId/adminId`; xem thêm màn hình nhóm và lịch sử.
 
 [Về chỉ mục plugin](README.md)

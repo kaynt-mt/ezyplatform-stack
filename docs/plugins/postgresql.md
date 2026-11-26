@@ -54,8 +54,8 @@ Class và resource xác nhận có cấu trúc mở rộng trong bản đóng g�
 
 Admin `/postgresql/dashboard` → 200 trên stack MySQL; chưa đổi datasource hay thử PostgreSQL thật.
 
-## Áp dụng cho plugin quản lý công việc
+## Lưu ý khi tích hợp
 
-Tham khảo thiết lập datasource nhưng stack kiểm thử vẫn MySQL. Nếu chuyển engine, cần chạy lại migration, phân trang và truy vấn của plugin; dashboard Admin không phải kiểm chứng nhà cung cấp DB.
+Nếu đổi engine DB, chạy lại migration, phân trang và truy vấn. Dashboard Admin không chứng minh tích hợp datasource hoạt động.
 
 [Về chỉ mục plugin](README.md)

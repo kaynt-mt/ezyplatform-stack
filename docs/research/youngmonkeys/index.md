@@ -6,7 +6,7 @@
 - Ngoài ra đọc **13 URL bài kiểu cũ**: 12 có thân bài trùng Guide chính và 1 bài riêng về biến môi trường. Xem [link phụ và link hỏng](#link-phụ-và-link-hỏng).
 - **VI**: thân bài Việt. **EN**: nội dung tiếng Anh dù mở tham số `lang=vi`; không coi có tham số locale là đã có bản dịch. Với từng Guide, đổi `lang=vi` thành `lang=en` để mở endpoint tiếng Anh. Không đếm URL locale, dấu gạch chéo cuối hay tab là bài riêng.
 
-Đọc sâu: [EzyPlatform](ezyplatform.md) · [EzyHTTP](ezyhttp.md) · [EzyData](ezydata.md) · [EzyFox Library/Bean](ezyfox-library.md) · [EzyFox Server](ezyfox-server.md) · [dự án bổ trợ](related-projects.md) · [thiết kế plugin kiểu Plane](../plane-plugin-design-notes.md).
+Đọc sâu: [EzyPlatform](ezyplatform.md) · [EzyHTTP](ezyhttp.md) · [EzyData](ezydata.md) · [EzyFox Library/Bean](ezyfox-library.md) · [EzyFox Server](ezyfox-server.md) · [dự án bổ trợ](related-projects.md).
 
 ## Trang dự án
 

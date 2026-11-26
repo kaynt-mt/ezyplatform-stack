@@ -70,8 +70,8 @@ Class và resource xác nhận có cấu trúc mở rộng trong bản đóng g�
 
 Admin `/accounting/overview`, `/accounting/accounts` → 200. Chưa ghi sổ hoặc xuất chứng từ.
 
-## Áp dụng cho plugin quản lý công việc
+## Lưu ý khi tích hợp
 
-Tham khảo mô hình ghi nhận nghiệp vụ và tổng hợp ở màn hình Overview. Với issue, lịch sử đổi trạng thái nên ghi sự kiện riêng; không dùng tài khoản kế toán để lưu điểm tiến độ.
+Tham khảo cách tách giao dịch nghiệp vụ khỏi dữ liệu tổng hợp của màn hình Overview.
 
 [Về chỉ mục plugin](README.md)

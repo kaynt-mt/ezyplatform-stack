@@ -102,8 +102,8 @@ Class và resource xác nhận có cấu trúc mở rộng trong bản đóng g�
 
 Admin `/ezylogin/settings/regular` → 200; chưa kết nối OAuth/SSO bên ngoài.
 
-## Áp dụng cho plugin quản lý công việc
+## Lưu ý khi tích hợp
 
-Tái sử dụng phiên và nhận dạng của core. Giữ ACL workspace độc lập để người hợp lệ của hệ thống không tự động xem mọi dự án. Kiểm tra login/redirect theo theme và chạy OAuth/2FA trong sandbox riêng.
+Tận dụng danh tính/phiên core nếu phù hợp; quyền tài nguyên vẫn độc lập. Kiểm login, redirect theo theme và OAuth/2FA trong sandbox.
 
 [Về chỉ mục plugin](README.md)

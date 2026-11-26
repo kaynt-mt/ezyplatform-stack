@@ -92,8 +92,8 @@ Admin `/game-master-server/game-master-server` → 200; Web API instances → 40
 
 Xem bằng chứng nạp module và cổng TCP trong [kiểm thử Socket](test-report.md#gói-cài-được-và-kiểm-thử-http). Không kiểm chứng trao đổi Socket bằng client.
 
-## Áp dụng cho plugin quản lý công việc
+## Lưu ý khi tích hợp
 
-Mẫu quan sát điều phối service ngoài; không cần cho MVP. HTTP 401 với guest không chứng minh cấp phát instance hoặc đăng nhập Socket hoạt động.
+Mẫu điều phối dịch vụ ngoài. HTTP 401 với guest không chứng minh cấp phát instance hay đăng nhập Socket.
 
 [Về chỉ mục plugin](README.md)
