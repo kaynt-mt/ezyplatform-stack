@@ -60,3 +60,5 @@ Danh mục nghiên cứu **37/37** gói ZIP tải được từ Marketplace trê
 | Realtime, connector và truy vấn | [EzyChat](ezychat.md), [EzyOA](ezyoa.md), [Omnichannel](omnichannel.md), [GraphQL](graphql.md) | Chỉ thêm khi có nhu cầu, kiểm quyền trên đường truy cập thật và kiểm phụ thuộc đi kèm. |
 
 Phần Ezy skills/build plugin mới thuộc [tài liệu riêng](../../skills/ezy-build-plugin/SKILL.md); chỉ mục này bao quát plugin runtime và bằng chứng từ các gói đã cài.
+
+For new Java plugins, use the end-to-end [plugin lifecycle verification recipe](pilot-verification.md) before treating the runtime as proven.

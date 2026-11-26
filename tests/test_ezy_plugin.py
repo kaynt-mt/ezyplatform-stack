@@ -100,3 +100,40 @@ class ProjectZipTests(unittest.TestCase):
                 pass
             with self.assertRaisesRegex(ValueError, "ZIP is empty"):
                 PLUGIN.check_zip(path)
+
+
+class UploadApplyTests(unittest.TestCase):
+    def test_upload_apply_checks_zip_and_calls_installer_in_order(self):
+        with tempfile.TemporaryDirectory() as temp:
+            path = Path(temp) / "pilot.zip"
+            with ZipFile(path, "w") as archive:
+                archive.writestr("pilot/web/plugins/pilot/lib/pilot-web-plugin-1.0.0.jar", "sample")
+            calls = []
+
+            def request(opener, admin_url, path, method="GET", data=None, headers=None):
+                calls.append((path, method, data))
+                return 204, ""
+
+            with mock.patch.object(PLUGIN, "open_admin_session", return_value="opener") as login, \
+                    mock.patch.object(PLUGIN, "upload_project_zip", return_value=(200, '{"projectName":"pilot"}')), \
+                    mock.patch.object(PLUGIN, "admin_request", side_effect=request):
+                result = PLUGIN.upload_and_apply_zip(
+                    "http://admin.test", "admin", "secret", path
+                )
+            login.assert_called_once_with("http://admin.test", "admin", "secret")
+            self.assertEqual(calls, [
+                ("/api/v1/projects/check-dependencies", "GET", None),
+                ("/api/v1/platform/install", "POST", b""),
+            ])
+            self.assertEqual(result["upload_status"], 200)
+            self.assertEqual(result["check_dependencies_status"], 204)
+            self.assertEqual(result["platform_install_status"], 204)
+            self.assertEqual(result["upload_response"], {"projectName": "pilot"})
+
+    def test_upload_apply_rejects_damaged_zip_before_login(self):
+        with tempfile.TemporaryDirectory() as temp, mock.patch.object(PLUGIN, "open_admin_session") as login:
+            path = Path(temp) / "pilot.zip"
+            path.write_text("not a zip", encoding="utf-8")
+            with self.assertRaises(Exception):
+                PLUGIN.upload_and_apply_zip("http://admin.test", "admin", "secret", path)
+            login.assert_not_called()
