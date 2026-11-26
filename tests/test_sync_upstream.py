@@ -191,7 +191,7 @@ class AgentKitSyncTests(unittest.TestCase):
                 with self.assertRaisesRegex(ValueError, "AgentKit not authenticated"):
                     SYNC.sync_agentkit(config, require=True, root=root)
 
-    def test_skips_installer_without_credentials_or_on_windows(self):
+    def test_skips_installer_on_windows(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
             config = {
@@ -201,15 +201,7 @@ class AgentKitSyncTests(unittest.TestCase):
                 "target": "portable",
                 "kits": {"engineer": "3.2.0"},
             }
-            fake_home = root / "empty-home"
-            fake_home.mkdir()
-            with mock.patch.dict("os.environ", {}, clear=True), \
-                 mock.patch.object(SYNC.Path, "home", return_value=fake_home), \
-                 mock.patch.object(SYNC, "ensure_ak_cli", side_effect=AssertionError("should not install")):
-                self.assertEqual(SYNC.sync_agentkit(config, require=False, root=root), [])
-
-            with mock.patch.dict("os.environ", {"AGENTKIT_API_KEY": "dummy"}), \
-                 mock.patch.object(SYNC.sys, "platform", "win32"), \
+            with mock.patch.object(SYNC.sys, "platform", "win32"), \
                  mock.patch.object(SYNC, "ensure_ak_cli", side_effect=AssertionError("should not install on win32")):
                 self.assertEqual(SYNC.sync_agentkit(config, require=False, root=root), [])
                 with self.assertRaisesRegex(ValueError, "unsupported on Windows"):
