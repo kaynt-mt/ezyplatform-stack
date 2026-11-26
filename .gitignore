@@ -1,6 +1,4 @@
 /.env
 /.upstream/
 /.agents/skills/
-/skills/
-/__pycache__/
-**/__pycache__/
+__pycache__/
