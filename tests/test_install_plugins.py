@@ -1,4 +1,6 @@
+import base64
 import importlib.util
+import json
 import unittest
 from graphlib import TopologicalSorter
 from pathlib import Path
@@ -141,6 +143,64 @@ class BrowserAuthFixtureTests(unittest.TestCase):
 
         self.assertEqual(INSTALL_PLUGINS.browser_auth_page_errors("/login", body), [])
         self.assertEqual(len(INSTALL_PLUGINS.browser_auth_page_errors("/login", "Not found")), 2)
+
+    def test_fixture_verification_requires_the_original_callback_in_rendered_login(self):
+        responses = [
+            (200, 'data-stack-auth-page="login" /ezylogin/api/v1/login'),
+            (200, 'data-stack-auth-page="register" /ezylogin/api/v1/register'),
+            (200, '{"activationRequired":false}'),
+            (200, '<span id="stack-login-return" data-return-url="/wrong-path"></span>'),
+        ]
+        with mock.patch.object(INSTALL_PLUGINS, "fetch_text", side_effect=responses):
+            with self.assertRaisesRegex(ValueError, "login return URL"):
+                INSTALL_PLUGINS.verify_browser_auth_fixture("http://127.0.0.1:8080")
+
+    def test_fixture_verification_probes_login_with_a_path_and_query(self):
+        class ReadableResponse:
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *args):
+                pass
+
+            def read(self):
+                return self.body
+
+        responses = [
+            b'data-stack-auth-page="login" /ezylogin/api/v1/login',
+            b'data-stack-auth-page="register" /ezylogin/api/v1/register',
+            b'{"activationRequired":false}',
+            b'<span id="stack-login-return" data-return-url="/__stack_login_return_probe?view=queue&amp;from=qa%20deck"></span>',
+        ]
+
+        def respond(*args, **kwargs):
+            response = ReadableResponse()
+            response.status = 200
+            response.body = responses.pop(0)
+            return response
+
+        with mock.patch.object(INSTALL_PLUGINS, "urlopen", side_effect=respond) as urlopen:
+            INSTALL_PLUGINS.verify_browser_auth_fixture("http://127.0.0.1:8080")
+        probe = urlopen.call_args.args[0]
+        self.assertEqual(probe.full_url, "http://127.0.0.1:8080/login")
+        name, cookie = probe.get_header("Cookie").split("=", 1)
+        self.assertEqual(name, "ezyRedirectAttributes")
+        self.assertEqual(json.loads(base64.b64decode(cookie)), {
+            "callbackUri": "/__stack_login_return_probe?view=queue&from=qa%20deck",
+        })
+
+    def test_login_return_bridge_is_scoped_to_the_fixture_and_idempotent(self):
+        source = '<th:block layout:fragment="content">original contents</th:block>'
+        template = INSTALL_PLUGINS.browser_auth_theme_template(source)
+
+        self.assertIn('id="stack-login-return"', template)
+        self.assertIn("page.slug == 'login'", template)
+        self.assertIn("'stack-login-form'", template)
+        self.assertIn('th:attr="data-return-url=${loginCallbackUrl}"', template)
+        self.assertIn("original contents", template)
+        self.assertEqual(INSTALL_PLUGINS.browser_auth_theme_template(template), template)
+        with self.assertRaisesRegex(ValueError, "EzyArticle page content fragment"):
+            INSTALL_PLUGINS.browser_auth_theme_template("<body>Unknown template</body>")
 
 
 if __name__ == "__main__":
