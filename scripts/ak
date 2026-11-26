@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -euo pipefail
+root="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
+bin="$root/.upstream/agentkit/bin/ak"
+if [[ ! -x "$bin" ]]; then
+    echo 'Run python3 scripts/sync-upstream.py with AGENTKIT_API_KEY set first.' >&2
+    exit 1
+fi
+case "${1:-}" in
+    update|self-update|rollback)
+        echo "ak $1: this stack pins the CLI in upstream.lock.json; update the pin and run python3 scripts/sync-upstream.py (see README)." >&2
+        exit 2 ;;
+esac
+exec "$bin" "$@"

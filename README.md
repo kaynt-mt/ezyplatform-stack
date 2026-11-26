@@ -41,18 +41,22 @@ Compose lưu DB và runtime trong hai volume. Sao lưu cả hai trước khi nâ
 ```bash
 python3 scripts/sync-upstream.py
 ./scripts/ezy --version
+./scripts/ak --version
 ```
 
-CLI chạy trực tiếp từ mã nguồn đã khóa, không cài global. Lệnh sync lấy toàn bộ kho [CPPAI Agents Plugins](https://github.com/cppai-vn/agents-plugins) vào `.upstream/agents-plugins/`, và cài các thư mục skill (kèm script/tài liệu) từ repo đó và [EzyPlatform Skill Library](https://ezyplatform.com/ezyai/skill-library?lang=vi) vào `.agents/skills/`. `.upstream/` và `.agents/skills/` được tạo lại từ lock, không sửa trực tiếp. Chọn **một** cách nạp skill CPPAI cho mỗi agent: thư mục đã sync, hoặc marketplace theo README upstream, không dùng cả hai. Các runtime plugin dành cho từng ứng dụng khác với plugin của coding agent: stack có sẵn EzyArticle; cài/kích hoạt thêm module theo nhu cầu ứng dụng, không bật mọi module marketplace theo mặc định.
+CLI chạy trực tiếp từ mã nguồn/binary đã khóa trong `.upstream/`, không cài global. Lệnh sync lấy toàn bộ kho [CPPAI Agents Plugins](https://github.com/cppai-vn/agents-plugins) vào `.upstream/agents-plugins/`, cài các thư mục skill từ repo đó và [EzyPlatform Skill Library](https://ezyplatform.com/ezyai/skill-library?lang=vi) vào `.agents/skills/`, đồng thời tải các bộ kit [AgentKit](https://docs.agentkit.best/en/stable/getting-started/quickstart) đã khóa (`engineer`, `marketing`, xuất dạng `portable`) vào `.upstream/agentkit/` và nạp toàn bộ skill `ak-*` vào `.agents/skills/`.
 
-Với [AgentKit](https://docs.agentkit.best/en/stable/getting-started/quickstart), clone repo và chạy các lệnh trên trong workspace của agent trên VM có Docker. Trỏ agent tới `AGENTS.md` và `.agents/skills/`. Nếu agent chạy trên máy khác, cấu hình URL Admin qua kết nối riêng được cấp quyền, không dùng loopback của máy khác.
+- **Xác thực AgentKit:** đặt biến môi trường `AGENTKIT_API_KEY` (hoặc chạy `./scripts/ak login` một lần; credential lưu tại `~/.agentkit/`, không ghi vào repo). Dùng `--require-agentkit` để buộc bước sync báo lỗi nếu thiếu xác thực, hoặc `--skip-agentkit` để chỉ đồng bộ phần EzyPlatform.
+- `.upstream/` và `.agents/skills/` được tạo lại từ lock, không sửa trực tiếp. Chọn **một** cách nạp skill cho mỗi agent: thư mục `.agents/skills/` đã sync, hoặc marketplace theo README upstream, không dùng cả hai. Các runtime plugin dành cho từng ứng dụng khác với plugin của coding agent: stack có sẵn EzyArticle; cài/kích hoạt thêm module theo nhu cầu ứng dụng, không bật mọi module marketplace theo mặc định.
+- Khi chạy agent trên VM khác, cấu hình URL Admin qua kết nối riêng được cấp quyền, không dùng loopback của máy khác.
 
 ### Đồng bộ phiên bản mới
 
 1. Kiểm tra commit mong muốn của [CLI](https://github.com/cppai-vn/ezyplatform-cli), [Docker](https://github.com/cppai-vn/ezyplatform-docker) và [Agents Plugins](https://github.com/cppai-vn/agents-plugins) (ví dụ: `git ls-remote https://github.com/cppai-vn/agents-plugins.git HEAD`), rồi cập nhật `git` trong lock.
 2. Danh mục skill công khai: <https://ezyplatform.com/api/v1/skill-library/skills?limit=100>. Với mỗi gói cập nhật, tải từ `https://ezyplatform.com/api/v1/skill-library/skills/<id>/package`, kiểm tra nội dung và tên trong `SKILL.md`, rồi ghi SHA-256 của ZIP vào `skill_library`. Script từ chối gói thay đổi nếu chưa cập nhật checksum.
-3. Khi đổi Docker hoặc phiên bản EzyPlatform/EzyArticle, cập nhật build args và tag image trong `compose.yaml`; thử trên volume mới trước khi lên kế hoạch nâng cấp volume có dữ liệu.
-4. Chạy `python3 scripts/sync-upstream.py` để áp dụng lock, rồi kiểm tra CLI, Admin và Web.
+3. Để nâng cấp AgentKit, kiểm tra phiên bản mới qua `./scripts/ak kit list-kits --json` và cập nhật `agentkit.cli_version` / `agentkit.kits` trong `upstream.lock.json` (không chạy `ak self-update` trực tiếp trên launcher đã khóa).
+4. Khi đổi Docker hoặc phiên bản EzyPlatform/EzyArticle, cập nhật build args và tag image trong `compose.yaml`; thử trên volume mới trước khi lên kế hoạch nâng cấp volume có dữ liệu.
+5. Chạy `python3 scripts/sync-upstream.py --require-agentkit` để áp dụng lock, rồi kiểm tra CLI (`./scripts/ezy`, `./scripts/ak`), Admin và Web.
 
 ## Tạo ứng dụng mới trên core
 
