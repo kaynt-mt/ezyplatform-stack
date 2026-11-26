@@ -60,6 +60,24 @@ def validate_token(label, value):
     return value
 
 
+@contextmanager
+def isolated_ak_home():
+    if not os.environ.get("AGENTKIT_API_KEY"):
+        yield None
+        return
+    with tempfile.TemporaryDirectory(prefix="agentkit-home-") as temp:
+        yield Path(temp)
+
+
+def ak_env(home):
+    env = os.environ.copy()
+    env["HOME"] = str(home)
+    env["XDG_CONFIG_HOME"] = str(home / ".config")
+    env["XDG_CACHE_HOME"] = str(home / ".cache")
+    env["XDG_DATA_HOME"] = str(home / ".local" / "share")
+    return env
+
+
 def checkout(name, revision):
     directory = ROOT / ".upstream" / name
     directory.mkdir(parents=True, exist_ok=True)
@@ -137,17 +155,18 @@ def ensure_ak_cli(cli_version, installer_sha256, root=ROOT):
     return ak_bin
 
 
-def ensure_ak_auth(ak_bin):
+def ensure_ak_auth(ak_bin, home=None):
+    env = ak_env(home) if home is not None else None
     if os.environ.get("AGENTKIT_API_KEY"):
         login = subprocess.run(
             [str(ak_bin), "login", "--no-interactive", "--json"],
-            capture_output=True, text=True,
+            capture_output=True, text=True, env=env,
         )
         if login.returncode != 0:
             raise ValueError("AgentKit login failed (check AGENTKIT_API_KEY)")
     whoami = subprocess.run(
         [str(ak_bin), "whoami", "--json"],
-        capture_output=True, text=True,
+        capture_output=True, text=True, env=env,
     )
     if whoami.returncode != 0:
         return False, set()
@@ -228,54 +247,57 @@ def sync_agentkit(config, require=False, root=ROOT):
             print(f"agentkit/{name}: {version} (cached)")
         return [kits_root / name / "skills" for name, _ in validated_kits]
 
-    authenticated, active_kits = ensure_ak_auth(ak_bin)
-    if not authenticated:
-        message = "AgentKit not authenticated: set AGENTKIT_API_KEY or run './scripts/ak login'"
-        if require:
-            raise ValueError(message)
-        print(f"Notice: {message}; skipping AgentKit skills.", file=sys.stderr)
-        return []
-
     skill_dirs = []
-    for name, version in validated_kits:
-        kit_dir = kits_root / name
-        if kit_pin_matches(kit_dir, pins[name]):
-            print(f"agentkit/{name}: {version} (cached)")
+    with isolated_ak_home() as ak_home:
+        run_env = ak_env(ak_home) if ak_home is not None else None
+        authenticated, active_kits = ensure_ak_auth(ak_bin, home=ak_home)
+        if not authenticated:
+            message = "AgentKit not authenticated: set AGENTKIT_API_KEY or run './scripts/ak login'"
+            if require:
+                raise ValueError(message)
+            print(f"Notice: {message}; skipping AgentKit skills.", file=sys.stderr)
+            return []
+
+        for name, version in validated_kits:
+            kit_dir = kits_root / name
+            if kit_pin_matches(kit_dir, pins[name]):
+                print(f"agentkit/{name}: {version} (cached)")
+                skill_dirs.append(kit_dir / "skills")
+                continue
+            if name not in active_kits:
+                print(f"Notice: agentkit/{name} is not licensed for this account; skipping.", file=sys.stderr)
+                continue
+            with tempfile.TemporaryDirectory(dir=kits_root) as temp:
+                temp_path = Path(temp)
+                export_root = temp_path / "export"
+                export_root.mkdir()
+                subprocess.run(
+                    [
+                        str(ak_bin), "kit", "init", name,
+                        "--target", target,
+                        "--channel", channel,
+                        "--version", version,
+                        "--out", str(export_root),
+                        "--yes", "--no-interactive",
+                    ],
+                    check=True,
+                    stdout=subprocess.PIPE,
+                    stderr=subprocess.PIPE,
+                    text=True,
+                    env=run_env,
+                )
+                skills_src = export_root / f"agentkit-{target}" / "skills"
+                if not skills_src.is_dir() or not list(skills_src.glob("*/SKILL.md")):
+                    raise ValueError(f"agentkit/{name}: exported kit has no skills under {skills_src.relative_to(export_root)}")
+                staged = temp_path / "staged"
+                staged.mkdir()
+                shutil.copytree(skills_src, staged / "skills")
+                (staged / ".pin.json").write_text(json.dumps(pins[name], indent=2) + "\n")
+                if kit_dir.exists():
+                    kit_dir.rename(temp_path / "previous")
+                staged.rename(kit_dir)
+            print(f"agentkit/{name}: {version}")
             skill_dirs.append(kit_dir / "skills")
-            continue
-        if name not in active_kits:
-            print(f"Notice: agentkit/{name} is not licensed for this account; skipping.", file=sys.stderr)
-            continue
-        with tempfile.TemporaryDirectory(dir=kits_root) as temp:
-            temp_path = Path(temp)
-            export_root = temp_path / "export"
-            export_root.mkdir()
-            subprocess.run(
-                [
-                    str(ak_bin), "kit", "init", name,
-                    "--target", target,
-                    "--channel", channel,
-                    "--version", version,
-                    "--out", str(export_root),
-                    "--yes", "--no-interactive",
-                ],
-                check=True,
-                stdout=subprocess.PIPE,
-                stderr=subprocess.PIPE,
-                text=True,
-            )
-            skills_src = export_root / f"agentkit-{target}" / "skills"
-            if not skills_src.is_dir() or not list(skills_src.glob("*/SKILL.md")):
-                raise ValueError(f"agentkit/{name}: exported kit has no skills under {skills_src.relative_to(export_root)}")
-            staged = temp_path / "staged"
-            staged.mkdir()
-            shutil.copytree(skills_src, staged / "skills")
-            (staged / ".pin.json").write_text(json.dumps(pins[name], indent=2) + "\n")
-            if kit_dir.exists():
-                kit_dir.rename(temp_path / "previous")
-            staged.rename(kit_dir)
-        print(f"agentkit/{name}: {version}")
-        skill_dirs.append(kit_dir / "skills")
     if require and not skill_dirs:
         raise ValueError("No licensed AgentKit kits available to sync")
     return skill_dirs
