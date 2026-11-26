@@ -13,6 +13,7 @@ Follow the [model routing rule](docs/model-routing.md) for every Bot and Devin s
 
 See the [team workflow](docs/agentkit-workflow.md) for details. The rules apply to all sessions. Without the relevant `ak-*` skill, use the EzyPlatform skills and native Devin tools to do the same planning, debugging, testing, and review.
 
+- **UI design approval gate:** Before building any UI (app, plugin, Admin theme) in any project built from this stack, deliver a full detailed design and get the project owner's approval. The design covers every screen and its mockups, every UI element with its states, and every flow, plus the list of features to turn on or off. Research notes or a chosen direction are not an approved design. See [the UI/UX guidelines](docs/ui-ux-guidelines.md#design-approval-gate).
 - **Proportionality gate and iron rule:** Before any multi-step task, agree on four items: *Outcome, Constraints, Non-goals, Acceptance criteria*. Do not fix a bug before proving its root cause (`ak-debug` before `ak-fix`; stop and report after three unsuccessful fix attempts). Do not declare work done without real execution evidence on the final revision; do not weaken tests.
 - **LOCAL / DEV only by default:** Production, deleting a database or volumes (`docker compose down -v`), editing real `.env` files or secrets, or publishing publicly requires separate approval from the owner of this checkout's project. Only one writer per branch/repository at a time; redact all tokens and secrets in logs, reports, and chat.
 - **Choose the actual skill sequence (AgentKit 3.2.0):**

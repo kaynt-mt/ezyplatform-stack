@@ -2,6 +2,19 @@
 
 Use the host interface for navigation, identity and theme. Build app-specific workflows inside it. These guidelines apply to Admin and Web; the two surfaces do not have to look identical.
 
+## Design approval gate
+
+Do not build any UI (app, plugin, Admin theme) before the project owner approves a **full detailed design**. The more complete the design, the faster the build and the fewer the rebuilds.
+
+The design must include:
+
+- **Every screen** with its mockup, not only the main ones.
+- **Every UI element with its states**: controls, tables, forms and dialogs in default, hover/active, loading, empty, no-results, error, and permission-denied states where they apply.
+- **Every flow** end to end: navigation between screens, form submission and validation, create/edit/delete cycles, and the irreversible-action confirmations.
+- **The feature toggle list**: which features are turned on or off, so the owner can approve what is built and what is deliberately left out.
+
+Research documents, comparison notes, or a chosen design direction are not an approved design — they inform one. The owner approves the mockups and the toggle list before implementation starts.
+
 ## Choose the surface and extension point
 
 | Surface | Put here | Start with |

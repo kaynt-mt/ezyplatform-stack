@@ -53,7 +53,8 @@ Follow the [model routing rule](model-routing.md) for every Bot and Devin sessio
 2. Assign one writer at a time per branch. Parallel tickets must have non-overlapping file ownership.
 3. Before multi-step work, agree on **Outcome, Constraints, Non-goals, and Acceptance criteria**.
 4. Choose the smallest workflow that meets the risk. Skip formal planning for bounded, reversible tasks. Use `ak-plan` and split ownership for multi-phase work. Require tests and review for elevated risk. For high risk (auth, payments, data migration, a public contract, destructive operations, public publishing), add defensive security review, independent review, and owner approval before irreversible steps. Drop intermediate steps that produce no artifact and do not reduce verification.
-5. Prove the root cause before fixing a defect (`ak-debug` before `ak-fix`). Stop and escalate after three failed fix attempts. Do not weaken tests or claim completion without evidence from the final revision.
+5. Get the project owner's approval of a **full detailed UI design** before building any UI (app, plugin, Admin theme). The design covers every screen and its mockups, every UI element with its states, and every flow, plus the list of features to turn on or off; the owner approves it so nothing has to be rebuilt. Research notes or a chosen direction are not an approved design. Details in the [UI/UX guidelines](ui-ux-guidelines.md#design-approval-gate).
+6. Prove the root cause before fixing a defect (`ak-debug` before `ak-fix`). Stop and escalate after three failed fix attempts. Do not weaken tests or claim completion without evidence from the final revision.
 
 ## 4. Choose a workflow
 
