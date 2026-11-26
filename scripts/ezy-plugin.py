@@ -183,7 +183,7 @@ def main():
             check_zip(args.zip)
             print(f"ZIP passed integrity and core JAR checks: {args.zip}")
         else:
-            password = args.password_file.read_text(encoding="utf-8").strip()
+            password = args.password_file.read_text(encoding="utf-8").rstrip("\r\n")
             result = upload_and_apply_zip(
                 args.admin_url, args.username, password, args.zip
             )

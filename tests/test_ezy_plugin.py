@@ -141,3 +141,20 @@ class UploadApplyTests(unittest.TestCase):
     def test_rejects_plain_http_remote_admin_before_login(self):
         with self.assertRaisesRegex(ValueError, "must use HTTPS"):
             PLUGIN.open_admin_session("http://admin.example.test", "admin", "secret")
+
+    def test_password_file_preserves_spaces_and_removes_only_newline(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            password = root / "password"
+            password.write_text("  secret with spaces  \n", encoding="utf-8")
+            archive = root / "pilot.zip"
+            archive.touch()
+            argv = [
+                "ezy-plugin.py", "upload-apply", str(archive),
+                "--password-file", str(password),
+            ]
+            with mock.patch("sys.argv", argv), \
+                    mock.patch.object(PLUGIN, "upload_and_apply_zip", return_value={}) as upload:
+                PLUGIN.main()
+            self.assertEqual(upload.call_args.args[1], "admin")
+            self.assertEqual(upload.call_args.args[2], "  secret with spaces  ")
