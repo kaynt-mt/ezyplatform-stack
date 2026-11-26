@@ -71,4 +71,4 @@ cd ../my-app
 
 Để thử nghiệm với DB/container riêng cho app, dùng `ezy new --mode local` thay vì nối vào core đang chạy. Nếu tạo plugin Java mới, dùng `ezy dev create`, không dùng `ezy new`. Xem [skill xây dựng plugin](skills/ezy-build-plugin/SKILL.md) để chuẩn bị môi trường build native, đóng gói và kiểm tra trên Docker dev. Không commit `environment.json`, token hay mật khẩu.
 
-Tài liệu: [EzyPlatform Guide](https://youngmonkeys.org/projects/ezyplatform?tab=guide) · [FAQ](https://ezyplatform.com/faq).
+Tài liệu: [EzyPlatform Guide](https://youngmonkeys.org/projects/ezyplatform?tab=guide) · [FAQ](https://ezyplatform.com/faq) · [Chỉ mục blog và kiến thức nền cho agent](docs/research/ezyplatform-blogs/README.md).
