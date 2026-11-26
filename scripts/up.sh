@@ -24,14 +24,36 @@ if missing:
 PY
 chmod 600 .env
 
-docker_image_overrides="$(python3 scripts/docker-image-fallback.py)"
-if [[ -n "$docker_image_overrides" ]]; then
+apply_image_overrides() {
+    local overrides="$1" variable reference
+    [[ -n "$overrides" ]] || return 1
     while IFS='=' read -r variable reference; do
         export "$variable=$reference"
-    done <<< "$docker_image_overrides"
-fi
+    done <<< "$overrides"
+}
 
-docker compose up -d --build
+apply_image_overrides "$(python3 scripts/docker-image-fallback.py)" || true
+
+compose_log="$(mktemp)"
+cleanup_compose_log() {
+    rm -f "$compose_log"
+}
+trap cleanup_compose_log EXIT
+
+if ! docker compose up -d --build 2>&1 | tee "$compose_log"; then
+    if grep -qiE '429|too many requests' "$compose_log"; then
+        echo 'Docker Hub rate-limited the pull; retrying with mirror.gcr.io at the same digests.' >&2
+        retry_overrides="$(python3 scripts/docker-image-fallback.py --docker-hub-failed)"
+        if apply_image_overrides "$retry_overrides"; then
+            docker compose up -d --build
+        else
+            echo 'No mirror override was available for the rate-limited image.' >&2
+            exit 1
+        fi
+    else
+        exit 1
+    fi
+fi
 admin="http://127.0.0.1:$(docker compose port ezyplatform 9090 | cut -d: -f2)"
 web="http://127.0.0.1:$(docker compose port ezyplatform 8080 | cut -d: -f2)"
 
