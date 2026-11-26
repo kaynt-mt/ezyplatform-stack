@@ -38,6 +38,8 @@ Bản quy trình mẫu ban đầu là ví dụ từ một team truyền thống 
 
 ## 3. Quy tắc chung (áp dụng cho mọi quy trình)
 
+Follow the [model routing rule](model-routing.md) for every Bot and Devin session.
+
 1. **Mặc định chỉ LOCAL / DEV**: Mọi thao tác chạm **production**, xóa DB/volume (`docker compose down -v`), sửa `.env`/secret thật, hoặc gửi/publish công khai diện rộng đều cần **`chanht_tt` duyệt riêng**.
 2. **Một writer tại một thời điểm**: Mỗi nhánh/repo chỉ có một session ghi tại một thời điểm; các session khác chỉ đọc, nghiên cứu hoặc review. Khi chia việc song song, các ticket phải có ranh giới file không chồng chéo.
 3. **Bảo mật & Backup**: Backup/restore point trước mọi thao tác publish hoặc migration dữ liệu. Không bao giờ ghi hay để lộ token, API key, mật khẩu trong log, báo cáo, PR hoặc chat (nếu phát hiện lộ secret, ẩn dạng `<REDACTED_...>` và yêu cầu xoay khóa ngay).
