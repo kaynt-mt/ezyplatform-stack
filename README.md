@@ -38,6 +38,8 @@ Compose lưu DB và runtime trong hai volume. Sao lưu cả hai trước khi nâ
 
 ## CLI, plugin và skill cho agent
 
+[Danh mục 19 skill Ezy](skills/README.md) giải thích khi nào dùng từng skill. Cả 19 bản upstream đã được commit trong [`skills/upstream/`](skills/upstream/) để đọc trên GitHub; bản dành cho agent vẫn được đồng bộ vào `.agents/skills/`.
+
 ```bash
 python3 scripts/sync-upstream.py
 ./scripts/ezy --version
@@ -53,7 +55,7 @@ CLI chạy trực tiếp từ mã nguồn/binary đã khóa trong `.upstream/`, 
 ### Đồng bộ phiên bản mới
 
 1. Kiểm tra commit mong muốn của [CLI](https://github.com/cppai-vn/ezyplatform-cli), [Docker](https://github.com/cppai-vn/ezyplatform-docker) và [Agents Plugins](https://github.com/cppai-vn/agents-plugins) (ví dụ: `git ls-remote https://github.com/cppai-vn/agents-plugins.git HEAD`), rồi cập nhật `git` trong lock.
-2. Danh mục skill công khai: <https://ezyplatform.com/api/v1/skill-library/skills?limit=100>. Với mỗi gói cập nhật, tải từ `https://ezyplatform.com/api/v1/skill-library/skills/<id>/package`, kiểm tra nội dung và tên trong `SKILL.md`, rồi ghi SHA-256 của ZIP vào `skill_library`. Script từ chối gói thay đổi nếu chưa cập nhật checksum.
+2. Danh mục skill công khai: <https://ezyplatform.com/api/v1/skill-library/skills?limit=100>. Với mỗi gói cập nhật, tải từ `https://ezyplatform.com/api/v1/skill-library/skills/<id>/package`, kiểm tra nội dung và tên trong `SKILL.md`, rồi ghi SHA-256 của ZIP vào `skill_library`. Script từ chối gói thay đổi nếu chưa cập nhật checksum. Sau khi đổi pin Ezy, chạy `python3 scripts/sync-upstream.py --refresh-ezy-skills`, kiểm tra diff và commit `skills/upstream/` cùng lock; lệnh này không đụng tới AgentKit hay `.agents/skills/`.
 3. Để nâng cấp AgentKit, kiểm tra phiên bản mới qua `./scripts/ak kit list-kits --json` và cập nhật `agentkit.cli_version` / `agentkit.kits` trong `upstream.lock.json` (không chạy `ak self-update` trực tiếp trên launcher đã khóa).
 4. Khi đổi Docker hoặc phiên bản EzyPlatform/EzyArticle, cập nhật build args và tag image trong `compose.yaml`; thử trên volume mới trước khi lên kế hoạch nâng cấp volume có dữ liệu.
 5. Chạy `python3 scripts/sync-upstream.py --require-agentkit` để áp dụng lock, rồi kiểm tra CLI (`./scripts/ezy`, `./scripts/ak`), Admin và Web.

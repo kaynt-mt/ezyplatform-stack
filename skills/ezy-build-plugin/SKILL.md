@@ -9,18 +9,7 @@ description: Tạo, lập trình, build, đóng gói, cài thử hoặc nâng c�
 
 ## 1. Chọn đúng skill
 
-Đọc `.agents/skills/ezy-guide/SKILL.md` trước. Nếu chưa đồng bộ skill, làm theo [README](../../README.md#cli-plugin-và-skill-cho-agent). Workspace chỉ dùng Ezy có thể chạy `python3 scripts/sync-upstream.py --skip-agentkit` ở repo core; không dùng tùy chọn này trên workspace đang dùng AgentKit vì sync tạo lại `.agents/skills/` mà không nạp `ak-*`. Bản pin hiện tại có 19 skill Ezy. Ghép theo công việc:
-
-| Việc | Skill nên đọc |
-| --- | --- |
-| Tạo project nội dung, kéo trạng thái về, viết và xem trước | `ezy-new` → `ezy-sync` → `ezy-author` → `ezy-verify`; `ezy-publish` khi cần đẩy nội dung đã duyệt. |
-| Media, dịch chuỗi giao diện đang chạy, email | `ezy-media`, `ezy-i18n`, `ezy-mail`. Chuỗi đi kèm plugin Java nằm trong source; không dùng `ezy-i18n` để thay việc commit message bundles. |
-| Tạo/build Java plugin hoặc theme | `ezy-develop` (CPPAI, bề mặt của `ezy dev`) hoặc `ezyplatform-develop` (Young Monkeys, script riêng); chọn một quy trình, không chạy cả hai. |
-| Sửa giao diện Admin qua EzySupport; làm landing page | `ezy-admin-customize` hoặc `ezyplatform-admin-customize`; `ezyplatform-landing-page`. Không dùng tùy biến toàn site để thay menu/view riêng của plugin. |
-| Chuẩn bị môi trường native hoặc khôi phục tài khoản | `ezyplatform-install`; `ezyplatform-reset-admin-password` chỉ cho ca khôi phục đã được chủ sở hữu cho phép, không phải bước build. |
-| Nộp **plugin/theme** để xét duyệt; đăng **skill AI** | `ezy-market-submit` hoặc `ezyplatform-market-submit` cho plugin/theme; `ezyplatform-publish-skill` cho skill AI. `ezy-publish` là nội dung EzyArticle, không phát hành plugin. |
-
-`.agents/skills/` và `.upstream/` được sync sinh lại; chỉ đọc, không chỉnh hoặc commit. Nếu agent không tự nhận thư mục `skills/` của repo, đọc trực tiếp file này qua [AGENTS.md](../../AGENTS.md); không chép vào thư mục generated. Xem [danh mục skill chính thức](https://ezyplatform.com/ezyai/skill-library?lang=vi).
+Xem [danh mục đủ 19 skill Ezy](../README.md) để đồng bộ, tìm file `SKILL.md` và phân biệt plugin Java với nội dung EzyArticle hoặc tùy biến Admin qua EzySupport. Sau khi đọc `ezy-guide`, chọn **một** quy trình Java: `ezy-develop` (wrapper `ezy dev` của stack, dùng bên dưới) hoặc `ezyplatform-develop` (script Young Monkeys). Đọc `ezyplatform-install` nếu thiếu môi trường native và `ezy-market-submit` hoặc `ezyplatform-market-submit` nếu cần nộp plugin lên chợ.
 
 ## 2. Tạo project Maven trong môi trường build native
 
@@ -80,7 +69,7 @@ Lấy ZIP project trong `target/project/` theo output thật. Kiểm tra cấu t
 
 1. Ở repo core, làm theo [README](../../README.md): `./scripts/up.sh`; nếu mới hoàn toàn, vào `http://127.0.0.1:9090/setup-admin`, tạo super admin rồi đăng nhập `/login`. Web mặc định ở `http://127.0.0.1:8080/`; nếu đổi cổng, dùng URL script báo. Không dùng Admin production.
 2. Trong **Modules** ở Admin local, chọn **Upload Project** cho ZIP project của mình, kiểm tra tên/version rồi **Active** đúng loại Admin/Web. Không dùng Upload Project thay đường cài Marketplace có kiểm chữ ký cho plugin bên thứ ba; `cli.sh "install <name>"` tra Marketplace, không phải lệnh cài ZIP local. Không tự chép JAR vào volume hoặc chỉnh plugin đã cài.
-3. Khi UI đã lưu việc kích hoạt và không tự restart, chạy `docker compose restart ezyplatform` từ repo core. Dùng `docker compose ps` và `docker compose logs --tail=100 ezyplatform mysql` để xác nhận; nếu UI báo còn chờ **Apply**, xử lý theo UI trước khi coi module đã chạy. Sau đó kiểm tra version active, menu/view Admin, route Web, lược đồ và dữ liệu; HTTP 200 ở trang chủ chỉ là kiểm tra core sống. [Cài, kích hoạt module](https://youngmonkeys.org/ezyplatform/guides/add-a-plugin-to-your-ezyplatform?lang=vi) · [Báo cáo cài Marketplace riêng](https://github.com/kaynt-mt/ezyplatform-stack/pull/5).
+3. Khi UI đã lưu việc kích hoạt và không tự restart, chạy `docker compose restart ezyplatform` từ repo core. Dùng `docker compose ps` và `docker compose logs --tail=100 ezyplatform mysql` để xác nhận; nếu UI báo còn chờ **Apply**, xử lý theo UI trước khi coi module đã chạy. Sau đó kiểm tra version active, menu/view Admin, route Web, lược đồ và dữ liệu; HTTP 200 ở trang chủ chỉ là kiểm tra core sống. [Cài, kích hoạt module](https://youngmonkeys.org/ezyplatform/guides/add-a-plugin-to-your-ezyplatform?lang=vi). [Báo cáo thử 37 plugin](../../docs/plugins/test-report.md#thứ-tự-phụ-thuộc-đáng-lưu-ý) ghi nhận lỗi thiếu bảng khi bật hàng loạt và Admin/Web khởi động song song: kiểm dependency trước, rồi xác nhận migration từ log và lược đồ trước khi kết luận Web hoạt động.
 
 Compose chỉ tự khởi động Admin/Web. Nếu chọn thêm module Socket, phải bật và khởi động Socket rồi kiểm riêng kết nối/giao thức; Admin/Web lên không chứng minh Socket hoạt động.
 
