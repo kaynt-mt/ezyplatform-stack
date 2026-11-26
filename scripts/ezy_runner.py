@@ -94,22 +94,31 @@ def compose_core_image(root):
     raise ValueError("compose.yaml does not define the ezyplatform image")
 
 
+def requested_new_mode(args):
+    """The --mode value as argparse reads it, including unambiguous abbreviations."""
+    mode = None
+    index = 0
+    while index < len(args):
+        arg = args[index]
+        if arg == "--":
+            break
+        option, separator, inline_value = arg.partition("=")
+        name = option[2:] if option.startswith("--") else ""
+        if name and "mode".startswith(name):
+            if separator:
+                mode = inline_value
+            elif index + 1 < len(args):
+                mode = args[index + 1]
+                index += 1
+        index += 1
+    return mode
+
+
 def needs_local_image(argv):
     """Whether this invocation can create a local Compose project."""
     if len(argv) < 2 or argv[1] != "new":
         return False
-    mode = None
-    args = argv[2:]
-    index = 0
-    while index < len(args):
-        arg = args[index]
-        if arg == "--mode":
-            if index + 1 < len(args):
-                mode = args[index + 1]
-                index += 1
-        elif arg.startswith("--mode="):
-            mode = arg.partition("=")[2]
-        index += 1
+    mode = requested_new_mode(argv[2:])
     if mode is not None:
         return mode in {"local", "both"}
     return sys.stdin.isatty()

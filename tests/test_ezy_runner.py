@@ -74,6 +74,13 @@ class LocalImageNeedTests(unittest.TestCase):
         self.assertTrue(RUNNER.needs_local_image(["root", "new", "app", "--mode", "local"]))
         self.assertTrue(RUNNER.needs_local_image(["root", "new", "app", "--mode=both"]))
 
+    def test_matches_argparse_abbreviations_and_end_of_options(self):
+        self.assertEqual(RUNNER.requested_new_mode(["app", "--mo", "local"]), "local")
+        self.assertEqual(RUNNER.requested_new_mode(["app", "--mod=both"]), "both")
+        self.assertEqual(RUNNER.requested_new_mode(["app", "--m", "local"]), "local")
+        self.assertIsNone(RUNNER.requested_new_mode(["app", "--", "--mode", "local"]))
+        self.assertIsNone(RUNNER.requested_new_mode(["app", "--modefoo", "local"]))
+
 
 class EzydevPatchTests(unittest.TestCase):
     def test_precreates_project_directory_and_answers_empty_dir_prompt(self):
@@ -146,8 +153,9 @@ class LauncherIntegrationTests(unittest.TestCase):
             root.mkdir()
             ezy = self.make_checkout(root)
 
-            first = self.run_ezy(ezy, "new", "app", "--mode", "local")
-            self.assertIn("image=ezyplatform-stack/core:1.5.9-1.5.6-84a5a5d", first.stdout)
+            for mode_args in (("--mode", "local"), ("--mo", "local"), ("--mod=both",)):
+                first = self.run_ezy(ezy, "new", "app", *mode_args)
+                self.assertIn("image=ezyplatform-stack/core:1.5.9-1.5.6-84a5a5d", first.stdout)
 
             env = os.environ.copy()
             env["EZY_LOCAL_IMAGE"] = "example/custom:1"
