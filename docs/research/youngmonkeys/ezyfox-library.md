@@ -1,0 +1,12 @@
+# EzyFox Library: Bean, Binding và discovery
+
+Nguồn: [Overview](https://youngmonkeys.org/projects/ezyfox-library?lang=vi), [Bean](https://youngmonkeys.org/ezyfox-library/guides/introduce-ezyfox-bean?lang=vi), [thứ tự tạo bean](https://youngmonkeys.org/ezyfox-library/guides/ezyfox-bean-bean-creation?lang=vi), [annotations](https://youngmonkeys.org/ezyfox-library/guides/ezyfox-annotations?lang=vi), [Reflections](https://youngmonkeys.org/ezyfox-library/guides/how-reflections-scans-classes?lang=vi).
+
+## Biên module và vòng đời
+
+- `EzyBeanContext` quản lý properties, singleton và prototype. Hướng dẫn ưu tiên constructor injection; dùng `@EzySingleton` cho service không mang state request và `@EzyPrototype` khi cần instance riêng, không vì muốn né lỗi wiring. Với plugin, giữ flow controller → service → repository và để container hiện hành tạo bean; đừng gọi `new` trên service do runtime quản lý hoặc tự mở context độc lập.
+- Thứ tự được mô tả là `@EzyConfigurationBefore` → `@EzyConfiguration` → singleton/prototype/properties bean → `@EzyConfigurationAfter`. Factory đặt tại giai đoạn đăng ký thích hợp, phần sau chỉ tiêu thụ bean đã tạo. Một số cấu hình chỉ log warning nếu thiếu dependency: kiểm boot test và presence của bean/route cần thiết, không chỉ nhìn exit code. Tháo vòng bằng tách policy/helper hay đảo chiều qua interface, không che vòng bằng lookup toàn cục.
+- Reflections đọc metadata class từ package/URL/VFS, lọc input rồi lập index annotation/kế thừa, không tự tạo bean. Thiếu package scan, class ở SDK chưa đóng vào artifact, annotation không đúng lane và dependency chưa active là các vấn đề khác nhau. Đối chiếu `module.properties`, classpath thật, `@ComponentsScan` trong mẫu và nội dung ZIP, không mở scan sang toàn bộ core.
+- [Binding](https://youngmonkeys.org/ezyfox-library/guides/introduce-ezyfox-binding?lang=vi) và [marshal/unmarshal](https://youngmonkeys.org/ezyfox-library/guides/ezyfox-binding-marshal-unmarshal?lang=vi) mô tả ánh xạ DTO/collection/map. Hợp đồng Socket/HTTP vẫn là dữ liệu không tin cậy: định nghĩa field nhỏ, kiểm kích thước/kiểu, không serialize domain entity hoặc membership toàn phần. Context Bean, serialization và permission là ba trách nhiệm riêng.
+
+**Test hữu ích:** startup riêng Admin/Web với constructor wiring thật, thiếu dependency phải làm smoke fail; chạy hai phiên đồng thời và xác nhận actor không bị giữ qua field singleton. Xem [EzyHTTP](ezyhttp.md) cho việc chuyển actor vào service và [EzyData](ezydata.md) cho phạm vi truy vấn.

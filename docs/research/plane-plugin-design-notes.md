@@ -2,6 +2,8 @@
 
 Tài liệu này mô tả một plugin mới, không phải tính năng EzyPlatform đã có. Nhắm tới trải nghiệm cốt lõi của Plane: tạo workspace/project, phân việc, cập nhật trạng thái, tìm việc, theo dõi tiến độ. Không sao chép mã, UI, database schema hay API Plane; đối chiếu giấy phép nếu sau này muốn dùng lại bất kỳ tài sản/mã nguồn nào.
 
+Đọc cùng [kiểm kê dự án Young Monkeys](youngmonkeys/index.md) để tra tài liệu framework và phân biệt cơ chế trong guide với hành vi của runtime 1.5.9.
+
 ## 1. Bài học từ Plane và ranh giới triển khai
 
 Đối chiếu [Plane](https://github.com/makeplane/plane) ở commit [723bb17](https://github.com/makeplane/plane/tree/723bb178f97b87e80a23df9eed134eb1388d7465/apps/api/plane/db/models) và các trang sản phẩm bên dưới. Tên **work item** trên UI tương ứng `Issue` trong model. Các tính năng trong tài liệu Plane không mặc nhiên thuộc cùng edition, và không phải tiêu chí tương thích cho plugin.
@@ -26,6 +28,8 @@ Tài liệu này mô tả một plugin mới, không phải tính năng EzyPlatf
 
 Repo core không chứa app. Theo [README stack](../../README.md), dùng sandbox dev và artifact được pin; không thử trên DB chia sẻ hay production.
 
+Dùng [EzyFox Bean](youngmonkeys/ezyfox-library.md) cho wiring: constructor injection cho service không mang state request, module scan đúng package và kiểm startup từng lane. Chỉ chạy logic cần các bean khác sau khi bean cần thiết được tạo; không mở context riêng để vá discovery.
+
 ## 3. Schema và tính nhất quán
 
 Đây là mô hình logic; kiểu cột, khả năng transaction/migration và index phải được chứng minh ở MySQL 8.0 của core mục tiêu.
@@ -41,15 +45,18 @@ Repo core không chứa app. Theo [README stack](../../README.md), dùng sandbox
 
 Giữ chung một quy tắc scope: `workspace → project → item → child`. Truy vấn child phải kiểm tra scope của parent qua khóa phù hợp; không tải bằng ID rồi giả định route đã xác thực. Ràng buộc DB (FK/unique/composite nếu phù hợp) bổ sung cho kiểm tra service. Đừng chép partial unique index có điều kiện của Django/PostgreSQL: chọn thiết kế unique phù hợp MySQL với dữ liệu archived, xác minh bằng migration thực tế.
 
+Theo [EzyData](youngmonkeys/ezydata.md), dùng `EzyDatabaseRepository` cho CRUD/điều kiện đơn giản và `@EzyQuery` cho scope/join/sort/projection của board và list. `Next` (đối số cuối) là offset/limit; cursor trên sort + ID phải tự thiết kế nếu API chọn keyset. Transaction từng write query không bao quát nhiều repository calls: spike `EzyJpaRepository` với một `EntityManager` cho cấp số + insert + activity, và move + activity; kiểm rollback khi lỗi chen giữa các bước trước khi chốt API.
+
 Tạo index từ workload: board `(project_id,state_id,rank,id)`, work item theo ngày/ID, activity/comment `(item_id,created_at,id)`, tra membership/assignee theo cả hai chiều cần dùng. Sau đo `EXPLAIN` mới bổ sung index cho filter phối hợp; không index mọi thuộc tính. Với drag-and-drop, gửi state đích và hàng xóm hoặc vị trí mong muốn, server xác minh cùng project/filter thích hợp, ghi state/rank/history nguyên tử với kiểm tra version. Khi hết khoảng rank, rebalance theo strategy có khóa và snapshot nhất quán.
 
 ## 4. Quyền, API và trải nghiệm
 
 - **Hai tầng quyền:** kiểm tra Web user và feature ở adapter; ở domain, kiểm tra workspace membership active, project membership, quyền thao tác. Giữ ma trận rõ: workspace owner quản lý thành viên/cấu hình workspace; project manager quản lý trạng thái/project; member cập nhật work item theo chính sách; viewer chỉ đọc. Đừng suy role workspace tự động có quyền mọi project. Ẩn nút chỉ phục vụ UX.
+- **Biên EzyHTTP và i18n:** kiểm interceptor auth chạy trên route thật; bind path/query/body vào DTO và dùng danh tính từ session. View/JSON trả theo hợp đồng riêng, dùng `ResponseEntity` khi cần status/header tùy chỉnh. Đưa nhãn mặc định/lỗi UI vào bundle, giữ state key và giá trị filter ổn định giữa locale. Xem [EzyHTTP](youngmonkeys/ezyhttp.md) và [quy ước core](youngmonkeys/ezyplatform.md).
 - **API đề xuất**, không phải route core: `/api/v1/work-management/workspaces/{workspace}/projects/{project}/work-items`; `GET/POST` cho collection, `GET/PATCH` cho item, `POST …/{item}/move`, `GET/POST …/{item}/comments`, `GET …/{item}/activity`. Attachment tách bước upload/link/download; chưa chứng minh quyền private thì chưa phát hành. Giới hạn request/file/page size, chỉ nhận field nghiệp vụ allowlisted, lấy actor từ phiên xác thực. Giữ quy ước 401 khi chưa login, 403 khi actor không có quyền thao tác trên tài nguyên thấy được, 404 khi không nên để lộ sự tồn tại, 409 cho version xung đột (hoặc 412 nếu dùng `If-Match`).
 - **List/board** dùng chung query/policy nhưng pagination theo cột cho board; trả `nextPageToken` và số lượng chỉ khi count đủ nhanh và đúng scope. Search/export/saved views phải thừa hưởng policy; count/label gợi ý không lộ dữ liệu chéo workspace. Cung cấp thao tác đổi state không kéo-thả cho bàn phím, xử lý UI optimistic có rollback khi server từ chối.
 - **Bình luận/mô tả:** bắt đầu bằng text/Markdown được sanitize khi render, không thực thi JS template do user cung cấp. Kiểm tra lại scope trên URL media khi render/link, không nhúng dữ liệu nhạy cảm vào preview hoặc link public. Tách activity nghiệp vụ khỏi notification gửi ra.
-- **Realtime sau MVP:** dùng topic theo project, từ chối dùng token Admin như token Web. Kiểm tra quyền khi subscribe và fan-out, nhất là sau thu hồi membership; gửi ID/version tối thiểu và cho client refetch nếu bỏ lỡ event. HTTP là nguồn chuẩn.
+- **Realtime sau MVP:** [EzyFox Server](youngmonkeys/ezyfox-server.md) có login/app access và reconnect, không tự cấp policy project hay replay. Dùng topic theo project, từ chối dùng token Admin như token Web. Kiểm tra quyền khi subscribe, reconnect và fan-out, nhất là sau thu hồi membership; phát sau commit, gửi ID/version tối thiểu và cho client refetch nếu bỏ lỡ event. HTTP là nguồn chuẩn.
 
 ## 5. Các mốc và tiêu chí chấp nhận
 
