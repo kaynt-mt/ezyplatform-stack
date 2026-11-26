@@ -22,6 +22,7 @@ FOLDERS = {
     "socket-app": "socket/apps",
     "theme": "web/themes",
 }
+THEME_CACHE = ".runtime/web/themes.txt"
 
 
 class NoRedirect(HTTPRedirectHandler):
@@ -88,23 +89,44 @@ def install(name, release, version, kinds, admin, opener):
     return {dep.strip() for meta in installed.values() for dep in meta.get("dependencies", "").split(",") if dep.strip()}
 
 
+def clear_stale_themes(names):
+    paths = {f"web/themes/{name}/module.properties": name for name in names}
+    stale = names - {paths[path] for path in read_files(paths)}
+    if not stale:
+        return stale
+    entries = json.loads(read_files([THEME_CACHE])[THEME_CACHE])
+    for entry in entries:
+        if entry["name"] in stale:
+            entry["active"] = False
+    run([*CONTAINER, "bash", "-ec",
+         """temp=$(mktemp "$1.XXXXXX")
+trap 'rm -f "$temp"' EXIT
+cat > "$temp"
+chmod --reference="$1" "$temp"
+mv -f "$temp" "$1" """, "bash", THEME_CACHE], input=json.dumps(entries))
+    return stale
+
+
 def activate(manifest, order, theme):
     before = active_modules()
-    deactivate = [("theme", name) for name in sorted(before["theme"] - {theme})] if theme else []
+    other_themes = before["theme"] - {theme} if theme else set()
+    stale = clear_stale_themes(other_themes) if other_themes else set()
+    deactivate = [("theme", name) for name in sorted(other_themes - stale)]
     required = [(kind, name) for name in order for kind in manifest[name][2] if kind != "theme"]
     if theme:
         required.append(("theme", theme))
     commands = [f"deactivate {kind} {name}" for kind, name in deactivate]
     commands += [f"activate {kind} {name}" for kind, name in required if name not in before[kind]]
-    if not commands:
+    if not commands and not stale:
         return
-    run([*CONTAINER, "bash", "cli.sh"], input="\n".join([*commands, "exit", ""]),
-        capture_output=True, timeout=120)
+    if commands:
+        run([*CONTAINER, "bash", "cli.sh"], input="\n".join([*commands, "exit", ""]),
+            capture_output=True, timeout=120)
     after = active_modules()
     missing = [f"{name}/{kind}" for kind, name in required if name not in after[kind]]
     if missing or (theme and after["theme"] != {theme}):
         raise ValueError(f"activation failed: missing={missing}, active themes={sorted(after['theme'])}")
-    print(f"Applied {len(commands)} activation changes", flush=True)
+    print(f"Applied {len(commands) + len(stale)} activation changes", flush=True)
 
 
 def endpoint(port, path):
