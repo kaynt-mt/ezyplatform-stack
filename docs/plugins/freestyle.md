@@ -1,23 +1,23 @@
 # freestyle
 
-Theme Web tổng quát và cấu hình giao diện.
+General-purpose Web theme and interface settings.
 
-- **Bản Marketplace trên core 1.5.9:** `0.2.9`.
-- **Module đã xác minh:** `admin-plugin`, `theme`.
-- **Cài đặt:** Đạt. Xem môi trường và các giới hạn chung trong [báo cáo kiểm thử](test-report.md).
+- **Marketplace version on core 1.5.9:** `0.2.9`.
+- **Verified modules:** `admin-plugin`, `theme`.
+- **Installation:** Passed. See the environment and general limitations in the [test report](test-report.md).
 
-## Bản đồ module
+## Module map
 
-| Lane / thư mục | Package khai báo | Phụ thuộc runtime khai báo |
+| Lane / directory | Declared package | Declared runtime dependencies |
 |---|---|---|
 | `admin-plugin` — `admin/plugins/freestyle` | `org.youngmonkeys.freestyle` | [ezyarticle](ezyarticle.md) |
 | `theme` — `web/themes/freestyle` | `org.youngmonkeys.freestyle` | [ezyarticle](ezyarticle.md) |
 
-## HTTP, UI và tài nguyên
+## HTTP, UI, and resources
 
-Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố khi mount module và quyền truy cập có thể khác giữa các lane; các URL đã gọi thật nằm ở mục kiểm thử.
+The paths below come from annotations in the JAR. Mount prefixes and access permissions may differ by lane; the URLs that were actually called are listed in the testing section.
 
-**admin-plugin** — 4 tổ hợp phương thức/URI đọc được; mẫu đại diện:
+**admin-plugin** — 4 method/URI combinations identified; representative sample:
 
 | Annotation HTTP | Class |
 |---|---|
@@ -26,7 +26,7 @@ Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố
 | `PUT /api/v1/pages/{pageId}/settings` | `AdminApiFreestylePageSettingController` |
 | `PUT /api/v1/posts/{postId}/settings` | `AdminApiFreestylePostSettingController` |
 
-**theme** — 5 tổ hợp phương thức/URI đọc được; mẫu đại diện:
+**theme** — 5 method/URI combinations identified; representative sample:
 
 | Annotation HTTP | Class |
 |---|---|
@@ -36,45 +36,45 @@ Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố
 | `GET /freestyle/api/v1/posts/{slug}/children` | `FreestyleNewApiPostController` |
 | `GET /freestyle/api/v1/users/{uuid}/shorted-posts` | `FreestyleNewApiPostController` |
 
-- **admin-plugin – Menu (khóa cuối và path trong menus.properties):** `freestyle: /`, `settings: /settings`.
+- **admin-plugin – Menus (final keys and paths in menus.properties):** `freestyle: /`, `settings: /settings`.
 
 - **admin-plugin – Template:** `freestyle/settings/index.html`.
 
-- **admin-plugin – Tài nguyên tĩnh:** `freestyle/js/post-settings.js`.
+- **admin-plugin – Static resources:** `freestyle/js/post-settings.js`.
 
 - **theme – Template:** `account/register-success.html`, `account/reset-password.html`, `fragments/comments.html`, `fragments/footer.html`, `fragments/header.html`, `fragments/post-menu.html`, `fragments/posts.html` (+8).
 
-- **theme – Tài nguyên tĩnh:** `css/ezyarticle.css`, `css/styles.css`, `css/styles.rtl.css`, `js/main.js`.
+- **theme - Resources:** `css/ezyarticle.css`, `css/styles.css`, `css/styles.rtl.css`, `js/main.js`.
 
-## Dữ liệu và migration
+## Data and migrations
 
-- Không tìm thấy `CREATE TABLE` trong các tệp SQL rời của gói; không suy ra module không lưu dữ liệu hoặc không dùng schema của core.
+- No occurrence of `CREATE TABLE` was found in the package’s standalone SQL files; this does not mean the module stores no data or does not use the core schema.
 
-## JAR, cấu hình và điểm mở rộng
+## JARs, configuration, and extension points
 
 ### admin-plugin
 
-- **JAR kiểm tra:** `freestyle-admin-plugin-0.2.9.jar`, `freestyle-sdk-0.2.9.jar`; 20 class cấp cao nhất sau khi bỏ trùng theo tên package/class trong lane. SDK có thể lặp giữa các lane.
-- **Package nổi bật:** `org.youngmonkeys.freestyle.admin.controller.api`, `org.youngmonkeys.freestyle.constant`, `org.youngmonkeys.freestyle.admin.controller.view` (+9).
-- **Controller/service/repository (mẫu):** `AdminApiFreestylePageSettingController`, `AdminApiFreestylePostSettingController`, `AdminApiSettingController`, `AdminFreestylePostControllerService`, `AdminFreestylePostControllerService`, `AdminFreestylePostService`, `AdminFreestyleSettingService`, `FreestylePostService`, `FreestyleSettingService`.
-- **Class cấu hình/quyền (mẫu):** `AdminPageFragmentConfig`, `PageFragmentConfig`.
+- **JARs inspected:** `freestyle-admin-plugin-0.2.9.jar`, `freestyle-sdk-0.2.9.jar`; 20 top-level classes after deduplicating by package and class name within the lane. The SDK can appear in multiple lanes.
+- **Notable packages:** `org.youngmonkeys.freestyle.admin.controller.api`, `org.youngmonkeys.freestyle.constant`, `org.youngmonkeys.freestyle.admin.controller.view` (+9).
+- **Controllers, services, and repositories (sample):** `AdminApiFreestylePageSettingController`, `AdminApiFreestylePostSettingController`, `AdminApiSettingController`, `AdminFreestylePostControllerService`, `AdminFreestylePostControllerService`, `AdminFreestylePostService`, `AdminFreestyleSettingService`, `FreestylePostService`, `FreestyleSettingService`.
+- **Configuration and permission classes (sample):** `AdminPageFragmentConfig`, `PageFragmentConfig`.
 
 ### theme
 
-- **JAR kiểm tra:** `freestyle-sdk-0.2.9.jar`, `freestyle-theme-0.2.9.jar`; 49 class cấp cao nhất sau khi bỏ trùng theo tên package/class trong lane. SDK có thể lặp giữa các lane.
-- **Package nổi bật:** `org.youngmonkeys.freestyle.theme.controller.view`, `org.youngmonkeys.freestyle.theme.event`, `org.youngmonkeys.freestyle.theme.service` (+16).
-- **Controller/service/repository (mẫu):** `FreestyleApiCommentController`, `FreestyleApiPostController`, `FreestyleApiTermController`, `FreestyleErrorController`, `FreestylePostService`, `FreestyleSettingService`, `WebFreestylePostControllerService`, `WebFreestylePostRepository`, `WebFreestylePostService`.
-- **Class cấu hình/quyền (mẫu):** `PageFragmentConfig`, `WebPageFragmentConfig`.
-- **Điểm mở rộng tiềm năng theo tên class:** `ArticleWebGlobalErrorHandler`, `ArticleWebGlobalExceptionHandler`, `WebGetChildrenListBySlugSortByPriorityAscIdAscEzyFunctionEventHandler`, `WebGetMostViewPostsByAuthorUserIdEzyFunctionEventHandler`, `WebGetMostViewPostsByAuthorUserUuidEzyFunctionEventHandler`, `WebGetPostTitleAndChildrenListByMenuNameEzyFunctionEventHandler`, `WebRandomSameTermsPostsByPostIdEzyFunctionEventHandler`.
+- **JARs inspected:** `freestyle-sdk-0.2.9.jar`, `freestyle-theme-0.2.9.jar`; 49 top-level classes after deduplicating by package and class name within the lane. The SDK can appear in multiple lanes.
+- **Notable packages:** `org.youngmonkeys.freestyle.theme.controller.view`, `org.youngmonkeys.freestyle.theme.event`, `org.youngmonkeys.freestyle.theme.service` (+16).
+- **Controllers, services, and repositories (sample):** `FreestyleApiCommentController`, `FreestyleApiPostController`, `FreestyleApiTermController`, `FreestyleErrorController`, `FreestylePostService`, `FreestyleSettingService`, `WebFreestylePostControllerService`, `WebFreestylePostRepository`, `WebFreestylePostService`.
+- **Configuration and permission classes (sample):** `PageFragmentConfig`, `WebPageFragmentConfig`.
+- **Potential extension points based on class names:** `ArticleWebGlobalErrorHandler`, `ArticleWebGlobalExceptionHandler`, `WebGetChildrenListBySlugSortByPriorityAscIdAscEzyFunctionEventHandler`, `WebGetMostViewPostsByAuthorUserIdEzyFunctionEventHandler`, `WebGetMostViewPostsByAuthorUserUuidEzyFunctionEventHandler`, `WebGetPostTitleAndChildrenListByMenuNameEzyFunctionEventHandler`, `WebRandomSameTermsPostsByPostIdEzyFunctionEventHandler`.
 
-Class và resource xác nhận có cấu trúc mở rộng trong bản đóng gói, không cam kết API ổn định hoặc handler đã chạy qua mọi nhánh.
+Classes and resources show that extension points are packaged; they do not establish API stability or confirm that every handler path has run.
 
-## Quan sát trên sandbox
+## Sandbox observations
 
-Admin `/freestyle/settings` → 200; theme render được bài EzyArticle ở Web.
+Admin `/freestyle/settings` returned 200; the theme rendered an EzyArticle post on Web.
 
-## Lưu ý khi tích hợp
+## Integration notes
 
-Tham khảo layout, fragment và template theo khu vực. Kiểm render bằng fixture trên theme đã chọn.
+See how layouts, fragments, and templates are organized by area. Test rendering with fixtures on the chosen theme.
 
-[Về chỉ mục plugin](README.md)
+[Back to the plugin index](README.md)

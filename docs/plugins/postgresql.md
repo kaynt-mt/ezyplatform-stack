@@ -1,22 +1,22 @@
 # postgresql
 
-Bề mặt quản trị PostgreSQL.
+PostgreSQL administration interface.
 
-- **Bản Marketplace trên core 1.5.9:** `0.0.1`.
-- **Module đã xác minh:** `admin-plugin`.
-- **Cài đặt:** Đạt. Xem môi trường và các giới hạn chung trong [báo cáo kiểm thử](test-report.md).
+- **Marketplace version on core 1.5.9:** `0.0.1`.
+- **Verified modules:** `admin-plugin`.
+- **Installation:** Passed. See the environment and general limitations in the [test report](test-report.md).
 
-## Bản đồ module
+## Module map
 
-| Lane / thư mục | Package khai báo | Phụ thuộc runtime khai báo |
+| Lane / directory | Declared package | Declared runtime dependencies |
 |---|---|---|
-| `admin-plugin` — `admin/plugins/postgresql` | `org.youngmonkeys.postgresql` | Không khai báo |
+| `admin-plugin` — `admin/plugins/postgresql` | `org.youngmonkeys.postgresql` | Not declared |
 
-## HTTP, UI và tài nguyên
+## HTTP, UI, and resources
 
-Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố khi mount module và quyền truy cập có thể khác giữa các lane; các URL đã gọi thật nằm ở mục kiểm thử.
+The paths below come from annotations in the JAR. Mount prefixes and access permissions may differ by lane; the URLs that were actually called are listed in the testing section.
 
-**admin-plugin** — 6 tổ hợp phương thức/URI đọc được; mẫu đại diện:
+**admin-plugin** — 6 method/URI combinations identified; representative sample:
 
 | Annotation HTTP | Class |
 |---|---|
@@ -27,35 +27,35 @@ Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố
 | `GET /api/v1/dashboard/active-queries` | `AdminApiDashboardController` |
 | `GET /api/v1/dashboard/connection-states` | `AdminApiDashboardController` |
 
-- **admin-plugin – Menu (khóa cuối và path trong menus.properties):** `postgresql: /`, `dashboard: /dashboard`.
+- **admin-plugin – Menus (final keys and paths in menus.properties):** `postgresql: /`, `dashboard: /dashboard`.
 
 - **admin-plugin – Template:** `postgresql/dashboard.html`.
 
-- **admin-plugin – Tài nguyên tĩnh:** `postgresql/css/dashboard.css`, `postgresql/css/style.css`, `postgresql/js/dashboard.js`.
+- **admin-plugin – Static resources:** `postgresql/css/dashboard.css`, `postgresql/css/style.css`, `postgresql/js/dashboard.js`.
 
-## Dữ liệu và migration
+## Data and migrations
 
-- Không tìm thấy `CREATE TABLE` trong các tệp SQL rời của gói; không suy ra module không lưu dữ liệu hoặc không dùng schema của core.
+- No occurrence of `CREATE TABLE` was found in the package’s standalone SQL files; this does not mean the module stores no data or does not use the core schema.
 
-## JAR, cấu hình và điểm mở rộng
+## JARs, configuration, and extension points
 
 ### admin-plugin
 
-- **JAR kiểm tra:** `postgresql-42.7.4.jar`, `postgresql-admin-plugin-0.0.1.jar`; 361 class cấp cao nhất sau khi bỏ trùng theo tên package/class trong lane. SDK có thể lặp giữa các lane.
-- **Package nổi bật:** `org.postgresql.core`, `org.postgresql.util`, `org.postgresql.jdbc` (+46).
-- **JAR thư viện khác:** `checker-qual-3.42.0.jar`.
-- **Controller/service/repository (mẫu):** `AdminApiDashboardController`, `AdminDashboardController`, `AdminPostgresqlDashboardControllerService`, `IndexController`, `AdminPostgresqlDashboardControllerService`, `AdminPostgresqlStatisticService`.
-- **Class cấu hình/quyền (mẫu):** `AdminPostgresqlSqlScriptsConverterConfig`, `ChannelBindingOption`, `CommonOptions`, `ExpressionProperties`, `LogicalReplicationOptions`, `Option`, `PhysicalReplicationOptions`.
-- **Điểm mở rộng tiềm năng theo tên class:** `ArrayAssistantRegistry`, `AuthenticationPluginManager`, `BatchResultHandler`, `CallableBatchResultHandler`, `ClientFinalProcessor`, `ConnectionFactory`, `CopyManager`, `DbKeyStoreSocketFactory`, `DefaultJavaSSLFactory` (+27).
+- **JARs inspected:** `postgresql-42.7.4.jar`, `postgresql-admin-plugin-0.0.1.jar`; 361 top-level classes after deduplicating by package and class name within the lane. The SDK can appear in multiple lanes.
+- **Notable packages:** `org.postgresql.core`, `org.postgresql.util`, `org.postgresql.jdbc` (+46).
+- **Other library JARs:** `checker-qual-3.42.0.jar`.
+- **Controllers, services, and repositories (sample):** `AdminApiDashboardController`, `AdminDashboardController`, `AdminPostgresqlDashboardControllerService`, `IndexController`, `AdminPostgresqlDashboardControllerService`, `AdminPostgresqlStatisticService`.
+- **Configuration and permission classes (sample):** `AdminPostgresqlSqlScriptsConverterConfig`, `ChannelBindingOption`, `CommonOptions`, `ExpressionProperties`, `LogicalReplicationOptions`, `Option`, `PhysicalReplicationOptions`.
+- **Potential extension points based on class names:** `ArrayAssistantRegistry`, `AuthenticationPluginManager`, `BatchResultHandler`, `CallableBatchResultHandler`, `ClientFinalProcessor`, `ConnectionFactory`, `CopyManager`, `DbKeyStoreSocketFactory`, `DefaultJavaSSLFactory` (+27).
 
-Class và resource xác nhận có cấu trúc mở rộng trong bản đóng gói, không cam kết API ổn định hoặc handler đã chạy qua mọi nhánh.
+Classes and resources show that extension points are packaged; they do not establish API stability or confirm that every handler path has run.
 
-## Quan sát trên sandbox
+## Sandbox observations
 
-Admin `/postgresql/dashboard` → 200 trên stack MySQL; chưa đổi datasource hay thử PostgreSQL thật.
+Admin `/postgresql/dashboard` returned 200 on the MySQL stack. No data source was changed and PostgreSQL itself was not tested.
 
-## Lưu ý khi tích hợp
+## Integration notes
 
-Nếu đổi engine DB, chạy lại migration, phân trang và truy vấn. Dashboard Admin không chứng minh tích hợp datasource hoạt động.
+If you change database engines, retest migrations, pagination, and queries. The Admin dashboard does not prove the data source integration works.
 
-[Về chỉ mục plugin](README.md)
+[Back to the plugin index](README.md)

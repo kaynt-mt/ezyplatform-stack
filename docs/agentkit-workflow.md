@@ -1,129 +1,129 @@
-# Quy trình làm việc với AgentKit cho Đội ngũ Bot & Devin Sessions
+# AgentKit workflow for bots and Devin sessions
 
-Tài liệu này tổng hợp kết quả nghiên cứu trực tiếp bộ **AgentKit 3.2.0** (`engineer` + `marketing`, xuất dạng `portable`) đã tích hợp trong `ezyplatform-stack`, đồng thời chuẩn hóa quy trình áp dụng cho đội ngũ thực tế gồm **`chanht_tt`**, các **Bot** (`Chief of Staff`, `Upstream Watcher`) và các **Devin session** triển khai dự án trên nền tảng EzyPlatform.
+This document summarizes a hands-on review of **AgentKit 3.2.0** (the `engineer` and `marketing` kits, exported in `portable` format) as integrated into `ezyplatform-stack`. It sets out how **`chanht_tt`**, the **bots** (`Chief of Staff` and `Upstream Watcher`), and **Devin sessions** work together on EzyPlatform projects.
 
 ---
 
-## 1. Cấu trúc thực tế của bộ AgentKit trên stack
+## 1. AgentKit kits installed in the stack
 
-Khi chạy `python3 scripts/sync-upstream.py` (với `AGENTKIT_API_KEY` hoặc đã đăng nhập `./scripts/ak login`), `.agents/skills/` chứa tổng cộng **167 skill**:
+After running `python3 scripts/sync-upstream.py` with `AGENTKIT_API_KEY` set or after logging in with `./scripts/ak login`, `.agents/skills/` contains **167 skills**:
 
-| Nhóm | Số lượng | Tiền tố | Vai trò chính |
+| Group | Count | Prefix | Main role |
 |---|---:|---|---|
-| **AgentKit Shared** (`engineer` ∩ `marketing`) | 40 | `ak-*` | Khung làm việc lõi: `ak-agentkit`, `ak-brainstorm`, `ak-plan`, `ak-cook`, `ak-debug`, `ak-fix`, `ak-test`, `ak-scout`, `ak-git`, `ak-docs`, `ak-journal`, `ak-handoff`, `ak-worktree`, `ak-frontend-design`, `ak-ui-ux-pro-max`, `ak-copywriting`, `ak-design`, `ak-preview`... |
-| **AgentKit Engineer-only** | 65 | `ak-*` | Kỹ thuật chuyên sâu: `ak-review-pr`, `ak-code-review`, `ak-security`, `ak-ship`, `ak-scenario`, `ak-databases`, `ak-web-testing`, `ak-devops`, `ak-deploy`, `ak-github`, `ak-research`, `ak-xia`, `ak-predict`, `ak-retro`, `ak-advise`, `ak-vibe`, `ak-mcp-builder`, `ak-payment-integration`... |
-| **AgentKit Marketing-only** | 43 | `ak-*` | Khám phá sản phẩm & GTM: `ak-play`, `ak-marketing-research`, `ak-competitor`, `ak-marketing-planning`, `ak-brand`, `ak-launch-strategy`, `ak-pricing-strategy`, `ak-seo`, `ak-onboarding-cro`, `ak-form-cro`, `ak-analytics`, `ak-ab-test-setup`, `ak-campaign`, `ak-email`, `ak-social`... |
-| **EzyPlatform Stack** | 19 | `ezy-*`, `ezyplatform-*` | Nghiệp vụ & công cụ riêng của EzyPlatform (`ezy-guide`, `ezy-new`, `ezy-sync`, `ezy-develop`, `ezyplatform-develop`, `ezy-i18n`, `ezy-media`...) + skill nội bộ `skills/ezy-build-plugin/SKILL.md` |
+| **AgentKit Shared** (`engineer` ∩ `marketing`) | 40 | `ak-*` | Core workflow: `ak-agentkit`, `ak-brainstorm`, `ak-plan`, `ak-cook`, `ak-debug`, `ak-fix`, `ak-test`, `ak-scout`, `ak-git`, `ak-docs`, `ak-journal`, `ak-handoff`, `ak-worktree`, `ak-frontend-design`, `ak-ui-ux-pro-max`, `ak-copywriting`, `ak-design`, `ak-preview`... |
+| **AgentKit Engineer-only** | 65 | `ak-*` | Specialized engineering: `ak-review-pr`, `ak-code-review`, `ak-security`, `ak-ship`, `ak-scenario`, `ak-databases`, `ak-web-testing`, `ak-devops`, `ak-deploy`, `ak-github`, `ak-research`, `ak-xia`, `ak-predict`, `ak-retro`, `ak-advise`, `ak-vibe`, `ak-mcp-builder`, `ak-payment-integration`... |
+| **AgentKit Marketing-only** | 43 | `ak-*` | Product discovery and go-to-market: `ak-play`, `ak-marketing-research`, `ak-competitor`, `ak-marketing-planning`, `ak-brand`, `ak-launch-strategy`, `ak-pricing-strategy`, `ak-seo`, `ak-onboarding-cro`, `ak-form-cro`, `ak-analytics`, `ak-ab-test-setup`, `ak-campaign`, `ak-email`, `ak-social`... |
+| **EzyPlatform Stack** | 19 | `ezy-*`, `ezyplatform-*` | EzyPlatform workflows and tools (`ezy-guide`, `ezy-new`, `ezy-sync`, `ezy-develop`, `ezyplatform-develop`, `ezy-i18n`, `ezy-media`...) plus the local skill `skills/ezy-build-plugin/SKILL.md` |
 
 ---
 
-## 2. Điều chỉnh quan trọng so với bản mẫu tham khảo
+## 2. Key adaptations from the reference workflow
 
-Bản quy trình mẫu ban đầu là ví dụ từ một team truyền thống và chứa một số điểm **không khớp** với AgentKit 3.2.0 hoặc với hạ tầng Devin. Các điểm đã hiệu chỉnh:
+The original workflow was written for a traditional team and does **not** always match AgentKit 3.2.0 or Devin's infrastructure. This version adapts it as follows:
 
-1. **Đúng tên skill thực tế**:
-   - Không có skill tên `ak-security-scan` trong bản 3.2.0 (`ak-security-scan` chỉ còn là legacy alias). Tên chính thức là **`ak-security`** (hỗ trợ `--secrets-only`, `--deps-only`, `--red-team`, `--fix`, `--iterations N`).
-2. **Đúng cơ cấu đội ngũ (không dùng tên nhân sự ví dụ)**:
-   - **Owner (`chanht_tt`)**: duyệt production, xóa DB/volume, thay đổi `.env`/secret, kiến trúc rủi ro cao, publish diện rộng và quyết định sản phẩm.
-   - **Chief of Staff (Bot điều phối)**: quản lý Devin Boards, tách và giao ticket theo nguyên tắc 1 writer cho mỗi repo/nhánh, theo dõi tiến độ, kiểm tra bằng chứng và tự merge PR cho các repo Bot sở hữu (như `kaynt-mt/ezyplatform-stack`) sau khi CI và Devin Review pass.
-   - **Upstream Watcher (Bot theo dõi upstream)**: theo dõi phiên bản mới của EzyPlatform, CPPAI và AgentKit.
-   - **Devin sessions (Writer / Researcher / Reviewer)**: thực thi ticket end-to-end, tự chạy kiểm thử thật, mở PR, không tự merge trừ khi repo thuộc quyền sở hữu của Bot và đã được ủy quyền.
-3. **Bản chất `portable` export trên Devin (tránh gọi tính năng chỉ chạy trên Claude Code)**:
-   - **`ak-team` và `ak-orchestrate`**: được thiết kế cho Claude Code Agent Teams / CLI headless runtimes. Trên hệ thống này, điều phối đa session song song đi qua **Chief of Staff + Devin Boards** (hoặc **Dynamic Workflows** khi có ≥ 5 nhánh độc lập). Chỉ dùng **`ak-worktree`** khi cần cô lập nhiều nhánh ngay trong cùng một VM.
-   - **Cờ `--advice` (gọi subagent `kongming`) và `--ultra` (wave best-of-5 verifier)**: là cơ chế mở rộng của Claude Code; trên Devin không có subagent `kongming`. Khi gặp bài toán khó cần phản biện, thay bằng **`ak-brainstorm`** (so sánh 2–3 phương án, chỉ rõ giả định dễ gãy nhất), **`ak-predict`** (5 góc nhìn chuyên gia: architecture, security, performance, UX, ops) hoặc **`ak-plan red-team`** (4 persona phản biện).
-   - **Bước journal tự động**: `ak-plan`, `ak-cook`, `ak-fix`, `ak-ship` mặc định gợi ý chạy `ak-journal` (ghi vào `plans/journals/YYYY-MM-DD-<slug>.md` qua `./scripts/ak journal create`). Với task nhỏ/nhanh, dùng `--skip-journal` hoặc bỏ qua để tránh sinh file thừa trong repo.
-   - **Đường dẫn kế hoạch & báo cáo**: AgentKit quy ước lưu plan tại `plans/<timestamp>-<slug>/` (`plan.md`, `phase-NN-<name>.md`, `plans/reports/`, `plans/journals/`). Không commit file nháp/báo cáo tạm lên git trừ khi là tài liệu chính thức cần lưu trong `docs/`.
-
----
-
-## 3. Quy tắc chung (áp dụng cho mọi quy trình)
-
-1. **Mặc định chỉ LOCAL / DEV**: Mọi thao tác chạm **production**, xóa DB/volume (`docker compose down -v`), sửa `.env`/secret thật, hoặc gửi/publish công khai diện rộng đều cần **`chanht_tt` duyệt riêng**.
-2. **Một writer tại một thời điểm**: Mỗi nhánh/repo chỉ có một session ghi tại một thời điểm; các session khác chỉ đọc, nghiên cứu hoặc review. Khi chia việc song song, các ticket phải có ranh giới file không chồng chéo.
-3. **Bảo mật & Backup**: Backup/restore point trước mọi thao tác publish hoặc migration dữ liệu. Không bao giờ ghi hay để lộ token, API key, mật khẩu trong log, báo cáo, PR hoặc chat (nếu phát hiện lộ secret, ẩn dạng `<REDACTED_...>` và yêu cầu xoay khóa ngay).
-4. **Cổng tương xứng (Proportionality Gate — từ `ak-agentkit`)**: Phân loại công việc trước khi chọn quy trình dựa trên **3 tiêu chí**:
-   - **Size**: `trivial` (1–2 file, ≤ 30 phút, không ẩn số → làm thẳng, bỏ plan) · `standard` (1 deliverable, vài file) · `epic` (nhiều module/phase → bắt buộc `ak-plan` + tách file ownership).
-   - **Risk**: `low` (nội bộ, dễ hoàn tác) · `elevated` (ảnh hưởng người dùng hoặc nhiều module → bắt buộc `ak-test` + review) · `high` (auth, bảo mật, thanh toán, migration DB, public contract, thao tác phá hủy, publish diện rộng → bắt buộc `ak-test` + `ak-security` + review độc lập/Devin Review + duyệt của `chanht_tt` trước bước không thể hoàn tác).
-   - **Collapse Rule**: Bỏ mọi bước trung gian không sinh ra artifact cho bước sau dùng và không làm giảm mức kiểm chứng mà Risk yêu cầu.
-5. **Luật thép (Iron Laws)**:
-   - Mọi task nhiều bước đều mở đầu bằng **Brainstorm Contract** gồm 4 mục: *Outcome, Constraints, Non-goals, Acceptance criteria* (3–4 dòng cho task nhỏ; đầy đủ cho task lớn).
-   - **Không sửa bug khi chưa chứng minh nguyên nhân gốc** (`ak-debug` trước `ak-fix`). Nếu sửa thất bại 3 lần liên tiếp → dừng lại, đánh giá lại kiến trúc và báo Chief of Staff / `chanht_tt`.
-   - **Không báo xong khi chưa có bằng chứng chạy thật trên đúng revision cuối** (output test, build, HTTP/Docker hoặc kiểm tra thực tế). Tuyệt đối không làm yếu test/assertion để lấy màu xanh.
+1. **Use the current skill names:**
+   - In 3.2.0, `ak-security-scan` is only a legacy alias. The official name is **`ak-security`**, which supports `--secrets-only`, `--deps-only`, `--red-team`, `--fix`, and `--iterations N`.
+2. **Use the actual team roles, not the names from the example:**
+   - **Owner (`chanht_tt`):** Approves production work, database or volume deletion, changes to `.env` or secrets, high-risk architecture, wide publication, and product decisions.
+   - **Chief of Staff (coordination bot):** Manages Devin Boards, splits and assigns tickets with one writer per repository or branch, tracks progress, verifies evidence, and merges PRs in bot-owned repositories (such as `kaynt-mt/ezyplatform-stack`) after CI and Devin Review pass.
+   - **Upstream Watcher (upstream monitoring bot):** Tracks new releases of EzyPlatform, CPPAI, and AgentKit.
+   - **Devin sessions (Writer / Researcher / Reviewer):** Carry out tickets end to end, run actual tests, and open PRs. They do not merge unless the bot owns the repository and they have been authorized.
+3. **Account for the `portable` export on Devin; avoid Claude Code-only features:**
+   - **`ak-team` and `ak-orchestrate`:** Designed for Claude Code Agent Teams and headless CLI runtimes. Coordinate parallel sessions through **Chief of Staff and Devin Boards**, or **Dynamic Workflows** when there are at least five independent branches. Use **`ak-worktree`** only to isolate multiple branches on the same VM.
+   - **`--advice` (calls the `kongming` subagent) and `--ultra` (wave best-of-five verification):** These are Claude Code extensions; Devin has no `kongming` subagent. When a difficult problem needs critical review, use **`ak-brainstorm`** (compare two or three options and identify the weakest assumption), **`ak-predict`** (architecture, security, performance, UX, and operations), or **`ak-plan red-team`** (four review personas).
+   - **Automatic journaling:** `ak-plan`, `ak-cook`, `ak-fix`, and `ak-ship` suggest `ak-journal` by default (entries go to `plans/journals/YYYY-MM-DD-<slug>.md` via `./scripts/ak journal create`). For small or quick tasks, use `--skip-journal` or omit this step to avoid unnecessary files.
+   - **Plan and report paths:** AgentKit uses `plans/<timestamp>-<slug>/` for plans (`plan.md`, `phase-NN-<name>.md`, `plans/reports/`, `plans/journals/`). Do not commit drafts or temporary reports unless they are official documentation that belongs in `docs/`.
 
 ---
 
-## 4. Năm quy trình chuẩn hóa
+## 3. Rules for all workflows
 
-### Quy trình 1: Task dễ / nhanh (`trivial`, `low` risk, ≤ ~1 giờ, ít file)
-
-- **Chuỗi skill**: `ak-scout` *(nếu chưa rõ vị trí file)* → `ak-cook --fast --skip-journal` → `ak-test` → `ak-code-review --pending` *(nhẹ)*
-- **Cách chạy**:
-  1. Chốt nhanh 4 dòng: Outcome, Constraints, Non-goals, Acceptance criteria.
-  2. Triển khai tối giản, đúng phạm vi; giữ nguyên hành vi ngoài scope.
-  3. Chạy bộ test hẹp nhất bao phủ phần sửa; kiểm tra nhanh diff bằng `ak-code-review --pending`.
-  4. Mở PR, chờ CI + Devin Review pass (tự merge nếu repo do Bot sở hữu).
-
-### Quy trình 2: Task khó / nhiều phase / tính năng lớn (`epic`, `elevated`–`high` risk)
-
-*Ví dụ tiêu biểu: xây dựng plugin quản lý công việc kiểu `makeplane/plane` trên nền EzyPlatform.*
-
-- **Chuỗi skill**: `ak-brainstorm` *(kèm `ak-research` / `ak-xia` nếu đối chiếu repo mẫu)* → `ak-plan --hard` *(+ `ak-plan validate` / `ak-plan red-team`)* → **Chief of Staff chia ticket Devin Boards theo phase** → Mỗi phase: **Skill domain EzyPlatform** + `ak-cook <plan-path>` → `ak-test` → `ak-security` *(nếu đụng auth/API/DB/input)* → `ak-code-review` → PR + Devin Review → `ak-journal` *(khi có quyết định kiến trúc đáng lưu)*
-- **Cách chạy**:
-  1. Khóa Outcome, Constraints, Non-goals, Acceptance criteria; so sánh phương án (tối đa 3 phương án, nêu rõ giả định dễ gãy nhất). Nếu bài toán kiến trúc có rủi ro cao → dùng `ak-predict` hoặc `ak-plan red-team`, trình `chanht_tt` duyệt trước khi code.
-  2. `ak-plan` xuất kế hoạch theo phase (`plans/<ts>-<slug>/plan.md` và `phase-NN-<name>.md`), mỗi phase ghi rõ danh sách file sở hữu và tiêu chí kiểm chứng.
-  3. Chief of Staff giao từng phase thành ticket độc lập trên Devin Boards; chỉ chạy song song các phase không sửa chung file (dùng `ak-worktree` nếu cần tách nhánh trong 1 VM).
-  4. Mỗi phase phải qua kiểm thử thật (unit/integration + chạy kiểm tra Admin/Web trên Docker dev với plugin EzyPlatform) và qua Devin Review trước khi sang phase phụ thuộc.
-
-### Quy trình 3: Fix bug / sự cố CI (`fix-defect`)
-
-- **Chuỗi skill**: `ak-scout` → `ak-debug` → `ak-fix` → `ak-test` → `ak-security` *(nếu là lỗi bảo mật)* → `ak-code-review --pending`
-- **Cách chạy**:
-  1. Ghi rõ hiện tượng, kỳ vọng và cách tái hiện (lệnh/log/request cụ thể).
-  2. Chạy `ak-debug` để **chứng minh nguyên nhân gốc bằng log/test trước khi sửa** — không đoán mò.
-  3. Chạy `ak-fix`: viết hoặc bổ sung test tái hiện lỗi (đỏ → xanh), sửa đúng nguyên nhân gốc, không làm yếu test.
-  4. Chạy `ak-test` kiểm tra đúng lỗi và hồi quy lân cận. Nếu là lỗi bảo mật/auth/injection/secret → chạy thêm `ak-security`.
-  5. Báo cáo rõ: nguyên nhân gốc, thay đổi, bằng chứng trước/sau. Với sự cố lặp lại hoặc sau một đợt sửa lớn → dùng `ak-retro` để rút kinh nghiệm từ git history.
-
-### Quy trình 4: Review PR (`review-audit`)
-
-- **Chuỗi skill**: `ak-review-pr <PR>` *(cho PR GitHub)* hoặc `ak-code-review --pending` *(cho local diff/commit)*; thêm `ak-security` nếu PR chạm auth, thanh toán, input người dùng, secret hoặc dependency.
-- **Cách chạy**:
-  1. Đọc mô tả PR, ticket/issue, plan liên quan và lấy diff bằng `gh` / git tools.
-  2. Rà soát theo thứ tự ưu tiên: đúng nghiệp vụ/contract, bug & hồi quy, bảo mật (threat model: PR lưu/truyền/lộ gì), breaking change, kiểm thử và khả năng bảo trì.
-  3. Phân loại góp ý rõ ràng: **Blocker / Nên sửa / Gợi ý**, mỗi mục kèm `file:dòng`, bằng chứng và lý do.
-  4. Chạy test/build local nếu rủi ro cao hoặc chạm public contract.
-  5. Kết luận: **Approve / Request changes / Comment**. Mặc định chỉ đọc: **không** chạy `--fix`, `--reply` hay `--merge` nếu không được giao rõ trong ticket/lệnh.
-
-### Quy trình 5: Khám phá sản phẩm & Marketing / GTM (`discover-validate`, `plan-campaign`, `create-content`)
-
-Tận dụng 43 skill `marketing` + 40 skill `shared` khi chuẩn bị sản phẩm, định vị hoặc tài liệu ra mắt:
-
-- **Khám phá & kiểm chứng ý tưởng**: `ak-play create <name> --template product-discovery` (hoặc chuỗi `ak-marketing-research` → `ak-competitor` → `ak-brainstorm` → `ak-marketing-planning`).
-- **Nội dung, SEO & Ra mắt**: `ak-brand` → `ak-copywriting` / `ak-seo` / `ak-launch-strategy` / `ak-onboarding-cro` / `ak-pricing-strategy`.
-- **Cổng an toàn**: Mọi bước publish ra ngoài (mạng xã hội, email hàng loạt, chạy ads trả phí) là **high risk** → mặc định dừng ở bản nháp / dry-run và cần `chanht_tt` duyệt.
+1. **LOCAL / DEV only by default:** Any work touching **production**, deleting databases or volumes (`docker compose down -v`), editing real `.env` files or secrets, or sending or publishing at scale requires **separate approval from `chanht_tt`**.
+2. **One writer at a time:** Only one session may write to a branch or repository at a time; other sessions read, research, or review. Split parallel tickets along non-overlapping file boundaries.
+3. **Security and backups:** Create a backup or restore point before publishing or migrating data. Never write or expose tokens, API keys, or passwords in logs, reports, PRs, or chat. If a secret leaks, redact it as `<REDACTED_...>` and request immediate rotation.
+4. **Proportionality Gate (from `ak-agentkit`):** Classify the work using **three criteria** before choosing a workflow:
+   - **Size:** `trivial` (one or two files, at most 30 minutes, no unknowns → proceed without a plan) · `standard` (one deliverable, a few files) · `epic` (multiple modules or phases → use `ak-plan` and split file ownership).
+   - **Risk:** `low` (internal and reversible) · `elevated` (affects users or multiple modules → requires `ak-test` and review) · `high` (auth, security, payments, database migrations, public contracts, destructive actions, or wide publication → requires `ak-test`, `ak-security`, independent review or Devin Review, and approval from `chanht_tt` before any irreversible step).
+   - **Collapse Rule:** Skip any intermediate step that neither produces an artifact for a later step nor contributes to the level of verification required by the risk.
+5. **Iron Laws:**
+   - Start every multistep task with a **Brainstorm Contract** covering four items: *Outcome, Constraints, Non-goals, and Acceptance criteria* (three or four lines for small tasks, full detail for large ones).
+   - **Do not fix a bug until you demonstrate its root cause** (`ak-debug` before `ak-fix`). After three consecutive failed fixes, stop, reassess the architecture, and report to Chief of Staff or `chanht_tt`.
+   - **Do not report completion without evidence from an actual run on the final revision** (test, build, HTTP/Docker output, or a hands-on check). Never weaken tests or assertions to obtain a pass.
 
 ---
 
-## 5. Khung báo cáo kết thúc chuẩn
+## 4. Five standard workflows
 
-Mọi Devin session khi bàn giao cho Chief of Staff hoặc `chanht_tt` đều giữ gọn, bám 4 phần:
+### Workflow 1: Quick or simple tasks (`trivial`, `low` risk, up to about one hour, few files)
 
-- **Status**: `DONE` | `DONE_WITH_CONCERNS` | `BLOCKED`
-- **Kết quả & link**: PR/commit/file đã tạo hoặc cập nhật.
-- **Bằng chứng chạy thật**: lệnh kiểm thử/build/kiểm tra thực tế và kết quả trên revision cuối.
-- **Chưa kiểm chứng / Tồn đọng**: nêu thẳng phần chưa test được hoặc bước tiếp theo (nếu có).
+- **Skill sequence:** `ak-scout` *(if the file locations are unclear)* → `ak-cook --fast --skip-journal` → `ak-test` → `ak-code-review --pending` *(lightweight)*
+- **Steps:**
+  1. Write four short lines covering Outcome, Constraints, Non-goals, and Acceptance criteria.
+  2. Make the smallest change that meets the scope. Preserve out-of-scope behavior.
+  3. Run the narrowest test suite that covers the change. Review the diff with `ak-code-review --pending`.
+  4. Open a PR and wait for CI and Devin Review to pass. Merge it yourself if the bot owns the repository.
+
+### Workflow 2: Complex, multiphase, or large features (`epic`, `elevated`–`high` risk)
+
+*Example: Building a `makeplane/plane`-style task management plugin on EzyPlatform.*
+
+- **Skill sequence:** `ak-brainstorm` *(with `ak-research` or `ak-xia` when comparing a reference repository)* → `ak-plan --hard` *(plus `ak-plan validate` or `ak-plan red-team`)* → **Chief of Staff splits phases into Devin Boards tickets** → For each phase: **EzyPlatform domain skill** and `ak-cook <plan-path>` → `ak-test` → `ak-security` *(if touching auth, APIs, databases, or input)* → `ak-code-review` → PR and Devin Review → `ak-journal` *(when an architectural decision is worth recording)*
+- **Steps:**
+  1. Agree on Outcome, Constraints, Non-goals, and Acceptance criteria. Compare up to three options and name the weakest assumption. For high-risk architecture, use `ak-predict` or `ak-plan red-team` and seek approval from `chanht_tt` before coding.
+  2. Use `ak-plan` to produce a phased plan (`plans/<ts>-<slug>/plan.md` and `phase-NN-<name>.md`). State which files and acceptance checks belong to each phase.
+  3. Chief of Staff assigns each phase as an independent Devin Boards ticket. Run phases in parallel only if they do not edit the same files; use `ak-worktree` when branches need to be isolated on one VM.
+  4. Each phase must pass actual tests (unit or integration tests and Admin/Web checks in the Docker development stack for EzyPlatform plugins) and Devin Review before dependent phases proceed.
+
+### Workflow 3: Bug fixes and CI incidents (`fix-defect`)
+
+- **Skill sequence:** `ak-scout` → `ak-debug` → `ak-fix` → `ak-test` → `ak-security` *(for security defects)* → `ak-code-review --pending`
+- **Steps:**
+  1. Record the symptoms, expected behavior, and reproduction steps (specific commands, logs, or requests).
+  2. Use `ak-debug` to **demonstrate the root cause with logs or tests before fixing it**. Do not guess.
+  3. Use `ak-fix`: add or extend a reproduction test (red to green), fix the root cause, and do not weaken tests.
+  4. Use `ak-test` to check the defect and nearby regressions. For security, auth, injection, or secret issues, also use `ak-security`.
+  5. Report the root cause, changes, and before/after evidence. For a recurring incident or a large set of fixes, use `ak-retro` to learn from Git history.
+
+### Workflow 4: PR review (`review-audit`)
+
+- **Skill sequence:** `ak-review-pr <PR>` *(for GitHub PRs)* or `ak-code-review --pending` *(for a local diff or commit)*. Add `ak-security` if the PR touches auth, payments, user input, secrets, or dependencies.
+- **Steps:**
+  1. Read the PR description, ticket or issue, and related plan. Fetch the diff with `gh` or Git tools.
+  2. Review in priority order: correctness and contracts, bugs and regressions, security (what does the PR store, transmit, or expose?), breaking changes, testing, and maintainability.
+  3. Classify feedback as **Blocker / Should fix / Suggestion**. Include `file:line`, evidence, and reasoning for each finding.
+  4. Run local tests or builds for high-risk changes or changes to public contracts.
+  5. Conclude with **Approve / Request changes / Comment**. Reviews are read-only by default: do **not** use `--fix`, `--reply`, or `--merge` unless explicitly assigned in the ticket or command.
+
+### Workflow 5: Product discovery, marketing, and go-to-market (`discover-validate`, `plan-campaign`, `create-content`)
+
+Use the 43 `marketing` skills and 40 `shared` skills when preparing a product, positioning, or launch materials:
+
+- **Discover and validate ideas:** `ak-play create <name> --template product-discovery` (or `ak-marketing-research` → `ak-competitor` → `ak-brainstorm` → `ak-marketing-planning`).
+- **Content, SEO, and launch:** `ak-brand` → `ak-copywriting` / `ak-seo` / `ak-launch-strategy` / `ak-onboarding-cro` / `ak-pricing-strategy`.
+- **Safety gate:** External publishing (social media, bulk email, paid ads) is **high risk**. Stop at a draft or dry run by default and obtain approval from `chanht_tt`.
 
 ---
 
-## 6. Ghép skill AgentKit + EzyPlatform cho dự án sắp tới (Plugin quản lý công việc kiểu Plane)
+## 5. Standard closeout report
 
-Khi bắt đầu dự án plugin quản lý công việc trên core EzyPlatform (tham khảo `makeplane/plane`), các session kết hợp đúng skill sở hữu của cả hai bộ thay vì dùng một bộ đơn lẻ:
+Each Devin session hands off to Chief of Staff or `chanht_tt` with a short report containing four items:
 
-| Giai đoạn / Hạng mục | Skill EzyPlatform | Skill AgentKit |
+- **Status:** `DONE` | `DONE_WITH_CONCERNS` | `BLOCKED`
+- **Outcome and links:** PRs, commits, or files created or updated.
+- **Evidence from actual runs:** Test, build, or hands-on verification commands and their results on the final revision.
+- **Unverified or outstanding:** Clearly state anything that could not be tested or any next step.
+
+---
+
+## 6. Combining AgentKit and EzyPlatform skills for the upcoming Plane-style task management plugin
+
+When starting a task management plugin on EzyPlatform Core (using `makeplane/plane` as a reference), combine the relevant skills from both kits:
+
+| Phase or area | EzyPlatform skills | AgentKit skills |
 |---|---|---|
-| Nghiên cứu & đối chiếu `makeplane/plane` | `docs/research/plane-plugin-design-notes.md`, `docs/plugins/` | `ak-research`, `ak-xia`, `ak-brainstorm`, `ak-predict` |
-| Thiết kế kiến trúc & chia phase | `ezy-guide`, `docs/research/ezyplatform-deep-research.md` | `ak-plan --hard`, `ak-plan red-team`, `ak-databases` |
-| Xây dựng plugin Java & build/deploy dev | `skills/ezy-build-plugin/SKILL.md`, `ezy-develop`, `ezyplatform-develop` | `ak-cook`, `ak-debug`, `ak-fix`, `ak-worktree` |
-| UI/UX Admin & Web + i18n/Media | `ezy-i18n`, `ezy-media`, `ezy-sync` | `ak-frontend-design`, `ak-ui-ux-pro-max`, `ak-enhance-ux-ax` |
-| Kiểm thử, Edge cases & Bảo mật | Docker dev (`./scripts/up.sh`), Admin/Web smoke check | `ak-scenario`, `ak-test`, `ak-web-testing`, `ak-security` |
-| Review, Tài liệu & Ra mắt | `AGENTS.md`, `README.md` | `ak-review-pr`, `ak-code-review`, `ak-docs`, `ak-launch-strategy` |
+| Research and comparison with `makeplane/plane` | `docs/research/plane-plugin-design-notes.md`, `docs/plugins/` | `ak-research`, `ak-xia`, `ak-brainstorm`, `ak-predict` |
+| Architecture and phase planning | `ezy-guide`, `docs/research/ezyplatform-deep-research.md` | `ak-plan --hard`, `ak-plan red-team`, `ak-databases` |
+| Java plugin development and development builds or deployments | `skills/ezy-build-plugin/SKILL.md`, `ezy-develop`, `ezyplatform-develop` | `ak-cook`, `ak-debug`, `ak-fix`, `ak-worktree` |
+| Admin and Web UI/UX, i18n, and media | `ezy-i18n`, `ezy-media`, `ezy-sync` | `ak-frontend-design`, `ak-ui-ux-pro-max`, `ak-enhance-ux-ax` |
+| Testing, edge cases, and security | Docker development stack (`./scripts/up.sh`), Admin/Web smoke check | `ak-scenario`, `ak-test`, `ak-web-testing`, `ak-security` |
+| Review, documentation, and launch | `AGENTS.md`, `README.md` | `ak-review-pr`, `ak-code-review`, `ak-docs`, `ak-launch-strategy` |

@@ -1,23 +1,23 @@
 # ezyvector
 
-Collection và quản trị dữ liệu vector.
+Vector collections and data management.
 
-- **Bản Marketplace trên core 1.5.9:** `0.0.5`.
-- **Module đã xác minh:** `admin-plugin`, `web-plugin`.
-- **Cài đặt:** Đạt. Xem môi trường và các giới hạn chung trong [báo cáo kiểm thử](test-report.md).
+- **Marketplace version on core 1.5.9:** `0.0.5`.
+- **Verified modules:** `admin-plugin`, `web-plugin`.
+- **Installation:** Passed. See the environment and general limitations in the [test report](test-report.md).
 
-## Bản đồ module
+## Module map
 
-| Lane / thư mục | Package khai báo | Phụ thuộc runtime khai báo |
+| Lane / directory | Declared package | Declared runtime dependencies |
 |---|---|---|
-| `admin-plugin` — `admin/plugins/ezyvector` | `org.youngmonkeys.ezyvector` | Không khai báo |
-| `web-plugin` — `web/plugins/ezyvector` | `org.youngmonkeys.ezyvector` | Không khai báo |
+| `admin-plugin` — `admin/plugins/ezyvector` | `org.youngmonkeys.ezyvector` | Not declared |
+| `web-plugin` — `web/plugins/ezyvector` | `org.youngmonkeys.ezyvector` | Not declared |
 
-## HTTP, UI và tài nguyên
+## HTTP, UI, and resources
 
-Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố khi mount module và quyền truy cập có thể khác giữa các lane; các URL đã gọi thật nằm ở mục kiểm thử.
+The paths below come from annotations in the JAR. Mount prefixes and access permissions may differ by lane; the URLs that were actually called are listed in the testing section.
 
-**admin-plugin** — 7 tổ hợp phương thức/URI đọc được; mẫu đại diện:
+**admin-plugin** — 7 method/URI combinations identified; representative sample:
 
 | Annotation HTTP | Class |
 |---|---|
@@ -29,7 +29,7 @@ Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố
 | `GET /api/v1/vector-collections/{collectionId}/segments` | `AdminApiVectorCollectionController` |
 | `PUT /api/v1/settings/collections` | `AdminApiEzyVectorSettingController` |
 
-**web-plugin** — 5 tổ hợp phương thức/URI đọc được; mẫu đại diện:
+**web-plugin** — 5 method/URI combinations identified; representative sample:
 
 | Annotation HTTP | Class |
 |---|---|
@@ -39,38 +39,38 @@ Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố
 | `PUT /ezyvector/collections/{collectionName}` | `WebApiEzyVectorCollectionController` |
 | `PUT /ezyvector/collections/{collectionName}/points` | `WebApiEzyVectorCollectionController` |
 
-- **admin-plugin – Menu (khóa cuối và path trong menus.properties):** `ezyvector: /`, `vector_collections: /vector-collections`, `vector_collections_details: ~/vector-collections/{id}`, `settings: /settings`.
+- **admin-plugin – Menus (final keys and paths in menus.properties):** `ezyvector: /`, `vector_collections: /vector-collections`, `vector_collections_details: ~/vector-collections/{id}`, `settings: /settings`.
 
 - **admin-plugin – Template:** `ezyvector/collection/collection-list.html`, `ezyvector/collection/collection-point-list.html`, `ezyvector/collection/collection-segment-list.html`, `ezyvector/collection/details.html`, `ezyvector/collection/list.html`, `ezyvector/collection/scripts.html`, `ezyvector/setting/index.html`.
 
-## Dữ liệu và migration
+## Data and migrations
 
-- **Bảng trong DDL đóng gói (3):** `ezyvector_collection_points`, `ezyvector_collection_segments`, `ezyvector_collections`.
-- **Class có chỉ dấu JPA Entity/MappedSuperclass (3):** `EzyVectorCollection`, `EzyVectorCollectionPoint`, `EzyVectorCollectionSegment`.
-- **SQL admin-plugin (1 tệp):** `resources/scripts/scripts.sql`.
+- **Table in the DDL package (3):** `ezyvector_collection_points`, `ezyvector_collection_segments`, `ezyvector_collections`.
+- **Class with JPA Entity/MappedSuperclass (3):** `EzyVectorCollection`, `EzyVectorCollectionPoint`, `EzyVectorCollectionSegment`.
+- **SQL admin-plugin (1 file):** `resources/scripts/scripts.sql`.
 
-## JAR, cấu hình và điểm mở rộng
+## JARs, configuration, and extension points
 
 ### admin-plugin
 
-- **JAR kiểm tra:** `ezyvector-admin-plugin-0.0.5.jar`, `ezyvector-sdk-0.0.5.jar`; 83 class cấp cao nhất sau khi bỏ trùng theo tên package/class trong lane. SDK có thể lặp giữa các lane.
-- **Package nổi bật:** `org.youngmonkeys.ezyvector.pagination`, `org.youngmonkeys.ezyvector.entity`, `org.youngmonkeys.ezyvector.admin.repo` (+17).
-- **Controller/service/repository (mẫu):** `AdminApiEzyVectorSettingController`, `AdminApiVectorCollectionController`, `AdminEzyVectorCollectionControllerService`, `AdminEzyVectorSettingController`, `AdminEzyVectorCollectionControllerService`, `AdminEzyVectorCollectionPointRepository`, `AdminEzyVectorCollectionRepository`, `AdminEzyVectorCollectionSegmentRepository`, `AdminEzyVectorCollectionService`.
+- **JARs inspected:** `ezyvector-admin-plugin-0.0.5.jar`, `ezyvector-sdk-0.0.5.jar`; 83 top-level classes after deduplicating by package and class name within the lane. The SDK can appear in multiple lanes.
+- **Notable packages:** `org.youngmonkeys.ezyvector.pagination`, `org.youngmonkeys.ezyvector.entity`, `org.youngmonkeys.ezyvector.admin.repo` (+17).
+- **Controllers, services, and repositories (sample):** `AdminApiEzyVectorSettingController`, `AdminApiVectorCollectionController`, `AdminEzyVectorCollectionControllerService`, `AdminEzyVectorSettingController`, `AdminEzyVectorCollectionControllerService`, `AdminEzyVectorCollectionPointRepository`, `AdminEzyVectorCollectionRepository`, `AdminEzyVectorCollectionSegmentRepository`, `AdminEzyVectorCollectionService`.
 
 ### web-plugin
 
-- **JAR kiểm tra:** `ezyvector-sdk-0.0.5.jar`, `ezyvector-web-plugin-0.0.5.jar`; 93 class cấp cao nhất sau khi bỏ trùng theo tên package/class trong lane. SDK có thể lặp giữa các lane.
-- **Package nổi bật:** `org.youngmonkeys.ezyvector.pagination`, `org.youngmonkeys.ezyvector.entity`, `org.youngmonkeys.ezyvector.repo` (+17).
-- **Controller/service/repository (mẫu):** `WebApiEzyVectorCollectionController`, `WebEzyVectorCollectionControllerService`, `WebEzyVectorPointsControllerService`, `WebEzyVectorSearchControllerService`, `EzyVectorCollectionPointRepository`, `EzyVectorCollectionRepository`, `EzyVectorCollectionSegmentRepository`, `EzyVectorCollectionService`, `EzyVectorService`.
+- **JARs inspected:** `ezyvector-sdk-0.0.5.jar`, `ezyvector-web-plugin-0.0.5.jar`; 93 top-level classes after deduplicating by package and class name within the lane. The SDK can appear in multiple lanes.
+- **Notable packages:** `org.youngmonkeys.ezyvector.pagination`, `org.youngmonkeys.ezyvector.entity`, `org.youngmonkeys.ezyvector.repo` (+17).
+- **Controllers, services, and repositories (sample):** `WebApiEzyVectorCollectionController`, `WebEzyVectorCollectionControllerService`, `WebEzyVectorPointsControllerService`, `WebEzyVectorSearchControllerService`, `EzyVectorCollectionPointRepository`, `EzyVectorCollectionRepository`, `EzyVectorCollectionSegmentRepository`, `EzyVectorCollectionService`, `EzyVectorService`.
 
-Class và resource xác nhận có cấu trúc mở rộng trong bản đóng gói, không cam kết API ổn định hoặc handler đã chạy qua mọi nhánh.
+Classes and resources show that extension points are packaged; they do not establish API stability or confirm that every handler path has run.
 
-## Quan sát trên sandbox
+## Sandbox observations
 
-Admin `/ezyvector/vector-collections` → 200; chưa nạp bộ dữ liệu/đo truy vấn vector.
+Admin `/ezyvector/vector-collections` returned 200. No dataset was loaded and no vector queries were benchmarked.
 
-## Lưu ý khi tích hợp
+## Integration notes
 
-Chỉ thêm vector khi có nhu cầu đã đo được; kiểm chất lượng kết quả và phạm vi truy cập của dữ liệu riêng tư.
+Add vector search only when measurements show a need. Verify result quality and access scope for private data.
 
-[Về chỉ mục plugin](README.md)
+[Back to the plugin index](README.md)

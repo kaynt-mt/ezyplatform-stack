@@ -1,24 +1,24 @@
 # ezyarticle
 
-Bài viết, trang nội dung, taxonomy và xuất bản.
+Articles, content pages, taxonomy, and publishing.
 
-- **Bản Marketplace trên core 1.5.9:** `1.5.6`.
-- **Module đã xác minh:** `admin-plugin`, `web-plugin`, `socket-plugin`.
-- **Cài đặt:** Có sẵn. Xem môi trường và các giới hạn chung trong [báo cáo kiểm thử](test-report.md).
+- **Marketplace version on core 1.5.9:** `1.5.6`.
+- **Verified modules:** `admin-plugin`, `web-plugin`, `socket-plugin`.
+- **Installation:** View the environment and the general limits in [test report](test-report.md).
 
-## Bản đồ module
+## Module map
 
-| Lane / thư mục | Package khai báo | Phụ thuộc runtime khai báo |
+| Lane / directory | Declared package | Declared runtime dependencies |
 |---|---|---|
-| `admin-plugin` — `admin/plugins/ezyarticle` | `org.youngmonkeys.ezyarticle` | Không khai báo |
-| `web-plugin` — `web/plugins/ezyarticle` | `org.youngmonkeys.ezyarticle` | Không khai báo |
-| `socket-plugin` — `socket/plugins/ezyarticle` | `org.youngmonkeys.ezyarticle.socket.plugin` | Không khai báo |
+| `admin-plugin` — `admin/plugins/ezyarticle` | `org.youngmonkeys.ezyarticle` | Not declared |
+| `web-plugin` — `web/plugins/ezyarticle` | `org.youngmonkeys.ezyarticle` | Not declared |
+| `socket-plugin` — `socket/plugins/ezyarticle` | `org.youngmonkeys.ezyarticle.socket.plugin` | Not declared |
 
-## HTTP, UI và tài nguyên
+## HTTP, UI, and resources
 
-Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố khi mount module và quyền truy cập có thể khác giữa các lane; các URL đã gọi thật nằm ở mục kiểm thử.
+The paths below come from annotations in the JAR. Mount prefixes and access permissions may differ by lane; the URLs that were actually called are listed in the testing section.
 
-**admin-plugin** — 162 tổ hợp phương thức/URI đọc được; mẫu đại diện:
+**admin-plugin** — 162 method/URI combinations identified; representative sample:
 
 | Annotation HTTP | Class |
 |---|---|
@@ -42,7 +42,7 @@ Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố
 | `DELETE /api/v1/terms` | `ApiTermController` |
 | `DELETE /api/v1/comments` | `ApiCommentController` |
 
-**web-plugin** — 41 tổ hợp phương thức/URI đọc được; mẫu đại diện:
+**web-plugin** — 41 method/URI combinations identified; representative sample:
 
 | Annotation HTTP | Class |
 |---|---|
@@ -60,66 +60,66 @@ Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố
 | `DELETE /posts/{id}/schedule` | `ApiPostScheduleController` |
 | `DELETE /posts/{postId}/comments/{commentId}` | `ApiCommentController` |
 
-- **admin-plugin – Menu (khóa cuối và path trong menus.properties):** `posts: /post-menus`, `list: /posts`, `create: /posts/create`, `trash: /posts/trash`, `post_details: ~/posts/{id}`, `edit_post: ~/posts/{id}/edit` (+20).
+- **admin-plugin – Menus (final keys and paths in menus.properties):** `posts: /post-menus`, `list: /posts`, `create: /posts/create`, `trash: /posts/trash`, `post_details: ~/posts/{id}`, `edit_post: ~/posts/{id}/edit` (+20).
 
 - **admin-plugin – Template:** `ezyarticle/comments/edit.html`, `ezyarticle/comments/list.html`, `ezyarticle/comments/scripts.html`, `ezyarticle/fragments/add-user-author-modal.html`, `ezyarticle/fragments/data-mappings-from.html`, `ezyarticle/fragments/data-mappings-to.html`, `ezyarticle/fragments/data-mappings.html` (+46).
 
-- **admin-plugin – Tài nguyên tĩnh:** `ezyarticle/css/right-toolbar-comment.css`, `ezyarticle/css/right-toolbar-tag.css`, `ezyarticle/css/style.css`, `ezyarticle/editorjs/editorjs.js` (+170).
+- **admin-plugin – Static resources:** `ezyarticle/css/right-toolbar-comment.css`, `ezyarticle/css/right-toolbar-tag.css`, `ezyarticle/css/style.css`, `ezyarticle/editorjs/editorjs.js` (+170).
 
-- **admin-plugin – Tài nguyên cấu hình/mẫu:** `ezyarticle/letter-templates/ezyarticle_entity_discussion_mention.properties`, `ezyarticle/notification-templates/ezyarticle_entity_discussion_mention.properties`.
+- **admin-plugin – Configuration and template resources:** `ezyarticle/letter-templates/ezyarticle_entity_discussion_mention.properties`, `ezyarticle/notification-templates/ezyarticle_entity_discussion_mention.properties`.
 
 - **web-plugin – Template:** `ezyarticle/comment-preview.html`, `ezyarticle/ezyarticle-template.html`, `ezyarticle/image-modal.html`, `ezyarticle/page-preview.html`, `ezyarticle/personalized-feed.html`, `ezyarticle/post-authentication.html`, `ezyarticle/post-preview.html` (+1).
 
-- **web-plugin – Tài nguyên tĩnh:** `ezyarticle/css/editorjs.css`, `ezyarticle/css/style.css`, `ezyarticle/editorjs/editorjs.js`, `ezyarticle/editorjs/i18n.js` (+156).
+- **web-plugin – Static resources:** `ezyarticle/css/editorjs.css`, `ezyarticle/css/style.css`, `ezyarticle/editorjs/editorjs.js`, `ezyarticle/editorjs/i18n.js` (+156).
 
-## Dữ liệu và migration
+## Data and migrations
 
-- **Bảng trong DDL đóng gói (14):** `ezyarticle_comments`, `ezyarticle_menu_items`, `ezyarticle_menus`, `ezyarticle_personalized_contents`, `ezyarticle_personalized_feeds`, `ezyarticle_post_histories`, `ezyarticle_post_medias`, `ezyarticle_post_meta`, `ezyarticle_post_schedules`, `ezyarticle_post_terms`, `ezyarticle_posts`, `ezyarticle_posts_i18n`, `ezyarticle_term_medias`, `ezyarticle_terms`.
-- **Class có chỉ dấu JPA Entity/MappedSuperclass (14):** `Comment`, `Menu`, `MenuItem`, `PersonalizedContent`, `PersonalizedFeed`, `Post`, `PostHistory`, `PostI18n`, `PostMedia`, `PostMeta`, `PostSchedule`, `PostTerm`, `Term`, `TermMedia`.
-- **SQL admin-plugin (43 tệp):** `resources/scripts/item_media.sql`, `resources/scripts/personalized_content.sql`, `resources/scripts/post_schedule.sql`, `resources/scripts/scripts.sql`, `resources/scripts/alter_comment_add_content_type.sql`, `resources/scripts/alter_comment_content.sql`, `resources/scripts/alter_display_order_type.sql` (+36).
+- **Table in the DDL packaging (14):** `ezyarticle_comments`, `ezyarticle_menu_items`, `ezyarticle_menus`, `ezyarticle_personalized_contents`, `ezyarticle_personalized_feeds`, `ezyarticle_post_histories`, `ezyarticle_post_medias`, `ezyarticle_post_meta`, `ezyarticle_post_schedules`, `ezyarticle_post_terms`, `ezyarticle_posts`, `ezyarticle_posts_i18n`, `ezyarticle_term_medias`, `ezyarticle_terms`.
+- **Class with JPA Entity/MappedSuperclass):** `Comment`, `Menu`, `MenuItem`, `PersonalizedContent`, `PersonalizedFeed`, `Post`, `PostHistory`, `PostI18n`, `PostMedia`, `PostMeta`, `PostSchedule`, `PostTerm`, `Term`, `TermMedia`.
+- **SQL admin-plugin (43 files):** `resources/scripts/item_media.sql`, `resources/scripts/personalized_content.sql`, `resources/scripts/post_schedule.sql`, `resources/scripts/scripts.sql`, `resources/scripts/alter_comment_add_content_type.sql`, `resources/scripts/alter_comment_content.sql`, `resources/scripts/alter_display_order_type.sql` (+36).
 
-## JAR, cấu hình và điểm mở rộng
+## JARs, configuration, and extension points
 
 ### admin-plugin
 
-- **JAR kiểm tra:** `ezyarticle-admin-plugin-1.5.6.jar`, `ezyarticle-sdk-1.5.6.jar`; 685 class cấp cao nhất sau khi bỏ trùng theo tên package/class trong lane. SDK có thể lặp giữa các lane.
-- **Package nổi bật:** `org.youngmonkeys.ezyarticle.sdk.pagination`, `org.youngmonkeys.ezyarticle.sdk.model`, `org.youngmonkeys.ezyarticle.admin.service` (+46).
-- **JAR thư viện khác:** `jsoup-1.18.3.jar`.
-- **Controller/service/repository (mẫu):** `AdminApiEzyArticleDataMappingController`, `AdminApiEzyArticleDataMetaController`, `AdminCommentControllerService`, `AdminDataMetaControllerService`, `AbstractPostService`, `AdminCheckPostExistsByIdEventSchemaFetcher`, `AdminCommentControllerService`, `AdminCommentRepository`, `AdminCommentService`.
-- **Class cấu hình/quyền (mẫu):** `AdminEzyArticleMenuPostConfig`, `AdminEzyArticleMessageTemplateConfig`, `AdminEzyArticlePageFragmentConfig`, `AdminEzyArticleSettingPostConfig`, `AdminEzyArticleViewMetadataConfig`, `EzyArticlePageFragmentConfig`.
-- **Khóa cấu hình/mẫu từ resource (không trích giá trị):** `content`, `title`.
-- **Điểm mở rộng tiềm năng theo tên class:** `AdminAbstractPostPersonalizedContentCandidateProvider`, `AdminCheckPostExistsByIdEventHandler`, `AdminCommentEditorManager`, `AdminCommentFilterFactory`, `AdminCommentStatusManager`, `AdminCommentTypeManager`, `AdminEditablePostMetadataManager`, `AdminEditorManager`, `AdminEditorPickPostPersonalizedContentCandidateProvider` (+48).
+- **JARs inspected:** `ezyarticle-admin-plugin-1.5.6.jar`, `ezyarticle-sdk-1.5.6.jar`; 685 top-level classes after deduplicating by package and class name within the lane. The SDK can appear in multiple lanes.
+- **Notable packages:** `org.youngmonkeys.ezyarticle.sdk.pagination`, `org.youngmonkeys.ezyarticle.sdk.model`, `org.youngmonkeys.ezyarticle.admin.service` (+46).
+- **Other library JARs:** `jsoup-1.18.3.jar`.
+- **Controllers, services, and repositories (sample):** `AdminApiEzyArticleDataMappingController`, `AdminApiEzyArticleDataMetaController`, `AdminCommentControllerService`, `AdminDataMetaControllerService`, `AbstractPostService`, `AdminCheckPostExistsByIdEventSchemaFetcher`, `AdminCommentControllerService`, `AdminCommentRepository`, `AdminCommentService`.
+- **Configuration and permission classes (sample):** `AdminEzyArticleMenuPostConfig`, `AdminEzyArticleMessageTemplateConfig`, `AdminEzyArticlePageFragmentConfig`, `AdminEzyArticleSettingPostConfig`, `AdminEzyArticleViewMetadataConfig`, `EzyArticlePageFragmentConfig`.
+- **Configuration and template keys from resources (values omitted):** `content`, `title`.
+- **Potential extension points based on class names:** `AdminAbstractPostPersonalizedContentCandidateProvider`, `AdminCheckPostExistsByIdEventHandler`, `AdminCommentEditorManager`, `AdminCommentFilterFactory`, `AdminCommentStatusManager`, `AdminCommentTypeManager`, `AdminEditablePostMetadataManager`, `AdminEditorManager`, `AdminEditorPickPostPersonalizedContentCandidateProvider` (+48).
 
 ### web-plugin
 
-- **JAR kiểm tra:** `ezyarticle-sdk-1.5.6.jar`, `ezyarticle-web-plugin-1.5.6.jar`; 605 class cấp cao nhất sau khi bỏ trùng theo tên package/class trong lane. SDK có thể lặp giữa các lane.
-- **Package nổi bật:** `org.youngmonkeys.ezyarticle.sdk.pagination`, `org.youngmonkeys.ezyarticle.web.event`, `org.youngmonkeys.ezyarticle.sdk.model` (+41).
-- **JAR thư viện khác:** `jsoup-1.18.3.jar`.
-- **Controller/service/repository (mẫu):** `AnswerControllerService`, `ApCommonAuthenticationController`, `ApiAuthenticationController`, `ApiBlogController`, `AbstractPostService`, `AnswerControllerService`, `AnswerService`, `AnswerValidator`, `CheckPostExistsByIdEventSchemaFetcher`.
-- **Class cấu hình/quyền (mẫu):** `EzyArticlePageFragmentConfig`, `WebEzyArticlePageFragmentConfig`.
-- **Điểm mở rộng tiềm năng theo tên class:** `CheckPostExistsByIdEventHandler`, `CommentFilterFactory`, `EzyArticleExceptionHandler`, `EzyArticleFunctionEventHandler`, `EzyBlockTagReplaceAttributeProcessor`, `EzyBlockTagUtextAttributeProcessor`, `EzyViewDataFetcherFunctionsFactory`, `GetPageFragmentMapEventHandler`, `GetPostByIdEventHandler` (+48).
+- **JARs inspected:** `ezyarticle-sdk-1.5.6.jar`, `ezyarticle-web-plugin-1.5.6.jar`; 605 top-level classes after deduplicating by package and class name within the lane. The SDK can appear in multiple lanes.
+- **Notable packages:** `org.youngmonkeys.ezyarticle.sdk.pagination`, `org.youngmonkeys.ezyarticle.web.event`, `org.youngmonkeys.ezyarticle.sdk.model` (+41).
+- **Other library JARs:** `jsoup-1.18.3.jar`.
+- **Controllers, services, and repositories (sample):** `AnswerControllerService`, `ApCommonAuthenticationController`, `ApiAuthenticationController`, `ApiBlogController`, `AbstractPostService`, `AnswerControllerService`, `AnswerService`, `AnswerValidator`, `CheckPostExistsByIdEventSchemaFetcher`.
+- **Configuration and permission classes (sample):** `EzyArticlePageFragmentConfig`, `WebEzyArticlePageFragmentConfig`.
+- **Potential extension points based on class names:** `CheckPostExistsByIdEventHandler`, `CommentFilterFactory`, `EzyArticleExceptionHandler`, `EzyArticleFunctionEventHandler`, `EzyBlockTagReplaceAttributeProcessor`, `EzyBlockTagUtextAttributeProcessor`, `EzyViewDataFetcherFunctionsFactory`, `GetPageFragmentMapEventHandler`, `GetPostByIdEventHandler` (+48).
 
 ### socket-plugin
 
-- **JAR kiểm tra:** `ezyarticle-sdk-1.5.6.jar`, `ezyarticle-socket-plugin-1.5.6.jar`; 360 class cấp cao nhất sau khi bỏ trùng theo tên package/class trong lane. SDK có thể lặp giữa các lane.
-- **Package nổi bật:** `org.youngmonkeys.ezyarticle.sdk.pagination`, `org.youngmonkeys.ezyarticle.sdk.model`, `org.youngmonkeys.ezyarticle.sdk.service` (+23).
-- **JAR thư viện khác:** `jsoup-1.18.3.jar`.
-- **Controller/service/repository (mẫu):** `AnswerControllerService`, `ApCommonAuthenticationController`, `ExtractUrlControllerService`, `MenuControllerService`, `AbstractPostService`, `AnswerControllerService`, `AnswerService`, `AnswerValidator`, `CheckPostExistsByIdEventSchemaFetcher`.
-- **Class cấu hình/quyền (mẫu):** `EzyArticlePageFragmentConfig`.
-- **Điểm mở rộng tiềm năng theo tên class:** `CheckPostExistsByIdEventHandler`, `CommentFilterFactory`, `EzyArticleExceptionHandler`, `EzyArticleFunctionEventHandler`, `EzyBlockTagReplaceAttributeProcessor`, `EzyBlockTagUtextAttributeProcessor`, `EzyViewDataFetcherFunctionsFactory`, `GetPageFragmentMapEventHandler`, `GetPostByIdEventHandler` (+11).
+- **JARs inspected:** `ezyarticle-sdk-1.5.6.jar`, `ezyarticle-socket-plugin-1.5.6.jar`; 360 top-level classes after deduplicating by package and class name within the lane. The SDK can appear in multiple lanes.
+- **Notable packages:** `org.youngmonkeys.ezyarticle.sdk.pagination`, `org.youngmonkeys.ezyarticle.sdk.model`, `org.youngmonkeys.ezyarticle.sdk.service` (+23).
+- **Other library JARs:** `jsoup-1.18.3.jar`.
+- **Controllers, services, and repositories (sample):** `AnswerControllerService`, `ApCommonAuthenticationController`, `ExtractUrlControllerService`, `MenuControllerService`, `AbstractPostService`, `AnswerControllerService`, `AnswerService`, `AnswerValidator`, `CheckPostExistsByIdEventSchemaFetcher`.
+- **Configuration and permission classes (sample):** `EzyArticlePageFragmentConfig`.
+- **Potential extension points based on class names:** `CheckPostExistsByIdEventHandler`, `CommentFilterFactory`, `EzyArticleExceptionHandler`, `EzyArticleFunctionEventHandler`, `EzyBlockTagReplaceAttributeProcessor`, `EzyBlockTagUtextAttributeProcessor`, `EzyViewDataFetcherFunctionsFactory`, `GetPageFragmentMapEventHandler`, `GetPostByIdEventHandler` (+11).
 - **Zone / entry loader:** `chat` / `org.youngmonkeys.ezyarticle.socket.plugin.PluginEntryLoader`.
-- **Class controller/handler/event/request (mẫu):** `EzyArticleExceptionHandler`, `ApCommonAuthenticationController`, `MenuModelDecorator`, `PageFragmentModelDecorator`, `AnswerControllerService`, `ExtractUrlControllerService`, `MenuControllerService`, `PageFragmentControllerService`, `QuestionControllerService`, `CheckPostExistsByIdEventHandler` (+33).
+- **Controller, handler, event, and request classes (sample):** `EzyArticleExceptionHandler`, `ApCommonAuthenticationController`, `MenuModelDecorator`, `PageFragmentModelDecorator`, `AnswerControllerService`, `ExtractUrlControllerService`, `MenuControllerService`, `PageFragmentControllerService`, `QuestionControllerService`, `CheckPostExistsByIdEventHandler` (+33).
 
-Class và resource xác nhận có cấu trúc mở rộng trong bản đóng gói, không cam kết API ổn định hoặc handler đã chạy qua mọi nhánh.
+Classes and resources show that extension points are packaged; they do not establish API stability or confirm that every handler path has run.
 
-## Quan sát trên sandbox
+## Sandbox observations
 
-Admin tạo và đọc bài `PUBLISHED`; Freestyle hiển thị đúng nội dung bài qua HTTP 200.
+Admin created and read a `PUBLISHED` article. Freestyle returned HTTP 200 and displayed the expected article content.
 
-Xem bằng chứng nạp module và cổng TCP trong [kiểm thử Socket](test-report.md#gói-cài-được-và-kiểm-thử-http). Không kiểm chứng trao đổi Socket bằng client.
+See module-loading and TCP port evidence in the [Socket checks](test-report.md#installable-packages-and-http-tests). Socket communication was not verified with a client.
 
-## Lưu ý khi tích hợp
+## Integration notes
 
-Ứng viên cho trang nội dung và tài liệu. Kiểm route với fixture đã biết, cùng quyền ở đường đọc, preview và media; không dùng bài CMS để thay entity nghiệp vụ riêng.
+Consider this module for content pages and documentation. Use a known fixture to check routes and permissions for reading, previews, and media. Do not use CMS articles in place of separate business entities.
 
-[Về chỉ mục plugin](README.md)
+[Back to the plugin index](README.md)

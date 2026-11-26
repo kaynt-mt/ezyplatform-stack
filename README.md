@@ -1,44 +1,44 @@
 # EzyPlatform Core Stack
 
-Nền tảng dùng chung để phát triển nhiều ứng dụng EzyPlatform, không phải một app landing page. Stack gồm EzyPlatform **1.5.9**, EzyArticle **1.5.6** đã kích hoạt, Java 11 trong container và MySQL 8.0. Runtime build từ Dockerfile của CPPAI; ezy CLI, kho plugin agent CPPAI và các gói skill công khai của Young Monkeys được khóa phiên bản trong `upstream.lock.json`.
+A shared stack for developing multiple EzyPlatform applications, not a single landing-page app. It includes EzyPlatform **1.5.9**, EzyArticle **1.5.6** already activated, Java 11 in the container, and MySQL 8.0. The runtime is built from CPPAI's Dockerfile. The ezy CLI, CPPAI agent plugin repository, and public Young Monkeys skill packages are pinned in `upstream.lock.json`.
 
-## Khởi chạy trên máy phát triển hoặc VM cloud
+## Getting started on a development machine or cloud VM
 
-Cần Git, Bash, curl, Python 3.9+ và Docker Engine/Desktop với Docker Compose V2. Không cần Java hay MySQL trên máy host. Image EzyPlatform chạy trên `linux/amd64`; máy ARM cần hỗ trợ giả lập amd64. Lần đầu cần Internet để tải mã nguồn, các bản phát hành và base image.
+Requires Git, Bash, curl, Python 3.9+, and Docker Engine or Docker Desktop with Docker Compose V2. Java and MySQL are not required on the host. The EzyPlatform image runs on `linux/amd64`; ARM machines need amd64 emulation. The first run needs Internet access to fetch source code, releases, and base images.
 
 ```bash
 ./scripts/up.sh
 ```
 
-| Dịch vụ | Địa chỉ mặc định |
+| Service | Default address |
 |---|---|
 | Admin | <http://127.0.0.1:9090/login> |
-| Tạo super admin lần đầu | <http://127.0.0.1:9090/setup-admin> |
+| First-time super admin setup | <http://127.0.0.1:9090/setup-admin> |
 | Web | <http://127.0.0.1:8080/> |
-| MySQL | `mysql:3306` trong mạng Compose, không mở port ra host |
+| MySQL | `mysql:3306` on the Compose network; no port exposed to the host |
 
-**Không có tài khoản hay mật khẩu Admin mặc định.** Mở `/setup-admin`, tạo super admin của bạn, rồi dùng tài khoản đó tại `/login`. Lệnh khởi động sinh mật khẩu DB ngẫu nhiên trong `.env`; không commit, chia sẻ hoặc thay file này giữa chừng với volume MySQL cũ.
+**There is no default Admin account or password.** Open `/setup-admin`, create your super admin, and use that account at `/login`. The startup command generates a random database password in `.env`. Do not commit or share that file, or replace it while reusing the existing MySQL volume.
 
-Trên VM, port chỉ bind loopback. Từ máy của bạn, mở tunnel (thay `user@vm` bằng địa chỉ SSH của VM), rồi truy cập các URL ở trên:
+On a VM, the ports bind only to loopback. From your machine, open a tunnel (replace `user@vm` with the VM's SSH address), then visit the URLs above:
 
 ```bash
 ssh -N -L 9090:127.0.0.1:9090 -L 8080:127.0.0.1:8080 user@vm
 ```
 
-Thêm `EZY_ADMIN_PORT` hoặc `EZY_WEB_PORT` vào `.env` nếu port host bị trùng. Với triển khai thực tế, cấu hình HTTPS và quyền truy cập Admin ở reverse proxy riêng; không mở thẳng cổng Admin ra Internet.
+Set `EZY_ADMIN_PORT` or `EZY_WEB_PORT` in `.env` if a host port is already in use. For deployments, configure HTTPS and Admin access at a separate reverse proxy; do not expose the Admin port directly to the Internet.
 
 ```bash
 docker compose ps
 docker compose logs -f ezyplatform mysql
-docker compose stop   # giữ dữ liệu
-./scripts/up.sh       # chạy lại
+docker compose stop   # keep data
+./scripts/up.sh       # start again
 ```
 
-Compose lưu DB và runtime trong hai volume. Sao lưu cả hai trước khi nâng cấp; build image mới không thay core hoặc module trong volume runtime cũ. `docker compose down -v` **xóa** toàn bộ dữ liệu local, chỉ dùng khi chủ động muốn tạo lại từ đầu.
+Compose stores the database and runtime in two volumes. Back up both before upgrading; building a new image does not replace the core or modules in an existing runtime volume. `docker compose down -v` **deletes** all local data. Use it only when you deliberately want to start from scratch.
 
-## CLI, plugin và skill cho agent
+## CLI, plugins, and agent skills
 
-[Danh mục 19 skill Ezy](skills/README.md) giải thích khi nào dùng từng skill. Cả 19 bản upstream đã được commit trong [`skills/upstream/`](skills/upstream/) để đọc trên GitHub; bản dành cho agent vẫn được đồng bộ vào `.agents/skills/`.
+The [catalog of 19 Ezy skills](skills/README.md) explains when to use each skill. All 19 upstream copies are checked in under [`skills/upstream/`](skills/upstream/) for browsing on GitHub. The copies used by agents are still synced into `.agents/skills/`.
 
 ```bash
 python3 scripts/sync-upstream.py
@@ -46,31 +46,31 @@ python3 scripts/sync-upstream.py
 ./scripts/ak --version
 ```
 
-CLI chạy trực tiếp từ mã nguồn/binary đã khóa trong `.upstream/`, không cài global. Lệnh sync lấy toàn bộ kho [CPPAI Agents Plugins](https://github.com/cppai-vn/agents-plugins) vào `.upstream/agents-plugins/`, cài các thư mục skill từ repo đó và [EzyPlatform Skill Library](https://ezyplatform.com/ezyai/skill-library?lang=vi) vào `.agents/skills/`, đồng thời tải các bộ kit [AgentKit](https://docs.agentkit.best/en/stable/getting-started/quickstart) đã khóa (`engineer`, `marketing`, xuất dạng `portable`) vào `.upstream/agentkit/` và nạp toàn bộ skill `ak-*` vào `.agents/skills/`.
+The CLI runs directly from the pinned source or binary in `.upstream/`, without a global install. The sync command fetches the entire [CPPAI Agents Plugins](https://github.com/cppai-vn/agents-plugins) repository into `.upstream/agents-plugins/` and installs skills from that repository and the [EzyPlatform Skill Library](https://ezyplatform.com/ezyai/skill-library?lang=vi) into `.agents/skills/`. It also downloads the pinned [AgentKit](https://docs.agentkit.best/en/stable/getting-started/quickstart) kits (`engineer` and `marketing`, exported in `portable` format) into `.upstream/agentkit/` and loads all `ak-*` skills into `.agents/skills/`.
 
-- **Xác thực AgentKit:** đặt biến môi trường `AGENTKIT_API_KEY` (hoặc chạy `./scripts/ak login` một lần; credential lưu tại `~/.agentkit/`, không ghi vào repo). Dùng `--require-agentkit` để buộc bước sync báo lỗi nếu thiếu xác thực, hoặc `--skip-agentkit` để chỉ đồng bộ phần EzyPlatform.
-- `.upstream/` và `.agents/skills/` được tạo lại từ lock, không sửa trực tiếp. Chọn **một** cách nạp skill cho mỗi agent: thư mục `.agents/skills/` đã sync, hoặc marketplace theo README upstream, không dùng cả hai. Các runtime plugin dành cho từng ứng dụng khác với plugin của coding agent: stack có sẵn EzyArticle; cài/kích hoạt thêm module theo nhu cầu ứng dụng, không bật mọi module marketplace theo mặc định.
-- Khi chạy agent trên VM khác, cấu hình URL Admin qua kết nối riêng được cấp quyền, không dùng loopback của máy khác.
+- **AgentKit authentication:** Set the `AGENTKIT_API_KEY` environment variable, or run `./scripts/ak login` once. Credentials are stored in `~/.agentkit/`, not in the repository. Use `--require-agentkit` to fail the sync when authentication is missing or `--skip-agentkit` to sync only EzyPlatform.
+- `.upstream/` and `.agents/skills/` are regenerated from the lock file; do not edit them directly. Choose **one** way to load skills per agent: the synced `.agents/skills/` directory or the marketplace as described in the upstream README, not both. Application runtime plugins are separate from coding-agent plugins. The stack includes EzyArticle; install and activate additional modules as the application needs them rather than enabling every marketplace module by default.
+- If the agent runs on another VM, configure the Admin URL through an authorized private connection. Do not use another machine's loopback address.
 
-### Đồng bộ phiên bản mới
+### Updating pinned versions
 
-1. Kiểm tra commit mong muốn của [CLI](https://github.com/cppai-vn/ezyplatform-cli), [Docker](https://github.com/cppai-vn/ezyplatform-docker) và [Agents Plugins](https://github.com/cppai-vn/agents-plugins) (ví dụ: `git ls-remote https://github.com/cppai-vn/agents-plugins.git HEAD`), rồi cập nhật `git` trong lock.
-2. Danh mục skill công khai: <https://ezyplatform.com/api/v1/skill-library/skills?limit=100>. Với mỗi gói cập nhật, tải từ `https://ezyplatform.com/api/v1/skill-library/skills/<id>/package`, kiểm tra nội dung và tên trong `SKILL.md`, rồi ghi SHA-256 của ZIP vào `skill_library`. Script từ chối gói thay đổi nếu chưa cập nhật checksum. Sau khi đổi pin Ezy, chạy `python3 scripts/sync-upstream.py --refresh-ezy-skills`, kiểm tra diff và commit `skills/upstream/` cùng lock; lệnh này không đụng tới AgentKit hay `.agents/skills/`.
-3. Để nâng cấp AgentKit, kiểm tra phiên bản mới qua `./scripts/ak kit list-kits --json` và cập nhật `agentkit.cli_version` / `agentkit.kits` trong `upstream.lock.json` (không chạy `ak self-update` trực tiếp trên launcher đã khóa).
-4. Khi đổi Docker hoặc phiên bản EzyPlatform/EzyArticle, cập nhật build args và tag image trong `compose.yaml`; thử trên volume mới trước khi lên kế hoạch nâng cấp volume có dữ liệu.
-5. Chạy `python3 scripts/sync-upstream.py --require-agentkit` để áp dụng lock, rồi kiểm tra CLI (`./scripts/ezy`, `./scripts/ak`), Admin và Web.
+1. Check the desired commits for the [CLI](https://github.com/cppai-vn/ezyplatform-cli), [Docker](https://github.com/cppai-vn/ezyplatform-docker), and [Agents Plugins](https://github.com/cppai-vn/agents-plugins) (for example, `git ls-remote https://github.com/cppai-vn/agents-plugins.git HEAD`), then update `git` in the lock file.
+2. Public skill catalog: <https://ezyplatform.com/api/v1/skill-library/skills?limit=100>. For each updated package, download it from `https://ezyplatform.com/api/v1/skill-library/skills/<id>/package`, check the contents and the name in `SKILL.md`, then record the ZIP archive's SHA-256 in `skill_library`. The script rejects a changed package unless its checksum has been updated. After changing Ezy pins, run `python3 scripts/sync-upstream.py --refresh-ezy-skills`, review the diff, and commit `skills/upstream/` together with the lock file. This command does not touch AgentKit or `.agents/skills/`.
+3. To upgrade AgentKit, check the new versions via `./scripts/ak kit list-kits --json` and update `agentkit.cli_version` and `agentkit.kits` in `upstream.lock.json`. Do not run `ak self-update` directly on the pinned launcher.
+4. When changing Docker or the EzyPlatform/EzyArticle version, update the build arguments and image tags in `compose.yaml`. Test with a fresh volume before planning upgrades for volumes that contain data.
+5. Run `python3 scripts/sync-upstream.py --require-agentkit` to apply the lock file, then verify the CLI (`./scripts/ezy` and `./scripts/ak`), Admin, and Web.
 
-## Tạo ứng dụng mới trên core
+## Creating a new application on the core
 
-Giữ mã nguồn ứng dụng ở repo riêng; core này lo runtime và bộ công cụ. Ví dụ tạo project nội dung và tái sử dụng Admin đang chạy (chế độ `live` của CLI nghĩa là **dùng một Admin có sẵn**, không nhất thiết là production):
+Keep application source code in a separate repository; this core provides the runtime and tools. For example, create a content project that reuses a running Admin instance (CLI `live` mode means **using an existing Admin instance**, not necessarily production):
 
 ```bash
 ./scripts/ezy new ../my-app --mode live --admin-url http://127.0.0.1:9090
 cd ../my-app
-# Lấy Access Token từ /admins/me của Admin và điền vào environment.json.
+# Get the access token from /admins/me in Admin and add it to environment.json.
 ../ezyplatform-stack/scripts/ezy check
 ```
 
-Để thử nghiệm với DB/container riêng cho app, dùng `ezy new --mode local` thay vì nối vào core đang chạy. Nếu tạo plugin Java mới, dùng `ezy dev create`, không dùng `ezy new`. Xem [skill xây dựng plugin](skills/ezy-build-plugin/SKILL.md) để chuẩn bị môi trường build native, đóng gói và kiểm tra trên Docker dev. Không commit `environment.json`, token hay mật khẩu.
+To test with a separate database and containers for the app, use `ezy new --mode local` instead of connecting to the running core. To create a new Java plugin, use `ezy dev create`, not `ezy new`. See the [plugin build skill](skills/ezy-build-plugin/SKILL.md) for native build setup, packaging, and verification in the Docker development environment. Do not commit `environment.json`, tokens, or passwords.
 
-Tài liệu: [EzyPlatform Guide](https://youngmonkeys.org/projects/ezyplatform?tab=guide) · [FAQ](https://ezyplatform.com/faq) · [Chỉ mục blog và kiến thức nền cho agent](docs/research/ezyplatform-blogs/README.md).
+Documentation: [EzyPlatform Guide](https://youngmonkeys.org/projects/ezyplatform?tab=guide) · [FAQ](https://ezyplatform.com/faq) · [Blog index and background for agents](docs/research/ezyplatform-blogs/README.md).

@@ -1,23 +1,23 @@
 # accounting
 
-Kế toán: hệ thống tài khoản, người dùng và sổ giao dịch.
+Accounting: accounts, users, and a transaction ledger.
 
-- **Bản Marketplace trên core 1.5.9:** `0.3.8`.
-- **Module đã xác minh:** `admin-plugin`, `web-plugin`.
-- **Cài đặt:** Đạt. Xem môi trường và các giới hạn chung trong [báo cáo kiểm thử](test-report.md).
+- **Marketplace version on core 1.5.9:** `0.3.8`.
+- **Verified modules:** `admin-plugin`, `web-plugin`.
+- **Installation:** Passed. See the environment and general limitations in the [test report](test-report.md).
 
-## Bản đồ module
+## Module map
 
-| Lane / thư mục | Package khai báo | Phụ thuộc runtime khai báo |
+| Lane / directory | Declared package | Declared runtime dependencies |
 |---|---|---|
 | `admin-plugin` — `admin/plugins/accounting` | `org.youngmonkeys.accounting` | [ecommerce](ecommerce.md) |
 | `web-plugin` — `web/plugins/accounting` | `org.youngmonkeys.accounting` | [ecommerce](ecommerce.md) |
 
-## HTTP, UI và tài nguyên
+## HTTP, UI, and resources
 
-Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố khi mount module và quyền truy cập có thể khác giữa các lane; các URL đã gọi thật nằm ở mục kiểm thử.
+The paths below come from annotations in the JAR. Mount prefixes and access permissions may differ by lane; the URLs that were actually called are listed in the testing section.
 
-**admin-plugin** — 71 tổ hợp phương thức/URI đọc được; mẫu đại diện:
+**admin-plugin** — 71 method/URI combinations identified; representative sample:
 
 | Annotation HTTP | Class |
 |---|---|
@@ -38,40 +38,40 @@ Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố
 | `PUT /api/v1/avouchers/{id}` | `AdminApiAVoucherController` |
 | `DELETE /api/v1/fixed-costs/{id}` | `AdminApiAFixedCostController` |
 
-- **admin-plugin – Menu (khóa cuối và path trong menus.properties):** `accounting: /`, `overview: /overview`, `accounts: /accounts`, `accounts_details: ~/accounts/{id}`, `employees_details: ~/employees/{username}`, `users: /users` (+20).
+- **admin-plugin – Menus (final keys and paths in menus.properties):** `accounting: /`, `overview: /overview`, `accounts: /accounts`, `accounts_details: ~/accounts/{id}`, `employees_details: ~/employees/{username}`, `users: /users` (+20).
 
 - **admin-plugin – Template:** `accounting/account-balance-changes/details.html`, `accounting/account-balance-changes/histories.html`, `accounting/account-balance-changes/list.html`, `accounting/account-balance-changes/scripts.html`, `accounting/accounts/balance-change-list.html`, `accounting/accounts/details.html`, `accounting/accounts/list.html` (+54).
 
-## Dữ liệu và migration
+## Data and migrations
 
-- **Bảng trong DDL đóng gói (27):** `accounting_account_balance_change_histories`, `accounting_account_balance_changes`, `accounting_account_balances`, `accounting_accounts`, `accounting_annual_financial_reports`, `accounting_annual_quantity_reports`, `accounting_daily_financial_reports`, `accounting_daily_quantity_reports`, `accounting_fixed_cost_amounts`, `accounting_fixed_cost_histories`, `accounting_fixed_costs`, `accounting_formula_histories`, `accounting_formulas`, `accounting_invoices`, `accounting_ledger_entries`, `accounting_monthly_financial_reports`, `accounting_monthly_quantity_reports`, `accounting_quantity_changes`, `accounting_transfer_histories`, `accounting_transfers`, `accounting_user_formula_histories`, `accounting_user_formulas`, `accounting_voucher_histories`, `accounting_voucher_invoices`, `accounting_vouchers`, `accounting_weekly_financial_reports`, `accounting_weekly_quantity_reports`.
-- **Class có chỉ dấu JPA Entity/MappedSuperclass (27):** `AAccount`, `AAccountBalance`, `AAccountBalanceChange`, `AAccountBalanceChangeHistory`, `AAnnualFinancialReport`, `AAnnualQuantityReport`, `ADailyFinancialReport`, `ADailyQuantityReport`, `AFixedCost`, `AFixedCostAmount`, `AFixedCostHistory`, `AFormula`, `AFormulaHistory`, `AInvoice`, `ALedgerEntry`, `AMonthlyFinancialReport`, `AMonthlyQuantityReport`, `AQuantityChange` (+9).
-- **SQL admin-plugin (13 tệp):** `resources/scripts/fixed_cost.sql`, `resources/scripts/invoice_voucher_report.sql`, `resources/scripts/scripts.sql`, `resources/scripts/alter_account_balance_change_add_issue_date.sql`, `resources/scripts/alter_invoice_remove_fields.sql`, `resources/scripts/alter_ledger_entry_add_entry_type_pagination_index.sql`, `resources/scripts/alter_report_tables.sql` (+6).
+- **Table in the DDL package (27):** `accounting_account_balance_change_histories`, `accounting_account_balance_changes`, `accounting_account_balances`, `accounting_accounts`, `accounting_annual_financial_reports`, `accounting_annual_quantity_reports`, `accounting_daily_financial_reports`, `accounting_daily_quantity_reports`, `accounting_fixed_cost_amounts`, `accounting_fixed_cost_histories`, `accounting_fixed_costs`, `accounting_formula_histories`, `accounting_formulas`, `accounting_invoices`, `accounting_ledger_entries`, `accounting_monthly_financial_reports`, `accounting_monthly_quantity_reports`, `accounting_quantity_changes`, `accounting_transfer_histories`, `accounting_transfers`, `accounting_user_formula_histories`, `accounting_user_formulas`, `accounting_voucher_histories`, `accounting_voucher_invoices`, `accounting_vouchers`, `accounting_weekly_financial_reports`, `accounting_weekly_quantity_reports`.
+- **Class with JPA Entity/MappedSuperclass):** `AAccount`, `AAccountBalance`, `AAccountBalanceChange`, `AAccountBalanceChangeHistory`, `AAnnualFinancialReport`, `AAnnualQuantityReport`, `ADailyFinancialReport`, `ADailyQuantityReport`, `AFixedCost`, `AFixedCostAmount`, `AFixedCostHistory`, `AFormula`, `AFormulaHistory`, `AInvoice`, `ALedgerEntry`, `AMonthlyFinancialReport`, `AMonthlyQuantityReport`, `AQuantityChange` (+9).
+- **SQL admin-plugin (13 files):** `resources/scripts/fixed_cost.sql`, `resources/scripts/invoice_voucher_report.sql`, `resources/scripts/scripts.sql`, `resources/scripts/alter_account_balance_change_add_issue_date.sql`, `resources/scripts/alter_invoice_remove_fields.sql`, `resources/scripts/alter_ledger_entry_add_entry_type_pagination_index.sql`, `resources/scripts/alter_report_tables.sql` (+6).
 
-## JAR, cấu hình và điểm mở rộng
+## JARs, configuration, and extension points
 
 ### admin-plugin
 
-- **JAR kiểm tra:** `accounting-admin-plugin-0.3.8.jar`, `accounting-sdk-0.3.8.jar`; 666 class cấp cao nhất sau khi bỏ trùng theo tên package/class trong lane. SDK có thể lặp giữa các lane.
-- **Package nổi bật:** `org.youngmonkeys.accounting.pagination`, `org.youngmonkeys.accounting.admin.repo`, `org.youngmonkeys.accounting.repo` (+32).
-- **Controller/service/repository (mẫu):** `AAccountControllerService`, `AdminAAccountBalanceChangeController`, `AdminAAccountBalanceChangeControllerService`, `AdminAAccountBalanceChangeHistoryControllerService`, `AAccountBalanceChangeHistoryRepository`, `AAccountBalanceChangeRepository`, `AAccountBalanceChangeService`, `AAccountBalanceChangeTransactionalRepository`, `AAccountBalanceChangeValidator`.
-- **Điểm mở rộng tiềm năng theo tên class:** `AVoucherEntityHandler`, `AVoucherEntityHandlerManager`, `AVoucherHandler`, `AVoucherHandlerManager`, `AccountingEntityFetcherManager`, `AdminAVoucherEntityHandlerManager`, `AdminAVoucherHandlerManager`, `AdminAccountingEntityFetcherManager`, `AdminAccountingTransactionProcessor` (+15).
+- **JARs inspected:** `accounting-admin-plugin-0.3.8.jar`, `accounting-sdk-0.3.8.jar`; 666 top-level classes after deduplicating by package and class name within the lane. The SDK can appear in multiple lanes.
+- **Notable packages:** `org.youngmonkeys.accounting.pagination`, `org.youngmonkeys.accounting.admin.repo`, `org.youngmonkeys.accounting.repo` (+32).
+- **Controllers, services, and repositories (sample):** `AAccountControllerService`, `AdminAAccountBalanceChangeController`, `AdminAAccountBalanceChangeControllerService`, `AdminAAccountBalanceChangeHistoryControllerService`, `AAccountBalanceChangeHistoryRepository`, `AAccountBalanceChangeRepository`, `AAccountBalanceChangeService`, `AAccountBalanceChangeTransactionalRepository`, `AAccountBalanceChangeValidator`.
+- **Potential extension points based on class names:** `AVoucherEntityHandler`, `AVoucherEntityHandlerManager`, `AVoucherHandler`, `AVoucherHandlerManager`, `AccountingEntityFetcherManager`, `AdminAVoucherEntityHandlerManager`, `AdminAVoucherHandlerManager`, `AdminAccountingEntityFetcherManager`, `AdminAccountingTransactionProcessor` (+15).
 
 ### web-plugin
 
-- **JAR kiểm tra:** `accounting-sdk-0.3.8.jar`, `accounting-web-plugin-0.3.8.jar`; 524 class cấp cao nhất sau khi bỏ trùng theo tên package/class trong lane. SDK có thể lặp giữa các lane.
-- **Package nổi bật:** `org.youngmonkeys.accounting.pagination`, `org.youngmonkeys.accounting.repo`, `org.youngmonkeys.accounting.web.repo` (+21).
-- **Controller/service/repository (mẫu):** `AAccountControllerService`, `WebAAccountControllerService`, `AAccountBalanceChangeHistoryRepository`, `AAccountBalanceChangeRepository`, `AAccountBalanceChangeService`, `AAccountBalanceChangeTransactionalRepository`, `AAccountBalanceChangeValidator`.
-- **Điểm mở rộng tiềm năng theo tên class:** `AVoucherEntityHandler`, `AVoucherEntityHandlerManager`, `AVoucherHandler`, `AVoucherHandlerManager`, `AccountingEntityFetcherManager`, `ConsolidatedDebitAVoucherHandler`, `DebtAVoucherHandler`, `GeneralPaymentAVoucherHandler`, `PaymentAVoucherHandler` (+4).
+- **JARs inspected:** `accounting-sdk-0.3.8.jar`, `accounting-web-plugin-0.3.8.jar`; 524 top-level classes after deduplicating by package and class name within the lane. The SDK can appear in multiple lanes.
+- **Notable packages:** `org.youngmonkeys.accounting.pagination`, `org.youngmonkeys.accounting.repo`, `org.youngmonkeys.accounting.web.repo` (+21).
+- **Controllers, services, and repositories (sample):** `AAccountControllerService`, `WebAAccountControllerService`, `AAccountBalanceChangeHistoryRepository`, `AAccountBalanceChangeRepository`, `AAccountBalanceChangeService`, `AAccountBalanceChangeTransactionalRepository`, `AAccountBalanceChangeValidator`.
+- **Potential extension points based on class names:** `AVoucherEntityHandler`, `AVoucherEntityHandlerManager`, `AVoucherHandler`, `AVoucherHandlerManager`, `AccountingEntityFetcherManager`, `ConsolidatedDebitAVoucherHandler`, `DebtAVoucherHandler`, `GeneralPaymentAVoucherHandler`, `PaymentAVoucherHandler` (+4).
 
-Class và resource xác nhận có cấu trúc mở rộng trong bản đóng gói, không cam kết API ổn định hoặc handler đã chạy qua mọi nhánh.
+Classes and resources show that extension points are packaged; they do not establish API stability or confirm that every handler path has run.
 
-## Quan sát trên sandbox
+## Sandbox observations
 
-Admin `/accounting/overview`, `/accounting/accounts` → 200. Chưa ghi sổ hoặc xuất chứng từ.
+Admin `/accounting/overview` and `/accounting/accounts` returned 200. Ledger entries and document exports were not tested.
 
-## Lưu ý khi tích hợp
+## Integration notes
 
-Tham khảo cách tách giao dịch nghiệp vụ khỏi dữ liệu tổng hợp của màn hình Overview.
+Use the Overview screen as an example of separating business transactions from aggregate data.
 
-[Về chỉ mục plugin](README.md)
+[Back to the plugin index](README.md)

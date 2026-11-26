@@ -1,106 +1,106 @@
-# Kiểm thử plugin Marketplace trên EzyPlatform 1.5.9
+# Testing Marketplace plugins on EzyPlatform 1.5.9
 
-Xem [chỉ mục phân tích 37 plugin miễn phí](README.md) để tra JAR, API, dữ liệu, menu/template và điểm mở rộng có thể tái sử dụng.
+See the [index of 37 free plugins](README.md) for JARs, APIs, data, menus, templates, and potential extension points.
 
-Ngày 26/11/2026, sandbox Compose local: EzyPlatform **1.5.9**, Java **11**, MySQL **8.0.46**. [Danh mục công khai](https://ezyplatform.com/api/v1/market/items?limit=100&type=plugin) trả đủ **55** mục (`total=55`, `hasNext=false`). Endpoint ZIP có `platformVersion=1.5.9` trả `200 application/zip` cho **37** mục miễn phí và `403` cho **18** mục trả phí. Đã cài và đối chiếu phiên bản/module thực tế của **37/37** gói tải được; 403 không phải kết luận không tương thích.
+On November 26, 2026, the local Compose sandbox ran EzyPlatform **1.5.9**, Java **11**, and MySQL **8.0.46**. The [public catalog](https://ezyplatform.com/api/v1/market/items?limit=100&type=plugin) returned all **55** entries (`total=55`, `hasNext=false`). The ZIP endpoint with `platformVersion=1.5.9` returned `200 application/zip` for **37** free entries and `403` for **18** paid entries. We installed and verified the actual versions and modules of **37/37** downloadable packages. A 403 is not evidence of incompatibility.
 
-## Tái lập trong sandbox
+## Reproduce in a sandbox
 
 ```sh
 ./scripts/up.sh
-# Tạo super admin tại http://127.0.0.1:9090/setup-admin; không có mật khẩu mặc định.
+# Create a super admin at http://127.0.0.1:9090/setup-admin; there is no default password.
 python3 scripts/install-plugins.py --theme freestyle
 ```
 
-Script chỉ chạy với core 1.5.9 tại cổng Compose bind loopback. Nó dùng `cli.sh "install <tên>"` với danh sách [phiên bản đã kiểm thử](../../scripts/plugin-versions.tsv), kiểm tra bản Marketplace trước khi tải và dừng nếu bản cài khác manifest. CLI không có tham số chọn phiên bản cho `install`. Script đọc `dependencies=` từ `module.properties`, kích hoạt **từng loại có thật** theo thứ tự phụ thuộc, kiểm tra cache `.runtime` và khởi động lại Admin/Web. Không dùng `activate all`: trong sandbox, lệnh này đã tạo cả mục cache theme và socket cho `ezyaccount` dù gói không có các module đó. Khi đổi theme, script tắt cờ cache của theme không còn module; CLI không nhận lệnh deactivate cho mục dạng này. Nếu không chỉ định `--theme`, script giữ nguyên theme đang bật. Có thể thử `consulting`, `lucky-wheel` hoặc trở về `welcome`.
+The script only runs against core 1.5.9 on the loopback-bound Compose port. It uses `cli.sh "install <name>"` with the [tested version list](../../scripts/plugin-versions.tsv), checks the Marketplace version before downloading, and stops if the installed version differs from the manifest. The CLI's `install` command has no version selector. The script reads `dependencies=` from `module.properties`, activates **only module types that are actually present** in dependency order, checks the `.runtime` cache, and restarts Admin and Web. Do not use `activate all`: in the sandbox it created theme and socket cache entries for `ezyaccount` even though the package had neither module. When switching themes, the script clears the cache flag for any theme that no longer has a module; the CLI does not accept deactivation for such entries. Without `--theme`, the script preserves the active theme. Try `consulting` or `lucky-wheel`, or switch back to `welcome`.
 
-Nếu trình tải CLI lỗi, dùng mục Modules của Admin để cài bản chính xác, rồi chạy lại script; hoặc dùng `--admin-cookie-jar /đường/dẫn/cookie-local.txt` với cookie Netscape của phiên Admin **sandbox**, để script dùng endpoint Marketplace có kiểm chữ ký `POST /api/v1/projects/<tên>/<phiên-bản>/install`. Giữ cookie ngoài repo, chỉ dùng tài khoản local. Hai gói `ezyrag` và `ezyblockchain` cài thành công bằng đường Admin (`204`) sau khi CLI gặp `NoSuchFileException` ở tệp `.zip.downloading`. `ezymail` cài được khi thử lại CLI sau lỗi tương tự. Không dùng Upload Project thủ công vì đường đó không kiểm chữ ký Marketplace.
+If the CLI download fails, install the exact version from the Admin Modules page and rerun the script. Alternatively, use `--admin-cookie-jar /path/to/local-cookie.txt` with the Netscape cookie file for a **sandbox** Admin session so the script uses the signature-verified Marketplace endpoint `POST /api/v1/projects/<name>/<version>/install`. Keep the cookie file outside the repository and use only a local account. The Admin route installed `ezyrag` and `ezyblockchain` successfully (`204`) after the CLI raised `NoSuchFileException` for the `.zip.downloading` file. Retrying the CLI succeeded for `ezymail` after a similar failure. Do not use Upload Project as a workaround because that route does not verify Marketplace signatures.
 
-Compose mặc định chỉ khởi chạy Admin/Web. Muốn thử Socket, bật Socket trong Admin rồi chạy `docker compose exec -T ezyplatform bash cli.sh 'start socket'`. Sau restart Compose, nếu Socket không chạy, kiểm tra `socket/.runtime/ezyfox_server_instance.pid` trong container: `socket/start-service.sh` chỉ kiểm tra tệp PID. Chỉ xóa tệp PID cũ sau khi xác minh tiến trình đó không còn tồn tại. Đừng chỉ dựa vào dòng “Start socket server successfully”; kiểm tra port nội bộ/log khởi động.
+Compose starts only Admin and Web by default. To test Socket, enable it in Admin and run `docker compose exec -T ezyplatform bash cli.sh 'start socket'`. If Socket does not start after a Compose restart, inspect `socket/.runtime/ezyfox_server_instance.pid` in the container: `socket/start-service.sh` only checks the PID file. Remove a stale PID file only after confirming that the process no longer exists. Do not rely on “Start socket server successfully” alone; check the internal port and startup logs.
 
-## Gói cài được và kiểm thử HTTP
+## Installable packages and HTTP tests
 
-Ký hiệu module: **A** = admin-plugin, **W** = web-plugin, **S** = socket-plugin, **G** = socket-app, **T** = theme. Các URL Admin được gọi với phiên đăng nhập local. HTTP 200 chứa trang lỗi “Not Found” hoặc “Server error” không được tính là đạt. URL Web/API ghi dưới đây dùng Freestyle trừ khi nêu khác. Đây là smoke test chức năng cục bộ, không phải chứng nhận toàn bộ tính năng hay tương thích production.
+Module key: **A** = admin-plugin, **W** = web-plugin, **S** = socket-plugin, **G** = socket-app, **T** = theme. Admin URLs were called with a local authenticated session. HTTP 200 responses containing “Not Found” or “Server error” pages did not count as passing. Web and API URLs below use Freestyle unless noted. These are local functional smoke tests, not full feature or production compatibility certification.
 
-| Plugin | Bản phát hành | Module | Cài đặt | Kiểm thử / giới hạn |
+| Plugin | Release | Modules | Installation | Checks and limitations |
 |---|---|---|---|---|
-| accounting | 0.3.8 | A, W | Đạt | Admin `/accounting/overview`, `/accounting/accounts` → 200. Chưa ghi sổ hoặc xuất chứng từ. |
-| consulting | 0.1.6 | A, W, T | Đạt | Admin `/consulting/customers` → danh sách người dùng; Web `/api/v1/documents` → 200; theme Consulting render được `/services`, `/documents`. |
-| data-backup | 0.0.9 | A | Đạt | Admin `/data-backup/backup-clients` → 200; backup tự động lỗi vì container ứng dụng thiếu MySQL/MariaDB CLI; chưa thử restore. |
-| ecommerce | 1.5.8 | A, W, S | Đạt | Admin `/ecommerce/orders`, `/ecommerce/products` → 200; trang Web `/products` chưa có trong Freestyle. Không đặt hàng hay thanh toán thật. |
-| ezyaccount | 0.2.4 | A, W | Đạt | Admin `/ezyaccount/settings` → 200; Web `/ezyaccount/api/v1/account` → 401 khi chưa đăng nhập. |
-| ezyai | 0.1.8 | A, W, S | Đạt | Admin `/ezyai/ai-chat-services` và Web `/ezyai/skill-library` → 200; không gọi nhà cung cấp AI. |
-| ezyarticle | 1.5.6 | A, W, S | Có sẵn | Admin tạo và đọc bài `PUBLISHED`; Freestyle hiển thị đúng nội dung bài qua HTTP 200. |
-| ezyblockchain | 0.0.3 | A, W | Đạt qua Admin | Admin `/ezyblockchain/control-panel` và Web `/ezyblockchain/api/v1/chains/current` → 200; log Admin cảnh báo migration xóa index không tồn tại. Chưa nối ví hoặc chạy giao dịch. |
-| ezychat | 0.3.6 | A, W, S, G | Đạt | Admin `/ezychat/channels` → 200, Web API channels chưa đăng nhập → 401. `/ezychat/widget` không có embed key trả trang lỗi 200; log có `NullPointerException` khi đọc chat profile. |
-| ezycrm | 0.6.3 | A, W | Đạt | Admin `/ezycrm/customers`, `/ezycrm/user-groups` → 200. Chưa bắn thông báo hoặc nhập dữ liệu khách hàng. |
-| ezydefence | 0.1.5 | A, W | Đạt | Admin `/ezydefence/blacklist`, `/ezydefence/whitelist` → 200; không thay chính sách. |
-| ezydelivery | 0.7.7 | A, W | Đạt | Admin `/ezydelivery/scan-delivery-order-codes` → 200; `/track-shipment` chưa có trong Freestyle. Không gọi đơn vị vận chuyển. |
-| ezygame | 0.0.8 | A, W | Đạt | Admin `/ezygame/metrics` → 200. Danh mục ghi S, G nhưng ZIP thực tế không chứa hai module này. |
-| ezyiot | 0.0.3 | A, W, S | Đạt | Admin `/ezyiot/devices` → 200; chưa thử thiết bị vật lý. |
-| ezylogin | 0.4.7 | A, W | Đạt | Admin `/ezylogin/settings/regular` → 200; chưa kết nối OAuth/SSO bên ngoài. |
-| ezymail | 0.3.3 | A, W | Đạt sau thử lại | Admin `/ezymail/templates`, `/ezymail/sent-mails` → 200. Không gửi email thật. |
-| ezymarketing | 0.3.7 | A, W | Đạt | Admin `/ezymarketing/advertisements` và Web `/ezymarketing/api/v1/advertisements` → 200. |
-| ezyoa | 0.4.2 | A, W | Đạt | Admin `/ezyoa/oa-services`, `/ezyoa/templates` → 200. Chưa tích hợp tài khoản Official Account. |
-| ezyocr | 0.0.3 | A | Đạt | Admin `/ezyocr/ocr-business-scripts` → 200. Chưa cấu hình OCR bên ngoài. |
-| ezypayment | 0.2.5 | A, W | Đạt | Admin `/ezypayment/payment-services` và Web `/api/v1/payment-plans` → 200; không gọi cổng thanh toán. |
-| ezyrag | 0.0.6 | A, W, S | Đạt qua Admin | Admin `/ezyrag/settings` → 200; phụ thuộc `ezyai`; chưa gọi nhà cung cấp embedding/LLM. |
-| ezyrating | 0.4.5 | A, W | Đạt | Admin `/ezyrating/dashboard` và Web `/ezyrating/user-ratings` → 200. |
-| ezyseo | 0.1.2 | A, W | Đạt | Admin `/ezyseo/sitemaps`, Web `/robots.txt` và `/api/v1/sitemaps` → 200. |
-| ezysupport | 0.6.2 | A, W | Đạt | Admin `/ezysupport/contact-us` và Web `/contact-us`, `/faq` → 200; không gửi yêu cầu ra ngoài. |
-| ezyvector | 0.0.5 | A, W | Đạt | Admin `/ezyvector/vector-collections` → 200; chưa nạp bộ dữ liệu/đo truy vấn vector. |
-| freestyle | 0.2.9 | A, T | Đạt | Admin `/freestyle/settings` → 200; theme render được bài EzyArticle ở Web. |
-| game-master-server | 0.0.7 | A, W, S | Đạt | Admin `/game-master-server/game-master-server` → 200; Web API instances → 401 khi chưa đăng nhập. Chưa chạy game instance. |
-| graphql | 0.3.1 | A, W, S | Đạt | Admin `/graphql/system-endpoints` → 200; `/rest/swagger` và URL schema đã thử trả trang “Not found” trên Freestyle. Chưa chạy truy vấn GraphQL. |
-| logs-monitor | 0.0.5 | A, W, S | Đạt | Admin `/logs-monitor/console` và `/logs-monitor/log-folder` → 200. |
-| lucky-wheel | 0.0.1 | A, W, S, G, T | Đạt | Admin `/lucky-wheel/settings` → 200. Theme Lucky Wheel đưa `/` đến `/index.html` (200); `/api/v1/lucky-wheel` → JSON 200, nhưng `/lucky-wheel` là trang “Not found”. Chưa thử lượt quay có giải thưởng. |
-| markdown | 0.2.6 | A, W | Đạt | Admin `/markdown/` hiển thị trang Markdown (200). |
-| omnichannel | 0.0.4 | A, W | Đạt | Admin `/omnichannel/social-networks` → 200; chưa nối kênh bên ngoài. |
-| postgresql | 0.0.1 | A | Đạt | Admin `/postgresql/dashboard` → 200 trên stack MySQL; chưa đổi datasource hay thử PostgreSQL thật. |
-| semi-theme | 1.0.2 | A | Đạt | Admin `/semi-theme/` → 200; ZIP `1.0.2` khai `version=1.0.1` trong `module.properties`; đây là module Admin chứ không có Web theme. |
-| sites | 0.0.3 | A | Đạt | Admin `/sites/servers` và `/sites/settings` → 200; chưa tạo site/host mới. |
-| socket-monitor | 0.0.3 | S | Có sẵn | Đã thấy entry loader đăng ký `AdminLoginController` khi Socket khởi động; không có trang Web riêng. |
-| wordpress | 0.1.4 | A, W | Đạt | Admin `/wordpress/migration` → 200; chưa nhập dữ liệu từ WordPress. |
+| accounting | 0.3.8 | A, W | Passed | Admin `/accounting/overview` and `/accounting/accounts` → 200. No entries posted or vouchers exported. |
+| consulting | 0.1.6 | A, W, T | Passed | Admin `/consulting/customers` → user list; Web `/api/v1/documents` → 200; the Consulting theme rendered `/services` and `/documents`. |
+| data-backup | 0.0.9 | A | Passed | Admin `/data-backup/backup-clients` → 200. Automatic backup failed because the app container lacked the MySQL/MariaDB CLI; restore was not tested. |
+| ecommerce | 1.5.8 | A, W, S | Passed | Admin `/ecommerce/orders` and `/ecommerce/products` → 200. Freestyle does not provide the Web `/products` page. No real order or payment placed. |
+| ezyaccount | 0.2.4 | A, W | Passed | Admin `/ezyaccount/settings` → 200; unauthenticated Web `/ezyaccount/api/v1/account` → 401. |
+| ezyai | 0.1.8 | A, W, S | Passed | Admin `/ezyai/ai-chat-services` and Web `/ezyai/skill-library` → 200. No AI provider called. |
+| ezyarticle | 1.5.6 | A, W, S | Bundled | Admin created and read a `PUBLISHED` article; Freestyle rendered the expected article content over HTTP 200. |
+| ezyblockchain | 0.0.3 | A, W | Passed via Admin | Admin `/ezyblockchain/control-panel` and Web `/ezyblockchain/api/v1/chains/current` → 200. Admin logs warned that a migration tried to drop a nonexistent index. No wallet connected or transaction executed. |
+| ezychat | 0.3.6 | A, W, S, G | Passed | Admin `/ezychat/channels` → 200; unauthenticated Web channels API → 401. `/ezychat/widget` without an embed key returned an error page with status 200; logs showed `NullPointerException` while reading the chat profile. |
+| ezycrm | 0.6.3 | A, W | Passed | Admin `/ezycrm/customers` and `/ezycrm/user-groups` → 200. No notifications sent or customer data imported. |
+| ezydefence | 0.1.5 | A, W | Passed | Admin `/ezydefence/blacklist` and `/ezydefence/whitelist` → 200. No policy changed. |
+| ezydelivery | 0.7.7 | A, W | Passed | Admin `/ezydelivery/scan-delivery-order-codes` → 200. Freestyle does not provide `/track-shipment`. No carrier called. |
+| ezygame | 0.0.8 | A, W | Passed | Admin `/ezygame/metrics` → 200. The catalog lists S and G, but neither module was in the ZIP. |
+| ezyiot | 0.0.3 | A, W, S | Passed | Admin `/ezyiot/devices` → 200. No physical device tested. |
+| ezylogin | 0.4.7 | A, W | Passed | Admin `/ezylogin/settings/regular` → 200. No external OAuth or SSO connected. |
+| ezymail | 0.3.3 | A, W | Passed on retry | Admin `/ezymail/templates` and `/ezymail/sent-mails` → 200. No real email sent. |
+| ezymarketing | 0.3.7 | A, W | Passed | Admin `/ezymarketing/advertisements` and Web `/ezymarketing/api/v1/advertisements` → 200. |
+| ezyoa | 0.4.2 | A, W | Passed | Admin `/ezyoa/oa-services` and `/ezyoa/templates` → 200. No Official Account integrated. |
+| ezyocr | 0.0.3 | A | Passed | Admin `/ezyocr/ocr-business-scripts` → 200. No external OCR configured. |
+| ezypayment | 0.2.5 | A, W | Passed | Admin `/ezypayment/payment-services` and Web `/api/v1/payment-plans` → 200. No payment gateway called. |
+| ezyrag | 0.0.6 | A, W, S | Passed via Admin | Admin `/ezyrag/settings` → 200. Depends on `ezyai`; no embedding or LLM provider called. |
+| ezyrating | 0.4.5 | A, W | Passed | Admin `/ezyrating/dashboard` and Web `/ezyrating/user-ratings` → 200. |
+| ezyseo | 0.1.2 | A, W | Passed | Admin `/ezyseo/sitemaps`, Web `/robots.txt`, and `/api/v1/sitemaps` → 200. |
+| ezysupport | 0.6.2 | A, W | Passed | Admin `/ezysupport/contact-us` and Web `/contact-us` and `/faq` → 200. No outbound request sent. |
+| ezyvector | 0.0.5 | A, W | Passed | Admin `/ezyvector/vector-collections` → 200. No dataset loaded or vector queries measured. |
+| freestyle | 0.2.9 | A, T | Passed | Admin `/freestyle/settings` → 200. The theme rendered an EzyArticle post on Web. |
+| game-master-server | 0.0.7 | A, W, S | Passed | Admin `/game-master-server/game-master-server` → 200; unauthenticated Web instances API → 401. No game instance run. |
+| graphql | 0.3.1 | A, W, S | Passed | Admin `/graphql/system-endpoints` → 200. `/rest/swagger` and the tested schema URLs returned “Not found” pages on Freestyle. No GraphQL query run. |
+| logs-monitor | 0.0.5 | A, W, S | Passed | Admin `/logs-monitor/console` and `/logs-monitor/log-folder` → 200. |
+| lucky-wheel | 0.0.1 | A, W, S, G, T | Passed | Admin `/lucky-wheel/settings` → 200. Lucky Wheel theme sent `/` to `/index.html` (200). `/api/v1/lucky-wheel` → JSON 200, but `/lucky-wheel` displayed “Not found.” Prize-bearing spins were not tested. |
+| markdown | 0.2.6 | A, W | Passed | Admin `/markdown/` displayed the Markdown page (200). |
+| omnichannel | 0.0.4 | A, W | Passed | Admin `/omnichannel/social-networks` → 200. No external channel connected. |
+| postgresql | 0.0.1 | A | Passed | Admin `/postgresql/dashboard` → 200 on the MySQL stack. No datasource changed or actual PostgreSQL instance tested. |
+| semi-theme | 1.0.2 | A | Passed | Admin `/semi-theme/` → 200. ZIP `1.0.2` declares `version=1.0.1` in `module.properties`. This is an Admin module, not a Web theme. |
+| sites | 0.0.3 | A, W | Passed | Admin `/sites/servers` and `/sites/settings` → 200. No new site or host created. |
+| socket-monitor | 0.0.3 | S | Bundled | The entry loader registered `AdminLoginController` at Socket startup; there is no separate Web page. |
+| wordpress | 0.1.4 | A, W | Passed | Admin `/wordpress/migration` → 200. No WordPress data imported. |
 
-**Kiểm tra theme:** với Welcome, URL bài chưa render nội dung (trang “Not found”). Với Freestyle, `GET http://127.0.0.1:8080/posts/plugin-smoke-fixture` → 200, tiêu đề `Plugin Smoke Fixture`, nội dung `Sandbox plugin smoke test`. Đã chuyển lần lượt qua Consulting, Lucky Wheel rồi về Freestyle; không bật cùng lúc nhiều theme.
+**Theme checks:** Welcome did not render article content at the URL (“Not found”). With Freestyle, `GET http://127.0.0.1:8080/posts/plugin-smoke-fixture` → 200, title `Plugin Smoke Fixture`, body `Sandbox plugin smoke test`. We switched to Consulting, then Lucky Wheel, then back to Freestyle. Multiple themes were not active at the same time.
 
-**Kiểm tra Socket:** sau lần restart cuối, tiến trình Java lắng nghe TCP nội bộ 3005 và 2208. Log đăng ký đủ 11 socket-plugin trong manifest và 2 socket-app (EzyChat, Lucky Wheel). Chưa kiểm thử giao thức bằng client hoặc luồng nhắn tin đầu-cuối.
+**Socket checks:** After the final restart, the Java process listened on internal TCP ports 3005 and 2208. Logs showed registration of all 11 socket plugins in the manifest and both Socket apps (EzyChat and Lucky Wheel). Client-level protocol checks and end-to-end messaging were not tested.
 
-## Gói bị chặn bởi quyền Marketplace
+## Packages blocked by Marketplace permissions
 
-Mỗi mục dưới đây trả HTTP 403 cho yêu cầu ZIP không xác thực nhắm core 1.5.9. Không mua, cài hay kích hoạt, và chưa xác minh được bản nào chạy với core này. Bản/module lấy từ danh mục, chưa đối chiếu ZIP.
+Each entry below returned HTTP 403 for the unauthenticated ZIP request targeting core 1.5.9. None were purchased, installed, or activated, and compatibility with this core remains unverified. The versions and modules are from the catalog, not verified against ZIP contents.
 
-| Plugin | Bản niêm yết | Module niêm yết | Kết quả |
+| Plugin | Listed version | Listed modules | Result |
 |---|---|---|---|
-| ai-skill-marketplace | 0.0.4 | A, W, T | Chưa cài (403) |
-| code | 1.0.3 | A | Chưa cài (403) |
-| community | 0.0.3 | A, W, T | Chưa cài (403) |
-| dropship | 0.0.5 | A, W, T | Chưa cài (403) |
-| elearning | 0.8.5 | A, W, T | Chưa cài (403) |
-| enhancement | 1.0.1 | A | Chưa cài (403) |
-| ezysmashers | 0.2.3 | A, W, S, G, T | Chưa cài (403) |
-| ezytank | 0.1.6 | A, W, S, G, T | Chưa cài (403) |
-| fashion | 0.3.9 | A, W, T | Chưa cài (403) |
-| logistics | 0.3.9 | A, W, T | Chưa cài (403) |
-| official-shipping | 0.0.8 | A, W, T | Chưa cài (403) |
-| publishing | 0.2.7 | A, W, T | Chưa cài (403) |
-| retail | 0.0.3 | A, W, T | Chưa cài (403) |
-| stackask | 0.3.0 | A, W, T | Chưa cài (403) |
-| story | 0.0.7 | A, W, T | Chưa cài (403) |
-| tournament | 0.0.7 | A, W, T | Chưa cài (403) |
-| viettel-post-sandbox | 0.0.6 | A, W | Chưa cài (403) |
-| zalo-sandbox | 0.1.2 | A, W | Chưa cài (403) |
+| ai-skill-marketplace | 0.0.4 | A, W, T | Not installed (403) |
+| code | 1.0.3 | A | Not installed (403) |
+| community | 0.0.3 | A, W, T | Not installed (403) |
+| dropship | 0.0.5 | A, W, T | Not installed (403) |
+| elearning | 0.8.5 | A, W, T | Not installed (403) |
+| enhancement | 1.0.1 | A | Not installed (403) |
+| ezysmashers | 0.2.3 | A, W, S, G, T | Not installed (403) |
+| ezytank | 0.1.6 | A, W, S, G, T | Not installed (403) |
+| fashion | 0.3.9 | A, W, T | Not installed (403) |
+| logistics | 0.3.9 | A, W, T | Not installed (403) |
+| official-shipping | 0.0.8 | A, W, T | Not installed (403) |
+| publishing | 0.2.7 | A, W, T | Not installed (403) |
+| retail | 0.0.3 | A, W, T | Not installed (403) |
+| stackask | 0.3.0 | A, W, T | Not installed (403) |
+| story | 0.0.7 | A, W, T | Not installed (403) |
+| tournament | 0.0.7 | A, W, T | Not installed (403) |
+| viettel-post-sandbox | 0.0.6 | A, W | Not installed (403) |
+| zalo-sandbox | 0.1.2 | A, W | Not installed (403) |
 
-## Thứ tự phụ thuộc đáng lưu ý
+## Dependency order notes
 
-- `ezyarticle` và `ecommerce` là hai nút gốc. Bật `ecommerce` trước `accounting`, rồi `ezydelivery` (còn cần `ezyarticle`). `graphql` cần cả `ezyarticle` và `ecommerce`.
-- `ezyarticle` → `ezymail` → `ezysupport`, `ezylogin` và (cùng `ecommerce`) `ezycrm`, `ezyrating`. `ezymarketing` còn cần EzySupport. `omnichannel` cần Ecommerce, EzyArticle, EzyRating và EzySupport.
-- `ezyarticle` → `ezychat`; `graphql` + `ezychat` → `ezyai` → `ezyrag`. `ezyoa` cần EzyArticle, EzySupport và EzyChat. `consulting` cần CRM, OA, Account, Login, Support, Article và Ecommerce.
-- Lần bật hàng loạt đầu tiên, khi Admin và Web khởi động song song, log có lỗi thiếu bảng (`ecommerce_product_categories`, `ecommerce_shops`, `ecommerce_product_currencies`, `ezydefence_white_uri_ips`, `ezygame_metrics`) và một số request Web lỗi. Chạy lại sau khi Admin/Web đã lên thì route bài kiểm thử trả đúng nội dung. Sandbox không đạt tiêu chí log hoàn toàn sạch: Admin vẫn cảnh báo SQL của EzyBlockchain và lỗi backup định kỳ của Data Backup. Đánh giá log theo lần khởi động, không coi HTTP 200 là bằng chứng migration hay backup đã chạy thành công.
+- `ezyarticle` and `ecommerce` are the two root nodes. Activate `ecommerce` before `accounting`, then `ezydelivery`, which also needs `ezyarticle`. `graphql` needs both `ezyarticle` and `ecommerce`.
+- `ezyarticle` → `ezymail` → `ezysupport`, `ezylogin`, and (with `ecommerce`) `ezycrm` and `ezyrating`. `ezymarketing` also needs EzySupport. `omnichannel` needs Ecommerce, EzyArticle, EzyRating, and EzySupport.
+- `ezyarticle` → `ezychat`; `graphql` + `ezychat` → `ezyai` → `ezyrag`. `ezyoa` needs EzyArticle, EzySupport, and EzyChat. `consulting` needs CRM, OA, Account, Login, Support, Article, and Ecommerce.
+- On the first bulk activation, Admin and Web started in parallel. The logs showed missing tables (`ecommerce_product_categories`, `ecommerce_shops`, `ecommerce_product_currencies`, `ezydefence_white_uri_ips`, and `ezygame_metrics`) and some Web requests failed. After Admin and Web were fully up, retrying the test post route returned the expected content. The sandbox did not meet a clean-log criterion: Admin still logged EzyBlockchain SQL warnings and periodic Data Backup failures. Assess the logs for each startup; HTTP 200 does not prove that migrations or backups succeeded.
 
-## Bài học chung khi phát triển plugin
+## General lessons for plugin development
 
-1. Dùng từng lane Admin/Web/Socket theo nhu cầu. Tách dữ liệu và quyền nghiệp vụ khỏi quyền hệ thống; kiểm truy cập theo tài nguyên ngay cả khi request đã xác thực.
-2. Kiểm migration cài mới và nâng cấp trước khi xác nhận Web hoạt động ổn định. Đánh giá log theo lần boot riêng thay vì chỉ nhìn HTTP 200.
-3. Kiểm giao diện với theme đang hoạt động: theme Welcome mặc định không render bài EzyArticle, còn Freestyle đã render được cùng fixture.
-4. Tách SMTP, OAuth, AI, thanh toán và backup khỏi smoke test; kiểm tích hợp bằng adapter, mock hoặc sandbox thích hợp.
+1. Use each Admin, Web, or Socket lane as needed. Keep business data and permissions separate from system permissions, and authorize access per resource even after authentication.
+2. Test both fresh-install and upgrade migrations before confirming that Web is stable. Review each boot's logs rather than checking HTTP 200 alone.
+3. Test the UI with the active theme. The default Welcome theme did not render the EzyArticle post, while Freestyle rendered the same fixture.
+4. Keep SMTP, OAuth, AI, payments, and backups out of smoke tests; test integrations with a suitable adapter, mock, or sandbox.

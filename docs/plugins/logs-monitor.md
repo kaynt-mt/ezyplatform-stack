@@ -1,24 +1,24 @@
 # logs-monitor
 
-Console, thư mục log và lane Socket.
+Console, log directory, and Socket module.
 
-- **Bản Marketplace trên core 1.5.9:** `0.0.5`.
-- **Module đã xác minh:** `admin-plugin`, `web-plugin`, `socket-plugin`.
-- **Cài đặt:** Đạt. Xem môi trường và các giới hạn chung trong [báo cáo kiểm thử](test-report.md).
+- **Marketplace version on core 1.5.9:** `0.0.5`.
+- **Verified modules:** `admin-plugin`, `web-plugin`, `socket-plugin`.
+- **Installation:** Passed. See the environment and general limitations in the [test report](test-report.md).
 
-## Bản đồ module
+## Module map
 
-| Lane / thư mục | Package khai báo | Phụ thuộc runtime khai báo |
+| Lane / directory | Declared package | Declared runtime dependencies |
 |---|---|---|
-| `admin-plugin` — `admin/plugins/logs-monitor` | `org.youngmonkeys.logsmonitor` | Không khai báo |
-| `web-plugin` — `web/plugins/logs-monitor` | `org.youngmonkeys.logsmonitor` | Không khai báo |
-| `socket-plugin` — `socket/plugins/logs-monitor` | `org.youngmonkeys.logsmonitor` | Không khai báo |
+| `admin-plugin` — `admin/plugins/logs-monitor` | `org.youngmonkeys.logsmonitor` | Not declared |
+| `web-plugin` — `web/plugins/logs-monitor` | `org.youngmonkeys.logsmonitor` | Not declared |
+| `socket-plugin` — `socket/plugins/logs-monitor` | `org.youngmonkeys.logsmonitor` | Not declared |
 
-## HTTP, UI và tài nguyên
+## HTTP, UI, and resources
 
-Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố khi mount module và quyền truy cập có thể khác giữa các lane; các URL đã gọi thật nằm ở mục kiểm thử.
+The paths below come from annotations in the JAR. Mount prefixes and access permissions may differ by lane; the URLs that were actually called are listed in the testing section.
 
-**admin-plugin** — 12 tổ hợp phương thức/URI đọc được; mẫu đại diện:
+**admin-plugin** — 12 method/URI combinations identified; representative sample:
 
 | Annotation HTTP | Class |
 |---|---|
@@ -33,48 +33,48 @@ Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố
 | `PUT /api/v1/settings/log-files` | `AdminApiLogsMonitorSettingController` |
 | `PUT /api/v1/settings/slack-logs` | `AdminApiLogsMonitorSettingController` |
 
-- **admin-plugin – Menu (khóa cuối và path trong menus.properties):** `logs_monitor: /`, `console: /console`, `log_folder: /log-folder`, `settings: /logs-monitor/settings`.
+- **admin-plugin – Menus (final keys and paths in menus.properties):** `logs_monitor: /`, `console: /console`, `log_folder: /log-folder`, `settings: /logs-monitor/settings`.
 
 - **admin-plugin – Template:** `logs-monitor/console/index.html`, `logs-monitor/folder/index.html`, `logs-monitor/settings/index.html`.
 
-## Dữ liệu và migration
+## Data and migrations
 
-- Không tìm thấy `CREATE TABLE` trong các tệp SQL rời của gói; không suy ra module không lưu dữ liệu hoặc không dùng schema của core.
+- No occurrence of `CREATE TABLE` was found in the package’s standalone SQL files; this does not mean the module stores no data or does not use the core schema.
 
-## JAR, cấu hình và điểm mở rộng
+## JARs, configuration, and extension points
 
 ### admin-plugin
 
-- **JAR kiểm tra:** `logs-monitor-admin-plugin-0.0.5.jar`, `logs-monitor-sdk-0.0.5.jar`; 22 class cấp cao nhất sau khi bỏ trùng theo tên package/class trong lane. SDK có thể lặp giữa các lane.
-- **Package nổi bật:** `org.youngmonkeys.logsmonitor.admin.controller.view`, `org.youngmonkeys.logsmonitor.admin.controller.api`, `org.youngmonkeys.logsmonitor.admin.response` (+9).
-- **Controller/service/repository (mẫu):** `AdminApiLogFilesController`, `AdminApiLogsController`, `AdminApiLogsMonitorSettingController`, `AdminApiSlackLogsController`, `AdminLogFileService`, `AdminLogsMonitorSettingValidator`.
-- **Class cấu hình/quyền (mẫu):** `AdminLogFilesDeletionScheduleConfig`, `AdminSlackLogbackAppenderConfig`, `SlackLogbackAppenderConfig`.
-- **Điểm mở rộng tiềm năng theo tên class:** `AdminLogFileManager`.
+- **JARs inspected:** `logs-monitor-admin-plugin-0.0.5.jar`, `logs-monitor-sdk-0.0.5.jar`; 22 top-level classes after deduplicating by package and class name within the lane. The SDK can appear in multiple lanes.
+- **Notable packages:** `org.youngmonkeys.logsmonitor.admin.controller.view`, `org.youngmonkeys.logsmonitor.admin.controller.api`, `org.youngmonkeys.logsmonitor.admin.response` (+9).
+- **Controllers, services, and repositories (sample):** `AdminApiLogFilesController`, `AdminApiLogsController`, `AdminApiLogsMonitorSettingController`, `AdminApiSlackLogsController`, `AdminLogFileService`, `AdminLogsMonitorSettingValidator`.
+- **Configuration and permission classes (sample):** `AdminLogFilesDeletionScheduleConfig`, `AdminSlackLogbackAppenderConfig`, `SlackLogbackAppenderConfig`.
+- **Potential extension points based on class names:** `AdminLogFileManager`.
 
 ### web-plugin
 
-- **JAR kiểm tra:** `logs-monitor-sdk-0.0.5.jar`, `logs-monitor-web-plugin-0.0.5.jar`; 4 class cấp cao nhất sau khi bỏ trùng theo tên package/class trong lane. SDK có thể lặp giữa các lane.
-- **Package nổi bật:** `org.youngmonkeys.logsmonitor.web.config`, `org.youngmonkeys.logsmonitor.config`, `org.youngmonkeys.logsmonitor.constant` (+1).
-- **Class cấu hình/quyền (mẫu):** `SlackLogbackAppenderConfig`, `WebSlackLogbackAppenderConfig`.
+- **JARs inspected:** `logs-monitor-sdk-0.0.5.jar`, `logs-monitor-web-plugin-0.0.5.jar`; 4 top-level classes after deduplicating by package and class name within the lane. The SDK can appear in multiple lanes.
+- **Notable packages:** `org.youngmonkeys.logsmonitor.web.config`, `org.youngmonkeys.logsmonitor.config`, `org.youngmonkeys.logsmonitor.constant` (+1).
+- **Configuration and permission classes (sample):** `SlackLogbackAppenderConfig`, `WebSlackLogbackAppenderConfig`.
 
 ### socket-plugin
 
-- **JAR kiểm tra:** `logs-monitor-sdk-0.0.5.jar`, `logs-monitor-socket-plugin-0.0.5.jar`; 5 class cấp cao nhất sau khi bỏ trùng theo tên package/class trong lane. SDK có thể lặp giữa các lane.
-- **Package nổi bật:** `org.youngmonkeys.logsmonitor.config`, `org.youngmonkeys.logsmonitor.socket.plugin.config`, `org.youngmonkeys.logsmonitor.constant` (+2).
-- **Class cấu hình/quyền (mẫu):** `SlackLogbackAppenderConfig`, `SocketSlackLogbackAppenderConfig`.
-- **Điểm mở rộng tiềm năng theo tên class:** `PluginEntryLoader`.
+- **JARs inspected:** `logs-monitor-sdk-0.0.5.jar`, `logs-monitor-socket-plugin-0.0.5.jar`; 5 top-level classes after deduplicating by package and class name within the lane. The SDK can appear in multiple lanes.
+- **Notable packages:** `org.youngmonkeys.logsmonitor.config`, `org.youngmonkeys.logsmonitor.socket.plugin.config`, `org.youngmonkeys.logsmonitor.constant` (+2).
+- **Configuration and permission classes (sample):** `SlackLogbackAppenderConfig`, `SocketSlackLogbackAppenderConfig`.
+- **Potential extension points based on class names:** `PluginEntryLoader`.
 - **Zone / entry loader:** `admin` / `org.youngmonkeys.logsmonitor.socket.plugin.PluginEntryLoader`.
 
-Class và resource xác nhận có cấu trúc mở rộng trong bản đóng gói, không cam kết API ổn định hoặc handler đã chạy qua mọi nhánh.
+Classes and resources show that extension points are packaged; they do not establish API stability or confirm that every handler path has run.
 
-## Quan sát trên sandbox
+## Sandbox observations
 
-Admin `/logs-monitor/console` và `/logs-monitor/log-folder` → 200.
+Admin `/logs-monitor/console` and `/logs-monitor/log-folder` returned 200.
 
-Xem bằng chứng nạp module và cổng TCP trong [kiểm thử Socket](test-report.md#gói-cài-được-và-kiểm-thử-http). Không kiểm chứng trao đổi Socket bằng client.
+See module-loading and TCP port evidence in the [Socket checks](test-report.md#installable-packages-and-http-tests). Socket communication was not verified with a client.
 
-## Lưu ý khi tích hợp
+## Integration notes
 
-Tham khảo chẩn đoán module/job; không ghi dữ liệu nghiệp vụ nhạy cảm, token hay cookie vào log.
+Use it to diagnose modules and jobs. Keep sensitive business data, tokens, and cookies out of logs.
 
-[Về chỉ mục plugin](README.md)
+[Back to the plugin index](README.md)

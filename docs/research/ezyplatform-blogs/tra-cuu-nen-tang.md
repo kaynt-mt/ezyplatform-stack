@@ -1,1437 +1,1437 @@
-# Tra cứu: Nền tảng, module và phát triển
+# Reference: Platform, modules, and development
 
-[Về chỉ mục đầy đủ](README.md) · [Ghi chú biên soạn và bài trọng tâm](van-hanh.md)
+[Back to full index](README.md) · [Operations notes](van-hanh.md)
 
-Các mục dưới đây ghi lại đề mục và tên tính năng để tìm phần liên quan trong bài. Mở nguồn để xem quy trình đầy đủ và đối chiếu với phiên bản đang dùng.
+Each entry lists the article title and relevant features or sections. Open the original article for the complete procedure and check it against the version you use.
 
 <a id="bai-1562"></a>
 
-### Sử dụng bộ công cụ của CPPAI để tạo trang web thử váy online
+### Use the CPPAI toolkit to create a online dress test site
 
-[Bài gốc](https://ezyplatform.com/blog/su-dung-bo-cong-cu-cua-cppai-de-tao-trang-web-thu-vay-online?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/su-dung-bo-cong-cu-cua-cppai-de-tao-trang-web-thu-vay-online?lang=vi) · Guide
 
-- Nhãn gốc: CPPAI.
-- Đề mục trong bài: Sử dụng bộ công cụ của CPPAI để tạo trang web thử váy online; Kết quả: phòng thử váy cho HOBB; Tự khớp dáng; Ghi lên site luôn có kiểm chứng.
-- Từ khóa được nhắc: `ezylogin`, `environment.json`, `ezyarticle`, `compose`.
-- Bài được dẫn: [Hướng dẫn sử dụng bộ công cụ của CPPAI cho EzyPlatform](./tra-cuu-nen-tang.md#bai-1548); [Sử dụng bộ công cụ của CPPAI dành cho EzyPlatform để tạo trò chơi tìm hiểu Nginx](./tra-cuu-nen-tang.md#bai-1551); [Bộ giải pháp của CPPAI dành cho EzyPlatform](./tra-cuu-nen-tang.md#bai-1547).
+- Original category: CPPAI.
+- Article sections: Use the CPPAI toolkit to create a online dress test site; Results: Dressroom for HOBB; It fits itself; The site is always checked.
+- Features mentioned: `ezylogin`, `environment.json`, `ezyarticle`, `compose`.
+- Referenced articles: [CPPAI toolkit for EzyPlatform](./tra-cuu-nen-tang.md#bai-1548); [Use the CPPAI toolkit for EzyPlatform to create the Nginx learning game](./tra-cuu-nen-tang.md#bai-1551); [CPPAI Solution Set for EzyPlatform](./tra-cuu-nen-tang.md#bai-1547).
 
 <a id="bai-1551"></a>
 
-### Sử dụng bộ công cụ của CPPAI dành cho EzyPlatform để tạo trò chơi tìm hiểu Nginx
+### Use the CPPAI toolkit for EzyPlatform to create the Nginx learning game
 
-[Bài gốc](https://ezyplatform.com/blog/su-dung-bo-cong-cu-cua-cppai-de-tao-tro-choi-tim-hieu-nginx?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/su-dung-bo-cong-cu-cua-cppai-de-tao-tro-choi-tim-hieu-nginx?lang=vi) · Guide
 
-- Nhãn gốc: CPPAI.
-- Đề mục trong bài: Sử dụng bộ công cụ của CPPAI dành cho EzyPlatform để tạo trò chơi tìm hiểu Nginx; Kết quả: NGINX Packet Quest; Đi theo mã nguồn; Ghi lên site luôn có người duyệt.
-- Từ khóa được nhắc: `EzyArticle`, `Thymeleaf`, `compose`, `environment.json`.
-- Bài được dẫn: [Hướng dẫn sử dụng bộ công cụ của CPPAI cho EzyPlatform](./tra-cuu-nen-tang.md#bai-1548); [Bộ giải pháp của CPPAI dành cho EzyPlatform](./tra-cuu-nen-tang.md#bai-1547).
+- Original category: CPPAI.
+- Article sections: Use the CPPAI toolkit for EzyPlatform to create the Nginx learning game; Results for: NGINX Packet Quest; Follow the source code; On the site there are always people.
+- Features mentioned: `EzyArticle`, `Thymeleaf`, `compose`, `environment.json`.
+- Referenced articles: [CPPAI toolkit for EzyPlatform](./tra-cuu-nen-tang.md#bai-1548); [CPPAI Solution Set for EzyPlatform](./tra-cuu-nen-tang.md#bai-1547).
 
 <a id="bai-1548"></a>
 
-### Hướng dẫn sử dụng bộ công cụ của CPPAI cho EzyPlatform
+### CPPAI toolkit for EzyPlatform
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-su-dung-bo-cong-cu-cua-cppai-cho-ezyplatform?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-su-dung-bo-cong-cu-cua-cppai-cho-ezyplatform?lang=vi) · Guide
 
-- Nhãn gốc: CPPAI.
-- Đề mục trong bài: Hướng dẫn sử dụng bộ công cụ của CPPAI cho EzyPlatform; Cài lệnh ezy; Cài coding agent và plugin ezyplatform; Xử lý sự cố thường gặp.
-- Từ khóa được nhắc: `marketplace`, `environment.json`, `compose`, `EzyArticle`.
-- Bài được dẫn: [Bộ giải pháp của CPPAI dành cho EzyPlatform](./tra-cuu-nen-tang.md#bai-1547).
+- Original category: CPPAI.
+- Article sections: CPPAI toolkit for EzyPlatform; Order of Ezy; Install coding agent and ezyplatform plugin; Treatment of frequent incidents.
+- Features mentioned: `marketplace`, `environment.json`, `compose`, `EzyArticle`.
+- Referenced articles: [CPPAI Solution Set for EzyPlatform](./tra-cuu-nen-tang.md#bai-1547).
 
 <a id="bai-1547"></a>
 
-### Bộ giải pháp của CPPAI dành cho EzyPlatform
+### CPPAI Solution Set for EzyPlatform
 
-[Bài gốc](https://ezyplatform.com/blog/bo-giai-phap-cua-cppai-danh-cho-ezyplatform?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/bo-giai-phap-cua-cppai-danh-cho-ezyplatform?lang=vi) · Use case
 
-- Nhãn gốc: CPPAI.
-- Đề mục trong bài: Bộ giải pháp của CPPAI dành cho EzyPlatform; mềm tích hợp AI; AI Agent vận hành; Tài liệu thành công cụ.
-- Từ khóa được nhắc: `EzyArticle`, `EzyPayment`, `environment.json`.
-- Bài được dẫn: [Hướng dẫn sử dụng bộ công cụ của CPPAI cho EzyPlatform](./tra-cuu-nen-tang.md#bai-1548); [Sử dụng bộ công cụ của CPPAI dành cho EzyPlatform để tạo trò chơi tìm hiểu Nginx](./tra-cuu-nen-tang.md#bai-1551); [Sử dụng bộ công cụ của CPPAI để tạo trang web thử váy online](./tra-cuu-nen-tang.md#bai-1562).
+- Original category: CPPAI.
+- Article sections: CPPAI Solution Set for EzyPlatform; soft integrated AI; The agent operates; Documents are a tool.
+- Features mentioned: `EzyArticle`, `EzyPayment`, `environment.json`.
+- Referenced articles: [CPPAI toolkit for EzyPlatform](./tra-cuu-nen-tang.md#bai-1548); [Use the CPPAI toolkit for EzyPlatform to create the Nginx learning game](./tra-cuu-nen-tang.md#bai-1551); [Use the CPPAI toolkit to create a online dress test site](./tra-cuu-nen-tang.md#bai-1562).
 
 <a id="bai-1090"></a>
 
-### Nhược điểm của các sản phẩm nền tảng như EzyPlatform: Nếu thiết kế từ đầu không tốt thì sẽ là thảm hoạ
+### Disadvantages of platform products such as EzyPlatform: If the design from the beginning is not good, it will be catastrophic
 
-[Bài gốc](https://ezyplatform.com/blog/nhuoc-diem-cua-cac-san-pham-nen-tang-nhu-ezyplatform-neu-thiet-ke-tu-dau-khong-tot-thi-se-la-tham-hoa?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/nhuoc-diem-cua-cac-san-pham-nen-tang-nhu-ezyplatform-neu-thiet-ke-tu-dau-khong-tot-thi-se-la-tham-hoa?lang=vi) · Use case
 
-- Nhãn gốc: EzyPlatform; Phân tích.
-- Đề mục trong bài: Bài toán khó nhất: Thiết kế database gần như “không được phép sai”; Cái khó của platform là phải nghĩ cho tương lai chưa tồn tại; Sai lầm trong kiến trúc tổng thể sẽ trả giá suốt nhiều năm; Điều đáng sợ nhất của kiến trúc tệ là nó không phát nổ ngay lập tức.
+- Original category: EzyPlatform; Analysis.
+- Article sections: The hardest task: Database design is almost “not permitted to be wrong””; The difficulty of the platform is to think about the future that does not exist; Mistakes in the overall architecture will pay for years; The worst thing of the bad architecture is that it doesn’t explode immediately.
 
 <a id="bai-1087"></a>
 
-### EzyPlatform Low Code: Hiển thị chi tiết bài viết
+### EzyPlatform Low Code: Show details of the article
 
-[Bài gốc](https://ezyplatform.com/blog/ezyplatform-low-code-hien-thi-chi-tiet-bai-viet?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/ezyplatform-low-code-hien-thi-chi-tiet-bai-viet?lang=vi) · Use case
 
-- Nhãn gốc: Low code; EzyPlatform.
-- Đề mục trong bài: Chuẩn bị môi trường; Bổ sung mã nguồn; Sử dụng AI để chỉnh sửa.
-- Bài được dẫn: [EzyPlatform Low Code: Hiển thị danh sách bài viết](./tra-cuu-nen-tang.md#bai-1085).
+- Original category: Low code; EzyPlatform.
+- Article sections: Prepare the environment; Add source code; Use to modify.
+- Referenced articles: [EzyPlatform Low Code: Showing a list of articles](./tra-cuu-nen-tang.md#bai-1085).
 
 <a id="bai-1085"></a>
 
-### EzyPlatform Low Code: Hiển thị danh sách bài viết
+### EzyPlatform Low Code: Showing a list of articles
 
-[Bài gốc](https://ezyplatform.com/blog/ezyplatform-low-code-hien-thi-danh-sach-bai-viet?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/ezyplatform-low-code-hien-thi-danh-sach-bai-viet?lang=vi) · Use case
 
-- Nhãn gốc: Low code; EzyPlatform.
-- Đề mục trong bài: Chuẩn bị môi trường; Bổ sung mã nguồn; Gắn link các bài viết; Sử dụng AI để chỉnh sửa.
-- Từ khóa được nhắc: `EzyArticle`, `page fragment`.
-- Bài được dẫn: [EzyPlatform Low Code: Tạo một trang sản phẩm](./tra-cuu-nen-tang.md#bai-980); [EzyPlatform Low Code: Cài đặt công cụ lập trình](./tra-cuu-nen-tang.md#bai-924); [EzyPlatform Low Code: Hoàn thiện trang chủ](./tra-cuu-nen-tang.md#bai-926).
+- Original category: Low code; EzyPlatform.
+- Article sections: Prepare the environment; Add source code; Link to the posts; Use to modify.
+- Features mentioned: `EzyArticle`, `page fragment`.
+- Referenced articles: [EzyPlatform Low Code: Create a Product Page](./tra-cuu-nen-tang.md#bai-980); [EzyPlatform Low Code: Installing the programming tool](./tra-cuu-nen-tang.md#bai-924); [EzyPlatform Low Code: Complete the home page](./tra-cuu-nen-tang.md#bai-926).
 
 <a id="bai-1083"></a>
 
-### Giải thích lý do vì sao EzyPlatform phải làm chủ công nghệ lõi và ít dùng thư viện ngoài?
+### Explain why EzyPlatform has to master core technology and use less external library?
 
-[Bài gốc](https://ezyplatform.com/blog/giai-thich-ly-do-vi-sao-ezyplatform-phai-lam-chu-cong-nghe-loi-va-it-dung-thu-vien-ngoai?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/giai-thich-ly-do-vi-sao-ezyplatform-phai-lam-chu-cong-nghe-loi-va-it-dung-thu-vien-ngoai?lang=vi) · Use case
 
-- Nhãn gốc: EzyPlatform; Phân tích.
-- Đề mục trong bài: Sự ổn định là điều quan trọng nhất của nền tảng; Khả năng nâng cấp, mở rộng và tùy biến là điều quan trọng thứ hai; Đảm bảo khả năng chủ động vá lỗi khi có lỗ hổng bảo mật; Tổng quan lý do EzyPlatform làm chủ công nghệ lõi.
-- Từ khóa được nhắc: `Marketplace`.
+- Original category: EzyPlatform; Analysis.
+- Article sections: Stability is the most important thing of the foundation; Upgrade, expansion and customization is the second important thing; Make sure that you can actively reject errors when there is a security gap; Overview of why EzyPlatform mastered core technology.
+- Features mentioned: `Marketplace`.
 
 <a id="bai-1060"></a>
 
-### Tại sao trong thời đại AI, EzyPlatform vẫn chọn ERP và Game Online?
+### Why in the age of AI, EzyPlatform still chooses ERP and Game Online?
 
-[Bài gốc](https://ezyplatform.com/blog/tai-sao-trong-thoi-dai-ai-ezyplatform-van-chon-erp-va-game-online?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/tai-sao-trong-thoi-dai-ai-ezyplatform-van-chon-erp-va-game-online?lang=vi) · Use case
 
-- Nhãn gốc: EzyPlatform; Phân tích.
-- Đề mục trong bài: AI chưa phải lợi thế cạnh tranh của Việt Nam; ERP là nhu cầu thực tế của doanh nghiệp Việt; ERP là bài toán phức tạp và có giá trị dài hạn; Một chiến lược cân bằng thay vì chạy theo xu hướng.
-- Từ khóa được nhắc: `E-Commerce`.
+- Original category: EzyPlatform; Analysis.
+- Article sections: It is not the competitive advantage of Vietnam; ERP is the real business needs; ERP is a complex and long-term value; A balanced strategy instead of running the trend.
+- Features mentioned: `E-Commerce`.
 
 <a id="bai-1048"></a>
 
-### AI đang tác động đến EzyPlatform thế nào ở năm 2026?
+### How AI is affecting EzyPlatform in 2026?
 
-[Bài gốc](https://ezyplatform.com/blog/ai-dang-tac-dong-den-ezyplatform-the-nao-o-nam-2026?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/ai-dang-tac-dong-den-ezyplatform-the-nao-o-nam-2026?lang=vi) · Use case
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Khi AI trở thành động cơ tăng tốc phát triển sản phẩm; AI giúp developer tiếp cận EzyPlatform dễ dàng hơn; Nhiều tác vụ giao diện đã được chuyển giao cho người dùng; Một số tính năng no-code cũ trở nên lỗi thời nhanh chóng.
+- Original category: EzyPlatform.
+- Article sections: When AI becomes the engine to accelerate product development; AI helps developers access EzyPlatform easier; Many interface tasks have been transferred to users; Some of the old no-code features become rapidly outdated.
 
 <a id="bai-1035"></a>
 
-### Vì sao không phải dự án nào dùng Single Page Application cũng tốt?
+### Why not a single page application is good?
 
-[Bài gốc](https://ezyplatform.com/blog/vi-sao-khong-phai-du-an-nao-dung-single-page-application-cung-tot?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/vi-sao-khong-phai-du-an-nao-dung-single-page-application-cung-tot?lang=vi) · Use case
 
-- Nhãn gốc: Front-End; Phân tích.
-- Đề mục trong bài: Khi nội dung không còn hiển thị ngay từ đầu; Những giới hạn của ReactJS và Vue.js trong bài toán SEO; Hướng đi thực tế hơn: kết hợp nhiều cách render; Cách EzyPlatform tiếp cận.
+- Original category: Front-End; Analysis.
+- Article sections: When the content is no longer displayed from the beginning; The Limits of ReactJS and Vue.js in SEO Matematics; More practical direction: combining multiple ways of rendering; How EzyPlatform approaches.
 
 <a id="bai-1034"></a>
 
-### Vì sao chiến lược của EzyPlatform tập trung vào API hơn là các công cụ AI?
+### Why EzyPlatform’s strategy focuses on API rather than AI tools?
 
-[Bài gốc](https://ezyplatform.com/blog/vi-sao-chien-luoc-cua-ezyplatform-tap-trung-vao-api-hon-la-cac-cong-cu-ai?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/vi-sao-chien-luoc-cua-ezyplatform-tap-trung-vao-api-hon-la-cac-cong-cu-ai?lang=vi) · Use case
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: AI không phải nền tảng – API mới là nền móng; API tạo ra hệ sinh thái – AI chỉ là một phần; Kiến trúc của EzyPlatform: API là trung tâm; Tư duy “Software Supply Chain”.
-- Từ khóa được nhắc: `Marketplace`.
+- Original category: EzyPlatform.
+- Article sections: Who is not the foundation – the API is the foundation; API creates an ecosystem – AI is just a part; Architecture of EzyPlatform: API is the center; The Software Supply Chain”.
+- Features mentioned: `Marketplace`.
 
 <a id="bai-980"></a>
 
-### EzyPlatform Low Code: Tạo một trang sản phẩm
+### EzyPlatform Low Code: Create a Product Page
 
-[Bài gốc](https://ezyplatform.com/blog/ezyplatform-low-code-tao-mot-trang-san-pham?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/ezyplatform-low-code-tao-mot-trang-san-pham?lang=vi) · Guide
 
-- Nhãn gốc: Low code; EzyPlatform.
-- Đề mục trong bài: Cài đặt môi trường; Cài đặt GraphQL; Cài đặt E-Commerce; Khởi tạo dự án.
-- Từ khóa được nhắc: `E-Commerce`, `EzyArticle`.
+- Original category: Low code; EzyPlatform.
+- Article sections: Installing the environment; Installation of GraphQL; Installation of E-Commerce; Starting the project.
+- Features mentioned: `E-Commerce`, `EzyArticle`.
 
 <a id="bai-937"></a>
 
-### Nguyên lý hoạt động của EzyPlatform admin global search
+### Principles of EzyPlatform admin global search
 
-[Bài gốc](https://ezyplatform.com/blog/nguyen-ly-hoat-dong-cua-ezyplatform-admin-global-search?lang=vi) · Vận hành/kiến trúc
+[Original article](https://ezyplatform.com/blog/nguyen-ly-hoat-dong-cua-ezyplatform-admin-global-search?lang=vi) · Operations / Architecture
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Tổng quan kiến trúc; Controller trung tâm của global search; Cách request được xử lý; Ví dụ tối giản để thêm một nguồn tìm kiếm mới.
+- Original category: EzyPlatform.
+- Article sections: The architectural view; Controller of Global Search; The request is processed; Small example to add a new search source.
 
 <a id="bai-926"></a>
 
-### EzyPlatform Low Code: Hoàn thiện trang chủ
+### EzyPlatform Low Code: Complete the home page
 
-[Bài gốc](https://ezyplatform.com/blog/ezyplatform-low-code-hoan-thien-trang-chu?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/ezyplatform-low-code-hoan-thien-trang-chu?lang=vi) · Use case
 
-- Nhãn gốc: Low code; EzyPlatform.
-- Đề mục trong bài: Chuẩn bị chung; Sao chép toàn bộ ảnh vào thư mục /api/v1/media .; Đồng bộ common/header; Đồng trang chủ lên máy chủ.
-- Từ khóa được nhắc: `EzyArticle`, `environment.json`, `Page Fragments`, `page fragment`.
-- Bài được dẫn: [EzyPlatform Low Code: Cài đặt công cụ lập trình](./tra-cuu-nen-tang.md#bai-924).
+- Original category: Low code; EzyPlatform.
+- Article sections: Prepare together; Copy the full image into the /api/v1/media folder .; The common/header; The owner to the server.
+- Features mentioned: `EzyArticle`, `environment.json`, `Page Fragments`, `page fragment`.
+- Referenced articles: [EzyPlatform Low Code: Installing the programming tool](./tra-cuu-nen-tang.md#bai-924).
 
 <a id="bai-924"></a>
 
-### EzyPlatform Low Code: Cài đặt công cụ lập trình
+### EzyPlatform Low Code: Installing the programming tool
 
-[Bài gốc](https://ezyplatform.com/blog/ezyplatform-low-code-cai-dat-cong-cu-lap-trinh?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/ezyplatform-low-code-cai-dat-cong-cu-lap-trinh?lang=vi) · Guide
 
-- Nhãn gốc: Low code; EzyPlatform.
-- Đề mục trong bài: Cài đặt công cụ lập trình; Cài đặt công cụ AI; Cài đặt công cụ quản lý phiên bản mã nguồn.
-- Từ khóa được nhắc: `EzyArticle`.
+- Original category: Low code; EzyPlatform.
+- Article sections: Install the programming tool; Installing the AI tool; Install the source code version management tool.
+- Features mentioned: `EzyArticle`.
 
 <a id="bai-818"></a>
 
-### Xây dựng kho asset cho game có giá trị thương mại
+### Building asset warehouses for games with commercial value
 
-[Bài gốc](https://ezyplatform.com/blog/tao-asset-cho-game-xay-dung-kho-asset-co-gia-tri-thuong-mai?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/tao-asset-cho-game-xay-dung-kho-asset-co-gia-tri-thuong-mai?lang=vi) · Use case
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Sự khác biệt giữa asset cho game và asset cho nội dung truyền thông; Animation trong game; Frame-by-frame animation trong game 2D; Một số lưu ý.
-- Từ khóa được nhắc: `marketplace`.
+- Original category: EzyPlatform.
+- Article sections: How game assets differ from media assets; animation in games; frame-by-frame animation in 2D games; additional notes.
+- Features mentioned: `marketplace`.
 
 <a id="bai-812"></a>
 
-### Hướng dẫn build tinymce
+### The build tinymce
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-build-tinymce?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-build-tinymce?lang=vi) · Guide
 
-- Nhãn gốc: Front-End.
-- Đề mục trong bài: Build TinyMCE; Build TinyMCE JQuery.
+- Original category: Front-End.
+- Article sections: Build TinyMCE; Build TinyMCE JQuery.
 
 <a id="bai-807"></a>
 
-### Các thuật toán tìm ra 2 số trùng nhau trong một mảng cho sẵn
+### The algorithms find two numbers matched in one plaque
 
-[Bài gốc](https://ezyplatform.com/blog/cac-thuat-toan-tim-ra-2-so-trung-nhau-trong-mot-mang-cho-san?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/cac-thuat-toan-tim-ra-2-so-trung-nhau-trong-mot-mang-cho-san?lang=vi) · Use case
 
-- Nhãn gốc: Thuật toán.
-- Đề mục trong bài: Cách 1: Sử dụng Map; Cách 2: Sắp xếp rồi tìm 2 số liền kề; Cách 3: Sử dụng thuật toán Floyd..
+- Original category: The Algorithm.
+- Article sections: Method 1: Use the map; Step 2: Setting up and find two next numbers; Method 3: Use the Floyd algorithm..
 
 <a id="bai-773"></a>
 
-### Chợ sách: Một số lớp có sẵn của E-Commerce
+### Book Market: A number of classes of e-commerce available
 
-[Bài gốc](https://ezyplatform.com/blog/cho-sach-mot-so-lop-co-san-cua-e-commerce?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/cho-sach-mot-so-lop-co-san-cua-e-commerce?lang=vi) · Use case
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Các lớp dạng service; Các lớp dạng phân trang; Các lớp dạng controller service; Các lớp dạng API.
-- Từ khóa được nhắc: `E-Commerce`.
-- Bài được dẫn: [Chợ sánh: Cài đặt giao diện trang chủ](./tra-cuu-nen-tang.md#bai-772).
+- Original category: EzyPlatform.
+- Article sections: Classes of service; Classes in the form of dishes; Classes of controller service; Classes of API.
+- Features mentioned: `E-Commerce`.
+- Referenced articles: [Market Comparison: Set up the master page interface](./tra-cuu-nen-tang.md#bai-772).
 
 <a id="bai-772"></a>
 
-### Chợ sánh: Cài đặt giao diện trang chủ
+### Market Comparison: Set up the master page interface
 
-[Bài gốc](https://ezyplatform.com/blog/cho-sanh-cai-dat-giao-dien-trang-chu?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/cho-sanh-cai-dat-giao-dien-trang-chu?lang=vi) · Guide
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Lập trình trang chủ phía backend; Lập trình trang chủ phía frontend.
-- Bài được dẫn: [Chợ sách: Liên kết các mô đun cần thiết](./tra-cuu-nen-tang.md#bai-771).
+- Original category: EzyPlatform.
+- Article sections: The backend page programming; The frontend page programming.
+- Referenced articles: [Book Market: Connect the necessary modules](./tra-cuu-nen-tang.md#bai-771).
 
 <a id="bai-771"></a>
 
-### Chợ sách: Liên kết các mô đun cần thiết
+### Book Market: Connect the necessary modules
 
-[Bài gốc](https://ezyplatform.com/blog/cho-sach-lien-ket-cac-mo-dun-can-thiet?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/cho-sach-lien-ket-cac-mo-dun-can-thiet?lang=vi) · Use case
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Giải thích về các plugin đã được liên kết; Liên kết một plugin mới.
-- Từ khóa được nhắc: `EzyArticle`, `E-Commerce`, `EzyLogin`, `EzyMail`, `EzyPayment`, `EzySupport`, `EzyDelivery`.
-- Bài được dẫn: [Chợ sách: Khởi tạo dự án](./tra-cuu-nen-tang.md#bai-770).
+- Original category: EzyPlatform.
+- Article sections: Explanation of the plugins that have been linked; Link to a new plugin.
+- Features mentioned: `EzyArticle`, `E-Commerce`, `EzyLogin`, `EzyMail`, `EzyPayment`, `EzySupport`, `EzyDelivery`.
+- Referenced articles: [Book Market: Starting a project](./tra-cuu-nen-tang.md#bai-770).
 
 <a id="bai-770"></a>
 
-### Chợ sách: Khởi tạo dự án
+### Book Market: Starting a project
 
-[Bài gốc](https://ezyplatform.com/blog/cho-sach-khoi-tao-du-an?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/cho-sach-khoi-tao-du-an?lang=vi) · Use case
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Khởi tạo dự án; Chạy dự án thông qua IDE..
-- Từ khóa được nhắc: `module.properties`.
+- Original category: EzyPlatform.
+- Article sections: Starting the project; Run the project through IDE..
+- Features mentioned: `module.properties`.
 
 <a id="bai-768"></a>
 
-### Ghép API đăng ký nhận tin qua API với EzyCRM
+### Integrate API to receive messages through API with EzyCRM
 
-[Bài gốc](https://ezyplatform.com/blog/ghep-api-dang-ky-nhan-tin-qua-api-voi-ezycrm?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/ghep-api-dang-ky-nhan-tin-qua-api-voi-ezycrm?lang=vi) · Guide
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Liên kết plugin EzyCRM.; Tích hợp API subscribe.
-- Từ khóa được nhắc: `ezycrm`.
+- Original category: EzyPlatform.
+- Article sections: Link to the EzyCRM plugin.; Integrated API subscribe.
+- Features mentioned: `ezycrm`.
 
 <a id="bai-766"></a>
 
-### EzyPlatform Low Code: Khởi tạo phần đầu trang (header)
+### EzyPlatform Low Code: Start the headline (header)
 
-[Bài gốc](https://ezyplatform.com/blog/ezyplatform-low-code-khoi-tao-phan-dau-trang-header?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/ezyplatform-low-code-khoi-tao-phan-dau-trang-header?lang=vi) · Use case
 
-- Nhãn gốc: Low code; EzyPlatform.
-- Đề mục trong bài: Cấu trúc một trang web; Khởi tạo style và scripts dùng chung; Khởi tạo style; Khởi tạo phần đầu trang (header).
+- Original category: Low code; EzyPlatform.
+- Article sections: Building a website; Starting with style and scripts; Starting with style; Start the headline (header).
 
 <a id="bai-765"></a>
 
-### EzyPlatform Low Code: Chuẩn bị môi trường
+### EzyPlatform Low Code: Environmental Preparation
 
-[Bài gốc](https://ezyplatform.com/blog/ezyplatform-low-code-chuan-bi-moi-truong?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/ezyplatform-low-code-chuan-bi-moi-truong?lang=vi) · Use case
 
-- Nhãn gốc: Low code; EzyPlatform.
-- Đề mục trong bài: Các thành phần giúp bạn Low code; Cài đặt máy chủ chạy EzyPlatform; Cài đặt EzyPlatform và các plugin cần thiết; Dùng thử máy chủ có sẵn.
-- Từ khóa được nhắc: `EzyArticle`, `E-Commerce`.
-- Bài được dẫn: [Citizen developer là nền tảng của chuyển đổi số](./tra-cuu-marketing.md#bai-184).
+- Original category: Low code; EzyPlatform.
+- Article sections: It helps you with low code; Installing the server running EzyPlatform; Install EzyPlatform and the necessary plugins; Use the server ready.
+- Features mentioned: `EzyArticle`, `E-Commerce`.
+- Referenced articles: [Citizen developer is the foundation of numerical conversion](./tra-cuu-marketing.md#bai-184).
 
 <a id="bai-764"></a>
 
-### Giới thiệu về các dự án và các sản phẩm của Young Monkeys
+### Introduction to Young Monkeys projects and products
 
-[Bài gốc](https://ezyplatform.com/blog/gioi-thieu-ve-cac-du-an-va-cac-san-pham-cua-youngmonkeys?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/gioi-thieu-ve-cac-du-an-va-cac-san-pham-cua-youngmonkeys?lang=vi) · Use case
 
-- Nhãn gốc: Mã nguồn mở.
-- Đề mục trong bài: Giới thiệu về Youngmonkeys; Tầm nhìn và Sứ mệnh của Young Monkeys; 1.Tầm nhìn của Young Monkeys; 2.Giá trị ứng dụng.
-- Từ khóa được nhắc: `EzyFox`, `EzyHTTP`, `EzyData`, `Websocket`, `Marketplace`, `E-commerce`.
+- Original category: Open source code.
+- Article sections: The Youngmonkeys; Vision and Mission of Young Monkeys; The Vision of Young Monkeys; 2 The value of application.
+- Features mentioned: `EzyFox`, `EzyHTTP`, `EzyData`, `Websocket`, `Marketplace`, `E-commerce`.
 
 <a id="bai-759"></a>
 
-### Front-end cơ bản: Tìm hiểu về grid
+### Front-end basic: Learn about the grid
 
-[Bài gốc](https://ezyplatform.com/blog/front-end-co-ban-tim-hieu-ve-grid?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/front-end-co-ban-tim-hieu-ve-grid?lang=vi) · Use case
 
-- Nhãn gốc: Front-End.
-- Đề mục trong bài: Kiến thức cơ bản; Các nhóm thuộc tính cơ bản của grid; Nhóm xác định hàng và cột; Nhóm thuộc tính của Grid Item.
+- Original category: Front-End.
+- Article sections: The basic knowledge; The basic properties of the grid; Groups identify rows and columns; The Grid Item Group.
 
 <a id="bai-754"></a>
 
-### Cách thức đóng góp và nhận donate thông qua Mã Nguồn Mở
+### How to contribute and receive donations through Open Source
 
-[Bài gốc](https://ezyplatform.com/blog/cach-thuc-dong-gop-va-nhan-donate-thong-qua-ma-nguon-mo?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/cach-thuc-dong-gop-va-nhan-donate-thong-qua-ma-nguon-mo?lang=vi) · Use case
 
-- Nhãn gốc: Mã nguồn mở.
-- Đề mục trong bài: Donate là gì? Có những hình thức donate nào trong mã nguồn mở?; Hai hình thức donate chính:; Các cách thức donate phổ biến:; Kết hợp đóng góp &amp; donate: mô hình bền vững.
+- Original category: Open source code.
+- Article sections: What are donations in open source?; The two main forms of donations; Common ways to donate; Combine contributions and donations for a sustainable model.
 
 <a id="bai-753"></a>
 
-### Sử dụng page fragments (các phần trang) cho EzyPlatform theme
+### Use page fragments for EzyPlatform theme
 
-[Bài gốc](https://ezyplatform.com/blog/su-dung-page-fragments-cac-phan-trang-cho-ezyplatform-theme?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/su-dung-page-fragments-cac-phan-trang-cho-ezyplatform-theme?lang=vi) · Guide
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Đăng ký các phần trang (page fragment); Đưa các phần trang vào view; Sử dung page fragment.
-- Từ khóa được nhắc: `ezyarticle`, `page fragment`, `ezyfox`, `thymeleaf`.
+- Original category: EzyPlatform.
+- Article sections: Registering the pages (page fragment); Put the pages into view; Use a page fragment.
+- Features mentioned: `ezyarticle`, `page fragment`, `ezyfox`, `thymeleaf`.
 
 <a id="bai-751"></a>
 
-### Tạo và xử lý sự kiện nội bộ (internal event) trong ezyplatform plugin
+### Create and process internal events in the ezyplatform plugin
 
-[Bài gốc](https://ezyplatform.com/blog/tao-va-xu-ly-su-kien-noi-bo-internal-event-trong-ezyplatform-plugin?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/tao-va-xu-ly-su-kien-noi-bo-internal-event-trong-ezyplatform-plugin?lang=vi) · Guide
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Giới thiệu về sự kiện nội bộ trong EzyPlatform; Lớp quản lý sự kiện EventHandlerManager; Lớp xử lý sự kiện; Xử lý sự kiện.
-- Từ khóa được nhắc: `EzyArticle`, `E-Commerce`.
-- Bài được dẫn: [Tạo batch (data appender) trong EzyPlatform plugin](./tra-cuu-nen-tang.md#bai-747).
+- Original category: EzyPlatform.
+- Article sections: Introduction to internal events in EzyPlatform; EventHandlerManager event management class; Class of Event Processing; Processing the event.
+- Features mentioned: `EzyArticle`, `E-Commerce`.
+- Referenced articles: [Create a batch in the EzyPlatform plugin](./tra-cuu-nen-tang.md#bai-747).
 
 <a id="bai-747"></a>
 
-### Tạo batch (data appender) trong EzyPlatform plugin
+### Create a batch in the EzyPlatform plugin
 
-[Bài gốc](https://ezyplatform.com/blog/tao-batch-data-appender-trong-ezyplatform-plugin?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/tao-batch-data-appender-trong-ezyplatform-plugin?lang=vi) · Guide
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Tạo lớp DataAppender; Bật tắt DataAppender.
-- Từ khóa được nhắc: `ezydata`, `ezyfox`, `ezyarticle`.
+- Original category: EzyPlatform.
+- Article sections: Create a DataAppender class; Disable the data.
+- Features mentioned: `ezydata`, `ezyfox`, `ezyarticle`.
 
 <a id="bai-746"></a>
 
-### Tạo bảng trong EzyPlatform plugin
+### Create tables in the EzyPlatform plugin
 
-[Bài gốc](https://ezyplatform.com/blog/tao-bang-trong-ezyplatform-plugin?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/tao-bang-trong-ezyplatform-plugin?lang=vi) · Guide
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Tạo một bảng; Thay đổi một bảng; Tạo lớp Entity; Chạy thử thông qua lớp Integration Test.
+- Original category: EzyPlatform.
+- Article sections: Create a table; Change a table; Create the entity class; Run through the Integration Test Class.
 
 <a id="bai-745"></a>
 
-### Ghép dữ liệu cho chủ đề và thẻ trong theme blog EzyPlatform đơn giản
+### Gathering data for themes and tags in the theme blog EzyPlatform simple
 
-[Bài gốc](https://ezyplatform.com/blog/ghep-du-lieu-cho-chu-de-va-the-trong-theme-blog-ezyplatform-don-gian?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/ghep-du-lieu-cho-chu-de-va-the-trong-theme-blog-ezyplatform-don-gian?lang=vi) · Guide
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Chuẩn bị dữ liệu trong phần Admin; Thay đổi mã nguồn HomeController; Ghép dữ liệu vào Template.
-- Bài được dẫn: [Hướng dẫn lập trình menu cho EzyPlatform Admin Plugin](./tra-cuu-nen-tang.md#bai-744).
+- Original category: EzyPlatform.
+- Article sections: Preparing data in the Admin section; Change the source code of HomeController; Integrate data into template.
+- Referenced articles: [The programming menu guide for EzyPlatform Admin Plugin](./tra-cuu-nen-tang.md#bai-744).
 
 <a id="bai-744"></a>
 
-### Hướng dẫn lập trình menu cho EzyPlatform Admin Plugin
+### The programming menu guide for EzyPlatform Admin Plugin
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-lap-trinh-menu-cho-ezyplatform-admin-plugin?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-lap-trinh-menu-cho-ezyplatform-admin-plugin?lang=vi) · Guide
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Thay đổi vị trí menu; Thay đổi biểu tượng (icon) cho menu.
-- Bài được dẫn: [Lập trình đa ngôn ngữ với EzyPlatform](./tra-cuu-nen-tang.md#bai-743).
+- Original category: EzyPlatform.
+- Article sections: Change the menu location; Change the icon for the menu.
+- Referenced articles: [Multi-language programming with EzyPlatform](./tra-cuu-nen-tang.md#bai-743).
 
 <a id="bai-743"></a>
 
-### Lập trình đa ngôn ngữ với EzyPlatform
+### Multi-language programming with EzyPlatform
 
-[Bài gốc](https://ezyplatform.com/blog/lap-trinh-da-ngon-ngu-voi-ezyplatform?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/lap-trinh-da-ngon-ngu-voi-ezyplatform?lang=vi) · Use case
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Nguyên lý hoạt động đa ngôn ngữ; Cách thay thế nội dung bằng key; Thêm ngôn ngữ trong phần cài đặt website; Xem thành quả.
-- Bài được dẫn: [Hướng dẫn ghép dữ liệu cho phần giới thiệu trong theme blog EzyPlatform đơn giản](./tra-cuu-nen-tang.md#bai-742).
+- Original category: EzyPlatform.
+- Article sections: The principle of multi-language activity; How to replace the content with key; Add language in the website settings section; Look at the result.
+- Referenced articles: [Data aggregation guide for the introduction section in the theme blog EzyPlatform simple](./tra-cuu-nen-tang.md#bai-742).
 
 <a id="bai-742"></a>
 
-### Hướng dẫn ghép dữ liệu cho phần giới thiệu trong theme blog EzyPlatform đơn giản
+### Data aggregation guide for the introduction section in the theme blog EzyPlatform simple
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-ghep-du-lieu-cho-phan-gioi-thieu-trong-theme-blog-ezyplatform-don-gian?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-ghep-du-lieu-cho-phan-gioi-thieu-trong-theme-blog-ezyplatform-don-gian?lang=vi) · Guide
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Cập nhật HomeController.
-- Từ khóa được nhắc: `page fragment`, `EzyArticle`, `ezysupport`.
-- Bài được dẫn: [Ghép dữ liệu cho logo và điều hướng trên đầu trang blog theme ezyplatform đơn giản](./tra-cuu-nen-tang.md#bai-741).
+- Original category: EzyPlatform.
+- Article sections: Update to HomeController.
+- Features mentioned: `page fragment`, `EzyArticle`, `ezysupport`.
+- Referenced articles: [Data aggregation for logos and navigation on the top blog theme ezyplatform simple](./tra-cuu-nen-tang.md#bai-741).
 
 <a id="bai-741"></a>
 
-### Ghép dữ liệu cho logo và điều hướng trên đầu trang blog theme ezyplatform đơn giản
+### Data aggregation for logos and navigation on the top blog theme ezyplatform simple
 
-[Bài gốc](https://ezyplatform.com/blog/ghep-du-lieu-cho-logo-va-dieu-huong-tren-dau-trang-blog-theme-ezyplatform-don-gian?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/ghep-du-lieu-cho-logo-va-dieu-huong-tren-dau-trang-blog-theme-ezyplatform-don-gian?lang=vi) · Guide
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Liên kết với EzySupport plugin; Tạo lớp Decorator cho phần hiển thị; Cập nhật phần logo trong view; Đường dẫn tham khảo.
-- Từ khóa được nhắc: `ezysupport`.
-- Bài được dẫn: [Ghép dữ liệu cho chi tiết blog cho theme blog ezyplatform đơn giản](./tra-cuu-nen-tang.md#bai-740).
+- Original category: EzyPlatform.
+- Article sections: Connect to the EzySupport plugin; Create a decorator class for the display section; Update the logo in view; The path of reference.
+- Features mentioned: `ezysupport`.
+- Referenced articles: [Data aggregation for blog details for simple blog theme ezyplatform](./tra-cuu-nen-tang.md#bai-740).
 
 <a id="bai-740"></a>
 
-### Ghép dữ liệu cho chi tiết blog cho theme blog ezyplatform đơn giản
+### Data aggregation for blog details for simple blog theme ezyplatform
 
-[Bài gốc](https://ezyplatform.com/blog/ghep-du-lieu-cho-chi-tiet-blog-cho-theme-blog-ezyplatform-don-gian?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/ghep-du-lieu-cho-chi-tiet-blog-cho-theme-blog-ezyplatform-don-gian?lang=vi) · Guide
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Tạo Controller cho trang chi tiết; Cài đặt template blog/details; Tài liệu liên quan.
-- Từ khóa được nhắc: `thymeleaf`.
-- Bài được dẫn: [Ghép dữ liệu cho danh sách vào theme blog ezyplatform đơn giản](./tra-cuu-nen-tang.md#bai-739).
+- Original category: EzyPlatform.
+- Article sections: Create a controller for the details page; Installing template blog/details; related documents.
+- Features mentioned: `thymeleaf`.
+- Referenced articles: [Incorporate data for the list into a simple blog theme ezyplatform](./tra-cuu-nen-tang.md#bai-739).
 
 <a id="bai-739"></a>
 
-### Ghép dữ liệu cho danh sách vào theme blog ezyplatform đơn giản
+### Incorporate data for the list into a simple blog theme ezyplatform
 
-[Bài gốc](https://ezyplatform.com/blog/ghep-du-lieu-cho-danh-sach-phan-tu-vao-theme-blog-ezyplatform-don-gian?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/ghep-du-lieu-cho-danh-sach-phan-tu-vao-theme-blog-ezyplatform-don-gian?lang=vi) · Use case
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Liên kết plugin EzyArticle vào dự án theme Personal; Tạo môt bài blog từ admin; Chuyển Home sang lấy dữ liệu động; Tài liệu liên quan.
-- Từ khóa được nhắc: `ezyarticle`, `thymeleaf`.
-- Bài được dẫn: [Tạo giao diện cho theme EzyPlatform Blog đơn giản](./tra-cuu-nen-tang.md#bai-734).
+- Original category: EzyPlatform.
+- Article sections: Link the EzyArticle plugin to the Personal Theme Project; Create a blog post from admin; Transfer home to get data; related documents.
+- Features mentioned: `ezyarticle`, `thymeleaf`.
+- Referenced articles: [Create an interface for the theme EzyPlatform Blog](./tra-cuu-nen-tang.md#bai-734).
 
 <a id="bai-734"></a>
 
-### Tạo giao diện cho theme EzyPlatform Blog đơn giản
+### Create an interface for the theme EzyPlatform Blog
 
-[Bài gốc](https://ezyplatform.com/blog/tao-giao-dien-cho-theme-ezyplatform-blog-don-gian?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/tao-giao-dien-cho-theme-ezyplatform-blog-don-gian?lang=vi) · Guide
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Chuẩn bị môi trường và mã nguồn; Repo mã nguồn giao diện; Clone mã nguồn và cấu trúc thư mục; Ghi nhận công lao tác giả giao diện.
-- Từ khóa được nhắc: `Thymeleaf`, `EzyArticle`.
-- Bài được dẫn: [Tạo dự án EzyPlatform theme và plugin](./tra-cuu-nen-tang.md#bai-647).
+- Original category: EzyPlatform.
+- Article sections: Preparing the environment and source code; Repo source code; Clone source code and folder structure; Recognize the work of the author.
+- Features mentioned: `Thymeleaf`, `EzyArticle`.
+- Referenced articles: [Create the EzyPlatform theme and plugin project](./tra-cuu-nen-tang.md#bai-647).
 
 <a id="bai-730"></a>
 
-### Các Loại Giấy Phép Trong Mã Nguồn Mở
+### Types of Papers in Open Source
 
-[Bài gốc](https://ezyplatform.com/blog/cac-loai-giay-phep-trong-ma-nguon-mo?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/cac-loai-giay-phep-trong-ma-nguon-mo?lang=vi) · Use case
 
-- Nhãn gốc: Mã nguồn mở.
-- Đề mục trong bài: Vì Sao Giấy Phép Quan Trọng?; Phân Loại Giấy Phép Mã Nguồn Mở Phổ Biến; 1 Giấy phép "Copyleft mạnh" (Strong Copyleft); Lưu ý thực tế.
+- Original category: Open source code.
+- Article sections: Why paper is important?; Differentiation of Open Source Code Papers; 1 Licence “Strong Copyleft” (Strong Copileft); Note the reality.
 
 <a id="bai-726"></a>
 
-### Mã nguồn mở là gì?
+### What is open source?
 
-[Bài gốc](https://ezyplatform.com/blog/ma-nguon-mo-la-gi?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/ma-nguon-mo-la-gi?lang=vi) · Use case
 
-- Nhãn gốc: Mã nguồn mở.
-- Đề mục trong bài: Hiểu đúng bản chất giữa Mã nguồn mở và Mã nguồn đóng; 1.Khái niệm &amp; khác biệt cơ bản; 2.Ưu – nhược điểm của mỗi mô hình; Vì sao mã nguồn mở phát triển mạnh? Động lực &amp; lợi ích thực tế.
-- Từ khóa được nhắc: `Ezyfox`, `WebSocket`, `EzyHTTP`.
+- Original category: Open source code.
+- Article sections: Understand open and closed source; Definitions and key differences; Advantages and disadvantages of each model; Why open source thrives: Motivations and practical benefits.
+- Features mentioned: `Ezyfox`, `WebSocket`, `EzyHTTP`.
 
 <a id="bai-681"></a>
 
-### Tăng tốc bằng công nghệ mã nguồn mở và nền tảng “Make in Vietnam”: Làm sao để phần mềm Việt Nam không chỉ gia công mà còn sở hữu cuộc chơi?
+### Accelerate with open source technology and the “Make in Vietnam” platform: How to make Vietnam software not only processing but also own the game?
 
-[Bài gốc](https://ezyplatform.com/blog/tang-toc-bang-cong-nghe-ma-nguon-mo-va-nen-tang-make-in-vietnam-lam-sao-de-phan-mem-viet-nam-khong-chi-gia-cong-ma-con-so-huu-cuoc-choi?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/tang-toc-bang-cong-nghe-ma-nguon-mo-va-nen-tang-make-in-vietnam-lam-sao-de-phan-mem-viet-nam-khong-chi-gia-cong-ma-con-so-huu-cuoc-choi?lang=vi) · Use case
 
-- Nhãn gốc: Mã nguồn mở.
-- Đề mục trong bài: Vì sao mã nguồn mở là cơ hội chiến lược?; Các dự án và nền tảng “Make in Vietnam” đáng chú ý; Việt Nam cần gì để đi xa hơn?.
+- Original category: Open source code.
+- Article sections: Why open source is a strategic opportunity?; The “Make in Vietnam” projects and platforms are remarkable; What Vietnam needs to do to go further?.
 
 <a id="bai-657"></a>
 
-### Cách Vạn Lý Bảo Tiêu Kiếm Tiền Từ Công Nghệ Cùng EzyPlatform
+### How to make money from technology with EzyPlatform
 
-[Bài gốc](https://ezyplatform.com/blog/cach-van-ly-bao-tieu-kiem-tien-tu-cong-nghe-cung-ezyplatform?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/cach-van-ly-bao-tieu-kiem-tien-tu-cong-nghe-cung-ezyplatform?lang=vi) · Use case
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Tối ưu vận hành &amp; nâng cao trải nghiệm khách hàng; Thu hút khách hàng mới; Thu hút và giữ chân cộng tác viên; Vai trò của EzyPlatform (Young Monkeys).
-- Từ khóa được nhắc: `EzyDelivery`, `marketplace`.
+- Original category: EzyPlatform.
+- Article sections: Streamline operations and improve customer experience; Attract new customers; Recruit and retain collaborators; The role of EzyPlatform (Young Monkeys).
+- Features mentioned: `EzyDelivery`, `marketplace`.
 
 <a id="bai-653"></a>
 
-### Bán Theme WordPress: Kiếm Một Lần. Làm Với EzyPlatform: Kiếm Cả Đời
+### Sales WordPress Theme: Win One Time. Do With EzyPlatform: Win All Life
 
-[Bài gốc](https://ezyplatform.com/blog/ban-theme-wordpress-kiem-mot-lan-lam-voi-ezyplatform-kiem-ca-doi?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/ban-theme-wordpress-kiem-mot-lan-lam-voi-ezyplatform-kiem-ca-doi?lang=vi) · Use case
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Bán Theme WordPress: Đẹp nhưng “kiếm một lần là hết”; EzyPlatform: Kiếm tiền như một nhà cung cấp SaaS; Tại sao EzyPlatform giúp bạn "kiếm tiền cả đời"?; Thực tế từ cộng đồng dev.
+- Original category: EzyPlatform.
+- Article sections: Sales WordPress Theme: Beautiful But “Win once is over””; EzyPlatform: Make Money as a SaaS Supplier; Why EzyPlatform helps you "give money all your life""?; Facts from the Dev Community.
 
 <a id="bai-651"></a>
 
-### Cấu trúc dự án theme, plugin EzyPlatform
+### Theme Project Structure, Plugin of EzyPlatform
 
-[Bài gốc](https://ezyplatform.com/blog/cau-truc-du-an-theme-plugin-ezyplatform?lang=vi) · Vận hành/kiến trúc
+[Original article](https://ezyplatform.com/blog/cau-truc-du-an-theme-plugin-ezyplatform?lang=vi) · Operations / Architecture
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Danh sách các mô đun; Mô đun admin plugin; Mô đun socket app; Khởi chạy chương trình.
-- Từ khóa được nhắc: `menus.properties`, `Thymeleaf`.
-- Bài được dẫn: [Tạo dự án EzyPlatform theme và plugin](./tra-cuu-nen-tang.md#bai-647).
+- Original category: EzyPlatform.
+- Article sections: List of modules; The admin plugin; The Socket App; Start the program.
+- Features mentioned: `menus.properties`, `Thymeleaf`.
+- Referenced articles: [Create the EzyPlatform theme and plugin project](./tra-cuu-nen-tang.md#bai-647).
 
 <a id="bai-647"></a>
 
-### Tạo dự án EzyPlatform theme và plugin
+### Create the EzyPlatform theme and plugin project
 
-[Bài gốc](https://ezyplatform.com/blog/tao-du-an-ezyplatform-theme-va-plugin?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/tao-du-an-ezyplatform-theme-va-plugin?lang=vi) · Guide
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Cài đặt EzyPlatform SDK; Build thư viện SDK; Tạo plugin project; Chỉnh lại Working Directory (nếu cần).
-- Từ khóa được nhắc: `EZYPLATFORM_SDK`, `EZYPLATFORM_HOME`.
-- Bài được dẫn: [Cài đặt EzyPlatform trên máy local](./tra-cuu-nen-tang.md#bai-646).
+- Original category: EzyPlatform.
+- Article sections: Installation of the EzyPlatform SDK; Build a SDK library; Create a plugin project; Repair the Working Directory (if necessary).
+- Features mentioned: `EZYPLATFORM_SDK`, `EZYPLATFORM_HOME`.
+- Referenced articles: [Install EzyPlatform on the local machine](./tra-cuu-nen-tang.md#bai-646).
 
 <a id="bai-646"></a>
 
-### Cài đặt EzyPlatform trên máy local
+### Install EzyPlatform on the local machine
 
-[Bài gốc](https://ezyplatform.com/blog/cai-dat-ezyplatform-tren-may-local?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/cai-dat-ezyplatform-tren-may-local?lang=vi) · Guide
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Cài đặt môi trường; Chạy trên Linux/MacOS; Chạy trên Windows; Thiết lập biến môi trường EZYPLATFORM_HOME.
-- Từ khóa được nhắc: `setup.properties`, `EZYPLATFORM_HOME`.
+- Original category: EzyPlatform.
+- Article sections: Installing the environment; Run on Linux/MacOS; Run on Windows; Set the environmental variable EZYPLATFORM_HOME.
+- Features mentioned: `setup.properties`, `EZYPLATFORM_HOME`.
 
 <a id="bai-644"></a>
 
-### EzyPlatform – Nền tảng công nghệ “vừa đủ để bạn yêu”, không bao giờ lấy đi quyền làm chủ của bạn
+### EzyPlatform – The technology platform “just enough to love you”, never takes away your ownership
 
-[Bài gốc](https://ezyplatform.com/blog/ezyplatform-nen-tang-cong-nghe-vua-du-de-ban-yeu-khong-bao-gio-lay-di-quyen-lam-chu-cua-ban?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/ezyplatform-nen-tang-cong-nghe-vua-du-de-ban-yeu-khong-bao-gio-lay-di-quyen-lam-chu-cua-ban?lang=vi) · Use case
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: EzyPlatform tạo ra giá trị – không nhận công việc của bạn; EzyPlatform tiếp sức khởi nghiệp – không giới hạn cơ hội của bạn; EzyPlatform làm phần cốt lõi nhất – còn phần sinh thái là lợi ích của bạn; Nền tảng thực tế của bạn – linh hoạt, mở và có thể mở rộng không giới hạn.
+- Original category: EzyPlatform.
+- Article sections: EzyPlatform creates value – don’t receive your job; EzyPlatform startups – not limited your opportunities; EzyPlatform is the most core part – and the ecological part is your benefit; Your real platform – flexible, open and extended unlimited.
 
 <a id="bai-643"></a>
 
-### Chiến Lược SEO Cho Thương Hiệu Thời Trang Dựa Trên EzyPlatform
+### SEO Strategy for Fashion Brands Based on EzyPlatform
 
-[Bài gốc](https://ezyplatform.com/blog/chien-luoc-seo-cho-thuong-hieu-thoi-trang-dua-tren-ezyplatform?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/chien-luoc-seo-cho-thuong-hieu-thoi-trang-dua-tren-ezyplatform?lang=vi) · Use case
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: SEO – Lợi thế thời hạn cho thương hiệu thời trang; EzyPlatform cung cấp giải pháp SEO toàn diện như thế nào?; Plugin Thương mại điện tử – Nền tảng SEO thân thiện; Những lợi ích SEO khi phát triển qua EzyPlatform.
-- Từ khóa được nhắc: `Marketplace`, `sitemap.xml`, `robots.txt`.
+- Original category: EzyPlatform.
+- Article sections: SEO – Time Advantages for Fashion Brands; How EzyPlatform offers comprehensive SEO solutions?; E-Commerce Plugin – SEO Friendly Platform; The benefits of SEO when growing through EzyPlatform.
+- Features mentioned: `Marketplace`, `sitemap.xml`, `robots.txt`.
 
 <a id="bai-634"></a>
 
-### Cài đặt theme và plugin cho EzyPlatform
+### Install themes and plugins for EzyPlatform
 
-[Bài gốc](https://ezyplatform.com/blog/cai-dat-theme-va-plugin-cho-ezyplatform?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/cai-dat-theme-va-plugin-cho-ezyplatform?lang=vi) · Guide
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Cài đặt theme; Cài đặt các plugin liên quan.
-- Bài được dẫn: [Triển khai EzyPlatform lên ubuntu server](./tra-cuu-nen-tang.md#bai-630).
+- Original category: EzyPlatform.
+- Article sections: Set up the theme; Install the plugins related.
+- Referenced articles: [Install EzyPlatform on the Ubuntu server](./tra-cuu-nen-tang.md#bai-630).
 
 <a id="bai-630"></a>
 
-### Triển khai EzyPlatform lên ubuntu server
+### Install EzyPlatform on the Ubuntu server
 
-[Bài gốc](https://ezyplatform.com/blog/trien-khai-ezyplatform-len-ubuntu-server?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/trien-khai-ezyplatform-len-ubuntu-server?lang=vi) · Guide
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Chuẩn bị server hoặc vps; Bổ sung SSH Public Keys; Thay đổi timezone; Với Java 17+.
-- Từ khóa được nhắc: `certbot`, `setup.properties`.
+- Original category: EzyPlatform.
+- Article sections: Preparing a server or VPS; The SSH Public Keys; Changes in time zone; with Java 17+.
+- Features mentioned: `certbot`, `setup.properties`.
 
 <a id="bai-627"></a>
 
-### Sử dụng ZAP để quét lỗ hổng bảo mật
+### Use ZAP to scan security faults
 
-[Bài gốc](https://ezyplatform.com/blog/su-dung-zap-de-quet-lo-hong-bao-mat?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/su-dung-zap-de-quet-lo-hong-bao-mat?lang=vi) · Guide
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Tải xuống và khởi động; Cài đặt proxy cho firefox; Cài đặt cert cho firefox; Thử quét lỗ hổng 1 trang.
+- Original category: EzyPlatform.
+- Article sections: Download and Start; Install Proxy for Firefox; Installing Cert for Firefox; Try to scan a fault one page.
 
 <a id="bai-622"></a>
 
-### EzyPlatform mang lại giá trị gì cho người dùng?
+### What does EzyPlatform bring value to users?
 
-[Bài gốc](https://ezyplatform.com/blog/ezyplatform-mang-lai-gia-tri-gi-cho-nguoi-dung?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/ezyplatform-mang-lai-gia-tri-gi-cho-nguoi-dung?lang=vi) · Use case
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Những nỗi đau có thật của khách hàng; Giải quyết nỗi đau và mang lại giá trị cho người dùng.
-- Từ khóa được nhắc: `E-Commerce`.
-- Bài được dẫn: [Cách các nhà phát triển phần mềm kiếm tiền thông qua EzyPlatform](./tra-cuu-nen-tang.md#bai-613).
+- Original category: EzyPlatform.
+- Article sections: The real customer pain; Treat pain and bring value to the user.
+- Features mentioned: `E-Commerce`.
+- Referenced articles: [How software developers make money through EzyPlatform](./tra-cuu-nen-tang.md#bai-613).
 
 <a id="bai-616"></a>
 
-### Hệ Thống Thông Tin Của EzyPlatform.com Gồm Những Gì?
+### The information system of EzyPlatform.com contains what?
 
-[Bài gốc](https://ezyplatform.com/blog/he-thong-thong-tin-cua-ezyplatform-bao-gom-nhung-?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/he-thong-thong-tin-cua-ezyplatform-bao-gom-nhung-?lang=vi) · Use case
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Giới thiệu tổng quan; Kiến Trúc Hệ Thống Thông Tin Của EzyPlatform.com; Data Center (Trung tâm dữ liệu); Khả Năng Mở Rộng Của Hệ Thống Thông Tin EzyPlatform.com.
-- Từ khóa được nhắc: `marketplace`, `EzyFox`, `WebSocket`.
+- Original category: EzyPlatform.
+- Article sections: Presentation of the general; Architecture of the Information System of EzyPlatform.com; Data Center (Data Center); The Opening Capacity of the Information System EzyPlatform.com.
+- Features mentioned: `marketplace`, `EzyFox`, `WebSocket`.
 
 <a id="bai-615"></a>
 
-### Chi Phí Tổ Chức Hệ Thống Thông Tin Trong Doanh Nghiệp
+### The cost of organizing information systems in the business
 
-[Bài gốc](https://ezyplatform.com/blog/chi-phi-to-chuc-he-thong-thong-tin-trong-doanh-nghiep?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/chi-phi-to-chuc-he-thong-thong-tin-trong-doanh-nghiep?lang=vi) · Use case
 
-- Nhãn gốc: Hệ thống thông tin.
-- Đề mục trong bài: Chi phí cấu thành; Mô hình chi phí theo phương án triển khai; Yếu tố ảnh hưởng đến chi phí; Phân tích ROI (Lợi tức đầu tư).
-- Từ khóa được nhắc: `Marketplace`.
+- Original category: Information system.
+- Article sections: Costs are composed; The cost model according to the implementation method; Factors affect the cost; ROI Analysis (Investment Profit Analysis).
+- Features mentioned: `Marketplace`.
 
 <a id="bai-614"></a>
 
-### EzyPlatform của Young Monkeys mang lại giá trị gì cho sinh viên ngành công nghệ?
+### What is Young Monkeys’s EzyPlatform to bring value to technology students?
 
-[Bài gốc](https://ezyplatform.com/blog/ezyplatform-cua-young-monkeys-mang-lai-gia-tri-gi-cho-sinh-vien?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/ezyplatform-cua-young-monkeys-mang-lai-gia-tri-gi-cho-sinh-vien?lang=vi) · Use case
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Bối cảnh thị trường Việt Nam: Nhu cầu CNTT lớn – Sinh viên thiếu kỹ năng thực tế; Vấn đề mà sinh viên IT Việt Nam gặp phải; EzyPlatform – Kết nối giải pháp giáo dục và thực tế; Giá trị cụ thể của EzyPlatform đối với sinh viên.
-- Từ khóa được nhắc: `EzyFox`, `WebSocket`, `marketplace`.
+- Original category: EzyPlatform.
+- Article sections: Vietnam market context: big IT demand – students lack practical skills; The problem that Vietnamese students face; EzyPlatform – Connecting educational and practical solutions; The specific value of EzyPlatform for students.
+- Features mentioned: `EzyFox`, `WebSocket`, `marketplace`.
 
 <a id="bai-613"></a>
 
-### Cách các nhà phát triển phần mềm kiếm tiền thông qua EzyPlatform
+### How software developers make money through EzyPlatform
 
-[Bài gốc](https://ezyplatform.com/blog/cach-cac-nha-phat-trien-phan-mem-kiem-tien-thong-qua-ezyplatform?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/cach-cac-nha-phat-trien-phan-mem-kiem-tien-thong-qua-ezyplatform?lang=vi) · Use case
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Thị trường phần mềm tại Việt Nam; Quy mô thị trường và tăng trưởng; Nhân lực và năng lực sản xuất; Ai nữa có thể kiếm tiền thông qua EzyPlatform?.
-- Bài được dẫn: [Tổng quan thị trường phần mềm Việt Nam và tầm nhìn dài hạn](./tra-cuu-chung.md#bai-575).
+- Original category: EzyPlatform.
+- Article sections: Software market in Vietnam; Market size and growth; Human and Productive Capacity; Who else can make money through EzyPlatform?.
+- Referenced articles: [Vietnamese software market overview and long-term vision](./tra-cuu-chung.md#bai-575).
 
 <a id="bai-611"></a>
 
-### Tại Sao EzyPlatform Của Young Monkeys Mất 10 Năm Để Hoàn Thiện?
+### Why Young Monkeys's EzyPlatform takes 10 years to complete?
 
-[Bài gốc](https://ezyplatform.com/blog/tai-sao-ezyplatform-cua-young-monkeys-mat-10-nam-de-hoan-thien?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/tai-sao-ezyplatform-cua-young-monkeys-mat-10-nam-de-hoan-thien?lang=vi) · Use case
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Phát triển công nghệ lõi; Lộ Trình Phát Triển Ba Giai Đoạn: Từ "Less Code" đến "AI Code"; Kiến Trúc Phức Tạp &amp; Thách Thức Kỹ Thuật; Chuẩn Bị Cho AI Code – Tầm Nhìn Dài Hạn.
-- Từ khóa được nhắc: `ezyfox`, `WebSocket`, `marketplace`.
+- Original category: EzyPlatform.
+- Article sections: Developing the core technology; A three-stage roadmap from “Less Code” to “AI Code”; Architectural complexity and technical challenges; Preparing for AI Code as a long-term goal.
+- Features mentioned: `ezyfox`, `WebSocket`, `marketplace`.
 
 <a id="bai-602"></a>
 
-### Mô hình khởi nghiệp từ EzyPlatform của Young Monkeys
+### Start-up model from Young Monkeys’ EzyPlatform
 
-[Bài gốc](https://ezyplatform.com/blog/mo-hinh-khoi-nghiep-tu-ezyplatform-cua-young-monkeys?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/mo-hinh-khoi-nghiep-tu-ezyplatform-cua-young-monkeys?lang=vi) · Use case
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Tổng quan về EzyPlatform; Ai dễ tiếp cận mô hình khởi nghiệp này nhất?; Case Studies Khởi Nghiệp với EzyPlatform; Vận hành thực tế.
-- Từ khóa được nhắc: `marketplace`.
+- Original category: EzyPlatform.
+- Article sections: Review of EzyPlatform; Who is the most accessible to this startup model?; Case Studies Starts with EzyPlatform; Operating the Reality.
+- Features mentioned: `marketplace`.
 
 <a id="bai-601"></a>
 
-### EzyPlatform – Giải pháp mới cho bài toán "đầu ra" của phần mềm
+### EzyPlatform – A new solution for the “output” mathematics of software
 
-[Bài gốc](https://ezyplatform.com/blog/ezyplatform-giai-phap-moi-cho-bai-toan-dau-ra-cua-phan-mem?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/ezyplatform-giai-phap-moi-cho-bai-toan-dau-ra-cua-phan-mem?lang=vi) · Use case
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Bối cảnh chung: Cơ hội nhiều, nhưng đầu ra vẫn là bài toán lớn; EzyPlatform – Một “cái chợ” chuyên biệt dành cho sản phẩm phần mềm; EzyPlatform giúp sản phẩm tiếp cận người dùng thật – không chỉ nằm trong kho; Không chỉ là bán plugin – mà là phát triển sự nghiệp từ sản phẩm.
-- Từ khóa được nhắc: `marketplace`.
+- Original category: EzyPlatform.
+- Article sections: General context: many opportunities, but the output remains a big mathematics; EzyPlatform – A specialized “market” for software products; EzyPlatform helps the product reach real users – not just in stock; Not just selling the plugin – but developing a career from the product.
+- Features mentioned: `marketplace`.
 
 <a id="bai-597"></a>
 
-### EzyPlatform – Nền Tảng Công Nghệ Tích Lũy Từ Kinh Nghiệm Triển Khai Thực Tiễn
+### EzyPlatform – Integrated Technology Platform from Practical Development Experience
 
-[Bài gốc](https://ezyplatform.com/blog/ezyplatform-nen-tang-cong-nghe-tich-luy-tu-kinh-nghiem-trien-khai-thuc-tien?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/ezyplatform-nen-tang-cong-nghe-tich-luy-tu-kinh-nghiem-trien-khai-thuc-tien?lang=vi) · Use case
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Thấu hiểu và giải quyết được nỗi đau của khách hàng; Hệ sinh thái công nghệ đa module – Tập trung giải bài toán thực tế; Kinh nghiệm triển khai thực tế – Nền tảng trưởng thành từ dự án thật; Tối ưu cho cả doanh nghiệp nhỏ lẫn mô hình tăng trưởng lớn.
+- Original category: EzyPlatform.
+- Article sections: Understand and solve the customer’s pain; Multi-module technology ecosystem – Focus on the real mathematics solution; Real implementation experience – the platform grows from a real project; Optimal for both small doanh and large growth models.
 
 <a id="bai-596"></a>
 
-### EzyPlatform – Cách Một Nền Tảng Công Nghệ Giúp Các Doanh Nghiệp Kiếm Tiền Trong Kỷ Nguyên Số
+### EzyPlatform – How a technology platform helps Doanh make money in the digital era
 
-[Bài gốc](https://ezyplatform.com/blog/ezyplatform-cach-mot-nen-tang-cong-nghe-giup-cac-doanh-nghiep-kiem-tien-trong-ky-nguyen-so?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/ezyplatform-cach-mot-nen-tang-cong-nghe-giup-cac-doanh-nghiep-kiem-tien-trong-ky-nguyen-so?lang=vi) · Use case
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Từ nền tảng công nghệ đến công cụ tạo doanh thu; Case Study: Những doanh nghiệp Việt đang kiếm tiền hiệu quả cùng EzyPlatform; VICCA Legal Consulting; Ai nữa có thể nhận được giá trị từ EzyPlatform?.
+- Original category: EzyPlatform.
+- Article sections: From the technology foundation to the tool for making income; Case Study: Vietnamese doanh are making money efficiently with EzyPlatform; VICCA Legal Consulting; Who else can get value from EzyPlatform?.
 
 <a id="bai-581"></a>
 
-### Xu hướng Low-code &amp; No-code tại Việt Nam – Cơ hội cho doanh nghiệp vừa và lớn
+### The Low-code and; No-code in Vietnam – Opportunities for medium and large doanh
 
-[Bài gốc](https://ezyplatform.com/blog/xu-huong-low-code-no-code-tai-viet-nam-co-hoi-cho-doanh-nghiep-vua-va-lon?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/xu-huong-low-code-no-code-tai-viet-nam-co-hoi-cho-doanh-nghiep-vua-va-lon?lang=vi) · Use case
 
-- Nhãn gốc: Low code.
-- Đề mục trong bài: Mở đầu: Low-code &amp; No-code là gì và Tại sao Low-code/No-code đang trở thành xu hướng “hot”?; Tại sao Low-code/No-code đang trở thành xu hướng “hot”?; Thị trường Low-code/No-code toàn cầu &amp; Việt Nam; Khuyến nghị cho doanh nghiệp Việt.
-- Từ khóa được nhắc: `marketplace`.
+- Original category: Low code.
+- Article sections: What are low-code and no-code tools and why are they gaining traction?; Drivers of low-code and no-code adoption; The global and Vietnamese low-code and no-code markets; Recommendations for Vietnamese businesses.
+- Features mentioned: `marketplace`.
 
 <a id="bai-573"></a>
 
-### So sánh chi tiết EzyPlatform, Sapo Web, Haravan – Lựa chọn nền tảng số hóa tối ưu cho doanh nghiệp Việt
+### EzyPlatform, Sapo Web, Haravan – Optimal digital platform choices for Vietnamese doanh
 
-[Bài gốc](https://ezyplatform.com/blog/so-sanh-chi-tiet-ezyplatform-sapo-web-haravan-va-wordpress-woocommerce-lua-chon-nen-tang-so-hoa-toi-uu-cho-doanh-nghiep-viet?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/so-sanh-chi-tiet-ezyplatform-sapo-web-haravan-va-wordpress-woocommerce-lua-chon-nen-tang-so-hoa-toi-uu-cho-doanh-nghiep-viet?lang=vi) · Use case
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Các đơn vị khác; Sapo Web (Bizweb); So sánh tổng thể.
-- Từ khóa được nhắc: `EzyLogin`, `EzyMail`, `EzySupport`, `EzyArticle`, `e-commerce`.
+- Original category: EzyPlatform.
+- Article sections: The other units; Sapo Web (Bizweb); Comparison of the whole.
+- Features mentioned: `EzyLogin`, `EzyMail`, `EzySupport`, `EzyArticle`, `e-commerce`.
 
 <a id="bai-513"></a>
 
-### Hướng dẫn gửi mail thông qua Microsoft Graph API
+### Email sending via Microsoft Graph API
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-gui-mail-thong-qua-microsoft-graph-api?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-gui-mail-thong-qua-microsoft-graph-api?lang=vi) · Guide
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Đăng ký tài khoản auzre; Tạo ứng dụng.
-- Từ khóa được nhắc: `EzyHttp`, `ezyfox`.
+- Original category: EzyPlatform.
+- Article sections: Registration of the auzre account; Create the application.
+- Features mentioned: `EzyHttp`, `ezyfox`.
 
 <a id="bai-511"></a>
 
-### Giải Pháp Thay Thế Telegram – EzyOA Tích Hợp Zalo Official Account (ZaloOA)
+### Telegram Alternative Solution – EzyOA Integrated Zalo Official Account (ZaloOA)
 
-[Bài gốc](https://ezyplatform.com/blog/giai-phap-thay-the-telegram-ezyoa-tich-hop-zalo-official-account-zalooa?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/giai-phap-thay-the-telegram-ezyoa-tich-hop-zalo-official-account-zalooa?lang=vi) · Use case
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Tổng quan về EzyOA; Vì sao EzyOA + ZaloOA là giải pháp vượt trội?; Lợi ích thực tiễn.
-- Từ khóa được nhắc: `EzyOA`.
+- Original category: EzyPlatform.
+- Article sections: Review of EzyOA; Why EzyOA + ZaloOA is a superior solution?; The practical benefits.
+- Features mentioned: `EzyOA`.
 
 <a id="bai-284"></a>
 
-### Tự động lưu nội dung HTML và CSS của landing page vào cơ sở dữ liệu
+### Automatically save the HTML and CSS content of the landing page into the database
 
-[Bài gốc](https://ezyplatform.com/blog/tu-dong-luu-noi-dung-html-va-css-cua-landing-page-vao-co-so-du-lieu-mysql?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/tu-dong-luu-noi-dung-html-va-css-cua-landing-page-vao-co-so-du-lieu-mysql?lang=vi) · Use case
 
-- Nhãn gốc: Back-End.
-- Đề mục trong bài: Chuẩn bị môi trường phát triển; Thiết lập thư mục dự án và cài đặt phụ thuộc; Cập nhật index.html.
-- Từ khóa được nhắc: `ezydata`, `ezyhttp`.
-- Bài được dẫn: [Cài đặt JDK 8 trên Windows](./tra-cuu-nen-tang.md#bai-107).
+- Original category: Back-End.
+- Article sections: Prepare for the development environment; Set up the project folder and set up depending on; Update to index.html.
+- Features mentioned: `ezydata`, `ezyhttp`.
+- Referenced articles: [Install JDK 8 on Windows](./tra-cuu-nen-tang.md#bai-107).
 
 <a id="bai-274"></a>
 
-### Build và chạy dự án Ezygrapes cùng với plugin preset-webpage
+### Build and run the Ezygrapes project along with the preset-webpage plugin
 
-[Bài gốc](https://ezyplatform.com/blog/xay-dung-va-chay-du-an-ezygrapes-cung-voi-plugin-preset-webpage?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/xay-dung-va-chay-du-an-ezygrapes-cung-voi-plugin-preset-webpage?lang=vi) · Use case
 
-- Nhãn gốc: Front-End.
-- Đề mục trong bài: Hướng Dẫn Build và Chạy Dự Án EzyGrapes Kèm Plugin Preset-Webpage; Cài Đặt Môi Trường; Cài Đặt Dự Án; Sử Dụng Plugin Trong Dự Án HTML.
+- Original category: Front-End.
+- Article sections: Build and Run Project Guide EzyGrapes with Plugin Preset-Webpage; Installing the environment; Install the project; Use Plugins in HTML Project.
 
 <a id="bai-269"></a>
 
-### Sự khác biệt giữa EzyPlatform và Odoo
+### The Difference Between EzyPlatform and Odoo
 
-[Bài gốc](https://ezyplatform.com/blog/su-khac-biet-giua-ezyplatform-va-odoo?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/su-khac-biet-giua-ezyplatform-va-odoo?lang=vi) · Use case
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Giới thiệu về Odoo và EzyPlatform; Odoo – ERP/CRM nguồn mở toàn cầu, tập trung quy trình doanh nghiệp; EzyPlatform – “Made in Vietnam”, hướng tới Less-code/No-code/AI-code; Mức chi phí giữa hai nền tảng Odoo và EzyPlatform.
-- Từ khóa được nhắc: `Marketplace`, `EzyFox`, `e-commerce`.
+- Original category: EzyPlatform.
+- Article sections: Introduction to Odoo and EzyPlatform; Odoo – Global Open Source ERP/CRM, focusing on business processes; EzyPlatform – “Made in Vietnam”, aimed at Less-code/No-code/AI-code; The cost level between two Odoo and EzyPlatform platforms.
+- Features mentioned: `Marketplace`, `EzyFox`, `e-commerce`.
 
 <a id="bai-266"></a>
 
-### Giới thiệu một số tham số web hay dùng cho marketing
+### Present some web parameters or use them for marketing
 
-[Bài gốc](https://ezyplatform.com/blog/gioi-thieu-mot-so-tham-so-web-hay-dung-cho-marketing?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/gioi-thieu-mot-so-tham-so-web-hay-dung-cho-marketing?lang=vi) · Use case
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Mô tả một vài tham số; Ví dụ đầy đủ về URL sử dụng UTM.
-- Từ khóa được nhắc: `UTM`.
+- Original category: EzyPlatform.
+- Article sections: Describe a few parameters; Full example of URL using UTM.
+- Features mentioned: `UTM`.
 
 <a id="bai-264"></a>
 
-### Cách chia sẻ mã nguồn dự án Gitlab với một ai đó
+### How to share the Gitlab project source code with someone
 
-[Bài gốc](https://ezyplatform.com/blog/cach-chia-se-ma-nguon-du-an-gitlab-voi-mot-ai-do?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/cach-chia-se-ma-nguon-du-an-gitlab-voi-mot-ai-do?lang=vi) · Use case
 
-- Nhãn gốc: DevOps; Git.
-- Đề mục trong bài: Truy cập vào dự án của bạn; Thêm thành viên vào dự án.
+- Original category: DevOps; Git.
+- Article sections: Access to your project; Adding members to the project.
 
 <a id="bai-257"></a>
 
-### Chạy wordpress trên hệ điều hành mac
+### Run WordPress on the Mac operating system
 
-[Bài gốc](https://ezyplatform.com/blog/chay-wordpress-tren-he-dieu-hanh-mac?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/chay-wordpress-tren-he-dieu-hanh-mac?lang=vi) · Use case
 
-- Nhãn gốc: DevOps.
-- Đề mục trong bài: Các bước cài đặt; Tải wordpress; Tạo file docker-compose.yml.
-- Từ khóa được nhắc: `compose`.
+- Original category: DevOps.
+- Article sections: The steps to install; The wordpress; Create a docker-compose.yml file.
+- Features mentioned: `compose`.
 
 <a id="bai-253"></a>
 
-### Tạo một màn hình Login đơn giản
+### Create a simple login screen
 
-[Bài gốc](https://ezyplatform.com/blog/tao-mot-man-hinh-login-?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/tao-mot-man-hinh-login-?lang=vi) · Guide
 
-- Nhãn gốc: Back-End.
-- Đề mục trong bài: Tổng Quan Về Dự Án; Tạo một trang HTML cơ bản; Tạo form đăng nhập; Cách Hoạt Động Của Màn Hình Đăng Nhập.
-- Từ khóa được nhắc: `Thymeleaf`.
+- Original category: Back-End.
+- Article sections: Overview of the project; Create a basic HTML page; Create a form of entry; How the Entry Screen Works.
+- Features mentioned: `Thymeleaf`.
 
 <a id="bai-245"></a>
 
-### Cách chạy và debug với Intellij
+### How to run and debug with Intellij
 
-[Bài gốc](https://ezyplatform.com/blog/cach-run-va-debug-voi-intellij?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/cach-run-va-debug-voi-intellij?lang=vi) · Use case
 
-- Nhãn gốc: Lập trình.
-- Đề mục trong bài: Debug thế nào; 1. Breakpoint; 2. Local variables và watches; 4 Chạy debug.
+- Original category: Programming.
+- Article sections: How to Debug; 1. Breakpoint; Local variables and watches; 4 Running Debug.
 
 <a id="bai-242"></a>
 
-### Cách Mô Tả Sản Phẩm Đến Người Dùng Hiệu Quả
+### How to describe the product to the effective user
 
-[Bài gốc](https://ezyplatform.com/blog/df?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/df?lang=vi) · Use case
 
-- Nhãn gốc: Hệ thống thông tin.
-- Đề mục trong bài: Mô tả sản phẩm là gì?; Vì sao mô tả sản phẩm hiệu quả lại quan trọng?; Các cách mô tả sản phẩm đánh trúng nhu cầu.
+- Original category: Information system.
+- Article sections: What is the product description?; Why the product description is important?; Ways to describe the product meet the needs.
 
 <a id="bai-241"></a>
 
-### Liệu có sự chuyển dịch từ SaaS sang các hệ thống độc lập?
+### Is there a transition from SaaS to independent systems?
 
-[Bài gốc](https://ezyplatform.com/blog/lieu-co-su-chuyen-dich-tu-saas-sang-cac-he-thong-doc-lap?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/lieu-co-su-chuyen-dich-tu-saas-sang-cac-he-thong-doc-lap?lang=vi) · Use case
 
-- Nhãn gốc: EzyPlatform.
-- Bài được dẫn: [Phần mềm SaaS là gì? Tại sao bạn nên biết phần mềm SaaS?](./tra-cuu-marketing.md#bai-186).
+- Original category: EzyPlatform.
+- Referenced articles: [What is SaaS Software? Why should you know SaaS software?](./tra-cuu-marketing.md#bai-186).
 
 <a id="bai-239"></a>
 
-### Lưu Trữ và Tìm Kiếm Thông Tin Trong Doanh Nghiệp: Từ Thách Thức Đến Lợi Thế Cạnh Tranh
+### Storage and Find Information in Business: From Challenge to Competitive Advantage
 
-[Bài gốc](https://ezyplatform.com/blog/luu-tru-va-tim-kiem-thong-tin-trong-doanh-nghiep-tu-thach-thuc-den-loi-the-va-canh-tranh?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/luu-tru-va-tim-kiem-thong-tin-trong-doanh-nghiep-tu-thach-thuc-den-loi-the-va-canh-tranh?lang=vi) · Use case
 
-- Nhãn gốc: Hệ thống thông tin.
-- Đề mục trong bài: I. Thách thức và giải pháp trong lưu trữ và tìm kiếm thông tin doanh nghiệp; Bùng nổ dữ liệu và sự phân mảnh; Vấn đề bảo mật và tuân thủ; IV. Kết luận.
+- Original category: Information system.
+- Article sections: I. Challenges and solutions in the storage and search of business information; Data explosion and fragmentation; Security and compliance issues; IV. The conclusion.
 
 <a id="bai-233"></a>
 
-### Website: Công Cụ Truyền Tải Thông Tin Hiệu Quả Cho Doanh Nghiệp Hiện Đại
+### Website: Effective Information Transmission Tools for Modern Business
 
-[Bài gốc](https://ezyplatform.com/blog/truyen-tai-thong-tin-den-nguoi-dung-thong-qua-website-chien-luoc-hieu-qua?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/truyen-tai-thong-tin-den-nguoi-dung-thong-qua-website-chien-luoc-hieu-qua?lang=vi) · Use case
 
-- Nhãn gốc: Hệ thống thông tin.
-- Đề mục trong bài: Chuyển Đổi Số: Từ Xu Hướng Đến Tất Yếu; Website - Trung Tâm Hệ Sinh Thái Số Của Doanh Nghiệp; Trung tâm dữ liệu tập trung; Tối ưu hóa SEO.
+- Original category: Information system.
+- Article sections: Conversion of numbers: From the direction to the weak; Website - The Digital Biosystem Center of Business; Data center is concentrated; Optimize SEO.
 
 <a id="bai-231"></a>
 
-### Truyền Tải Thông Tin Hiệu Quả: Cách Tiếp Cận Người Dùng Thông Minh
+### Effective Information Transmission: How to Get Near the Intelligent User
 
-[Bài gốc](https://ezyplatform.com/blog/truyen-tai-thong-tin-hieu-qua-bi-quyet-tiep-can-nguoi-dung-dung-cach?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/truyen-tai-thong-tin-hieu-qua-bi-quyet-tiep-can-nguoi-dung-dung-cach?lang=vi) · Use case
 
-- Nhãn gốc: Hệ thống thông tin.
-- Đề mục trong bài: Tầm quan trọng của việc truyền tải thông tin; Cách thức truyền tải thông tin đến người dùng hiệu quả; 1 Truyền thông truyền thống; Các yếu tố giúp truyền tải thông tin hiệu quả.
+- Original category: Information system.
+- Article sections: The importance of the transmission of information; How to Transfer Information to Effective Users; One traditional media; Factors that help effectively transmit information.
 
 <a id="bai-230"></a>
 
-### Đa ngôn ngữ Internationalization\| i18n
+### Multilingual internationalization\| i18n
 
-[Bài gốc](https://ezyplatform.com/blog/da-ngon-ngu-internationalization-i18n?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/da-ngon-ngu-internationalization-i18n?lang=vi) · Use case
 
-- Nhãn gốc: Lập trình.
-- Đề mục trong bài: Sử dụng trong tệp HTML; Sử dụng trong JavaScript.
-- Từ khóa được nhắc: `thymeleaf`, `ezyhttp`.
+- Original category: Programming.
+- Article sections: Use in HTML files; Used in JavaScript.
+- Features mentioned: `thymeleaf`, `ezyhttp`.
 
 <a id="bai-227"></a>
 
-### Hệ Thống Thông Tin Trong Doanh Nghiệp
+### Information systems in business
 
-[Bài gốc](https://ezyplatform.com/blog/he-thong-thong-tin-la-gi?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/he-thong-thong-tin-la-gi?lang=vi) · Use case
 
-- Nhãn gốc: Hệ thống thông tin.
-- Đề mục trong bài: Thông Tin là gì?; 1 Khái niệm thông tin; 2 Sự khác biệt giữa dữ liệu và thông tin; 1 Cấu trúc của hệ thống thông tin.
+- Original category: Information system.
+- Article sections: What is information?; A concept of information; 2 Differences Between Data and Information; The structure of the information system.
 
 <a id="bai-219"></a>
 
-### Thuật toán BCrypt để mã hoá mật khẩu
+### BCrypt algorithm to encrypt your password
 
-[Bài gốc](https://ezyplatform.com/blog/thuat-toan-bcrypt-de-ma-hoa-mat-khau?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/thuat-toan-bcrypt-de-ma-hoa-mat-khau?lang=vi) · Use case
 
-- Nhãn gốc: Thuật toán.
-- Đề mục trong bài: Nguyên lý hoạt động.
+- Original category: The Algorithm.
+- Article sections: The principle of operation.
 
 <a id="bai-185"></a>
 
-### Thuật toán RSA và AES
+### RSA and AES algorithms
 
-[Bài gốc](https://ezyplatform.com/blog/thuat-toan-rsa-va-aes-?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/thuat-toan-rsa-va-aes-?lang=vi) · Use case
 
-- Nhãn gốc: Thuật toán.
-- Đề mục trong bài: Nguyên lý hoạt động; So sánh RSA và AES.
+- Original category: The Algorithm.
+- Article sections: The principle of operation; RSA and AES.
 
 <a id="bai-182"></a>
 
-### Json Web Token (Jwt) là gì?
+### What is JSON Web Token (Jwt)?
 
-[Bài gốc](https://ezyplatform.com/blog/token-la-gi-authentication-token-?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/token-la-gi-authentication-token-?lang=vi) · Use case
 
-- Nhãn gốc: Thuật toán.
-- Đề mục trong bài: Token là gì?; Thành phần cơ bản của Token; Json Web Token (Jwt) là gì?; So sánh giữa JSON Web Token và Access Token của EzyPlatform.
-- Bài được dẫn: [Access Token của EzyPlatform được tạo thế nào?](./tra-cuu-nen-tang.md#bai-122).
+- Original category: The Algorithm.
+- Article sections: What is Token?; The basic component of the token; What is JSON Web Token (Jwt)?; JSON Web Token and Access Token of EzyPlatform.
+- Referenced articles: [How is the Access Token of EzyPlatform created?](./tra-cuu-nen-tang.md#bai-122).
 
 <a id="bai-180"></a>
 
-### HTTP Header và Cookie
+### HTTP Header and Cookie
 
-[Bài gốc](https://ezyplatform.com/blog/http-header-va-cookie?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/http-header-va-cookie?lang=vi) · Use case
 
-- Nhãn gốc: Lập trình.
-- Đề mục trong bài: HTTP Header là gì ?; Một số trường Request Header phổ biến trong HTTP; HTTP Cookie là gì?; Các thuộc tính quan trọng của Cookie.
+- Original category: Programming.
+- Article sections: What is HTTP Header ?; Some fields of Request Header are popular in HTTP; What is HTTP Cookie?; The Important Properties of Cookies.
 
 <a id="bai-173"></a>
 
-### Giao thức HTTP
+### The HTTP Protocol
 
-[Bài gốc](https://ezyplatform.com/blog/giao-thuc-http?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/giao-thuc-http?lang=vi) · Use case
 
-- Nhãn gốc: Lập trình.
-- Đề mục trong bài: Đặc điểm quan trọng của HTTP; Cấu trúc cơ bản của HTTP; Một số lỗi phổ biến của HTTP.
+- Original category: Programming.
+- Article sections: Important features of HTTP; The basic structure of HTTP; Some common HTTP errors.
 
 <a id="bai-171"></a>
 
-### Giới thiệu về Bootstrap - Thư viện Frontend phổ biến
+### Bootstrap - Popular Frontend Library
 
-[Bài gốc](https://ezyplatform.com/blog/gioi-thieu-ve-bootstrap---thu-vien-frontend-pho-bien-nhat?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/gioi-thieu-ve-bootstrap---thu-vien-frontend-pho-bien-nhat?lang=vi) · Use case
 
-- Nhãn gốc: Front-End.
-- Đề mục trong bài: Bootstrap là gì?; Responsive web là gì?; Các thành phần chính của Bootstrap; Cài đặt Bootstrap.
-- Từ khóa được nhắc: `thymeleaf`.
+- Original category: Front-End.
+- Article sections: What is Bootstrap?; What is Responsive Web?; The main components of Bootstrap; Installing Bootstrap.
+- Features mentioned: `thymeleaf`.
 
 <a id="bai-156"></a>
 
 ### EzyHTTP (Easy going to HTTP Interaction)
 
-[Bài gốc](https://ezyplatform.com/blog/ezyhttp-easy-going-to-http-interaction?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/ezyhttp-easy-going-to-http-interaction?lang=vi) · Use case
 
-- Nhãn gốc: Back-End.
-- Đề mục trong bài: EzyHTTP là gì?; Cài đặt EzyHTTP; Ví dụ sử dụng HTTP server; Tạo ứng dụng client.
-- Từ khóa được nhắc: `EzyHTTP`, `ezyfox`.
+- Original category: Back-End.
+- Article sections: What is EzyHTTP?; Installation of EzyHTTP; For example, using HTTP server; Create the client application.
+- Features mentioned: `EzyHTTP`, `ezyfox`.
 
 <a id="bai-149"></a>
 
-### EzyPlatform đã hoàn thành dự án vận chuyển hàng xuyên biên giới trong 6 ngày thế nào? Phần 3
+### How did EzyPlatform complete the cross-border shipping project in 6 days
 
-[Bài gốc](https://ezyplatform.com/blog/ezyplatform-da-hoan-thanh-du-an-van-chuyen-hang-xuyen-bien-gioi-trong-6-ngay-the-nao-phan-3?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/ezyplatform-da-hoan-thanh-du-an-van-chuyen-hang-xuyen-bien-gioi-trong-6-ngay-the-nao-phan-3?lang=vi) · Use case
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Yêu cầu cho phần tạo bao hàng; Các EzyPlatform đáp ứng yêu cầu; Cho phép chọn một hoặc nhiều vận đơn để tạo bao hàng; Có thể in lại tem cho bao hàng.
-- Từ khóa được nhắc: `ezydelivery`.
-- Bài được dẫn: [Bí quyết công nghệ của EzyPlatform - Phân trang dữ liệu](./tra-cuu-nen-tang.md#bai-68).
+- Original category: EzyPlatform.
+- Article sections: Request for the creation of the package; The EzyPlatform meets the requirements; Choose one or more orders to create packages; You can get back to the package.
+- Features mentioned: `ezydelivery`.
+- Referenced articles: [Technology Secrets of EzyPlatform - Data Division](./tra-cuu-nen-tang.md#bai-68).
 
 <a id="bai-148"></a>
 
 ### EzyJPA (Easy going to JPA Interaction)
 
-[Bài gốc](https://ezyplatform.com/blog/ezyjpa?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/ezyjpa?lang=vi) · Use case
 
-- Nhãn gốc: Back-End.
-- Đề mục trong bài: EzyJPA là gì?; Cấu trúc của EzyJPA; Cài đặt EzyJPA; Ví dụ sử dụng EzyJPA.
-- Từ khóa được nhắc: `EzyJPA`, `ezydata`, `ezyfox`.
+- Original category: Back-End.
+- Article sections: What is EzyJPA?; The structure of EzyJPA; Installation of EzyJPA; For example, use EzyJPA.
+- Features mentioned: `EzyJPA`, `ezydata`, `ezyfox`.
 
 <a id="bai-147"></a>
 
-### EzyPlatform quản lý các liên kết thế nào?
+### How EzyPlatform manages the links?
 
-[Bài gốc](https://ezyplatform.com/blog/ezyplatform-quan-ly-cac-lien-ket-the-nao?lang=vi) · Vận hành/kiến trúc
+[Original article](https://ezyplatform.com/blog/ezyplatform-quan-ly-cac-lien-ket-the-nao?lang=vi) · Operations / Architecture
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Thiết kế cơ sở dữ liệu; Thiết kế lớp; Ứng dụng cho SEO.
-- Từ khóa được nhắc: `EzySEO`, `search console`.
+- Original category: EzyPlatform.
+- Article sections: Design of a database; Design of Classes; Applications for SEO.
+- Features mentioned: `EzySEO`, `search console`.
 
 <a id="bai-146"></a>
 
-### EzyPlatform quản lý thư nội bộ thế nào?
+### How EzyPlatform manages internal mail?
 
-[Bài gốc](https://ezyplatform.com/blog/ezyplatform-quan-ly-thu-noi-bo-the-nao?lang=vi) · Vận hành/kiến trúc
+[Original article](https://ezyplatform.com/blog/ezyplatform-quan-ly-thu-noi-bo-the-nao?lang=vi) · Operations / Architecture
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Thiết kế cơ sở dữ liệu; Thiết kế lớp; Sử dụng trong thực tế.
-- Bài được dẫn: [EzyPlatform quản lý thông báo thế nào?](./tra-cuu-nen-tang.md#bai-144).
+- Original category: EzyPlatform.
+- Article sections: Design of a database; Design of Classes; Used in reality.
+- Referenced articles: [How to manage EzyPlatform notifications?](./tra-cuu-nen-tang.md#bai-144).
 
 <a id="bai-145"></a>
 
 ### Ezyfox Bean
 
-[Bài gốc](https://ezyplatform.com/blog/ezy?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/ezy?lang=vi) · Use case
 
-- Nhãn gốc: Back-End.
-- Đề mục trong bài: Cấu trúc Ezyfox Bean; Cài đặt Ezyfox Bean; Các tính năng của Ezyfox Bean.
-- Từ khóa được nhắc: `EzyFox`.
+- Original category: Back-End.
+- Article sections: The Ezyfox Bean; Installation of Ezyfox Bean; Features of Ezyfox Bean.
+- Features mentioned: `EzyFox`.
 
 <a id="bai-144"></a>
 
-### EzyPlatform quản lý thông báo thế nào?
+### How to manage EzyPlatform notifications?
 
-[Bài gốc](https://ezyplatform.com/blog/ezyplatform-quan-ly-thong-bao-the-nao?lang=vi) · Vận hành/kiến trúc
+[Original article](https://ezyplatform.com/blog/ezyplatform-quan-ly-thong-bao-the-nao?lang=vi) · Operations / Architecture
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Thiết kế bảng; Thiết kế lớp; Sử dụng trong thực tế.
+- Original category: EzyPlatform.
+- Article sections: Design of Table; Design of Classes; Used in reality.
 
 <a id="bai-141"></a>
 
-### EzyPlatform quản lý log thế nào?
+### How to manage logs by EzyPlatform?
 
-[Bài gốc](https://ezyplatform.com/blog/ezyplatform-quan-ly-log-the-nao?lang=vi) · Vận hành/kiến trúc
+[Original article](https://ezyplatform.com/blog/ezyplatform-quan-ly-log-the-nao?lang=vi) · Operations / Architecture
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Ghi riêng log của từng thành phần; Cấu hình tập tin logback.xml; Lớp CompositeLogbackAppender.
+- Original category: EzyPlatform.
+- Article sections: Specific logs of each component; Configuration of logback.xml files; Classes of CompositeLogbackAppender.
 
 <a id="bai-139"></a>
 
-### EzyPlatform quản lý việc thực thi SQL script thế nào?
+### How EzyPlatform Manages SQL Script Implementation?
 
-[Bài gốc](https://ezyplatform.com/blog/ezyplatform-quan-ly-viec-thuc-thi-sql-script-the-nao?lang=vi) · Vận hành/kiến trúc
+[Original article](https://ezyplatform.com/blog/ezyplatform-quan-ly-viec-thuc-thi-sql-script-the-nao?lang=vi) · Operations / Architecture
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Quá trình thực thi SQL Script; Bảng ezy_run_script_histories có gì?; Bạn có cần can thiệp gì không?.
+- Original category: EzyPlatform.
+- Article sections: The process of SQL Script; What is the ezy_run_script_histories?; Do you need any intervention?.
 
 <a id="bai-138"></a>
 
-### Danh sách các bảng core của EzyPlatform
+### List of EzyPlatform core tables
 
-[Bài gốc](https://ezyplatform.com/blog/danh-sach-cac-bang-core-cua-ezyplatform?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/danh-sach-cac-bang-core-cua-ezyplatform?lang=vi) · Use case
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Danh sách các bảng và ý nghĩa; Sơ đồ liên kết các bảng.
+- Original category: EzyPlatform.
+- Article sections: List of tables and meaning; Link to the tables.
 
 <a id="bai-134"></a>
 
-### EzyPlatform quản lý các mẫu thế nào?
+### How EzyPlatform manages the samples?
 
-[Bài gốc](https://ezyplatform.com/blog/ezyplatform-quan-ly-cac-mau-the-nao?lang=vi) · Vận hành/kiến trúc
+[Original article](https://ezyplatform.com/blog/ezyplatform-quan-ly-cac-mau-the-nao?lang=vi) · Operations / Architecture
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Thiết kế cơ sở dữ liệu; Thiết kế lớp; Định nghĩa sẵn mẫu; Cho phép người dùng tuỳ chỉnh.
-- Từ khóa được nhắc: `EzySupport`.
+- Original category: EzyPlatform.
+- Article sections: Design of a database; Design of Classes; Defining the template; allow the user to adapt.
+- Features mentioned: `EzySupport`.
 
 <a id="bai-133"></a>
 
-### Giới thiệu về Java Logging
+### Introduction to Java Logging
 
-[Bài gốc](https://ezyplatform.com/blog/gioi-thieu-ve-java-logging?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/gioi-thieu-ve-java-logging?lang=vi) · Use case
 
-- Nhãn gốc: Back-End.
-- Đề mục trong bài: Các thành phần.
+- Original category: Back-End.
+- Article sections: The components.
 
 <a id="bai-132"></a>
 
-### EzyPlatform hỗ trợ đánh index dữ liệu thế nào?
+### How EzyPlatform supports data indexing?
 
-[Bài gốc](https://ezyplatform.com/blog/ezyplatform-ho-tro-danh-index-du-lieu-the-nao?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/ezyplatform-ho-tro-danh-index-du-lieu-the-nao?lang=vi) · Use case
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Thiết kế cơ sở dữ liệu; Thiết kế lớp; Các bước lưu dữ liệu chỉ mục vào cơ sở dữ liệu; Cách hàm toKeywords tách từ.
+- Original category: EzyPlatform.
+- Article sections: Design of a database; Design of Classes; Steps to save index data into the database; How ToKeywords Function Separates From.
 
 <a id="bai-131"></a>
 
-### EzyPlatform quản lý đa ngôn ngữ thế nào?
+### How EzyPlatform Manages Multi-Languages?
 
-[Bài gốc](https://ezyplatform.com/blog/ezyplatform-quan-ly-da-ngon-ngu-the-nao?lang=vi) · Vận hành/kiến trúc
+[Original article](https://ezyplatform.com/blog/ezyplatform-quan-ly-da-ngon-ngu-the-nao?lang=vi) · Operations / Architecture
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: EzyPlatform được thừa hưởng từ EzyHTTP; Quá trình các message đa ngôn ngữ được đưa vào quản lý; Bên trong EzyHTTP quản lý đã ngôn ngữ thế nào?.
-- Từ khóa được nhắc: `EzyHTTP`.
-- Bài được dẫn: [EzyPlatform đảo ngược điều khiển thế nào?](./tra-cuu-nen-tang.md#bai-100).
+- Original category: EzyPlatform.
+- Article sections: EzyPlatform is inherited from EzyHTTP; The process of multilingual messages is put into the management; In the EzyHTTP management is language?.
+- Features mentioned: `EzyHTTP`.
+- Referenced articles: [How to reverse control?](./tra-cuu-nen-tang.md#bai-100).
 
 <a id="bai-130"></a>
 
-### EzyPlatform quản lý các phiên bản plugin và theme thế nào?
+### How EzyPlatform Manages Plugins and Themes?
 
-[Bài gốc](https://ezyplatform.com/blog/ezyplatform-quan-ly-cac-phien-ban-plugin-va-theme-the-nao?lang=vi) · Vận hành/kiến trúc
+[Original article](https://ezyplatform.com/blog/ezyplatform-quan-ly-cac-phien-ban-plugin-va-theme-the-nao?lang=vi) · Operations / Architecture
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Cơ chế tương tự như quản lý EzyPlatform; Các bước thực hiện việc nâng câp plugin hay theme.
-- Bài được dẫn: [EzyPlatform quản lý phiên bản thế nào?](./tra-cuu-nen-tang.md#bai-128).
+- Original category: EzyPlatform.
+- Article sections: Mechanisms similar to EzyPlatform management; The steps to do up the plugin or theme cable.
+- Referenced articles: [How EzyPlatform Manages Version?](./tra-cuu-nen-tang.md#bai-128).
 
 <a id="bai-129"></a>
 
 ### Connection Pool
 
-[Bài gốc](https://ezyplatform.com/blog/connection-pool?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/connection-pool?lang=vi) · Use case
 
-- Nhãn gốc: Design Pattern.
-- Đề mục trong bài: Connection Pooling là gì?; Cách làm việc của Connection pooling?; So sánh sử dụng Connection pool với không sử dụng; Tại sao cần Connection Pool?.
+- Original category: Design Pattern.
+- Article sections: What is Connection Pooling?; How Connection Pooling Works?; Compare the use of Connection pool with unused; Why do you need Connection Pool?.
 
 <a id="bai-128"></a>
 
-### EzyPlatform quản lý phiên bản thế nào?
+### How EzyPlatform Manages Version?
 
-[Bài gốc](https://ezyplatform.com/blog/ezyplatform-quan-ly-phien-ban-the-nao?lang=vi) · Vận hành/kiến trúc
+[Original article](https://ezyplatform.com/blog/ezyplatform-quan-ly-phien-ban-the-nao?lang=vi) · Operations / Architecture
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Cách thức hoạt động; EzyPlatform sử dụng giao thức gì để tải phiên bản mới?; Các bước bạn có thể thực hiện; Khôi phục lại phiên bản cũ.
+- Original category: EzyPlatform.
+- Article sections: The way it works; What protocol does EzyPlatform use to download the new version?; The steps you can take; Restore the old version.
 
 <a id="bai-126"></a>
 
-### EzyPlatform quản lý cài đặt thế nào?
+### How to manage EzyPlatform installations?
 
-[Bài gốc](https://ezyplatform.com/blog/ezyplatform-quan-ly-cai-dat-the-nao?lang=vi) · Vận hành/kiến trúc
+[Original article](https://ezyplatform.com/blog/ezyplatform-quan-ly-cai-dat-the-nao?lang=vi) · Operations / Architecture
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Sử dụng cơ sở dữ liệu; Thiết kế lớp.
+- Original category: EzyPlatform.
+- Article sections: Use the database; Design of Classes.
 
 <a id="bai-125"></a>
 
-### JPA là gì?
+### What is JPA?
 
-[Bài gốc](https://ezyplatform.com/blog/jpa-la-gi-tong-quan-ve-java-persistence?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/jpa-la-gi-tong-quan-ve-java-persistence?lang=vi) · Use case
 
-- Nhãn gốc: Back-End.
-- Đề mục trong bài: Cài đặt và thiết lập JPA.
+- Original category: Back-End.
+- Article sections: Install and set JPA.
 
 <a id="bai-122"></a>
 
-### Access Token của EzyPlatform được tạo thế nào?
+### How is the Access Token of EzyPlatform created?
 
-[Bài gốc](https://ezyplatform.com/blog/access-token-cua-ezyplatform?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/access-token-cua-ezyplatform?lang=vi) · Use case
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Cấu trúc của Access Token; Các phần của access được tạo thế nào?; Tạo phần header; Xác thực access token.
+- Original category: EzyPlatform.
+- Article sections: The structure of Access Token; How the access parts are created?; Create the header; The access token.
 
 <a id="bai-120"></a>
 
 ### Devops roadmap: Git
 
-[Bài gốc](https://ezyplatform.com/blog/devops-roadmap-git?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/devops-roadmap-git?lang=vi) · Use case
 
-- Nhãn gốc: DevOps.
-- Đề mục trong bài: Tổng quan về Git; Các câu lệnh; GitOps - Git flow.
+- Original category: DevOps.
+- Article sections: Review of Git; The Commandments; GitOps - Git flow.
 
 <a id="bai-119"></a>
 
 ### Devops roadmap: Linux basic
 
-[Bài gốc](https://ezyplatform.com/blog/devops-roadmap-linux-basic?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/devops-roadmap-linux-basic?lang=vi) · Use case
 
-- Nhãn gốc: DevOps.
-- Đề mục trong bài: Quản lý user; Quản lý file; Quản lý ổ đĩa; Quản lý process.
+- Original category: DevOps.
+- Article sections: Managing User; Managing the file; Managing the disk; Managing the process.
 
 <a id="bai-117"></a>
 
-### EzyPlatform quản lý media thế nào?
+### How to manage media?
 
-[Bài gốc](https://ezyplatform.com/blog/ezyplatform-quan-ly-media-the-nao?lang=vi) · Vận hành/kiến trúc
+[Original article](https://ezyplatform.com/blog/ezyplatform-quan-ly-media-the-nao?lang=vi) · Operations / Architecture
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Thiết kế cơ sở dữ liệu; Thiết kế lớp; EzyPlatform chống tấn công qua tập tin thế nào.
+- Original category: EzyPlatform.
+- Article sections: Design of a database; Design of Classes; How to EzyPlatform Anti-Attack via File.
 
 <a id="bai-116"></a>
 
-### Tổng quan về JDBC
+### Review of JDBC
 
-[Bài gốc](https://ezyplatform.com/blog/tong-quan-ve-jdbc?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/tong-quan-ve-jdbc?lang=vi) · Use case
 
-- Nhãn gốc: Back-End.
-- Đề mục trong bài: Các thành phần của JDBC; Tạo một project.
+- Original category: Back-End.
+- Article sections: The components of JDBC; Create a project.
 
 <a id="bai-114"></a>
 
-### EzyPlatform quản lý người dùng thế nào?
+### How EzyPlatform Manages Users?
 
-[Bài gốc](https://ezyplatform.com/blog/ezyplatform-quan-ly-nguoi-dung-the-nao?lang=vi) · Vận hành/kiến trúc
+[Original article](https://ezyplatform.com/blog/ezyplatform-quan-ly-nguoi-dung-the-nao?lang=vi) · Operations / Architecture
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Một số nghiệp vụ cơ bản liên quan người dùng; Thiết kế cơ sở dữ liệu; Thiết kế lớp; Quản trị các quản trị trị viên thông qua giao diện admin.
-- Từ khóa được nhắc: `ezycrm`.
-- Bài được dẫn: [Bí quyết công nghệ của EzyPlatform - Phân quyền](./tra-cuu-nen-tang.md#bai-73).
+- Original category: EzyPlatform.
+- Article sections: Some basic business related to users; Design of a database; Design of Classes; Managing administrators through the admin interface.
+- Features mentioned: `ezycrm`.
+- Referenced articles: [Technology Secrets of EzyPlatform - Distribution of Rights](./tra-cuu-nen-tang.md#bai-73).
 
 <a id="bai-113"></a>
 
-### EzyPlatform quản lý hành động của của quản trị viên thế nào?
+### How EzyPlatform manages the action of the administrator?
 
-[Bài gốc](https://ezyplatform.com/blog/ezyplatform-quan-ly-hanh-dong-cua-cua-quan-tri-vien-the-nao?lang=vi) · Vận hành/kiến trúc
+[Original article](https://ezyplatform.com/blog/ezyplatform-quan-ly-hanh-dong-cua-cua-quan-tri-vien-the-nao?lang=vi) · Operations / Architecture
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Những hành động nào của quản trị viên sẽ được quản lý; Cách thức quản lý hành động; Truy xuất danh sách hành động của quản trị viên; Vấn đề hiệu năng.
-- Bài được dẫn: [Bí quyết công nghệ của EzyPlatform - Phân trang dữ liệu](./tra-cuu-nen-tang.md#bai-68).
+- Original category: EzyPlatform.
+- Article sections: What actions of the administrator will be managed; How to manage action; Track the list of actions of the administrator; The Efficiency Problem.
+- Referenced articles: [Technology Secrets of EzyPlatform - Data Division](./tra-cuu-nen-tang.md#bai-68).
 
 <a id="bai-111"></a>
 
 ### Apache Maven
 
-[Bài gốc](https://ezyplatform.com/blog/apache-maven?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/apache-maven?lang=vi) · Use case
 
-- Nhãn gốc: Lập trình.
-- Đề mục trong bài: Maven là gì?; Các thành phần đáng chú ý trong một dự án Maven; Tập tin cấu hình pom.xml; Cài đặt Maven.
+- Original category: Programming.
+- Article sections: What is Maven?; Important components in a Maven project; Configuration file pom.xml; The Maven.
 
 <a id="bai-110"></a>
 
-### Quản trị viên trong EzyPlatform được quản lý thế nào?
+### How administrators in EzyPlatform are managed?
 
-[Bài gốc](https://ezyplatform.com/blog/admin-trong-ezyplatform-duoc-quan-ly-the-nao?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/admin-trong-ezyplatform-duoc-quan-ly-the-nao?lang=vi) · Use case
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Thiết kế cơ sở dữ liệu; Thiết kế lớp; Các lớp Entity; Quản trị các quản trị trị viên thông qua giao diện admin.
-- Bài được dẫn: [Bí quyết công nghệ của EzyPlatform - Phân quyền](./tra-cuu-nen-tang.md#bai-73).
+- Original category: EzyPlatform.
+- Article sections: Design of a database; Design of Classes; Classes of Entity; Managing administrators through the admin interface.
+- Referenced articles: [Technology Secrets of EzyPlatform - Distribution of Rights](./tra-cuu-nen-tang.md#bai-73).
 
 <a id="bai-109"></a>
 
-### Cách đẩy code lên Github
+### How to push code to GitHub
 
-[Bài gốc](https://ezyplatform.com/blog/cach-day-code-len-github?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/cach-day-code-len-github?lang=vi) · Use case
 
-- Nhãn gốc: Git.
+- Original category: Git.
 
 <a id="bai-108"></a>
 
-### Cài đặt Intellij IDEA và tạo project trên Intellij
+### Install Intellij IDEA and create projects on Intellij
 
-[Bài gốc](https://ezyplatform.com/blog/cai-dat-intellj-idea-va-tao-project-tren-inte?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/cai-dat-intellj-idea-va-tao-project-tren-inte?lang=vi) · Guide
 
-- Nhãn gốc: Lập trình.
-- Đề mục trong bài: Cài đặt Intellij; Tạo project Java trên Intellij IDEA..
+- Original category: Programming.
+- Article sections: Installing the Intellij; Create a Java project on Intellij IDEA..
 
 <a id="bai-107"></a>
 
-### Cài đặt JDK 8 trên Windows
+### Install JDK 8 on Windows
 
-[Bài gốc](https://ezyplatform.com/blog/cai-dat-jdk-8-tren-windows?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/cai-dat-jdk-8-tren-windows?lang=vi) · Guide
 
-- Nhãn gốc: Lập trình.
-- Đề mục trong bài: Các bước cài đặt JDK 8.
+- Original category: Programming.
+- Article sections: Installation of JDK 8.
 
 <a id="bai-105"></a>
 
-### Sử dụng đối tượng lập lịch trong EzyPlatform
+### Use Calendar Objects in EzyPlatform
 
-[Bài gốc](https://ezyplatform.com/blog/su-dung-doi-tuong-lap-lich-trong-ezyplatform?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/su-dung-doi-tuong-lap-lich-trong-ezyplatform?lang=vi) · Guide
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Thiết kế của Scheduler; Thiết kế thành phần; Thiết kế luồng; Hàm cancelSchedule.
+- Original category: EzyPlatform.
+- Article sections: Design of Scheduler; Design of parts; The flow design; Cancellation of Schedule.
 
 <a id="bai-100"></a>
 
-### EzyPlatform đảo ngược điều khiển thế nào?
+### How to reverse control?
 
-[Bài gốc](https://ezyplatform.com/blog/ezyplatform-dao-nguoc-dieu-khien-the-nao?lang=vi) · Vận hành/kiến trúc
+[Original article](https://ezyplatform.com/blog/ezyplatform-dao-nguoc-dieu-khien-the-nao?lang=vi) · Operations / Architecture
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Đảo ngược điều khiển là gì?; Đảo ngược điều khiển trong EzyPlatform.
-- Từ khóa được nhắc: `module.properties`, `ezyarticle`, `ezylogin`, `ezymail`, `ezypayment`, `ezysupport`, `setup.properties`.
-- Bài được dẫn: [Kiến trúc phần mềm của EzyPlatform](./tra-cuu-nen-tang.md#bai-49).
+- Original category: EzyPlatform.
+- Article sections: What is Contrast Control?; Conversion controls in EzyPlatform.
+- Features mentioned: `module.properties`, `ezyarticle`, `ezylogin`, `ezymail`, `ezypayment`, `ezysupport`, `setup.properties`.
+- Referenced articles: [Software Architecture of EzyPlatform](./tra-cuu-nen-tang.md#bai-49).
 
 <a id="bai-97"></a>
 
-### Cài đặt thuật toán phân trang của EzyPlatform
+### Installing the EzyPlatform page algorithm
 
-[Bài gốc](https://ezyplatform.com/blog/cai-dat-thuat-toan-phan-trang-cua-ezyplatform?lang=vi) · Vận hành/kiến trúc
+[Original article](https://ezyplatform.com/blog/cai-dat-thuat-toan-phan-trang-cua-ezyplatform?lang=vi) · Operations / Architecture
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Thuật toán phân trang sử dụng con trỏ; Lấy từ trang đầu; Lấy từ trang cuối; Thuật toán phân trang sử dụng offset, limit.
-- Bài được dẫn: [Bí quyết công nghệ của EzyPlatform - Phân trang dữ liệu](./tra-cuu-nen-tang.md#bai-68).
+- Original category: EzyPlatform.
+- Article sections: Algorithm of the division uses the indicator; taken from the first page; taken from the last page; Solution of offset, limit.
+- Referenced articles: [Technology Secrets of EzyPlatform - Data Division](./tra-cuu-nen-tang.md#bai-68).
 
 <a id="bai-96"></a>
 
-### Tái sử dụng các thư viện của EzyPlatform thế nào?
+### How to reuse EzyPlatform libraries?
 
-[Bài gốc](https://ezyplatform.com/blog/tai-su-dung-cac-thu-vien-cua-ezyplatform-the-nao?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/tai-su-dung-cac-thu-vien-cua-ezyplatform-the-nao?lang=vi) · Use case
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Mô hình tái sử dụng các thư viện của EzyPlatform; Tái sử dụng thế nào?; Bạn có thể tái sử dụng các thư viện của EzyPlatform theo cách của riêng mình.
+- Original category: EzyPlatform.
+- Article sections: Models of reuse of the libraries of EzyPlatform; How to reuse?; You can reuse the EzyPlatform library in your own way.
 
 <a id="bai-93"></a>
 
-### Xử lý sự kiện trong EzyPlatform
+### Processing events in EzyPlatform
 
-[Bài gốc](https://ezyplatform.com/blog/xu-ly-su-kien-trong-ezyplatform?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/xu-ly-su-kien-trong-ezyplatform?lang=vi) · Use case
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Thiết kế các lớp xử lý sự kiện; Mã nguồn sử dụng; Sử dụng sự kiện để lấy dữ liệu.; Sử dụng sự kiện để lan truyền thông tin..
-- Từ khóa được nhắc: `EzyArticle`, `EzyDefence`, `EzyOA`, `EzyCRM`.
+- Original category: EzyPlatform.
+- Article sections: Design Classes Processing Events; Source code used; Use the event to obtain data.; Use an event to spread information..
+- Features mentioned: `EzyArticle`, `EzyDefence`, `EzyOA`, `EzyCRM`.
 
 <a id="bai-92"></a>
 
-### Bí quyết công nghệ của EzyPlatform - Lớp Reactive
+### Technology Secrets of EzyPlatform - Reactive Class
 
-[Bài gốc](https://ezyplatform.com/blog/bi-quyet-cong-nghe-cua-ezyplatform---reactive-class?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/bi-quyet-cong-nghe-cua-ezyplatform---reactive-class?lang=vi) · Use case
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Ba cách giải quyết vấn đề tổng hợp dữ liệu.; Sử dụng câu lệnh join; Gọi tuần tự các hàm để lấy dữ liệu; Vấn đề đói thread (thread starvation).
+- Original category: EzyPlatform.
+- Article sections: Three ways to solve the data synthesis problem.; Use the Join Command; Call your own functions to get data; Thread hunger (thread hunger).
 
 <a id="bai-90"></a>
 
-### EzyPlatform xử lý lỗi tập trung thế nào?
+### How EzyPlatform Treats Concentrate Error?
 
-[Bài gốc](https://ezyplatform.com/blog/ezyplatform-xu-ly-loi-tap-trung-the-nao?lang=vi) · Vận hành/kiến trúc
+[Original article](https://ezyplatform.com/blog/ezyplatform-xu-ly-loi-tap-trung-the-nao?lang=vi) · Operations / Architecture
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Đường đi của một exception; Một số lớp xử lý exception do EzyPlatform cung cấp.
-- Từ khóa được nhắc: `EzyHTTP`, `EzyFox`.
+- Original category: EzyPlatform.
+- Article sections: The way of an exception; Some exceptional processing classes provided by EzyPlatform.
+- Features mentioned: `EzyHTTP`, `EzyFox`.
 
 <a id="bai-87"></a>
 
-### Bí quyết công nghệ của EzyPlatform - Cách chống DDoS socket
+### EzyPlatform's Technology Secrets - How to Combat DDoS Socket
 
-[Bài gốc](https://ezyplatform.com/blog/bi-quyet-cong-nghe-cua-ezyplatform---cach-chong-ddos-socket?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/bi-quyet-cong-nghe-cua-ezyplatform---cach-chong-ddos-socket?lang=vi) · Use case
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Tấn công DDoS là gì?; Sử dụng hữu hạn số lượng thread; Hạn chế số lượng session; Phân phối đều tài nguyên.
-- Từ khóa được nhắc: `EzyFox`.
-- Bài được dẫn: [Bí quyết công nghệ của EzyPlatform - Định dạng gói tin socket](./tra-cuu-nen-tang.md#bai-85).
+- Original category: EzyPlatform.
+- Article sections: What is a DDoS attack?; Use limited number of thread; Limit the number of sessions; Distribution of resources.
+- Features mentioned: `EzyFox`.
+- Referenced articles: [Technology Secrets of EzyPlatform - Format Socket Package](./tra-cuu-nen-tang.md#bai-85).
 
 <a id="bai-85"></a>
 
-### Bí quyết công nghệ của EzyPlatform - Định dạng gói tin socket
+### Technology Secrets of EzyPlatform - Format Socket Package
 
-[Bài gốc](https://ezyplatform.com/blog/bi-quyet-cong-nghe-cua-ezyplatform---giao-thuc-socket?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/bi-quyet-cong-nghe-cua-ezyplatform---giao-thuc-socket?lang=vi) · Use case
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Định dạng gói tin là gì?; Tại sao một gói tin lại cần định dạng?; Định dạng gói tin của EzyPlatform socket; Định dạng phần body.
-- Từ khóa được nhắc: `EzyFox`, `Websocket`.
+- Original category: EzyPlatform.
+- Article sections: What is the form of package?; Why a package needs to be formatted?; The package format of the EzyPlatform socket; Forming the body.
+- Features mentioned: `EzyFox`, `Websocket`.
 
 <a id="bai-83"></a>
 
-### Bí quyết công nghệ của EzyPlatform - Quản lý socket user
+### Technology Secrets of EzyPlatform - Socket User Management
 
-[Bài gốc](https://ezyplatform.com/blog/bi-quyet-cong-nghe-cua-ezyplatform---quan-ly-socket-user?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/bi-quyet-cong-nghe-cua-ezyplatform---quan-ly-socket-user?lang=vi) · Use case
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Tại sao đã có phiên (session) rồi lại phải sinh ra người dùng (user)?; Tìm hiểu về lớp EzyUser; Socket user được quản lý thế nào; Giải quyết vấn đề chỉ cho phép một thiết bị đăng nhập tại một thời điểm.
-- Từ khóa được nhắc: `EzyFox`.
-- Bài được dẫn: [Bí quyết công nghệ của EzyPlatform - Quản lý phiên kết nối socket](./tra-cuu-nen-tang.md#bai-80).
+- Original category: EzyPlatform.
+- Article sections: Why is there a session (session) and then has to be a user (user)?; Learn about the EzyUser class; How Socket User is Managed; Problem solving allows only one device to log in at one time.
+- Features mentioned: `EzyFox`.
+- Referenced articles: [Technology Secrets of EzyPlatform - Socket Connection Session Management](./tra-cuu-nen-tang.md#bai-80).
 
 <a id="bai-80"></a>
 
-### Bí quyết công nghệ của EzyPlatform - Quản lý phiên kết nối socket
+### Technology Secrets of EzyPlatform - Socket Connection Session Management
 
-[Bài gốc](https://ezyplatform.com/blog/bi-quyet-cong-nghe-cua-ezyplatform---quan-ly-phien-ket-noi-socket?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/bi-quyet-cong-nghe-cua-ezyplatform---quan-ly-phien-ket-noi-socket?lang=vi) · Use case
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Những vấn đề của quản lý phiên; Thiết kế các lớp đại diện cho phiên; Thiết kế các lớp quản lý phiên; Một người dùng có nhiều thiết bị.
-- Từ khóa được nhắc: `EzyFox`.
+- Original category: EzyPlatform.
+- Article sections: The problems of the management; Design classes representing the session; Design of the Management Classes; One user has a lot of equipment.
+- Features mentioned: `EzyFox`.
 
 <a id="bai-78"></a>
 
-### Bí quyết công nghệ của EzyPlatform - Socket realtime
+### Technology Secrets of EzyPlatform - Realtime Socket
 
-[Bài gốc](https://ezyplatform.com/blog/bi-quyet-cong-nghe-cua-ezyplatform---socket-realtime?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/bi-quyet-cong-nghe-cua-ezyplatform---socket-realtime?lang=vi) · Use case
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Socket là một thành phần của EzyPlatform; Kiến trúc phần mềm của socket trong EzyPlatform; Người dùng được xác thực thế nào?; Dữ liệu được xử lý thế nào.
-- Từ khóa được nhắc: `websocket`, `EzyFox`, `EzyData`.
-- Bài được dẫn: [Mô hình triển khai EzyPlatform trên một máy chủ](./tra-cuu-nen-tang.md#bai-58).
+- Original category: EzyPlatform.
+- Article sections: Socket is a component of EzyPlatform; Software Architecture of Socket in EzyPlatform; How the user is verified?; How the data is processed.
+- Features mentioned: `websocket`, `EzyFox`, `EzyData`.
+- Referenced articles: [Model implementation of EzyPlatform on a server](./tra-cuu-nen-tang.md#bai-58).
 
 <a id="bai-74"></a>
 
-### Bí quyết công nghệ của EzyPlatform - Interceptor
+### The technology secrets of EzyPlatform - Interceptor
 
-[Bài gốc](https://ezyplatform.com/blog/bi-quyet-cong-nghe-cua-ezyplatform---interceptor?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/bi-quyet-cong-nghe-cua-ezyplatform---interceptor?lang=vi) · Use case
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Đường đi của một yêu cầu trong EzyPlatform; Một số lớp interceptor được cài đặt sẵn trong EzyPlatform.
+- Original category: EzyPlatform.
+- Article sections: The path of a request in EzyPlatform; Some interceptor layers are pre-installed in EzyPlatform.
 
 <a id="bai-73"></a>
 
-### Bí quyết công nghệ của EzyPlatform - Phân quyền
+### Technology Secrets of EzyPlatform - Distribution of Rights
 
-[Bài gốc](https://ezyplatform.com/blog/bi-quyet-cong-nghe-cua-ezyplatform---phan-quyen?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/bi-quyet-cong-nghe-cua-ezyplatform---phan-quyen?lang=vi) · Use case
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Nghiệp vụ phân quyền; EzyPlatform tổ chức việc phân quyền thế nào?; Làm thế nào để đảm bảo hiệu năng?; Sử dụng thế nào?.
-- Bài được dẫn: [Bí quyết công nghệ của EzyPlatform - Quản lý API](./tra-cuu-nen-tang.md#bai-70).
+- Original category: EzyPlatform.
+- Article sections: The division of authority; How EzyPlatform organizes the distribution?; How to ensure performance?; How to use?.
+- Referenced articles: [Technology Secrets of EzyPlatform - API Management](./tra-cuu-nen-tang.md#bai-70).
 
 <a id="bai-70"></a>
 
-### Bí quyết công nghệ của EzyPlatform - Quản lý API
+### Technology Secrets of EzyPlatform - API Management
 
-[Bài gốc](https://ezyplatform.com/blog/bi-quyet-cong-nghe-cua-ezyplatform---quan-ly-api?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/bi-quyet-cong-nghe-cua-ezyplatform---quan-ly-api?lang=vi) · Use case
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: API metadata; Các annotation; Các API được quản lý thế nào?; Ví dụ về cách sử dụng.
-- Từ khóa được nhắc: `EzyPayment`.
+- Original category: EzyPlatform.
+- Article sections: API metadata; The Annotation; How the API is managed?; For example, how to use.
+- Features mentioned: `EzyPayment`.
 
 <a id="bai-68"></a>
 
-### Bí quyết công nghệ của EzyPlatform - Phân trang dữ liệu
+### Technology Secrets of EzyPlatform - Data Division
 
-[Bài gốc](https://ezyplatform.com/blog/bi-quyet-cong-nghe-cua-ezyplatform---phan-trang-du-lieu?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/bi-quyet-cong-nghe-cua-ezyplatform---phan-trang-du-lieu?lang=vi) · Use case
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Ba cách phân trang; Cách làm thông thường; Thiết kế lớp phân trang của EzyPlatform; Sử dụng phân trang.
-- Từ khóa được nhắc: `EzyJPA`.
+- Original category: EzyPlatform.
+- Article sections: Three ways to divide; How to do normal; Design of the EzyPlatform layer; Use the section.
+- Features mentioned: `EzyJPA`.
 
 <a id="bai-67"></a>
 
-### Bí quyết công nghệ của EzyPlatform - Ánh xạ URI
+### Technology Secrets of EzyPlatform - URI Radiation
 
-[Bài gốc](https://ezyplatform.com/blog/bi-quyet-cong-nghe-cua-ezyplatform-?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/bi-quyet-cong-nghe-cua-ezyplatform-?lang=vi) · Use case
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Path variable; Nguyên lý ánh xạ; Mã nguồn cài đặt.
-- Từ khóa được nhắc: `EzyHTTP`.
+- Original category: EzyPlatform.
+- Article sections: Path variable; The principle of radiation; Source code installed.
+- Features mentioned: `EzyHTTP`.
 
 <a id="bai-65"></a>
 
-### Design Pattern là nền tảng của EzyPlatform
+### Design Pattern is the foundation of EzyPlatform
 
-[Bài gốc](https://ezyplatform.com/blog/design-pattern-la-nen-tang-cua-ezyplatform?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/design-pattern-la-nen-tang-cua-ezyplatform?lang=vi) · Use case
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: EzyPlatform sử dụng những design pattern nào?; Những mẫu thiết kế nào được sử dụng nhiều nhất trong EzyPlatform?.
-- Bài được dẫn: [Kiến trúc phần mềm của EzyPlatform](./tra-cuu-nen-tang.md#bai-49).
+- Original category: EzyPlatform.
+- Article sections: EzyPlatform uses what design patterns?; Which design patterns are most used in EzyPlatform?.
+- Referenced articles: [Software Architecture of EzyPlatform](./tra-cuu-nen-tang.md#bai-49).
 
 <a id="bai-63"></a>
 
-### Kiến trúc mã nguồn của EzyPlatform
+### Source code architecture of EzyPlatform
 
-[Bài gốc](https://ezyplatform.com/blog/kien-truc-ma-nguon-cua-ezyplatform?lang=vi) · Vận hành/kiến trúc
+[Original article](https://ezyplatform.com/blog/kien-truc-ma-nguon-cua-ezyplatform?lang=vi) · Operations / Architecture
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Kiến trúc nhiều tầng; Tầng controller; Tầng view và API controller; Tuân thủ những nguyên tắc chung.
-- Từ khóa được nhắc: `ezyhttp`.
-- Bài được dẫn: [Mô hình triển khai EzyPlatform trên một máy chủ](./tra-cuu-nen-tang.md#bai-58).
+- Original category: EzyPlatform.
+- Article sections: Architecture of many floors; The controller floor; View and API controller; Respect the common principles.
+- Features mentioned: `ezyhttp`.
+- Referenced articles: [Model implementation of EzyPlatform on a server](./tra-cuu-nen-tang.md#bai-58).
 
 <a id="bai-60"></a>
 
-### Tại sao triển khai EzyPlatform lại không cần thông qua Docker?
+### Why the implementation of EzyPlatform does not need through Docker?
 
-[Bài gốc](https://ezyplatform.com/blog/tai-sao-trien-khai-ezyplatform-lai-khong-can-thong-qua-docker?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/tai-sao-trien-khai-ezyplatform-lai-khong-can-thong-qua-docker?lang=vi) · Use case
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: EzyPlatform và Docker có những khái niệm tương đồng; Khái niệm máy ảo; Khái niệm container; Có cấu trúc tập tin riêng.
+- Original category: EzyPlatform.
+- Article sections: EzyPlatform and Docker have similar concepts; The concept of machine; Concept of container; There is a personal file structure.
 
 <a id="bai-58"></a>
 
-### Mô hình triển khai EzyPlatform trên một máy chủ
+### Model implementation of EzyPlatform on a server
 
-[Bài gốc](https://ezyplatform.com/blog/mo-hinh-trien-khai-ezyplatform-tren-mot-may-chu?lang=vi) · Vận hành/kiến trúc
+[Original article](https://ezyplatform.com/blog/mo-hinh-trien-khai-ezyplatform-tren-mot-may-chu?lang=vi) · Operations / Architecture
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Ba thành phần chính; Tại sao lại tách rời mà không gộp chung?; Những cổng nào sẽ bị chiếm dụng?; Triển khai sử dụng load balancer (LB).
-- Từ khóa được nhắc: `websocket`.
+- Original category: EzyPlatform.
+- Article sections: Three main components; Why separate without gathering together?; Which doors will be taken?; Use of load balancer (LB).
+- Features mentioned: `websocket`.
 
 <a id="bai-55"></a>
 
-### EzyPlatform cung cấp dữ liệu thế nào?
+### How EzyPlatform provides data?
 
-[Bài gốc](https://ezyplatform.com/blog/ezyplatform-cung-cap-du-lieu-the-n?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/ezyplatform-cung-cap-du-lieu-the-n?lang=vi) · Use case
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Năng lực vận hành và tạo nội dung của cá nhân và tổ chức nhỏ.; Có quá nhiều nội dung khiến chúng ta phân vân; EzyPlatform cung cấp dữ liệu thế nào?.
+- Original category: EzyPlatform.
+- Article sections: Capacity to operate and create content of individuals and small organizations.; There are so many things that make us divide; How EzyPlatform provides data?.
 
 <a id="bai-53"></a>
 
-### EzyPlatform cũng là một framework
+### EzyPlatform is also a framework
 
-[Bài gốc](https://ezyplatform.com/blog/ezyplatform-cung-la-mot-framework?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/ezyplatform-cung-la-mot-framework?lang=vi) · Use case
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Framework là gì?; EzyPlatform framework.
-- Từ khóa được nhắc: `ezyfox`, `module.properties`.
+- Original category: EzyPlatform.
+- Article sections: What is Framework?; EzyPlatform framework.
+- Features mentioned: `ezyfox`, `module.properties`.
 
 <a id="bai-51"></a>
 
-### Kiến trúc thư viện của EzyPlatform
+### The Library Architecture of EzyPlatform
 
-[Bài gốc](https://ezyplatform.com/blog/kien-truc-thu-vien-cua-ezyplatform?lang=vi) · Vận hành/kiến trúc
+[Original article](https://ezyplatform.com/blog/kien-truc-thu-vien-cua-ezyplatform?lang=vi) · Operations / Architecture
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Thư viện lập trình là gì?; Kiến trúc thư viện của EzyPlatform.
-- Từ khóa được nhắc: `EzyFox`, `EzyHTTP`, `EzyData`, `ezymail`.
+- Original category: EzyPlatform.
+- Article sections: What is a programming library?; The Library Architecture of EzyPlatform.
+- Features mentioned: `EzyFox`, `EzyHTTP`, `EzyData`, `ezymail`.
 
 <a id="bai-49"></a>
 
-### Kiến trúc phần mềm của EzyPlatform
+### Software Architecture of EzyPlatform
 
-[Bài gốc](https://ezyplatform.com/blog/kien-truc-phan-mem-cua-ezyplatform?lang=vi) · Vận hành/kiến trúc
+[Original article](https://ezyplatform.com/blog/kien-truc-phan-mem-cua-ezyplatform?lang=vi) · Operations / Architecture
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: Kiến trúc phần mềm là gì?; Kiến trúc phần mềm của EzyPlatform.
-- Từ khóa được nhắc: `EzyArticle`, `EzyMail`, `EzyGame`, `EzyMarketing`.
-- Bài được dẫn: [EzyPlatform là gì?](./tra-cuu-nen-tang.md#bai-48).
+- Original category: EzyPlatform.
+- Article sections: What is Software Architecture?; Software Architecture of EzyPlatform.
+- Features mentioned: `EzyArticle`, `EzyMail`, `EzyGame`, `EzyMarketing`.
+- Referenced articles: [What is EzyPlatform?](./tra-cuu-nen-tang.md#bai-48).
 
 <a id="bai-48"></a>
 
-### EzyPlatform là gì?
+### What is EzyPlatform?
 
-[Bài gốc](https://ezyplatform.com/blog/ezyplatform-la-gi-NDg=?lang=vi) · Vận hành/kiến trúc
+[Original article](https://ezyplatform.com/blog/ezyplatform-la-gi-NDg=?lang=vi) · Operations / Architecture
 
-- Nhãn gốc: EzyPlatform.
-- Đề mục trong bài: EzyPlatform là gì?; Điểm mạnh của EzyPlatform là gì?.
-- Từ khóa được nhắc: `EzyFox`.
+- Original category: EzyPlatform.
+- Article sections: What is EzyPlatform?; What is the strength of EzyPlatform?.
+- Features mentioned: `EzyFox`.
