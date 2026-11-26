@@ -13,4 +13,4 @@ case "${1:-}" in
 esac
 # -I keeps the working directory and PYTHON* variables off sys.path so an
 # untrusted checkout cannot shadow the pinned CLI module (Python 3.9+).
-exec python3 -I -c 'import sys; sys.path.insert(0, sys.argv[1]); sys.argv = sys.argv[2:]; from ezyplatform_cli.cli import main; sys.exit(main())' "$src" "$root/scripts/ezy" "$@"
+exec python3 -I "$root/scripts/ezy_runner.py" "$root" "$@"
