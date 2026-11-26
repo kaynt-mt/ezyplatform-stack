@@ -124,6 +124,10 @@ class BrowserAuthFixtureTests(unittest.TestCase):
                 ("login", "PAGE", ""),
                 ("register", "PAGE", INSTALL_PLUGINS.BROWSER_AUTH_MARKER),
             ])
+        with self.assertRaisesRegex(ValueError, "/Login already exists"):
+            INSTALL_PLUGINS.validate_browser_auth_rows([
+                ("Login", "PAGE", ""),
+            ])
 
     def test_validate_accepts_missing_or_fixture_owned_pages(self):
         INSTALL_PLUGINS.validate_browser_auth_rows([])

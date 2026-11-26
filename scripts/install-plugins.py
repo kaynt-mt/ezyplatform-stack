@@ -288,7 +288,7 @@ def mysql_query(sql):
 
 def validate_browser_auth_rows(rows):
     for slug, post_type, marker in rows:
-        if slug in BROWSER_AUTH_SLUGS and marker != BROWSER_AUTH_MARKER:
+        if slug.lower() in BROWSER_AUTH_SLUGS and marker != BROWSER_AUTH_MARKER:
             kind = post_type or "unknown"
             raise ValueError(f"/{slug} already exists as EzyArticle {kind}; move it aside before installing the browser auth fixture")
 
