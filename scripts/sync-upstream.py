@@ -119,18 +119,25 @@ def ensure_ak_auth(ak_bin):
         )
         if login.returncode != 0:
             raise ValueError("AgentKit login failed (check AGENTKIT_API_KEY)")
-        return True
     whoami = subprocess.run(
         [str(ak_bin), "whoami", "--json"],
         capture_output=True, text=True,
     )
     if whoami.returncode != 0:
-        return False
+        return False, set()
     try:
         payload = json.loads(whoami.stdout)
     except json.JSONDecodeError:
-        return False
-    return bool(payload.get("data", {}).get("authenticated"))
+        return False, set()
+    data = payload.get("data", {})
+    if not data.get("authenticated"):
+        return False, set()
+    active_kits = {
+        entry["kitId"]
+        for entry in data.get("licenses") or []
+        if isinstance(entry, dict) and entry.get("status") == "active" and entry.get("kitId")
+    }
+    return True, active_kits
 
 
 def kit_pin_matches(kit_dir, expected_pin):
@@ -181,7 +188,8 @@ def sync_agentkit(config, require=False, root=ROOT):
             print(f"agentkit/{name}: {version} (cached)")
         return [kits_root / name / "skills" for name, _ in validated_kits]
 
-    if not ensure_ak_auth(ak_bin):
+    authenticated, active_kits = ensure_ak_auth(ak_bin)
+    if not authenticated:
         message = "AgentKit not authenticated: set AGENTKIT_API_KEY or run './scripts/ak login'"
         if require:
             raise ValueError(message)
@@ -194,6 +202,9 @@ def sync_agentkit(config, require=False, root=ROOT):
         if kit_pin_matches(kit_dir, pins[name]):
             print(f"agentkit/{name}: {version} (cached)")
             skill_dirs.append(kit_dir / "skills")
+            continue
+        if name not in active_kits:
+            print(f"Notice: agentkit/{name} is not licensed for this account; skipping.", file=sys.stderr)
             continue
         with tempfile.TemporaryDirectory(dir=kits_root) as temp:
             temp_path = Path(temp)
@@ -225,6 +236,8 @@ def sync_agentkit(config, require=False, root=ROOT):
             staged.rename(kit_dir)
         print(f"agentkit/{name}: {version}")
         skill_dirs.append(kit_dir / "skills")
+    if require and not skill_dirs:
+        raise ValueError("No licensed AgentKit kits available to sync")
     return skill_dirs
 
 

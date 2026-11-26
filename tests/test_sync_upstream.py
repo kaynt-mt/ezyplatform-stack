@@ -185,10 +185,35 @@ class AgentKitSyncTests(unittest.TestCase):
             }
             fake_bin = root / ".upstream" / "agentkit" / "bin" / "ak"
             with mock.patch.object(SYNC, "ensure_ak_cli", return_value=fake_bin), \
-                 mock.patch.object(SYNC, "ensure_ak_auth", return_value=False):
+                 mock.patch.object(SYNC, "ensure_ak_auth", return_value=(False, set())):
                 self.assertEqual(SYNC.sync_agentkit(config, require=False, root=root), [])
                 with self.assertRaisesRegex(ValueError, "AgentKit not authenticated"):
                     SYNC.sync_agentkit(config, require=True, root=root)
+
+    def test_skips_unlicensed_kit_without_blocking_licensed_kit(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            config = {
+                "cli_version": "3.2.0",
+                "installer_sha256": "a" * 64,
+                "channel": "stable",
+                "target": "portable",
+                "kits": {"engineer": "3.2.0", "marketing": "3.2.0"},
+            }
+            fake_bin = root / ".upstream" / "agentkit" / "bin" / "ak"
+            kit_dir = root / ".upstream" / "agentkit" / "kits" / "engineer"
+            make_skill(kit_dir / "skills", "ak-plan", "eng")
+            (kit_dir / ".pin.json").write_text(json.dumps({
+                "cli_version": "3.2.0",
+                "channel": "stable",
+                "target": "portable",
+                "version": "3.2.0",
+            }))
+
+            with mock.patch.object(SYNC, "ensure_ak_cli", return_value=fake_bin), \
+                 mock.patch.object(SYNC, "ensure_ak_auth", return_value=(True, {"engineer"})):
+                dirs = SYNC.sync_agentkit(config, require=False, root=root)
+            self.assertEqual(dirs, [kit_dir / "skills"])
 
 
 if __name__ == "__main__":
