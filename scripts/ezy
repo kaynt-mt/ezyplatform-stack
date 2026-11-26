@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -euo pipefail
+root="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
+src="$root/.upstream/ezyplatform-cli/src"
+if [[ ! -d "$src/ezyplatform_cli" ]]; then
+    echo 'Run python3 scripts/sync-upstream.py first.' >&2
+    exit 1
+fi
+export PYTHONPATH="$src${PYTHONPATH:+:$PYTHONPATH}"
+exec python3 -m ezyplatform_cli "$@"

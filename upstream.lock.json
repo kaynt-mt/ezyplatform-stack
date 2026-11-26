@@ -1,0 +1,16 @@
+{
+  "git": {
+    "ezyplatform-cli": "135ded6147f52d0cb817feab17454b9519f37b89",
+    "ezyplatform-docker": "84a5a5d2c52b5ffd5f1e21de06da324d77916509",
+    "agents-plugins": "b34ff7c7b4f1efa2a7a28fbf40e0f53565eb1b52"
+  },
+  "skill_library": {
+    "1652": ["ezyplatform-landing-page", "5baf874dfa96a53fac85fbeae924f963ba43d9a44a62debe2386d3c58416e55f"],
+    "1650": ["ezyplatform-market-submit", "26d8867161cf419bf030734a8ebdabe14b0da23ca83e1f0e6f20af55ed7c9895"],
+    "1649": ["ezyplatform-publish-skill", "2ccb02e6577aca52ccbcbe9b911d41f7904c7a7ff8365fd4962ebfc6634a4bb3"],
+    "1636": ["ezyplatform-admin-customize", "9f227396c8ac535c620a5c0d88fcff0001db27dd741476c79b30018aa44a4f11"],
+    "1628": ["ezyplatform-develop", "9f4de0eabba5f51e54e34286ed3c1e74df7f6c11f1ae6dc04db248f89def932a"],
+    "1627": ["ezyplatform-install", "6296b95761dcf9e7ab9926a30ada4a6401aaca7808fac9c54ba3cfb2d52f6b80"],
+    "1626": ["ezyplatform-reset-admin-password", "ed91acafe2611f776205d6755a1546948cb8e3cd2c528cdf3bbcceebbfb63591"]
+  }
+}
