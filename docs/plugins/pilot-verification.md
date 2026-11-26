@@ -109,7 +109,7 @@ python3 "$STACK/scripts/ezy-plugin.py" upload-apply "$ZIP" \
   --password-file /secure/local/admin-password-file
 ```
 
-The helper checks the ZIP, logs in through the Admin form, uploads the project, and checks dependencies. If none of the project's modules are active, it activates all reported module types and requests a restart. If you want to activate only some module types on a first install, use the Admin UI instead. For projects with active modules, the helper retains the existing platform Apply flow. Store the password only in a local secret file outside Git.
+The helper checks the ZIP, logs in through the Admin form, records which projects are already installed, uploads the project, and checks dependencies. On a first install, it activates all reported module types and requests a restart. If you want to activate only some module types on a first install, use the Admin UI instead. For already-installed projects, the helper retains the platform Apply flow even if all modules are inactive. Store the password only in a local secret file outside Git.
 
 Application is asynchronous. Poll all of these before declaring success:
 

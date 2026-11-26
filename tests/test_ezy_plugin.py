@@ -127,8 +127,8 @@ class UploadApplyTests(unittest.TestCase):
 
             def request(opener, admin_url, path, method="GET", data=None, headers=None):
                 calls.append((path, method, json.loads(data) if data else data, headers))
-                if path.endswith("?active=true"):
-                    return 200, "[]"
+                if path == "/api/v1/projects/version-status":
+                    return 200, '[{"projectName":"other","status":"INSTALLED"}]'
                 if path.endswith("/module-types"):
                     return 200, '["admin-plugin","web-plugin"]'
                 return 204, ""
@@ -141,8 +141,8 @@ class UploadApplyTests(unittest.TestCase):
                 )
             login.assert_called_once_with("http://admin.test", "admin", "secret")
             self.assertEqual(calls, [
+                ("/api/v1/projects/version-status", "GET", None, None),
                 ("/api/v1/projects/check-dependencies", "GET", None, None),
-                ("/api/v1/projects/pilot/module-types?active=true", "GET", None, None),
                 ("/api/v1/projects/pilot/module-types", "GET", None, None),
                 ("/api/v1/projects/pilot/activate", "POST",
                  {"moduleTypes": ["admin-plugin", "web-plugin"], "restart": True},
@@ -162,20 +162,29 @@ class UploadApplyTests(unittest.TestCase):
 
             def request(opener, admin_url, path, method="GET", data=None, headers=None):
                 calls.append((path, method, data))
+                if path == "/api/v1/projects/version-status":
+                    return 200, '[{"projectName":"pilot","version":"1.0.0","status":"INSTALLED"}]'
                 if path.endswith("?active=true"):
+                    return 200, "[]"
+                if path.endswith("/module-types"):
                     return 200, '["web-plugin"]'
                 return 204, ""
 
+            def upload(opener, admin_url, zip_path):
+                calls.append(("/api/v1/projects/upload", "POST", None))
+                return 200, '{"projectName":"pilot"}'
+
             with mock.patch.object(PLUGIN, "open_admin_session", return_value="opener") as login, \
-                    mock.patch.object(PLUGIN, "upload_project_zip", return_value=(200, '{"projectName":"pilot"}')), \
+                    mock.patch.object(PLUGIN, "upload_project_zip", side_effect=upload), \
                     mock.patch.object(PLUGIN, "admin_request", side_effect=request):
                 result = PLUGIN.upload_and_apply_zip(
                     "http://admin.test", "admin", "secret", path
                 )
             login.assert_called_once_with("http://admin.test", "admin", "secret")
             self.assertEqual(calls, [
+                ("/api/v1/projects/version-status", "GET", None),
+                ("/api/v1/projects/upload", "POST", None),
                 ("/api/v1/projects/check-dependencies", "GET", None),
-                ("/api/v1/projects/pilot/module-types?active=true", "GET", None),
                 ("/api/v1/platform/install", "POST", b""),
             ])
             self.assertEqual(result["upload_status"], 200)
