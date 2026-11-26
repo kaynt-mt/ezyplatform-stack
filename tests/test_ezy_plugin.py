@@ -59,10 +59,24 @@ class CreateProjectTests(unittest.TestCase):
                 self.create(output, "../other")
             run.assert_not_called()
 
-    def test_rejects_sdk_success_without_generated_project(self):
+    def test_rejects_sdk_success_without_generated_project_and_removes_empty_directory(self):
         with tempfile.TemporaryDirectory() as temp, mock.patch.object(PLUGIN.subprocess, "run"):
             with self.assertRaisesRegex(ValueError, "SDK did not generate the project POM"):
                 self.create(Path(temp))
+            self.assertFalse((Path(temp) / "pilot-plugin").exists())
+
+    def test_preserves_nonempty_directory_for_inspection_after_scaffold_failure(self):
+        with tempfile.TemporaryDirectory() as temp:
+            project = Path(temp) / "pilot-plugin"
+
+            def sdk(command, *, input, text, check):
+                (project / "partial.txt").write_text("partial SDK output", encoding="utf-8")
+                return subprocess.CompletedProcess(command, 1)
+
+            with mock.patch.object(PLUGIN.subprocess, "run", side_effect=sdk):
+                with self.assertRaisesRegex(ValueError, "inspect any files left"):
+                    self.create(Path(temp))
+            self.assertEqual((project / "partial.txt").read_text(encoding="utf-8"), "partial SDK output")
 
 
 class ProjectZipTests(unittest.TestCase):

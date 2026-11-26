@@ -67,6 +67,7 @@ The CLIs run from pinned source or binaries in `.upstream/`, not from a global i
 
 - **EzyPlatform only:** Without `AGENTKIT_API_KEY`, the command above rebuilds the agent skill directory without AgentKit. It does not need an AgentKit account, key, or CLI.
 - **Optional AgentKit:** Set your own licensed `AGENTKIT_API_KEY` in the environment before running the same command (or run `python3 scripts/sync-upstream.py --require-agentkit` directly). Sync exports the licensed `engineer` and/or `marketing` kit to the local `.upstream/agentkit/` cache and loads its `ak-*` skills into `.agents/skills/`. See the [optional setup and license boundaries](docs/template-setup.md#4-optional-add-agentkit).
+- `./scripts/ezy` defaults `EZY_LOCAL_IMAGE` to the `ezyplatform-stack/core:...` image built by `./scripts/up.sh` from the core/EzyArticle pins in `compose.yaml`, so `ezy new --mode local` no longer uses upstream's old 1.5.4 image. The image is local to the machine; run `./scripts/up.sh` once before starting a local project, or set `EZY_LOCAL_IMAGE` to use another image. The launcher also applies a temporary-copy compatibility patch for the SDK 0.2.8 scaffold bug without editing `.upstream/`: the SDK writes `pom.xml` before creating the project directory, so the launcher creates that empty directory before invoking the SDK.
 - `.upstream/` and `.agents/skills/` are generated from the lock; do not edit them by hand. Choose **one** way to load skills per agent: the synced `.agents/skills/` directory or the marketplace described by the upstream README, not both. Application runtime plugins are separate from coding agent plugins: the stack includes EzyArticle; install or activate other modules as needed, not all marketplace modules by default.
 - When an agent runs on another VM, configure the Admin URL via an authorized private connection rather than using another machine's loopback address.
 
@@ -92,7 +93,7 @@ cd ../my-app
 "$STACK/scripts/ezy" check
 ```
 
-For an independent content sandbox, run `./scripts/ezy new ../my-local-app --mode local` from the stack checkout. This starts the pinned CLI's own Compose project, which currently defaults to `cppai/ezyplatform-app:1.5.4`. Use its printed URLs, create the first Admin, and enter its token before running `check` from the generated project. To test against this stack's 1.5.9 runtime, use `--mode live` against the local core started by `./scripts/up.sh`.
+For an independent content sandbox, run `./scripts/ezy new ../my-local-app --mode local` from the stack checkout. The generated Compose project uses the stack-pinned local core image rather than upstream's old 1.5.4 image; run `./scripts/up.sh` once first so that image exists locally. Use its printed URLs, create the first Admin, and enter its token before running `check` from the generated project. To test against this stack's shared 1.5.9 runtime instead, use `--mode live` against the local core started by `./scripts/up.sh`.
 
 For a Java plugin, use the stack's scaffold helper in the [plugin build skill](skills/ezy-build-plugin/SKILL.md), not `ezy new`. The skill covers native builds, packaging, and testing on Docker dev. Do not commit `environment.json`, tokens, or passwords.
 
