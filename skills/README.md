@@ -11,7 +11,7 @@ python3 scripts/sync-upstream.py --skip-agentkit
 find .agents/skills -mindepth 2 -maxdepth 2 -name SKILL.md | sort
 ```
 
-The current lockfile yields `19 skills in .agents/skills`. In an AgentKit workspace, follow the [stack README](../README.md#cli-plugins-and-agent-skills) instead of passing `--skip-agentkit`. Sync recreates the skills directory, and that flag excludes `ak-*` from the new directory. The tables below link to snapshots you can read on GitHub. When using a skill, read its version in `.agents/skills/` and the accompanying documentation; do not load both copies at once.
+The current lockfile yields `19 skills in .agents/skills`. In an AgentKit workspace, follow the [stack README](../README.md#cli-plugins-and-skills-for-agents) instead of passing `--skip-agentkit`. Sync recreates the skills directory, and that flag excludes `ak-*` from the new directory. The tables below link to snapshots you can read on GitHub. When using a skill, read its version in `.agents/skills/` and the accompanying documentation; do not load both copies at once.
 
 To update the snapshots tracked in Git, run `python3 scripts/sync-upstream.py --refresh-ezy-skills` from the core repository. This regenerates only `skills/upstream/` from the pinned sources. It does not install AgentKit or replace `.agents/skills/`. CPPAI files are read directly from Git, independent of checkout line endings. Review the diff before committing; do not hand-edit the snapshots.
 
@@ -40,7 +40,7 @@ The CPPAI source uses the [MIT license (© 2026 CPPAI Co.,LTD)](upstream/LICENSE
 
 | Skill | Use it to | Do not use it to | Related skills |
 | --- | --- | --- | --- |
-| [`ezyplatform-install`](upstream/ezyplatform-install/SKILL.md) | Set up EzyPlatform on a new machine. Choose native for SDK development or Docker when you only need a runtime. | Start the existing Compose stack; follow the [README](../README.md#getting-started-on-a-development-machine-or-cloud-vm). | `ezyplatform-develop`, `ezyplatform-reset-admin-password` |
+| [`ezyplatform-install`](upstream/ezyplatform-install/SKILL.md) | Set up EzyPlatform on a new machine. Choose native for SDK development or Docker when you only need a runtime. | Start the existing Compose stack; follow the [README](../README.md#start-on-a-development-machine-or-cloud-vm). | `ezyplatform-develop`, `ezyplatform-reset-admin-password` |
 | [`ezyplatform-develop`](upstream/ezyplatform-develop/SKILL.md) | Follow the Young Monkeys workflow to set up the JDK, Maven, and SDK and develop and export a theme or plugin from source. | Follow the equivalent `ezy-develop` workflow or edit content only. | `ezy-develop`, `ezyplatform-install`, `ezyplatform-market-submit` |
 | [`ezyplatform-admin-customize`](upstream/ezyplatform-admin-customize/SKILL.md) | Follow the Young Monkeys workflow to change Admin appearance or behavior through EzySupport without creating a Java module. | Add a business screen, route, or plugin-specific permission. | `ezy-admin-customize`, `ezyplatform-develop` |
 | [`ezyplatform-landing-page`](upstream/ezyplatform-landing-page/SKILL.md) | Create a standalone landing page from a creative brief, with a lead form, purchase buttons, preview, or a domain as needed. | Build a Java theme for an entire site or a multi-screen or API application. Do not install plugins, switch themes, publish, or change DNS without approval. | `ezy-author`, `ezy-media`, `ezy-verify` |

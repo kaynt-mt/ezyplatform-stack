@@ -2,6 +2,7 @@ import hashlib
 import importlib.util
 import io
 import json
+import os
 import stat
 import subprocess
 import tempfile
@@ -30,6 +31,23 @@ def make_skill(root, name, content="skill body"):
     skill_dir.mkdir(parents=True, exist_ok=True)
     (skill_dir / "SKILL.md").write_text(content)
     return skill_dir
+
+
+@unittest.skipIf(os.name == "nt", "Uses POSIX non-blocking file locks")
+class UpstreamLockTests(unittest.TestCase):
+    def test_lock_excludes_other_open_handles_and_releases_on_error(self):
+        import fcntl
+
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            with self.assertRaisesRegex(RuntimeError, "sync failed"):
+                with SYNC.upstream_lock(root):
+                    with (root / ".upstream" / ".sync.lock").open("rb") as handle:
+                        with self.assertRaises(BlockingIOError):
+                            fcntl.flock(handle, fcntl.LOCK_EX | fcntl.LOCK_NB)
+                    raise RuntimeError("sync failed")
+            with (root / ".upstream" / ".sync.lock").open("rb") as handle:
+                fcntl.flock(handle, fcntl.LOCK_EX | fcntl.LOCK_NB)
 
 
 class SkillPackageTests(unittest.TestCase):

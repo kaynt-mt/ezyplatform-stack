@@ -1,105 +1,135 @@
 ---
 name: ezy-build-plugin
-description: Scaffold, develop, build, package, test-install, or upgrade a Java plugin on EzyPlatform Core Stack. Use this skill to scaffold Admin and Web modules, add APIs, menus, views, permissions, i18n, or migrations, or prepare a Marketplace release.
+description: Scaffold, develop, build, package, install, or upgrade a Java plugin for EzyPlatform Core Stack. Use for Admin/Web modules, APIs, menus, views, permissions, i18n, migrations, and Marketplace releases.
 ---
 
-# Create an EzyPlatform plugin
+# Build an EzyPlatform plugin
 
-This skill is specific to **this stack** and does not replace the upstream skills. Keep the application in a separate repository; the core repository provides the runtime and tools. For changes to articles, low-code interfaces, or EzyArticle content, use the content skills below instead of creating a Java plugin.
+This stack-specific skill complements the upstream skills. Keep the app in a separate repository; the core repo provides the runtime and tooling. For articles, low-code UI, or EzyArticle content, choose a content skill instead of creating a Java plugin.
 
-## 1. Choose the right skill
+## 1. Choose a skill
 
-See the [catalog of all 19 Ezy skills](../README.md) to sync them, locate their `SKILL.md` files, and distinguish Java plugins from EzyArticle content or Admin customization through EzySupport. After reading `ezy-guide`, choose **one** Java workflow: `ezy-develop` (the stack's `ezy dev` wrapper, used below) or `ezyplatform-develop` (the Young Monkeys scripts). Read `ezyplatform-install` if you need a native environment, and `ezy-market-submit` or `ezyplatform-market-submit` if you need to submit a plugin to Marketplace.
+Use the [catalog of 19 Ezy skills](../README.md) to sync skills and choose the relevant `SKILL.md`. After reading `ezy-guide`, choose one Java workflow: `ezy-develop` (the `ezy dev` workflow below) or `ezyplatform-develop` (Young Monkeys scripts). Use `ezyplatform-install` to prepare a native environment, and `ezy-market-submit` or `ezyplatform-market-submit` for Marketplace releases.
 
-## 2. Create a Maven project in a native build environment
+## 2. Scaffold in a native build environment
 
-Do not confuse `./scripts/ezy new` with the plugin generator: `new --mode live|local|both` creates a **content project** with `environment.json`, not a Java module. `./scripts/ezy dev create` calls the **SDK** command `ezy.sh create` and needs a native `EZYPLATFORM_HOME` with `cli.sh`, JDK 8, Maven, the SDK, and development libraries. Do not point `--home` at the core checkout or a Compose volume. Use **a separate native environment to build** and **the stack's Docker environment for acceptance testing**. Do not install natively or modify shared environments without approval.
+`ezy new --mode live|local|both` creates a **content project** with `environment.json`, not a Java plugin. Scaffold Java modules using the SDK's `ezy.sh create` via the stack helper below. Build in a **separate native install** and test the result in the stack's **Docker runtime**. Do not install native tooling or change shared environments without approval.
 
-This example is for Linux, WSL, or macOS. Replace both absolute paths before running it. If needed, read `ezyplatform-install` and the [development environment setup guide](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-setup-development-environment?lang=vi) to prepare a separate native environment compatible with the target core. Do not replace the existing Compose setup. Check runtime and SDK versions, core artifacts in the POM, and the dependencies actually needed. The stack pins runtime **1.5.9**, **Java 11**, and **MySQL 8.0**; the SDK and CLI are versioned separately. On Windows, follow the upstream skill's PowerShell instructions. If native and Compose run on the same machine, use different Admin and Web ports and separate databases.
+Follow `ezyplatform-install` and the [development environment guide](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-setup-development-environment?lang=vi). The native build needs JDK 8, Maven, the development SDK, and development libraries matching the target runtime. The Docker stack pins EzyPlatform **1.5.9**, container Java **11**, and MySQL **8.0**; the SDK and CLI have independent versions. If native and Docker run on the same machine, use separate Admin/Web ports and databases.
+
+Use **`--dir` with the installation root** if the native installer was run with `install --dir`. For instance, pass `--dir /path/to/native-install` when the runtime is `/path/to/native-install/ezyplatform` and its JDK is `/path/to/native-install/jdk`; setup will use the matching `dev/` directory. **`--home` identifies a runtime home containing `cli.sh`**; it does not select the enclosing custom installation root and may use the default development tools directory. Do not pass the core checkout or a Compose volume as either flag.
+
+Example for Linux, WSL, or macOS (replace the paths). On Windows, use the upstream PowerShell instructions for native installation and WSL for the Bash workflow below.
 
 ```bash
 STACK=/path/to/ezyplatform-stack
-NATIVE_HOME=/path/to/separate-native-runtime
+NATIVE_DIR=/path/to/native-install
+NATIVE_HOME="$NATIVE_DIR/ezyplatform"
 OUT="$(dirname "$STACK")"
 
-"$STACK/scripts/ezy" dev check --home "$NATIVE_HOME"
-# Run setup only if tools are missing; it may download the JDK, Maven, and SDK and install artifacts in ~/.m2.
-"$STACK/scripts/ezy" dev setup --home "$NATIVE_HOME" --no-profile
-"$STACK/scripts/ezy" dev create example-plugin --home "$NATIVE_HOME" \
+"$STACK/scripts/ezy" dev check --dir "$NATIVE_DIR"
+# Only run setup if tools or libraries are missing; it can download tools and install Maven artifacts.
+"$STACK/scripts/ezy" dev setup --dir "$NATIVE_DIR" --no-profile
+python3 "$STACK/scripts/ezy-plugin.py" create example-plugin --dir "$NATIVE_DIR" \
   --group com.example --package com.example.plugin \
   --modules admin-plugin,web-plugin --out "$OUT"
 cd "$OUT/example-plugin"
 ```
 
-Use a group and package namespace owned by the project. Choose a new directory instead of overwriting an existing project. In an installed SDK environment, the equivalent direct command is `ezy.sh cp example-plugin -g com.example -p com.example.plugin -i admin-plugin,web-plugin -o "$OUT"`. See the [quickstart](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-plugin-development-quickstart?lang=vi) and [SDK commands](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-sdk-commands?lang=vi).
+Use a group and package you own. The helper refuses to overwrite an existing project, creates the empty target expected by SDK 0.2.8, and corrects generated `assembly.xml` exclusions from the project group to `org.youngmonkeys:ezyplatform-*`. If scaffold fails, inspect the newly created directory and use a fresh target when you retry. See the [quickstart](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-plugin-development-quickstart?lang=vi) and [SDK commands](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-sdk-commands?lang=vi).
 
-| Directory or file | Purpose |
-| --- | --- |
-| Root `pom.xml`, `export.sh`/`export.bat` | Maven reactor, versions and profiles, and the scaffold's build and export workflow. Read the actual script before running it. |
-| `<project>-sdk` | The plugin's **shared** entities, repositories, domain services and policies, DTOs, and enums. This is not installed separately. Do not create another `*-common` unless needed or confuse it with the core's `ezyplatform-common`. |
-| `<project>-admin-plugin` | Operations controllers and views, module configuration, menus, and SQL scripts applied by Admin. |
-| `<project>-web-plugin` | User-facing controllers and APIs, Web authentication, theme-compatible views and fragments, and static files as needed. |
-| Deployable module | `module.properties` declares the type and runtime dependencies; `assembly.xml` controls the bundle; `src/main/resources/{templates,static,messages}` holds UI assets. `menus.properties` belongs at the root of the Admin module. Theme and Socket are optional; enable them only if needed. Each Web runtime has only one active theme. |
+### Maven download and cache troubleshooting
 
-See the [plugin project structure](https://youngmonkeys.org/ezyplatform/guides/the-structure-of-a-plugin-project?lang=vi) and the [book-store example](https://github.com/youngmonkeys/ezyplatform-examples/tree/main/book-store). For dependencies on managed modules, check the dependencies and versions in the POM, `dependencies` in `module.properties`, and `@ComponentsScan` in the startup test. Only with approval, run `"$STACK/scripts/ezy" dev link <plugin-name> --home "$NATIVE_HOME" -m admin-plugin,web-plugin` for the modules you actually use. **The command can download, install, and activate missing dependencies.** Do not run it just to look something up. See the [linking guide](https://youngmonkeys.org/ezyplatform/guides/link-a-plugin?lang=vi).
-
-## 3. Implement a complete vertical slice
-
-1. **Schema and Java:** Put JPA entities, EzyData repositories (for example, `@EzyRepository` and `EzyDatabaseRepository`), services, and policies in the SDK. Write flow: DTO → validate → authorize → transaction → response DTO. Enforce access scope in the query, index for real filters, and reuse the core User as the identity when appropriate. See [EzyPlatform research](../../docs/research/ezyplatform-deep-research.md).
-   - Use `@EzyQuery` for joins, sorting, and projections. When using `Next` for offset and limit, make it the final argument. For multistep mutations, do not assume generated write queries share a transaction: verify the `EzyJpaRepository` path and use of a single `EntityManager` on the pinned SDK, then test rollback between steps. See [EzyData](../../docs/research/youngmonkeys/ezydata.md).
-   - To let the runtime inject services without retaining request state, check package scanning and the configuration → bean → after-config order in a startup test. Do not create a standalone context inside the plugin. See [EzyFox Bean](../../docs/research/youngmonkeys/ezyfox-library.md).
-2. **Migrations:** Put plugin-prefixed SQL in `<project>-admin-plugin/src/main/resources/scripts/`; see the [SQL examples](https://github.com/youngmonkeys/ezyplatform-examples/tree/main/personal/personal-admin-plugin/src/main/resources/scripts). The development skill describes scripts applied once per filename. Leave released files intact and add a new file for each change. Verify fresh installs and upgrades. Do not assume automatic rollback or that a Web-only plugin runs Admin scripts. Back up both the database and runtime before writing to an environment with data. For incompatible changes, use expand–migrate–contract.
-3. **Admin:** Add menus in `menus.properties`. For detail screens, declare a hidden route following the example's convention. Place templates in `templates/<project>/` and use an EzyHTTP controller returning a `View`. Check the actual plugin prefix. Use `@Authenticated`, `@AdminId`, and `@EzyFeature` for Admin permissions. Hiding a button in the UI is not server-side authorization. See [Admin pages](https://youngmonkeys.org/ezyplatform/guides/create-an-admin-page?lang=vi) and [menus](https://youngmonkeys.org/ezyplatform/guides/create-menus-for-admin-plugin?lang=vi).
-   - To extend the shared layout, use fragments and a `ViewDecorator` instead of editing core templates. For example, pass the fragment name through `rightToolbarToolFragments` and render the `content` region. Protect the API behind the button as well. See the [Admin toolbar guide](https://youngmonkeys.org/ezyplatform/guides/add-admin-right-toolbar-tool?lang=vi).
-4. **Web:** In API controllers, use `@UserId` after confirming the Web auth interceptor is registered for your route. For views, use a dedicated namespace and Thymeleaf fragments, or mount the UI at an extension point in the active theme. Check user and resource permissions in the service, including downloads, searches, and counts. Do not grant system Admin privileges to members. Test anonymous users, wrong roles, out-of-scope resources, authorized members, and access after revocation. See [Web authentication](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-web-authentication?lang=vi), [permissions](https://youngmonkeys.org/ezyplatform/guides/permission-in-ezyplatform?lang=vi), and [themes and plugins](https://youngmonkeys.org/ezyplatform/guides/understanding-ezyplatform-themes-and-plugins?lang=vi).
-   - Bind DTOs from the path, query, or body. Use `View` for HTML and a DTO or `ResponseEntity` for APIs. Verify auth errors never reach business handlers. Defer Socket until after the HTTP MVP, then test subscriptions, reconnections, and fan-out permissions. See [EzyHTTP](../../docs/research/youngmonkeys/ezyhttp.md) and [EzyFox Server](../../docs/research/youngmonkeys/ezyfox-server.md).
-5. **i18n and static resources:** Put menu labels, form errors, and default strings in `messages/messages.properties`. Add `messages_vi.properties` and bundles for other supported languages. Use keys instead of hard-coded text in templates; expose only the keys JavaScript needs. `static/` is accessible over HTTP; do not put secrets there. See the [localization guide](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-multi-languages?lang=vi).
-
-## 4. Test, build, export, and inspect the ZIP
-
-From the plugin repository, check Maven profiles and test database addresses. Use only development databases. Run Maven checks and tests in the helper's environment, then use the scaffold script to package it. Example export profiles may skip tests, so a successful export **does not replace** a separate test suite run.
+The pinned upstream `ezy dev setup` helper owns the Maven distribution download. If Maven Central returns HTTP 429, provision Maven separately and put its `bin` directory first on `PATH` before running setup. For Maven 3.9.16, the pilot used the same distribution and SHA-512 from a Maven Central mirror. Run this in a scratch directory outside the stack, and extract only after verification succeeds:
 
 ```bash
-"$STACK/scripts/ezy" dev run --home "$NATIVE_HOME" -- mvn clean verify
-"$STACK/scripts/ezy" dev run --home "$NATIVE_HOME" -- bash export.sh
+archive=apache-maven-3.9.16-bin.tar.gz
+mirror=https://maven-central.storage-download.googleapis.com/maven2/org/apache/maven/apache-maven/3.9.16
+curl -fLO "$mirror/$archive" &&
+  curl -fLO "$mirror/$archive.sha512" &&
+  printf '%s  %s\n' "$(tr -d '[:space:]' < "$archive.sha512")" "$archive" | sha512sum -c - &&
+  tar -xzf "$archive" &&
+  export PATH="$PWD/apache-maven-3.9.16/bin:$PATH"
 ```
 
-The [example script](https://github.com/youngmonkeys/ezyplatform-examples/blob/main/book-store/export.sh) builds each module using its POM profile, then runs `ezy.sh package` followed by `ezy.sh export`. Export writes to the **native** runtime but does not activate or restart it. To package without writing to the native runtime, run the scaffold's Maven steps up to the export line and call `ezy.sh package`; do not run package without Maven artifacts. If you use `ezy dev export` instead, the helper **activates native modules and restarts by default** and can change the active theme. Use it only in a sandbox where you want that behavior.
+Use your approved mirror in Maven's `settings.xml` if artifact downloads also hit the rate limit (for the pilot, a mirror with `mirrorOf` set to `central` and URL `https://maven-central.storage-download.googleapis.com/maven2` worked). To use a non-default local cache, configure **both** Maven and the helper's independent cache check, before setup, verify, and export:
 
-Locate the project ZIP in `target/project/` using the actual output. Check the ZIP structure and contents: correct module types and versions, expected templates, messages, and SQL, and no test configs, tokens, duplicate core JARs, or files that override platform configuration. Record the artifact name, version, and SHA-256 before transferring it to Docker. See [package and export commands](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-sdk-commands?lang=vi).
+```bash
+export MAVEN_LOCAL_REPO=/absolute/path/to/maven-cache
+export MAVEN_ARGS="-Dmaven.repo.local=$MAVEN_LOCAL_REPO"
+# If needed, append this using the path to your Maven settings file:
+# export MAVEN_ARGS="$MAVEN_ARGS -s /absolute/path/to/settings.xml"
+```
 
-## 5. Install your artifact in the Docker development stack
+| Path | Purpose |
+| --- | --- |
+| Root `pom.xml`, `export.sh` / `export.bat` | Maven reactor, versions, profiles, and generated build/export workflow. Read the actual script before running it. |
+| `<project>-sdk` | Shared entities, repositories, services, policies, DTOs, and enums. This is not a separately installed module or the platform's `ezyplatform-common`. |
+| `<project>-admin-plugin` | Admin controllers/views, module configuration, menus, and SQL scripts applied by Admin. |
+| `<project>-web-plugin` | User-facing controllers/APIs, Web auth, views/fragments compatible with the active theme, and static assets. |
+| Deployable module | Runtime type/dependencies in `module.properties`, bundle rules in `assembly.xml`, and templates, static assets, and messages in `src/main/resources/`. `menus.properties` is at the Admin module root. Theme and Socket are optional; only one theme can be active per Web runtime. |
 
-1. Follow the [core repository README](../../README.md) and run `./scripts/up.sh`. On a fresh installation, open `http://127.0.0.1:9090/setup-admin`, create a super admin, and sign in at `/login`. Web defaults to `http://127.0.0.1:8080/`; if you changed the port, use the URL reported by the script. Do not use production Admin.
-2. In **Modules** in local Admin, select **Upload Project** for your own project ZIP. Verify the name and version, then select **Active** for the correct Admin or Web module. Do not use Upload Project instead of signature-verified Marketplace installation for third-party plugins. `cli.sh "install <name>"` searches Marketplace; it does not install a local ZIP. Do not copy JARs directly into the volume or edit an installed plugin.
-3. If the UI saved activation without restarting, run `docker compose restart ezyplatform` from the core repository. Verify with `docker compose ps` and `docker compose logs --tail=100 ezyplatform mysql`. If the UI shows **Apply** as pending, finish it before assuming the module is running. Verify the active version, Admin menus and views, Web routes, schema, and data. HTTP 200 on the homepage only shows that the core is alive. See [installing and activating modules](https://youngmonkeys.org/ezyplatform/guides/add-a-plugin-to-your-ezyplatform?lang=vi). The [report on 37 plugin tests](../../docs/plugins/test-report.md#dependency-order-notes) notes missing tables when many plugins were enabled together and Admin and Web started in parallel. Verify dependencies first, then check migrations in the logs and schema before concluding Web works.
+See the [plugin structure guide](https://youngmonkeys.org/ezyplatform/guides/the-structure-of-a-plugin-project?lang=vi) and [book-store example](https://github.com/youngmonkeys/ezyplatform-examples/tree/main/book-store). For managed dependencies, verify the POM coordinates/version, `dependencies` in `module.properties`, and startup test `@ComponentsScan`. Only with approval, use `"$STACK/scripts/ezy" dev link <plugin-name> --dir "$NATIVE_DIR" -m admin-plugin,web-plugin` with the modules that actually need it. This can download, install, and activate missing dependencies. See [linking a plugin](https://youngmonkeys.org/ezyplatform/guides/link-a-plugin?lang=vi).
 
-Compose starts only Admin and Web by default. If you add a Socket module, enable and start Socket and verify the connection and protocol separately. Running Admin and Web does not prove Socket is working.
+## 3. Implement a complete slice
+
+1. **Schema and Java:** Use JPA entities and EzyData repositories (for example, `@EzyRepository` and `EzyDatabaseRepository`), plus SDK services and policies. Sequence writes as DTO → validate → authorize → transaction → response DTO. Scope access in queries, index actual filters, and reuse core User identities when appropriate. See [EzyPlatform research](../../docs/research/ezyplatform-deep-research.md).
+   - Use `@EzyQuery` for joins, sorting, and projections; pass `Next` last for offset/limit. Do not assume generated write queries share a transaction: verify the pinned SDK's `EzyJpaRepository` and single-`EntityManager` path, and test rollback between writes. See [EzyData](../../docs/research/youngmonkeys/ezydata.md).
+   - Verify package scanning and the configuration → bean → after-config order with a startup test. Keep request state out of injected runtime services and do not create a standalone plugin context. See [EzyFox Bean](../../docs/research/youngmonkeys/ezyfox-library.md).
+2. **Migration:** Put plugin-prefixed SQL in `<project>-admin-plugin/src/main/resources/scripts/`; see the [example SQL](https://github.com/youngmonkeys/ezyplatform-examples/tree/main/personal/personal-admin-plugin/src/main/resources/scripts). Scripts are applied once by filename. Keep released files unchanged and add a file for each change. Test fresh installs and upgrades; do not assume automatic rollback or that Web-only plugins run Admin migrations. Back up DB and runtime before changes to environments containing data; use expand–migrate–contract for incompatible changes.
+3. **Admin:** Define menus in `menus.properties` and use the example convention for hidden detail routes. Place templates under `templates/<project>/` and return a `View` from an EzyHTTP controller. Verify the actual plugin prefix. Use `@Authenticated`, `@AdminId`, and `@EzyFeature` for Admin permissions; hiding UI controls is not server-side authorization. See [Admin pages](https://youngmonkeys.org/ezyplatform/guides/create-an-admin-page?lang=vi) and [menus](https://youngmonkeys.org/ezyplatform/guides/create-menus-for-admin-plugin?lang=vi).
+   - Use fragments and `ViewDecorator` to extend layout rather than editing core templates. For example, a toolbar uses `rightToolbarToolFragments` and renders the `content` region; still protect its API. See [Admin toolbar](https://youngmonkeys.org/ezyplatform/guides/add-admin-right-toolbar-tool?lang=vi).
+4. **Web:** Use `@UserId` after verifying that the Web auth interceptor covers your route. Namespace views and use Thymeleaf/fragments or the active theme's extension points. Scope service access by user and resource, including downloads, searches, and counts. Do not grant Admin permissions to members. Test anonymous requests, wrong roles, out-of-scope resources, valid members, and revoked access. See [Web authentication](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-web-authentication?lang=vi), [permissions](https://youngmonkeys.org/ezyplatform/guides/permission-in-ezyplatform?lang=vi), and [themes/plugins](https://youngmonkeys.org/ezyplatform/guides/understanding-ezyplatform-themes-and-plugins?lang=vi).
+   - Bind DTOs from path/query/body; return `View` for HTML and a DTO or `ResponseEntity` for APIs. Confirm unauthorized requests do not reach business handlers. Defer Socket until after the HTTP MVP, then test subscription, reconnect, and fan-out permissions. See [EzyHTTP](../../docs/research/youngmonkeys/ezyhttp.md) and [EzyFox Server](../../docs/research/youngmonkeys/ezyfox-server.md).
+5. **i18n and static assets:** Put menu labels, form errors, and default strings in `messages/messages.properties`; add `messages_vi.properties` and other required locales. Use keys in templates and expose only the keys JS needs. `static/` is accessible via HTTP, so never store secrets there. See [multilingual support](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-multi-languages?lang=vi).
+
+## 4. Verify, export, and check the ZIP
+
+From the plugin repo, review Maven profiles and test database endpoints; use only a dev database. Run the test suite separately because export profiles may skip tests. Read the generated export script and use the ZIP path printed by export:
+
+```bash
+"$STACK/scripts/ezy" dev run --dir "$NATIVE_DIR" -- mvn clean verify
+"$STACK/scripts/ezy" dev run --dir "$NATIVE_DIR" -- bash export.sh
+ZIP=target/project/example-plugin-1.0.0.zip
+python3 "$STACK/scripts/ezy-plugin.py" check-zip "$ZIP"
+```
+
+The [example export script](https://github.com/youngmonkeys/ezyplatform-examples/blob/main/book-store/export.sh) runs Maven module builds followed by `ezy.sh package` and `ezy.sh export`. This writes to the **native** runtime without implicitly activating or restarting modules. To package without writing to that runtime, run the generated Maven steps and `ezy.sh package`, stopping before `ezy.sh export`. Do not package before building Maven artifacts. The alternative `ezy dev export` **activates native modules and restarts by default**, which can change the active theme; use it only if wanted in a sandbox. See [SDK package/export commands](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-sdk-commands?lang=vi).
+
+The ZIP helper checks integrity and rejects bundled EzyPlatform core JARs, including `ezyplatform-*-sdk`. Also inspect module types and versions, expected templates/messages/SQL, and the absence of test configuration, secrets, or files overriding platform configuration. Record the artifact path, version, and SHA-256 before installing it in Docker.
+
+## 5. Install your artifact in Docker dev
+
+1. From the stack repo, follow the [README](../../README.md) and run `./scripts/up.sh`. For a fresh runtime, create a super admin at <http://127.0.0.1:9090/setup-admin>, then sign in at `/login`. The default Web URL is <http://127.0.0.1:8080/>; use the printed URL if you changed ports. Do not use production Admin.
+2. In Admin, go to **Plugins → Add New → Upload** and select your project ZIP. Check the name/version, then **Activate** each intended module (for example, Admin and Web). Verify the action has changed to **Deactivate**; follow any **Apply** prompt before continuing. Use the signature-checked Marketplace workflow for third-party plugins instead. `cli.sh "install <name>"` searches the Marketplace; it does not install a local ZIP. Do not copy JARs into the volume or modify installed plugins directly.
+3. Once activation is saved, run `docker compose restart ezyplatform` from the stack repo (using the same Compose project as startup). Confirm readiness with `docker compose ps` and `docker compose logs --tail=100 ezyplatform mysql`. Verify the active version, actual Admin menu/view, actual Web route, schema, and data. HTTP 200 on the default home page only shows the core is up. See [installing and activating a plugin](https://youngmonkeys.org/ezyplatform/guides/add-a-plugin-to-your-ezyplatform?lang=vi) and the [37-plugin test report](../../docs/plugins/test-report.md#dependency-order-notes): check dependencies and migration logs/schema before concluding that Web works.
+
+On a first boot, Web `/` can temporarily return 404 even after Admin is ready. Wait for `up.sh` to finish its readiness and restart checks; see the [README](../../README.md). This differs from a plugin route that still returns 404 after activation and restart. Compose starts only Admin/Web by default; enable and start Socket separately if your project uses it, and test the Socket connection and protocol directly.
 
 ## 6. Troubleshoot, upgrade, and release
 
 | Symptom | First checks |
 | --- | --- |
-| Missing parent or Test SDK, or missing `systemPath` | Check `ezy dev check --home …`, the JDK, Maven, SDK, native path, and JAR versions. `ezy dev sync-versions --home …` updates versions of **installed** dependencies. Review the diff; it does not upgrade the core. |
-| Missing menus, JS, or i18n, or a 404 | Check ZIP contents, activation and version by module type, controller and menu prefixes, template namespaces, and asset/message bundles. For `*StartupTest` in the IDE, set the working directory to the module and avoid port conflicts with the runtime. |
-| HTTP 401 or 403, or Web receives an empty user ID | Check interceptor or theme setup and annotations. Test authorized and unauthorized cases; do not remove authentication to get around an error. |
-| App fails after install, database error, or class/linkage error | Start with Admin and Web logs, then compare SQL and migrations, `dependencies`, versions, and duplicated core JARs. Do not delete the volume to “fix” data. See [build and export errors](https://youngmonkeys.org/ezyplatform/guides/nhung-ly-do-khien-ban-khong-the-build-chay-va-export-duoc-du-an-plugin-ezyplatform?lang=vi). |
+| Missing parent/Test SDK or `systemPath` | Run `ezy dev check --dir …` and verify JDK/Maven/SDK, native paths, and JAR versions. `ezy dev sync-versions --dir …` updates versions of **installed** dependencies; review the diff and do not upgrade core automatically. |
+| Missing menu/JS/i18n or route 404 | Check ZIP, active module type/version, route and menu prefixes, template namespaces, and assets/messages. For IDE `*StartupTest` runs use the module as working directory and avoid runtime port conflicts. |
+| 401/403 or absent Web user ID | Check interceptor/theme and annotations. Retest with and without access; do not bypass authentication. |
+| Startup, database, class, or linkage errors after install | Check Admin/Web logs, migrations, `dependencies`, versions, and duplicate core JARs. Do not delete volumes to fix data. See [build/export troubleshooting](https://youngmonkeys.org/ezyplatform/guides/nhung-ly-do-khien-ban-khong-the-build-chay-va-export-duoc-du-an-plugin-ezyplatform?lang=vi). |
 
-In the native environment, run diagnostic commands through `"$STACK/scripts/ezy" dev <command> --home "$NATIVE_HOME"`:
+For native diagnostics, use `"$STACK/scripts/ezy" dev <command> --dir "$NATIVE_DIR"`:
 
-- `status` shows URLs, Admin and Web status, and active modules. See also `$NATIVE_HOME/logs/{admin,web}-server.log`. `restart` restarts native Admin and Web, not Compose.
-- `tables core` or `tables <plugin-name>` catalogs table creation SQL; it does not inspect a migrated database schema.
-- `find-class <class-name>` identifies the JAR containing a class. Use `decompile <fully-qualified-name-or-JAR-path>` only on local artifacts you are authorized to inspect; prefer the public SDK or source. Do not copy decompiled code into the plugin.
+- `status` shows URLs, Admin/Web status, and active modules; see also `$NATIVE_HOME/logs/{admin,web}-server.log`. `restart` restarts native Admin/Web, not Compose.
+- `tables core` or `tables <plugin-name>` lists SQL definitions, not the migrated database schema.
+- `find-class <class-name>` locates a class in a JAR. Use `decompile <qualified-name-or-JAR-path>` only for local artifacts you are authorized to inspect; prefer public SDK/source and do not copy decompiled code into a plugin.
 
-**Local upgrade:** Bump the bundle version, test fresh installs and upgrades with sample data, and back up the database and runtime. In Admin, select **Update Manually**, upload the new ZIP, and select **Apply** as described in the [upgrade guide](https://youngmonkeys.org/ezyplatform/guides/update-a-plugin?lang=vi). Verify the actual version, schema, and permissions. Rebuilding the image does not replace plugins in an existing volume. Rolling back an artifact does not undo migrations; for an incompatible change, restore a verified database and runtime pair.
+**Local upgrades:** Bump the bundle version, test fresh install and upgrade with sample data, and back up DB/runtime. In Admin, choose **Update Manually**, upload the new ZIP, and **Apply** as described in the [upgrade guide](https://youngmonkeys.org/ezyplatform/guides/update-a-plugin?lang=vi). Check version, schema, and permissions. An image rebuild does not replace plugins stored in an existing runtime volume. Rolling back the artifact does not roll back migrations; restore the verified DB/runtime pair if incompatible.
 
-**Marketplace:** Proceed only when requested and authorized. Obtain separate approval before each write. Read the [FAQ](https://ezyplatform.com/faq) and `ezy-market-submit` or `ezyplatform-market-submit`. Check compatibility from Java 8 onward, i18n, asset licenses, reserved namespaces, and bundle size and contents against actual server limits. Prepare an icon, banner, metadata, release notes, and a ZIP named `<url-name>-<X.Y.Z>.zip`. With the wrapper, the sequence is `ezy market login` (the user approves in the browser) → `projects`/`categories` → `create --json …` if the project does not exist → `upload-version --name … --version … --zip … --notes-file …` → `status --name …` → `release --name …` **only after** the version is `RELEASABLE` and release approval has been granted. Run each command through `"$STACK/scripts/ezy"`.
+**Marketplace:** Publish only when requested and authorized; obtain separate approval before each write. Read the [FAQ](https://ezyplatform.com/faq) and `ezy-market-submit` or `ezyplatform-market-submit`. Check Java 8 compatibility, locales, asset licenses, reserved namespaces, bundle size/content, and server limits. Prepare icon/banner, metadata, release notes, and `<url-name>-<X.Y.Z>.zip`. Run each wrapper command via `"$STACK/scripts/ezy"`: `market login` (user approves in their browser) → `market projects` / `market categories` → `market create --json …` if needed → `market upload-version --name … --version … --zip … --notes-file …` → `market status --name …` → `market release --name …` **only after** status is `RELEASABLE` and release is approved.
 
-If Marketplace requires source code, submit only an approved distributable copy using `upload-source --name … --version … --zip … --notes-file …` with an archive named `<url-name>-<version>-sources.zip`. Document installation, configuration, permissions, and upgrades in the project's Docs section (`/account/projects/<url-name>/docs`). The CLI stores tokens in `~/.ezyplatform/credentials.json`; keep that file, tokens, passwords, cookies, and database dumps out of logs, ZIPs, and Git. This guide does not require an actual login or publication.
+If source is required, submit only an authorized copy via `market upload-source --name … --version … --zip … --notes-file …` as `<url-name>-<version>-sources.zip`. Document installation, configuration, permissions, and upgrades in project Docs (`/account/projects/<url-name>/docs`). The CLI stores its token in `~/.ezyplatform/credentials.json`; keep that file, tokens, passwords, cookies, and database dumps out of logs, ZIPs, and Git. This workflow does not require logging in or publishing.
 
 ### Handoff checklist
 
-- [ ] Separate plugin repository; correct modules, dependencies, and versions; commands run in the intended native or Docker environment.
-- [ ] Test domain behavior, cross-scope permissions, and migrations for fresh installs and upgrades. Do not rely on build results or the homepage.
-- [ ] Clean ZIP; correct version installed in a sandbox; Admin, Web, i18n, logs, and rollback checked.
-- [ ] Report the artifact path, version, SHA-256, verified results, and what could not be checked. Publish to Marketplace only with separate approval.
+- [ ] Separate plugin repo; correct modules, dependencies, and versions; commands use the correct native or Docker environment.
+- [ ] Domain, cross-scope permissions, fresh migrations, and upgrades tested; not just build success or home-page availability.
+- [ ] Clean ZIP and correct installed version in the sandbox; Admin, Web, i18n, logs, and rollback checked.
+- [ ] Report artifact path, version, SHA-256, evidence, and anything unverified. Publish only with separate approval.
