@@ -6,8 +6,11 @@ if [[ ! -d "$src/ezyplatform_cli" ]]; then
     echo 'Run python3 scripts/sync-upstream.py first.' >&2
     exit 1
 fi
-export PYTHONPATH="$src${PYTHONPATH:+:$PYTHONPATH}"
-# Run the pinned package as a directory: sys.path[0] becomes the package itself
-# instead of the working directory, so an untrusted checkout cannot shadow the
-# CLI module. Works on Python 3.9+ (unlike -P, which needs 3.11).
-exec python3 "$src/ezyplatform_cli" "$@"
+case "${1:-}" in
+    update|upgrade|uninstall)
+        echo "ezy $1: this stack pins the CLI in upstream.lock.json; update the pin and run python3 scripts/sync-upstream.py (see README)." >&2
+        exit 2 ;;
+esac
+# -I keeps the working directory and PYTHON* variables off sys.path so an
+# untrusted checkout cannot shadow the pinned CLI module (Python 3.9+).
+exec python3 -I -c 'import sys; sys.path.insert(0, sys.argv[1]); sys.argv = sys.argv[2:]; from ezyplatform_cli.cli import main; sys.exit(main())' "$src" "$root/scripts/ezy" "$@"
