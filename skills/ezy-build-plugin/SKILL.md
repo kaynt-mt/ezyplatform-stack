@@ -9,7 +9,7 @@ description: Tạo, lập trình, build, đóng gói, cài thử hoặc nâng c�
 
 ## 1. Chọn đúng skill
 
-Chạy `python3 scripts/sync-upstream.py` ở repo core để lấy skill đã khóa phiên bản, rồi đọc `.agents/skills/ezy-guide/SKILL.md`. Bản pin hiện tại đồng bộ 19 skill. Ghép theo công việc:
+Đọc `.agents/skills/ezy-guide/SKILL.md` trước. Nếu chưa đồng bộ skill, làm theo [README](../../README.md#cli-plugin-và-skill-cho-agent). Workspace chỉ dùng Ezy có thể chạy `python3 scripts/sync-upstream.py --skip-agentkit` ở repo core; không dùng tùy chọn này trên workspace đang dùng AgentKit vì sync tạo lại `.agents/skills/` mà không nạp `ak-*`. Bản pin hiện tại có 19 skill Ezy. Ghép theo công việc:
 
 | Việc | Skill nên đọc |
 | --- | --- |

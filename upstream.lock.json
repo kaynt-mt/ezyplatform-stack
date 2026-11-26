@@ -12,5 +12,15 @@
     "1628": ["ezyplatform-develop", "9f4de0eabba5f51e54e34286ed3c1e74df7f6c11f1ae6dc04db248f89def932a"],
     "1627": ["ezyplatform-install", "6296b95761dcf9e7ab9926a30ada4a6401aaca7808fac9c54ba3cfb2d52f6b80"],
     "1626": ["ezyplatform-reset-admin-password", "ed91acafe2611f776205d6755a1546948cb8e3cd2c528cdf3bbcceebbfb63591"]
+  },
+  "agentkit": {
+    "cli_version": "3.2.0",
+    "installer_sha256": "04f6a1e3fd9291a660d592062577ff7bb7af8ec7e06235394ba607d9cafc2817",
+    "channel": "stable",
+    "target": "portable",
+    "kits": {
+      "engineer": "3.2.0",
+      "marketing": "3.2.0"
+    }
   }
 }
