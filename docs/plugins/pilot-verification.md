@@ -69,7 +69,16 @@ Put plugin-prefixed SQL files in the Admin module's `src/main/resources/scripts/
 4. a restart does not rerun the same filename;
 5. a failed test transaction rolls back independently of migrations.
 
-Admin readiness is not proof that migration SQL ran. Inspect the database schema or a migration-specific read model.
+The reference restart check used `ezy_run_script_histories`: four `stack-probe` rows before and after `docker compose restart ezyplatform`, with every filename count exactly 1. The generic evidence query is:
+
+```sql
+SELECT script_name, COUNT(*)
+FROM ezy_run_script_histories
+WHERE module_name = '<plugin>'
+GROUP BY script_name;
+```
+
+Admin readiness is not proof that migration SQL ran. Inspect the database schema, this migration history, or a migration-specific read model.
 
 ### Private media slice
 
