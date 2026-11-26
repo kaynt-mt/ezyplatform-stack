@@ -207,6 +207,21 @@ class AgentKitSyncTests(unittest.TestCase):
                 with self.assertRaisesRegex(ValueError, "unsupported on Windows"):
                     SYNC.sync_agentkit(config, require=True, root=root)
 
+    def test_installer_network_error_skips_in_default_mode_only(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            config = {
+                "cli_version": "3.2.0",
+                "installer_sha256": "a" * 64,
+                "channel": "stable",
+                "target": "portable",
+                "kits": {"engineer": "3.2.0"},
+            }
+            with mock.patch.object(SYNC, "ensure_ak_cli", side_effect=OSError("unreachable")):
+                self.assertEqual(SYNC.sync_agentkit(config, require=False, root=root), [])
+                with self.assertRaisesRegex(OSError, "unreachable"):
+                    SYNC.sync_agentkit(config, require=True, root=root)
+
     def test_skips_unlicensed_kit_without_blocking_licensed_kit(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)

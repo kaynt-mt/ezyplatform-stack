@@ -190,7 +190,13 @@ def sync_agentkit(config, require=False, root=ROOT):
         print(f"Notice: {message}; skipping AgentKit skills.", file=sys.stderr)
         return []
 
-    ak_bin = ensure_ak_cli(cli_version, installer_sha256, root=root)
+    try:
+        ak_bin = ensure_ak_cli(cli_version, installer_sha256, root=root)
+    except (OSError, subprocess.CalledProcessError) as error:
+        if require:
+            raise
+        print(f"Notice: AgentKit CLI install failed ({error}); skipping AgentKit skills.", file=sys.stderr)
+        return []
     if all_cached:
         for name, version in validated_kits:
             print(f"agentkit/{name}: {version} (cached)")
