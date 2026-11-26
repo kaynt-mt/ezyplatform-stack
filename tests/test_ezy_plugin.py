@@ -66,6 +66,17 @@ class CreateProjectTests(unittest.TestCase):
 
 
 class ProjectZipTests(unittest.TestCase):
+    def test_accepts_shared_sdk_for_project_with_ezyplatform_prefix(self):
+        with tempfile.TemporaryDirectory() as temp:
+            path = Path(temp) / "ezyplatform-inventory-1.0.0.zip"
+            with ZipFile(path, "w") as archive:
+                archive.writestr(
+                    "ezyplatform-inventory/web/plugins/ezyplatform-inventory/lib/"
+                    "ezyplatform-inventory-sdk-1.0.0.jar",
+                    "project SDK",
+                )
+            PLUGIN.check_zip(path)
+
     def test_accepts_sample_jars(self):
         with tempfile.TemporaryDirectory() as temp:
             path = Path(temp) / "pilot.zip"

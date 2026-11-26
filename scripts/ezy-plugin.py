@@ -10,7 +10,7 @@ PROJECT_NAME = re.compile(r"[a-z][a-z0-9-]{1,59}")
 JAVA_NAME = re.compile(r"[a-z][a-z0-9_]*(?:\.[a-z][a-z0-9_]*)+")
 MODULE_TYPES = {"admin-plugin", "web-plugin", "theme", "socket-plugin", "socket-app"}
 CORE_JAR = re.compile(
-    r"ezyplatform-(?:admin|common|devtools|socket|web|(?:[\w.-]+-)?sdk)-[0-9][^/]*\.jar",
+    r"ezyplatform-(?:(?:admin|common|socket|web)(?:-sdk)?|devtools|http-sdk|test-sdk|sdk)-[0-9][^/]*\.jar",
     re.IGNORECASE,
 )
 
