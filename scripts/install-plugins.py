@@ -34,6 +34,16 @@ BROWSER_AUTH_RETURN_BRIDGE = """
           th:if="${page.slug == 'login' && #strings.contains(page.content, 'stack-login-form')}"
           th:attr="data-return-url=${loginCallbackUrl}"></span>"""
 BROWSER_AUTH_RETURN_PROBE = "/__stack_login_return_probe?view=queue&from=qa%20deck"
+FREESTYLE_HEADER_PAGE_ITEM = '<li class="nav-item" th:each="pageMeta, iterator : ${pageMetas}">'
+FREESTYLE_HEADER_LANGUAGE_ITEM = '<li th:if="${webLanguages.size() > 1}"'
+BROWSER_AUTH_GUEST_PAGE_ITEM = FREESTYLE_HEADER_PAGE_ITEM[:-1] + """
+                            th:if="${loggedIn != true || (pageMeta.slug != 'login' && pageMeta.slug != 'register')}">"""
+BROWSER_AUTH_LOGOUT_ITEM = """<li class="nav-item" th:if="${loggedIn == true}">
+                            <form action="/logout" method="post">
+                                <button type="submit" class="btn nav-link px-lg-3 py-3 py-lg-4">Log out</button>
+                            </form>
+                        </li>
+                        """
 
 BROWSER_AUTH_STYLE = """
 <style>
@@ -365,6 +375,16 @@ def browser_auth_theme_template(template):
     return template.replace(THEME_PAGE_CONTENT, THEME_PAGE_CONTENT + BROWSER_AUTH_RETURN_BRIDGE)
 
 
+def browser_auth_freestyle_header(template):
+    if BROWSER_AUTH_GUEST_PAGE_ITEM in template and BROWSER_AUTH_LOGOUT_ITEM in template:
+        return template
+    if template.count(FREESTYLE_HEADER_PAGE_ITEM) != 1 or template.count(FREESTYLE_HEADER_LANGUAGE_ITEM) != 1:
+        raise ValueError("browser auth fixture requires the standard Freestyle header template")
+    return template.replace(FREESTYLE_HEADER_PAGE_ITEM, BROWSER_AUTH_GUEST_PAGE_ITEM).replace(
+        FREESTYLE_HEADER_LANGUAGE_ITEM, BROWSER_AUTH_LOGOUT_ITEM + FREESTYLE_HEADER_LANGUAGE_ITEM
+    )
+
+
 def install_browser_auth_fixture(theme):
     validate_browser_auth_rows(browser_auth_rows())
     if not theme:
@@ -374,12 +394,16 @@ def install_browser_auth_fixture(theme):
         theme = next(iter(themes))
     if not re.fullmatch(r"[a-z0-9_-]+", theme):
         raise ValueError("browser auth fixture could not determine the Web theme; use --theme freestyle")
-    path = f"web/themes/{theme}/resources/templates/pages/details.html"
-    original = read_files([path]).get(path, "")
-    template = browser_auth_theme_template(original)
-    if template != original:
-        run([*CONTAINER, "bash", "-ec",
-             """temp=$(mktemp "$1.XXXXXX")
+    templates_dir = f"web/themes/{theme}/resources/templates"
+    patches = {f"{templates_dir}/pages/details.html": browser_auth_theme_template}
+    if theme == "freestyle":
+        patches[f"{templates_dir}/fragments/header.html"] = browser_auth_freestyle_header
+    originals = read_files(patches)
+    templates = {path: patch(originals.get(path, "")) for path, patch in patches.items()}
+    for path, template in templates.items():
+        if template != originals[path]:
+            run([*CONTAINER, "bash", "-ec",
+                 """temp=$(mktemp "$1.XXXXXX")
 trap 'rm -f "$temp"' EXIT
 cat > "$temp"
 chmod --reference="$1" "$temp"
