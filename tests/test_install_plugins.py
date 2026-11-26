@@ -105,5 +105,39 @@ class InstallClosureTests(unittest.TestCase):
             self.install_closure(["ezylogin"], {"ezylogin": {"custom-plugin"}})
 
 
+class BrowserAuthFixtureTests(unittest.TestCase):
+    def test_sql_seeds_pages_marker_and_local_activation_setting(self):
+        sql = INSTALL_PLUGINS.browser_auth_sql()
+
+        for slug in ("login", "register"):
+            self.assertIn(f"'{slug}'", sql)
+            self.assertIn(f'data-stack-auth-page="{slug}"'.encode().hex(), sql)
+        self.assertIn("ezylogin_activation_required", sql)
+        self.assertIn("BOOLEAN", sql)
+        self.assertIn(INSTALL_PLUGINS.BROWSER_AUTH_MARKER, sql)
+        self.assertIn("START TRANSACTION", sql)
+        self.assertIn("COMMIT", sql)
+
+    def test_validate_rejects_existing_unowned_pages(self):
+        with self.assertRaisesRegex(ValueError, "/login already exists"):
+            INSTALL_PLUGINS.validate_browser_auth_rows([
+                ("login", "PAGE", ""),
+                ("register", "PAGE", INSTALL_PLUGINS.BROWSER_AUTH_MARKER),
+            ])
+
+    def test_validate_accepts_missing_or_fixture_owned_pages(self):
+        INSTALL_PLUGINS.validate_browser_auth_rows([])
+        INSTALL_PLUGINS.validate_browser_auth_rows([
+            ("login", "PAGE", INSTALL_PLUGINS.BROWSER_AUTH_MARKER),
+            ("register", "PAGE", INSTALL_PLUGINS.BROWSER_AUTH_MARKER),
+        ])
+
+    def test_page_errors_require_fixture_and_api_endpoint(self):
+        body = 'data-stack-auth-page="login" /ezylogin/api/v1/login'
+
+        self.assertEqual(INSTALL_PLUGINS.browser_auth_page_errors("/login", body), [])
+        self.assertEqual(len(INSTALL_PLUGINS.browser_auth_page_errors("/login", "Not found")), 2)
+
+
 if __name__ == "__main__":
     unittest.main()
