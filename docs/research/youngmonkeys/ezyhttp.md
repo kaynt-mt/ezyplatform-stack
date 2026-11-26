@@ -13,6 +13,12 @@ Sources: [EzyHTTP Overview](https://youngmonkeys.org/projects/ezyhttp?lang=vi), 
 
 Sources for framework behavior: [interceptors](https://youngmonkeys.org/ezyhttp/guides/ezyhttp-request-interceptor?lang=vi), [exceptions](https://youngmonkeys.org/ezyhttp/guides/ezyhttp-handle-exceptions?lang=vi), [response types](https://youngmonkeys.org/ezyhttp/guides/ezyhttp-response-types?lang=vi), and [EzyPlatform Web authentication](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-web-authentication?lang=vi).
 
+## PATCH availability
+
+Server-side PATCH is not available in the pinned runtime (EzyPlatform 1.5.9 with EzyHTTP 1.6.6) or in EzyPlatform 1.6.0 with EzyHTTP 1.6.7. The 1.6.6 → 1.6.7 upstream diff only updates versions and dependencies; request mapping still consists of `@DoGet`, `@DoPost`, `@DoPut`, `@DoDelete`, and `@DoHead`. `HttpMethod.PATCH` exists in the shared enum and the Jetty CORS configuration allows PATCH, but `BlockingServlet` implements no PATCH dispatch. With the bundled Servlet 3.1 API, `HttpServlet.service` rejects PATCH with HTTP 501 before routing or interceptors run.
+
+There is no supported plugin-level annotation, interceptor, or registration hook that can expose a controller as a PATCH endpoint. Keep partial updates on the existing authenticated PUT endpoints (or use POST where that is the API's established convention) with an explicit partial-update DTO until upstream adds server PATCH support. Rewriting PATCH to PUT in an external proxy is deployment-specific, not an EzyHTTP plugin API.
+
 ## UI, files, and integrations
 
 - [Create a website](https://youngmonkeys.org/ezyhttp/guides/ezyhttp-create-a-website?lang=vi) describes the model → controller → template flow and redirects. Follow the [Admin page conventions](https://youngmonkeys.org/ezyplatform/guides/create-an-admin-page?lang=vi) for core Admin. On Web, verify that the active theme renders the view or fragment. Internationalization uses keys in the plugin's message bundle, not just the HTTP language.
