@@ -60,3 +60,5 @@ This catalog covers **37/37** ZIP packages downloaded from Marketplace and teste
 | Real-time features, connectors, and queries | [EzyChat](ezychat.md), [EzyOA](ezyoa.md), [Omnichannel](omnichannel.md), [GraphQL](graphql.md) | Add these only when needed. Verify access on the actual routes and check their dependencies. |
 
 See the [stack's plugin build skill](../../skills/ezy-build-plugin/SKILL.md) for agent skills and new plugin builds. This index covers runtime plugins and evidence from installed packages.
+
+For new Java plugins, use the end-to-end [plugin lifecycle verification recipe](pilot-verification.md) before treating the runtime as proven.

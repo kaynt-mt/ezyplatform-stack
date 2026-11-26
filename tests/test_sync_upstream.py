@@ -236,6 +236,31 @@ class AgentKitSyncTests(unittest.TestCase):
             self.assertNotIn("AGENTKIT_API_KEY", captured_env)
             self.assertEqual(captured_env["AK_VERSION"], "3.2.0")
 
+    def test_keyed_agentkit_auth_uses_temporary_home(self):
+        calls = []
+
+        def fake_run(cmd, capture_output=False, text=False, env=None):
+            calls.append((cmd, env))
+            if cmd[1] == "login":
+                return subprocess.CompletedProcess(cmd, 0, stdout="{}", stderr="")
+            payload = {"data": {"authenticated": True, "licenses": []}}
+            return subprocess.CompletedProcess(cmd, 0, stdout=json.dumps(payload), stderr="")
+
+        with tempfile.TemporaryDirectory() as real_home:
+            with mock.patch.dict("os.environ", {"AGENTKIT_API_KEY": "dummy", "HOME": real_home}), \
+                 mock.patch.object(SYNC.subprocess, "run", side_effect=fake_run):
+                with SYNC.isolated_ak_home() as home:
+                    self.assertIsNotNone(home)
+                    self.assertNotEqual(str(home), real_home)
+                    authenticated, _ = SYNC.ensure_ak_auth(Path("/ak"), home=home)
+                    temp_home = home
+            self.assertTrue(authenticated)
+            self.assertFalse(temp_home.exists())
+            self.assertEqual(len(calls), 2)
+            for _, env in calls:
+                self.assertEqual(env["HOME"], str(temp_home))
+                self.assertEqual(env["XDG_CACHE_HOME"], str(temp_home / ".cache"))
+
     def test_uses_cached_agentkit_kits_without_network(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)

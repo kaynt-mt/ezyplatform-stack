@@ -59,10 +59,24 @@ class CreateProjectTests(unittest.TestCase):
                 self.create(output, "../other")
             run.assert_not_called()
 
-    def test_rejects_sdk_success_without_generated_project(self):
+    def test_rejects_sdk_success_without_generated_project_and_removes_empty_directory(self):
         with tempfile.TemporaryDirectory() as temp, mock.patch.object(PLUGIN.subprocess, "run"):
             with self.assertRaisesRegex(ValueError, "SDK did not generate the project POM"):
                 self.create(Path(temp))
+            self.assertFalse((Path(temp) / "pilot-plugin").exists())
+
+    def test_preserves_nonempty_directory_for_inspection_after_scaffold_failure(self):
+        with tempfile.TemporaryDirectory() as temp:
+            project = Path(temp) / "pilot-plugin"
+
+            def sdk(command, *, input, text, check):
+                (project / "partial.txt").write_text("partial SDK output", encoding="utf-8")
+                return subprocess.CompletedProcess(command, 1)
+
+            with mock.patch.object(PLUGIN.subprocess, "run", side_effect=sdk):
+                with self.assertRaisesRegex(ValueError, "inspect any files left"):
+                    self.create(Path(temp))
+            self.assertEqual((project / "partial.txt").read_text(encoding="utf-8"), "partial SDK output")
 
 
 class ProjectZipTests(unittest.TestCase):
@@ -100,3 +114,61 @@ class ProjectZipTests(unittest.TestCase):
                 pass
             with self.assertRaisesRegex(ValueError, "ZIP is empty"):
                 PLUGIN.check_zip(path)
+
+
+class UploadApplyTests(unittest.TestCase):
+    def test_upload_apply_checks_zip_and_calls_installer_in_order(self):
+        with tempfile.TemporaryDirectory() as temp:
+            path = Path(temp) / "pilot.zip"
+            with ZipFile(path, "w") as archive:
+                archive.writestr("pilot/web/plugins/pilot/lib/pilot-web-plugin-1.0.0.jar", "sample")
+            calls = []
+
+            def request(opener, admin_url, path, method="GET", data=None, headers=None):
+                calls.append((path, method, data))
+                return 204, ""
+
+            with mock.patch.object(PLUGIN, "open_admin_session", return_value="opener") as login, \
+                    mock.patch.object(PLUGIN, "upload_project_zip", return_value=(200, '{"projectName":"pilot"}')), \
+                    mock.patch.object(PLUGIN, "admin_request", side_effect=request):
+                result = PLUGIN.upload_and_apply_zip(
+                    "http://admin.test", "admin", "secret", path
+                )
+            login.assert_called_once_with("http://admin.test", "admin", "secret")
+            self.assertEqual(calls, [
+                ("/api/v1/projects/check-dependencies", "GET", None),
+                ("/api/v1/platform/install", "POST", b""),
+            ])
+            self.assertEqual(result["upload_status"], 200)
+            self.assertEqual(result["check_dependencies_status"], 204)
+            self.assertEqual(result["platform_install_status"], 204)
+            self.assertEqual(result["upload_response"], {"projectName": "pilot"})
+
+    def test_upload_apply_rejects_damaged_zip_before_login(self):
+        with tempfile.TemporaryDirectory() as temp, mock.patch.object(PLUGIN, "open_admin_session") as login:
+            path = Path(temp) / "pilot.zip"
+            path.write_text("not a zip", encoding="utf-8")
+            with self.assertRaises(Exception):
+                PLUGIN.upload_and_apply_zip("http://admin.test", "admin", "secret", path)
+            login.assert_not_called()
+
+    def test_rejects_plain_http_remote_admin_before_login(self):
+        with self.assertRaisesRegex(ValueError, "must use HTTPS"):
+            PLUGIN.open_admin_session("http://admin.example.test", "admin", "secret")
+
+    def test_password_file_preserves_spaces_and_removes_only_newline(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            password = root / "password"
+            password.write_text("  secret with spaces  \n", encoding="utf-8")
+            archive = root / "pilot.zip"
+            archive.touch()
+            argv = [
+                "ezy-plugin.py", "upload-apply", str(archive),
+                "--password-file", str(password),
+            ]
+            with mock.patch("sys.argv", argv), \
+                    mock.patch.object(PLUGIN, "upload_and_apply_zip", return_value={}) as upload:
+                PLUGIN.main()
+            self.assertEqual(upload.call_args.args[1], "admin")
+            self.assertEqual(upload.call_args.args[2], "  secret with spaces  ")
