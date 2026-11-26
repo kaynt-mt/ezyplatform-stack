@@ -21,7 +21,15 @@ Create your own Admin account at [local Admin setup](http://127.0.0.1:9090/setup
 
 ## 3. Create your Devin Bot team
 
-Give your Devin workspace access to **your** core and app repositories. Follow [Devin's repo setup guide](https://docs.devin.ai/tutorial-library/repo-setup) to create a blueprint for your core checkout. Each session has its own VM: run the dev stack in the session that tests it, or use an authorized private route to a shared dev instance. A session's `127.0.0.1` cannot reach another machine's Admin. Start with manual tasks; add chat or PR triggers only after checking what each Bot can access.
+Give your Devin workspace access to **your** core and app repositories. Follow [Devin's repo setup guide](https://docs.devin.ai/tutorial-library/repo-setup) to create a blueprint for your core checkout. Include the agent-skill sync in the core blueprint's maintenance steps so every fresh session scans the generated skills before it starts:
+
+```yaml
+maintenance:
+  - name: sync pinned CLI, plugins and skills
+    run: ./scripts/sync-agent-skills.sh
+```
+
+Each session has its own VM: run the dev stack in the session that tests it, or use an authorized private route to a shared dev instance. A session's `127.0.0.1` cannot reach another machine's Admin. Start with manual tasks; add chat or PR triggers only after checking what each Bot can access.
 
 In **Bots → Template library**, create the roles below. Use **Start from scratch** when no matching template is available. Give each Bot the common instruction and its role instruction, substituting your actual repo names. GitHub templates do not create Bots; [Devin Bot templates](https://docs.devin.ai/work-with-devin/bots/templates) copy instructions only, not memory, secrets, or connections. Connect and scope each Bot separately.
 
@@ -41,16 +49,16 @@ For the first handoff, ask Chief of Staff to route a core smoke check to Platfor
 
 Skip this section if you do not have an AgentKit license. The core, the EzyPlatform skills, and your Devin Bots work without one.
 
-If you own a license, supply your own `AGENTKIT_API_KEY` through your shell's secret mechanism or [Devin's secret store](https://docs.devin.ai/product-guides/secrets). Make it available as an environment variable only to the jobs that need it. Do not put it in a prompt, blueprint text, shared build cache, or Git.
+If you own a license, supply your own `AGENTKIT_API_KEY` through your shell's secret mechanism or [Devin's secret store](https://docs.devin.ai/product-guides/secrets). Make it available as an environment variable only to the jobs that need it. For Devin blueprint builds, save it as an organization or repository secret; user- and session-scoped secrets are not available to snapshot builds. Do not put the key in a prompt, blueprint text, or Git.
 
 ```bash
-python3 scripts/sync-upstream.py --require-agentkit
+./scripts/sync-agent-skills.sh
 ./scripts/ak --version
 ```
 
-Check the sync output for each kit you intended to install. The command requires at least one licensed pinned kit; it skips kits your account does not cover. If a Bot cannot use a needed skill, fall back to the native tools or run [the workflow's checks](agentkit-workflow.md#1-set-up-and-verify-the-portable-skills) for your licensed kits.
+With the key present, the script requires at least one licensed pinned kit. Without the key, it still completes with the Ezy-only skill set. Check the sync output for each kit you intended to install; sync skips kits your account does not cover. If a Bot cannot use a needed skill, fall back to the native tools or run [the workflow's checks](agentkit-workflow.md#1-set-up-and-verify-the-portable-skills) for your licensed kits.
 
-[AgentKit's Terms of Use §3.2](https://agentkit.best/terms) prohibit redistribution of the kits or their source and forbid sharing keys or downloads with unauthorized users. The template tracks version pins and setup instructions, not paid skill files. Keep `.upstream/` and `.agents/skills/` ignored, and do not copy paid kits into a shared repository, snapshot, or artifact.
+[AgentKit's Terms of Use §3.2](https://agentkit.best/terms) prohibit redistribution of the kits or their source and forbid sharing keys or downloads with unauthorized users. The template tracks version pins and setup instructions, not paid skill files. Keep `.upstream/` and `.agents/skills/` ignored, and never copy paid kits into Git or any artifact shared with unauthorized users. Blueprint builds may generate the kits inside a private Devin environment only when every user who can access that environment is covered by your license; otherwise use the Ezy-only setup.
 
 ## 5. Pull later stack updates
 

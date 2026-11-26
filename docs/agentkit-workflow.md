@@ -6,10 +6,10 @@ This workflow is for the stack owner and the Bots and Devin sessions that work o
 
 ## 1. Set up and verify the portable skills
 
-To use AgentKit, supply your own `AGENTKIT_API_KEY` or use an existing `ak` login. The full inventory below assumes both kits are licensed:
+To use AgentKit through the stack's session-friendly sync entrypoint, supply your own `AGENTKIT_API_KEY`. The full inventory below assumes both kits are licensed:
 
 ```sh
-python3 scripts/sync-upstream.py --require-agentkit
+./scripts/sync-agent-skills.sh
 ./scripts/ak --version
 ./scripts/ak kit list-kits --json
 ```
