@@ -202,6 +202,32 @@ class BrowserAuthFixtureTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "EzyArticle page content fragment"):
             INSTALL_PLUGINS.browser_auth_theme_template("<body>Unknown template</body>")
 
+    def test_freestyle_header_gates_only_the_guest_pages_and_renders_a_logout_form(self):
+        source = """<ul>
+    <li class="nav-item" th:each="pageMeta, iterator : ${pageMetas}">
+        <a th:href="${pageMeta.url}">[[${pageMeta.title}]]</a>
+    </li>
+    <li th:if="${webLanguages.size() > 1}" class="language-dropdown">Languages</li>
+</ul>"""
+        template = INSTALL_PLUGINS.browser_auth_freestyle_header(source)
+
+        self.assertIn('th:each="pageMeta, iterator : ${pageMetas}"', template)
+        self.assertIn(
+            'th:if="${loggedIn != true || '
+            "(pageMeta.slug != 'login' && pageMeta.slug != 'register')"
+            '}"',
+            template,
+        )
+        self.assertIn('<a th:href="${pageMeta.url}">[[${pageMeta.title}]]</a>', template)
+        self.assertIn('<li class="nav-item" th:if="${loggedIn == true}">', template)
+        self.assertIn('<form action="/logout" method="post">', template)
+        self.assertIn('class="language-dropdown">Languages</li>', template)
+        self.assertEqual(INSTALL_PLUGINS.browser_auth_freestyle_header(template), template)
+
+    def test_freestyle_header_rejects_an_unrecognized_template(self):
+        with self.assertRaisesRegex(ValueError, "standard Freestyle header template"):
+            INSTALL_PLUGINS.browser_auth_freestyle_header("<nav>Unexpected header</nav>")
+
 
 if __name__ == "__main__":
     unittest.main()
