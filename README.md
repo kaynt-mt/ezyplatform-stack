@@ -38,6 +38,8 @@ Compose lưu DB và runtime trong hai volume. Sao lưu cả hai trước khi nâ
 
 ## CLI, plugin và skill cho agent
 
+[Danh mục 19 skill Ezy](skills/README.md) giải thích khi nào dùng từng skill và cách đồng bộ đủ bộ vào `.agents/skills/`. Thư mục `skills/` trên GitHub chỉ chứa hướng dẫn riêng của stack.
+
 ```bash
 python3 scripts/sync-upstream.py
 ./scripts/ezy --version
