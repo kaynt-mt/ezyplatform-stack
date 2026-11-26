@@ -155,7 +155,7 @@ class LauncherIntegrationTests(unittest.TestCase):
 
             for mode_args in (("--mode", "local"), ("--mo", "local"), ("--mod=both",)):
                 first = self.run_ezy(ezy, "new", "app", *mode_args)
-                self.assertIn("image=ezyplatform-stack/core:1.5.9-1.5.6-84a5a5d", first.stdout)
+                self.assertIn("image=ezyplatform-stack/core:1.6.0-1.5.6-84a5a5d", first.stdout)
 
             env = os.environ.copy()
             env["EZY_LOCAL_IMAGE"] = "example/custom:1"

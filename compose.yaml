@@ -20,7 +20,7 @@ services:
       retries: 60
 
   ezyplatform:
-    image: ezyplatform-stack/core:1.5.9-1.5.6-84a5a5d
+    image: ezyplatform-stack/core:1.6.0-1.5.6-84a5a5d
     platform: linux/amd64
     build:
       context: .upstream/ezyplatform-docker
@@ -28,7 +28,7 @@ services:
         "python:3.14-alpine": docker-image://${PYTHON_BASE_IMAGE:-python:3.14-alpine@sha256:5862d971d1f0ae26b258cefa4e893556b1d3aba81bd2ff30888704ad378bab67}
         "eclipse-temurin:11-jre": docker-image://${ECLIPSE_TEMURIN_BASE_IMAGE:-eclipse-temurin:11-jre@sha256:7db5776af2396377c8aae2aa124712da7b72a5b6b014c17d77ae37eb5276f37b}
       args:
-        EZ_VERSION: "1.5.9"
+        EZ_VERSION: "1.6.0"
         EZYARTICLE_VERSION: "1.5.6"
     restart: unless-stopped
     depends_on:

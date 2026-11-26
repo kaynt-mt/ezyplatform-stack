@@ -1,6 +1,6 @@
 # EzyPlatform Core Stack
 
-A shared foundation for developing multiple EzyPlatform apps, not a landing page app. The stack includes EzyPlatform **1.5.9**, EzyArticle **1.5.6** already active, Java 11 in the container, and MySQL 8.0. The runtime builds from CPPAI's Dockerfile; the ezy CLI, CPPAI agent plugin repository, and Young Monkeys public skill packages are pinned in `upstream.lock.json`.
+A shared foundation for developing multiple EzyPlatform apps, not a landing page app. The stack includes EzyPlatform **1.6.0**, EzyArticle **1.5.6** already active, Java 11 in the container, and MySQL 8.0. The runtime builds from CPPAI's Dockerfile; the ezy CLI, CPPAI agent plugin repository, and Young Monkeys public skill packages are pinned in `upstream.lock.json`.
 
 New team? [Create your own core repository from this template and set up Devin Bots](docs/template-setup.md). Neither Devin nor AgentKit is required to run the core.
 
@@ -24,6 +24,8 @@ On a fresh clone, start the runtime with `up.sh` first, then run the full sync i
 **There is no default Admin account or password.** Open `/setup-admin`, create a super admin, then sign in at `/login`. Startup generates random database passwords in `.env`; do not commit, share, or replace it while using the same MySQL volume.
 
 On first startup, Web `/` can temporarily return HTTP 404 while Admin is available. Wait for `up.sh` to finish its readiness checks and, if needed, restart EzyPlatform once. After recovery, a fresh core without a custom theme can show a default welcome page; that page does not verify that a plugin has loaded.
+
+**Upgrading from 1.5.9:** Admin compares the running core to the latest marketplace release before opening the manual ZIP picker. Pinning 1.6.0 restores Upload while 1.6.0 is the latest; the upstream gate is still in place. If the prompt returns after a newer release, use `scripts/ezy-plugin.py upload-apply` for a trusted, compatible ZIP. [EzyPlatform 1.6.0](https://ezyplatform.com/api/v1/platforms/1.6.0/release-notes) also adds bulk plugin updates and dependency actions in Admin, custom media types, and an Admin login-validation event.
 
 ### Docker Hub rate limits
 
@@ -111,7 +113,7 @@ cd ../my-app
 "$STACK/scripts/ezy" check
 ```
 
-For an independent content sandbox, run `./scripts/ezy new ../my-local-app --mode local` from the stack checkout. The generated Compose project uses the stack-pinned local core image rather than upstream's old 1.5.4 image; run `./scripts/up.sh` once first so that image exists locally. Use its printed URLs, create the first Admin, and enter its token before running `check` from the generated project. To test against this stack's shared 1.5.9 runtime instead, use `--mode live` against the local core started by `./scripts/up.sh`.
+For an independent content sandbox, run `./scripts/ezy new ../my-local-app --mode local` from the stack checkout. The generated Compose project uses the stack-pinned local core image rather than upstream's old 1.5.4 image; run `./scripts/up.sh` once first so that image exists locally. Use its printed URLs, create the first Admin, and enter its token before running `check` from the generated project. To test against the stack's shared runtime instead, use `--mode live` against the local core started by `./scripts/up.sh`.
 
 For a Java plugin, use the stack's scaffold helper in the [plugin build skill](skills/ezy-build-plugin/SKILL.md), not `ezy new`. The skill covers native builds, packaging, and testing on Docker dev. Do not commit `environment.json`, tokens, or passwords.
 
