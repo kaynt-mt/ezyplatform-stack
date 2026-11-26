@@ -6,7 +6,7 @@ New team? [Create your own core repository from this template and set up Devin B
 
 ## Start on a development machine or cloud VM
 
-Requires Git, Bash, curl, Python 3.9+, and Docker Engine or Docker Desktop with Docker Compose V2. The Docker runtime does not require Java or MySQL on the host. The EzyPlatform image runs on `linux/amd64`; ARM hosts need amd64 emulation. The first run needs internet access to fetch source, releases, and base images.
+Requires Git, Bash, curl, Python 3.9+, and Docker Engine or Docker Desktop with Docker Compose v2.17+. The Docker runtime does not require Java or MySQL on the host. The EzyPlatform image runs on `linux/amd64`; ARM hosts need amd64 emulation. The first run needs internet access to fetch source, releases, and base images.
 
 ```bash
 ./scripts/up.sh
@@ -24,6 +24,10 @@ On a fresh clone, start the runtime with `up.sh` first, then run the full sync i
 **There is no default Admin account or password.** Open `/setup-admin`, create a super admin, then sign in at `/login`. Startup generates random database passwords in `.env`; do not commit, share, or replace it while using the same MySQL volume.
 
 On first startup, Web `/` can temporarily return HTTP 404 while Admin is available. Wait for `up.sh` to finish its readiness checks and, if needed, restart EzyPlatform once. After recovery, a fresh core without a custom theme can show a default welcome page; that page does not verify that a plugin has loaded.
+
+### Docker Hub rate limits
+
+External runtime images are digest-pinned. `up.sh` uses a local image when present, otherwise probes Docker Hub before building. If Docker Hub cannot serve a pinned image (for example HTTP 429 on a shared egress IP), that run uses the same digest from Google Cloud's `mirror.gcr.io` cache. The digest is unchanged, so the image content is the same. Set `MYSQL_IMAGE`, `PYTHON_BASE_IMAGE`, or `ECLIPSE_TEMURIN_BASE_IMAGE` before `up.sh` to use an approved internal mirror instead; user-supplied values are never rewritten.
 
 On a VM, ports bind to loopback only. Open a tunnel from your machine (replace `user@vm` with the VM's SSH address), then visit the URLs above:
 
@@ -77,7 +81,7 @@ See the [runtime plugin catalog](docs/plugins/README.md) and [sandbox installati
 1. Verify the desired revisions of the [CLI](https://github.com/cppai-vn/ezyplatform-cli), [Docker](https://github.com/cppai-vn/ezyplatform-docker), and [Agents Plugins](https://github.com/cppai-vn/agents-plugins) (for example, `git ls-remote https://github.com/cppai-vn/agents-plugins.git HEAD`), then update `git` in the lock.
 2. Public skill catalog: <https://ezyplatform.com/api/v1/skill-library/skills?limit=100>. For each updated package, download it from `https://ezyplatform.com/api/v1/skill-library/skills/<id>/package`, inspect the contents and name in `SKILL.md`, then record the ZIP's SHA-256 in `skill_library`. Sync rejects changed packages without a matching checksum. After changing Ezy pins, run `python3 scripts/sync-upstream.py --refresh-ezy-skills`, review the diff, and commit `skills/upstream/` with the lock. This command does not touch AgentKit or `.agents/skills/`.
 3. To upgrade AgentKit, list versions using `./scripts/ak kit list-kits --json` and update `agentkit.cli_version` / `agentkit.kits` in `upstream.lock.json`. Do not run `ak self-update` on the pinned launcher.
-4. When changing Docker or an EzyPlatform/EzyArticle version, update the build arguments and image tag in `compose.yaml`; test with new volumes before planning an upgrade of volumes containing data.
+4. When changing Docker or an EzyPlatform/EzyArticle version, update the build arguments and image tag in `compose.yaml`. Check whether the upstream Dockerfile changed its base images; update the matching `additional_contexts` keys and digest-pinned defaults when it does (`docker buildx imagetools inspect <image>` prints the current digest). Test with new volumes before planning an upgrade of volumes containing data.
 5. Run `python3 scripts/sync-upstream.py --skip-agentkit` to apply the EzyPlatform pins and verify `./scripts/ezy`, Admin, and Web. For AgentKit changes, also run the licensed sync and verify `./scripts/ak` and the updated kit.
 
 ## Create an application on the core

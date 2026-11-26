@@ -24,6 +24,13 @@ if missing:
 PY
 chmod 600 .env
 
+docker_image_overrides="$(python3 scripts/docker-image-fallback.py)"
+if [[ -n "$docker_image_overrides" ]]; then
+    while IFS='=' read -r variable reference; do
+        export "$variable=$reference"
+    done <<< "$docker_image_overrides"
+fi
+
 docker compose up -d --build
 admin="http://127.0.0.1:$(docker compose port ezyplatform 9090 | cut -d: -f2)"
 web="http://127.0.0.1:$(docker compose port ezyplatform 8080 | cut -d: -f2)"

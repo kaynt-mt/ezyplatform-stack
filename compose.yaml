@@ -3,7 +3,7 @@
 # the same containers and volumes.
 services:
   mysql:
-    image: mysql:8.0@sha256:7dcddc01f13bab2f15cde676d44d01f61fc9f99fe7785e86196dfc07d358ae2b
+    image: ${MYSQL_IMAGE:-mysql:8.0@sha256:7dcddc01f13bab2f15cde676d44d01f61fc9f99fe7785e86196dfc07d358ae2b}
     restart: unless-stopped
     command: --default-authentication-plugin=mysql_native_password
     environment:
@@ -24,6 +24,9 @@ services:
     platform: linux/amd64
     build:
       context: .upstream/ezyplatform-docker
+      additional_contexts:
+        "python:3.14-alpine": docker-image://${PYTHON_BASE_IMAGE:-python:3.14-alpine@sha256:5862d971d1f0ae26b258cefa4e893556b1d3aba81bd2ff30888704ad378bab67}
+        "eclipse-temurin:11-jre": docker-image://${ECLIPSE_TEMURIN_BASE_IMAGE:-eclipse-temurin:11-jre@sha256:7db5776af2396377c8aae2aa124712da7b72a5b6b014c17d77ae37eb5276f37b}
       args:
         EZ_VERSION: "1.5.9"
         EZYARTICLE_VERSION: "1.5.6"
