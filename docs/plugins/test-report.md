@@ -1,5 +1,7 @@
 # Kiểm thử plugin Marketplace trên EzyPlatform 1.5.9
 
+Xem [chỉ mục phân tích 37 plugin miễn phí](README.md) để tra JAR, API, dữ liệu, menu/template, điểm mở rộng và ưu tiên tái sử dụng cho dự án quản lý công việc.
+
 Ngày 26/11/2026, sandbox Compose local: EzyPlatform **1.5.9**, Java **11**, MySQL **8.0.46**. [Danh mục công khai](https://ezyplatform.com/api/v1/market/items?limit=100&type=plugin) trả đủ **55** mục (`total=55`, `hasNext=false`). Endpoint ZIP có `platformVersion=1.5.9` trả `200 application/zip` cho **37** mục miễn phí và `403` cho **18** mục trả phí. Đã cài và đối chiếu phiên bản/module thực tế của **37/37** gói tải được; 403 không phải kết luận không tương thích.
 
 ## Tái lập trong sandbox
@@ -10,7 +12,7 @@ Ngày 26/11/2026, sandbox Compose local: EzyPlatform **1.5.9**, Java **11**, MyS
 python3 scripts/install-plugins.py --theme freestyle
 ```
 
-Script chỉ chạy với core 1.5.9 tại cổng Compose bind loopback. Nó dùng `cli.sh "install <tên>"` với danh sách [phiên bản đã kiểm thử](../../scripts/plugin-versions.tsv), kiểm tra bản Marketplace trước khi tải và dừng nếu bản cài khác manifest. CLI không có tham số chọn phiên bản cho `install`. Script đọc `dependencies=` từ `module.properties`, kích hoạt **từng loại có thật** theo thứ tự phụ thuộc, kiểm tra cache `.runtime` và khởi động lại Admin/Web. Không dùng `activate all`: trong sandbox, lệnh này đã tạo cả mục cache theme và socket cho `ezyaccount` dù gói không có các module đó. Chỉ bật một theme; nếu không chỉ định `--theme`, script giữ nguyên theme đang bật. Có thể thử `consulting`, `lucky-wheel` hoặc trở về `welcome`.
+Script chỉ chạy với core 1.5.9 tại cổng Compose bind loopback. Nó dùng `cli.sh "install <tên>"` với danh sách [phiên bản đã kiểm thử](../../scripts/plugin-versions.tsv), kiểm tra bản Marketplace trước khi tải và dừng nếu bản cài khác manifest. CLI không có tham số chọn phiên bản cho `install`. Script đọc `dependencies=` từ `module.properties`, kích hoạt **từng loại có thật** theo thứ tự phụ thuộc, kiểm tra cache `.runtime` và khởi động lại Admin/Web. Không dùng `activate all`: trong sandbox, lệnh này đã tạo cả mục cache theme và socket cho `ezyaccount` dù gói không có các module đó. Khi đổi theme, script tắt cờ cache của theme không còn module; CLI không nhận lệnh deactivate cho mục dạng này. Nếu không chỉ định `--theme`, script giữ nguyên theme đang bật. Có thể thử `consulting`, `lucky-wheel` hoặc trở về `welcome`.
 
 Nếu trình tải CLI lỗi, dùng mục Modules của Admin để cài bản chính xác, rồi chạy lại script; hoặc dùng `--admin-cookie-jar /đường/dẫn/cookie-local.txt` với cookie Netscape của phiên Admin **sandbox**, để script dùng endpoint Marketplace có kiểm chữ ký `POST /api/v1/projects/<tên>/<phiên-bản>/install`. Giữ cookie ngoài repo, chỉ dùng tài khoản local. Hai gói `ezyrag` và `ezyblockchain` cài thành công bằng đường Admin (`204`) sau khi CLI gặp `NoSuchFileException` ở tệp `.zip.downloading`. `ezymail` cài được khi thử lại CLI sau lỗi tương tự. Không dùng Upload Project thủ công vì đường đó không kiểm chữ ký Marketplace.
 
