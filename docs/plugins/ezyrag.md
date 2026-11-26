@@ -1,24 +1,24 @@
 # ezyrag
 
-Quản trị RAG và tích hợp lớp AI.
+RAG administration and integration with the AI layer.
 
-- **Bản Marketplace trên core 1.5.9:** `0.0.6`.
-- **Module đã xác minh:** `admin-plugin`, `web-plugin`, `socket-plugin`.
-- **Cài đặt:** Đạt qua Admin. Xem môi trường và các giới hạn chung trong [báo cáo kiểm thử](test-report.md).
+- **Marketplace version on core 1.5.9:** `0.0.6`.
+- **Verified modules:** `admin-plugin`, `web-plugin`, `socket-plugin`.
+- **Installation:** Get through Admin. See the environment and general limits in [test report](test-report.md).
 
-## Bản đồ module
+## Module map
 
-| Lane / thư mục | Package khai báo | Phụ thuộc runtime khai báo |
+| Lane / directory | Declared package | Declared runtime dependencies |
 |---|---|---|
-| `admin-plugin` — `admin/plugins/ezyrag` | `org.youngmonkeys.ezyrag` | Không khai báo |
-| `web-plugin` — `web/plugins/ezyrag` | `org.youngmonkeys.ezyrag` | Không khai báo |
+| `admin-plugin` — `admin/plugins/ezyrag` | `org.youngmonkeys.ezyrag` | Not declared |
+| `web-plugin` — `web/plugins/ezyrag` | `org.youngmonkeys.ezyrag` | Not declared |
 | `socket-plugin` — `socket/plugins/ezyrag` | `org.youngmonkeys.ezyrag` | [ezyai](ezyai.md) |
 
-## HTTP, UI và tài nguyên
+## HTTP, UI, and resources
 
-Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố khi mount module và quyền truy cập có thể khác giữa các lane; các URL đã gọi thật nằm ở mục kiểm thử.
+The paths below come from annotations in the JAR. Mount prefixes and access permissions may differ by lane; the URLs that were actually called are listed in the testing section.
 
-**admin-plugin** — 25 tổ hợp phương thức/URI đọc được; mẫu đại diện:
+**admin-plugin** — 25 method/URI combinations identified; representative sample:
 
 | Annotation HTTP | Class |
 |---|---|
@@ -39,53 +39,53 @@ Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố
 | `DELETE /api/v1/data-chunks/{id}` | `AdminApiDataChunkController` |
 | `DELETE /api/v1/vector-collections/{id}` | `AdminApiVectorCollectionController` |
 
-- **admin-plugin – Menu (khóa cuối và path trong menus.properties):** `ezyrag: /`, `data_chunks: /data-chunks`, `embedding_services: /embedding-services`, `embedding_services_details: ~/embedding-services/{serviceName}`, `vector_database_services: /vector-database-services`, `vector_database_services_details: ~/vector-database-services/{serviceName}` (+1).
+- **admin-plugin – Menus (final keys and paths in menus.properties):** `ezyrag: /`, `data_chunks: /data-chunks`, `embedding_services: /embedding-services`, `embedding_services_details: ~/embedding-services/{serviceName}`, `vector_database_services: /vector-database-services`, `vector_database_services_details: ~/vector-database-services/{serviceName}` (+1).
 
 - **admin-plugin – Template:** `ezyrag/chunk/chunk-data.html`, `ezyrag/chunk/chunk-list.html`, `ezyrag/chunk/list.html`, `ezyrag/chunk/scripts.html`, `ezyrag/collection/add.html`, `ezyrag/collection/collection-list.html`, `ezyrag/collection/details.html` (+8).
 
-## Dữ liệu và migration
+## Data and migrations
 
-- **Bảng trong DDL đóng gói (2):** `ezyrag_data_chunks`, `ezyrag_vector_collections`.
-- **Class có chỉ dấu JPA Entity/MappedSuperclass (2):** `RagDataChunk`, `RagVectorCollection`.
-- **SQL admin-plugin (3 tệp):** `resources/scripts/collection.sql`, `resources/scripts/scripts.sql`, `resources/scripts/alter_data_chunk.sql`.
+- **Table in the DDL package (2):** `ezyrag_data_chunks`, `ezyrag_vector_collections`.
+- **Class with JPA Entity/MappedSuperclass (2):** `RagDataChunk`, `RagVectorCollection`.
+- **SQL admin-plugin (3 files):** `resources/scripts/collection.sql`, `resources/scripts/scripts.sql`, `resources/scripts/alter_data_chunk.sql`.
 
-## JAR, cấu hình và điểm mở rộng
+## JARs, configuration, and extension points
 
 ### admin-plugin
 
-- **JAR kiểm tra:** `ezyrag-admin-plugin-0.0.6.jar`, `ezyrag-sdk-0.0.6.jar`; 170 class cấp cao nhất sau khi bỏ trùng theo tên package/class trong lane. SDK có thể lặp giữa các lane.
-- **Package nổi bật:** `org.youngmonkeys.ezyrag.model`, `org.youngmonkeys.ezyrag.pagination`, `org.youngmonkeys.ezyrag.reader` (+38).
-- **JAR thư viện khác:** `SparseBitSet-1.3.jar`, `commons-codec-1.16.0.jar`, `commons-collections4-4.4.jar`, `commons-compress-1.25.0.jar` (+11).
-- **Controller/service/repository (mẫu):** `AdminApiDataChunkController`, `AdminApiEmbeddingServiceController`, `AdminApiEzyRagSettingController`, `AdminApiVectorCollectionController`, `AdminEzyRagSettingService`, `AdminPaginationRagDataChunkRepository`, `AdminPaginationRagDataChunkService`, `AdminPaginationRagVectorCollectionRepository`, `AdminPaginationRagVectorCollectionService`.
-- **Điểm mở rộng tiềm năng theo tên class:** `AdminEzyRagClient`, `AdminNormalizeQueryProcessor`, `AdminRagDataChunkerManager`, `AdminRagDataLoaderManager`, `AdminRagDataRetrieverManager`, `AdminRagEmbeddingServiceManager`, `AdminRagKnowledgeDataBuilderManager`, `AdminRagMediaTextReaderManager`, `AdminRagQueryProcessorManager` (+14).
+- **JARs inspected:** `ezyrag-admin-plugin-0.0.6.jar`, `ezyrag-sdk-0.0.6.jar`; 170 top-level classes after deduplicating by package and class name within the lane. The SDK can appear in multiple lanes.
+- **Notable packages:** `org.youngmonkeys.ezyrag.model`, `org.youngmonkeys.ezyrag.pagination`, `org.youngmonkeys.ezyrag.reader` (+38).
+- **Other library JARs:** `SparseBitSet-1.3.jar`, `commons-codec-1.16.0.jar`, `commons-collections4-4.4.jar`, `commons-compress-1.25.0.jar` (+11).
+- **Controllers, services, and repositories (sample):** `AdminApiDataChunkController`, `AdminApiEmbeddingServiceController`, `AdminApiEzyRagSettingController`, `AdminApiVectorCollectionController`, `AdminEzyRagSettingService`, `AdminPaginationRagDataChunkRepository`, `AdminPaginationRagDataChunkService`, `AdminPaginationRagVectorCollectionRepository`, `AdminPaginationRagVectorCollectionService`.
+- **Potential extension points based on class names:** `AdminEzyRagClient`, `AdminNormalizeQueryProcessor`, `AdminRagDataChunkerManager`, `AdminRagDataLoaderManager`, `AdminRagDataRetrieverManager`, `AdminRagEmbeddingServiceManager`, `AdminRagKnowledgeDataBuilderManager`, `AdminRagMediaTextReaderManager`, `AdminRagQueryProcessorManager` (+14).
 
 ### web-plugin
 
-- **JAR kiểm tra:** `ezyrag-sdk-0.0.6.jar`, `ezyrag-web-plugin-0.0.6.jar`; 142 class cấp cao nhất sau khi bỏ trùng theo tên package/class trong lane. SDK có thể lặp giữa các lane.
-- **Package nổi bật:** `org.youngmonkeys.ezyrag.model`, `org.youngmonkeys.ezyrag.pagination`, `org.youngmonkeys.ezyrag.reader` (+31).
-- **JAR thư viện khác:** `SparseBitSet-1.3.jar`, `commons-codec-1.16.0.jar`, `commons-collections4-4.4.jar`, `commons-compress-1.25.0.jar` (+11).
-- **Controller/service/repository (mẫu):** `EzyRagSettingService`, `PaginationRagDataChunkRepository`, `PaginationRagDataChunkService`, `PaginationRagVectorCollectionRepository`, `PaginationRagVectorCollectionService`.
-- **Điểm mở rộng tiềm năng theo tên class:** `EzyRagClient`, `NormalizeQueryProcessor`, `RagDataChunkerManager`, `RagDataLoaderManager`, `RagDataRetrieverManager`, `RagEmbeddingServiceManager`, `RagKnowledgeDataBuilderManager`, `RagMediaTextReaderManager`, `RagQueryProcessor` (+14).
+- **JARs inspected:** `ezyrag-sdk-0.0.6.jar`, `ezyrag-web-plugin-0.0.6.jar`; 142 top-level classes after deduplicating by package and class name within the lane. The SDK can appear in multiple lanes.
+- **Notable packages:** `org.youngmonkeys.ezyrag.model`, `org.youngmonkeys.ezyrag.pagination`, `org.youngmonkeys.ezyrag.reader` (+31).
+- **Other library JARs:** `SparseBitSet-1.3.jar`, `commons-codec-1.16.0.jar`, `commons-collections4-4.4.jar`, `commons-compress-1.25.0.jar` (+11).
+- **Controllers, services, and repositories (sample):** `EzyRagSettingService`, `PaginationRagDataChunkRepository`, `PaginationRagDataChunkService`, `PaginationRagVectorCollectionRepository`, `PaginationRagVectorCollectionService`.
+- **Potential extension points based on class names:** `EzyRagClient`, `NormalizeQueryProcessor`, `RagDataChunkerManager`, `RagDataLoaderManager`, `RagDataRetrieverManager`, `RagEmbeddingServiceManager`, `RagKnowledgeDataBuilderManager`, `RagMediaTextReaderManager`, `RagQueryProcessor` (+14).
 
 ### socket-plugin
 
-- **JAR kiểm tra:** `ezyrag-sdk-0.0.6.jar`, `ezyrag-socket-plugin-0.0.6.jar`; 131 class cấp cao nhất sau khi bỏ trùng theo tên package/class trong lane. SDK có thể lặp giữa các lane.
-- **Package nổi bật:** `org.youngmonkeys.ezyrag.model`, `org.youngmonkeys.ezyrag.pagination`, `org.youngmonkeys.ezyrag.reader` (+32).
-- **Controller/service/repository (mẫu):** `UserLoginController`, `EzyRagSettingService`, `PaginationRagDataChunkRepository`, `PaginationRagDataChunkService`, `PaginationRagVectorCollectionRepository`, `PaginationRagVectorCollectionService`.
-- **Điểm mở rộng tiềm năng theo tên class:** `EzyRagClient`, `NormalizeQueryProcessor`, `PluginEntryLoader`, `RagDataChunkerManager`, `RagDataLoaderManager`, `RagDataRetrieverManager`, `RagEmbeddingServiceManager`, `RagKnowledgeDataBuilderManager`, `RagMediaTextReaderManager` (+14).
+- **JARs inspected:** `ezyrag-sdk-0.0.6.jar`, `ezyrag-socket-plugin-0.0.6.jar`; 131 top-level classes after deduplicating by package and class name within the lane. The SDK can appear in multiple lanes.
+- **Notable packages:** `org.youngmonkeys.ezyrag.model`, `org.youngmonkeys.ezyrag.pagination`, `org.youngmonkeys.ezyrag.reader` (+32).
+- **Controllers, services, and repositories (sample):** `UserLoginController`, `EzyRagSettingService`, `PaginationRagDataChunkRepository`, `PaginationRagDataChunkService`, `PaginationRagVectorCollectionRepository`, `PaginationRagVectorCollectionService`.
+- **Potential extension points based on class names:** `EzyRagClient`, `NormalizeQueryProcessor`, `PluginEntryLoader`, `RagDataChunkerManager`, `RagDataLoaderManager`, `RagDataRetrieverManager`, `RagEmbeddingServiceManager`, `RagKnowledgeDataBuilderManager`, `RagMediaTextReaderManager` (+14).
 - **Zone / entry loader:** `chat` / `org.youngmonkeys.ezyrag.socket.plugin.PluginEntryLoader`.
-- **Class controller/handler/event/request (mẫu):** `UserLoginController`.
+- **Controller, handler, event, and request classes (sample):** `UserLoginController`.
 
-Class và resource xác nhận có cấu trúc mở rộng trong bản đóng gói, không cam kết API ổn định hoặc handler đã chạy qua mọi nhánh.
+Classes and resources show that extension points are packaged; they do not establish API stability or confirm that every handler path has run.
 
-## Quan sát trên sandbox
+## Sandbox observations
 
-Admin `/ezyrag/settings` → 200; phụ thuộc `ezyai`; chưa gọi nhà cung cấp embedding/LLM.
+Admin `/ezyrag/settings` returned 200. The module depends on `ezyai`; no embedding or LLM provider was called.
 
-Xem bằng chứng nạp module và cổng TCP trong [kiểm thử Socket](test-report.md#gói-cài-được-và-kiểm-thử-http). Không kiểm chứng trao đổi Socket bằng client.
+See module-loading and TCP port evidence in the [Socket checks](test-report.md#installable-packages-and-http-tests). Socket communication was not verified with a client.
 
-## Lưu ý khi tích hợp
+## Integration notes
 
-Kiểm phạm vi truy cập trên kết quả truy xuất; mở settings không chứng minh chuỗi embedding/truy vấn.
+Enforce access scope on retrieval results. Opening settings does not verify the embedding and query pipeline.
 
-[Về chỉ mục plugin](README.md)
+[Back to the plugin index](README.md)

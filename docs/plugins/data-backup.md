@@ -1,22 +1,22 @@
 # data-backup
 
-Sao lưu dữ liệu và lập lịch snapshot.
+Data backups and scheduled snapshots.
 
-- **Bản Marketplace trên core 1.5.9:** `0.0.9`.
-- **Module đã xác minh:** `admin-plugin`.
-- **Cài đặt:** Đạt. Xem môi trường và các giới hạn chung trong [báo cáo kiểm thử](test-report.md).
+- **Marketplace version on core 1.5.9:** `0.0.9`.
+- **Verified modules:** `admin-plugin`.
+- **Installation:** Passed. See the environment and general limitations in the [test report](test-report.md).
 
-## Bản đồ module
+## Module map
 
-| Lane / thư mục | Package khai báo | Phụ thuộc runtime khai báo |
+| Lane / directory | Declared package | Declared runtime dependencies |
 |---|---|---|
-| `admin-plugin` — `admin/plugins/data-backup` | `org.youngmonkeys.databackup` | Không khai báo |
+| `admin-plugin` — `admin/plugins/data-backup` | `org.youngmonkeys.databackup` | Not declared |
 
-## HTTP, UI và tài nguyên
+## HTTP, UI, and resources
 
-Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố khi mount module và quyền truy cập có thể khác giữa các lane; các URL đã gọi thật nằm ở mục kiểm thử.
+The paths below come from annotations in the JAR. Mount prefixes and access permissions may differ by lane; the URLs that were actually called are listed in the testing section.
 
-**admin-plugin** — 25 tổ hợp phương thức/URI đọc được; mẫu đại diện:
+**admin-plugin** — 25 method/URI combinations identified; representative sample:
 
 | Annotation HTTP | Class |
 |---|---|
@@ -37,32 +37,32 @@ Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố
 | `PUT /api/v1/settings/platform-file-deletion` | `AdminApiDataBackSettingController` |
 | `DELETE /api/v1/realtime-backup/clients/{clientId}` | `AdminApiRealtimeBackupController` |
 
-- **admin-plugin – Menu (khóa cuối và path trong menus.properties):** `data_backup: /`, `backup_clients: /data-backup/backup-clients`, `settings: /data-backup/settings`.
+- **admin-plugin – Menus (final keys and paths in menus.properties):** `data_backup: /`, `backup_clients: /data-backup/backup-clients`, `settings: /data-backup/settings`.
 
 - **admin-plugin – Template:** `data-backup/backup-clients.html`, `data-backup/settings.html`.
 
-## Dữ liệu và migration
+## Data and migrations
 
-- Không tìm thấy `CREATE TABLE` trong các tệp SQL rời của gói; không suy ra module không lưu dữ liệu hoặc không dùng schema của core.
+- No occurrence of `CREATE TABLE` was found in the package’s standalone SQL files; this does not mean the module stores no data or does not use the core schema.
 
-## JAR, cấu hình và điểm mở rộng
+## JARs, configuration, and extension points
 
 ### admin-plugin
 
-- **JAR kiểm tra:** `data-backup-admin-plugin-0.0.9.jar`; 90 class cấp cao nhất sau khi bỏ trùng theo tên package/class trong lane. SDK có thể lặp giữa các lane.
-- **Package nổi bật:** `org.youngmonkeys.databackup.admin.model`, `org.youngmonkeys.databackup.admin.response`, `org.youngmonkeys.databackup.admin.manager` (+14).
-- **Controller/service/repository (mẫu):** `AdminApiDataBackSettingController`, `AdminApiRealtimeBackupClientController`, `AdminApiRealtimeBackupController`, `AdminBackupClientController`, `AdminDataBackSettingValidator`, `AdminDataBackupSettingService`, `AdminPlatformFileDeletionValidator`, `AdminRealtimeBackupClientControllerService`, `AdminRealtimeBackupClientService`.
-- **Class cấu hình/quyền (mẫu):** `AdminAwsS3ClientConfig`, `AdminEzyPlatformBackupDeletionSchedulerConfig`, `AdminRealtimeBackupConfig`.
-- **Điểm mở rộng tiềm năng theo tên class:** `AdminAwsS3ClientManager`, `AdminDatabaseSnapshotS3Manager`, `AdminDatabaseToolLogManager`, `AdminDatabaseToolManager`, `AdminEzyPlatformBackupDeletionScheduler`, `AdminRealtimeAsyncResponseManager`, `AdminRealtimeBackupClientFileManager`, `AdminRealtimeBackupClientManager`, `AdminRealtimeBackupScheduler` (+8).
+- **JARs inspected:** `data-backup-admin-plugin-0.0.9.jar`; 90 top-level classes after deduplicating by package and class name within the lane. The SDK can appear in multiple lanes.
+- **Notable packages:** `org.youngmonkeys.databackup.admin.model`, `org.youngmonkeys.databackup.admin.response`, `org.youngmonkeys.databackup.admin.manager` (+14).
+- **Controllers, services, and repositories (sample):** `AdminApiDataBackSettingController`, `AdminApiRealtimeBackupClientController`, `AdminApiRealtimeBackupController`, `AdminBackupClientController`, `AdminDataBackSettingValidator`, `AdminDataBackupSettingService`, `AdminPlatformFileDeletionValidator`, `AdminRealtimeBackupClientControllerService`, `AdminRealtimeBackupClientService`.
+- **Configuration and permission classes (sample):** `AdminAwsS3ClientConfig`, `AdminEzyPlatformBackupDeletionSchedulerConfig`, `AdminRealtimeBackupConfig`.
+- **Potential extension points based on class names:** `AdminAwsS3ClientManager`, `AdminDatabaseSnapshotS3Manager`, `AdminDatabaseToolLogManager`, `AdminDatabaseToolManager`, `AdminEzyPlatformBackupDeletionScheduler`, `AdminRealtimeAsyncResponseManager`, `AdminRealtimeBackupClientFileManager`, `AdminRealtimeBackupClientManager`, `AdminRealtimeBackupScheduler` (+8).
 
-Class và resource xác nhận có cấu trúc mở rộng trong bản đóng gói, không cam kết API ổn định hoặc handler đã chạy qua mọi nhánh.
+Classes and resources show that extension points are packaged; they do not establish API stability or confirm that every handler path has run.
 
-## Quan sát trên sandbox
+## Sandbox observations
 
-Admin `/data-backup/backup-clients` → 200; backup tự động lỗi vì container ứng dụng thiếu MySQL/MariaDB CLI; chưa thử restore.
+Admin `/data-backup/backup-clients` returned 200. Automatic backup failed because the application container lacked a MySQL or MariaDB CLI. Restoration was not tested.
 
-## Lưu ý khi tích hợp
+## Integration notes
 
-Tách scheduler, đích sao lưu và cấu hình vận hành. Kiểm restore trên DB khác; mở trang Backup Clients không chứng minh bản sao lưu dùng được.
+Separate scheduling, backup destinations, and operational configuration. Test restoration to another database; opening Backup Clients does not prove the backup is usable.
 
-[Về chỉ mục plugin](README.md)
+[Back to the plugin index](README.md)

@@ -1,2507 +1,2507 @@
-# Tra cứu: SEO, marketing và chuyển đổi
+# Reference: SEO, marketing, and conversion
 
-[Về chỉ mục đầy đủ](README.md) · [Ghi chú biên soạn và bài trọng tâm](ung-dung.md)
+[Back to full index](README.md) · [Applied use cases](ung-dung.md)
 
-Các mục dưới đây ghi lại đề mục và tên tính năng để tìm phần liên quan trong bài. Mở nguồn để xem quy trình đầy đủ và đối chiếu với phiên bản đang dùng.
+Each entry lists the article title and relevant features or sections. Open the original article for the complete procedure and check it against the version you use.
 
 <a id="bai-1640"></a>
 
-### Landing page cho đợt sale thời trang: một trang, một lời mời, đo được từng nguồn khách
+### Landing page for fashion sales: one page, one invitation, measured by each source of guests
 
-[Bài gốc](https://ezyplatform.com/blog/landing-page-dot-sale-shop-thoi-trang?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/landing-page-dot-sale-shop-thoi-trang?lang=vi) · Use case
 
-- Nhãn gốc: Xây dựng website thời trang; Inbound marketing fashion.
-- Đề mục trong bài: Vì sao đợt sale cần một trang riêng; Trang Sale 12.12 của website mẫu gồm những gì; Trang được tạo thế nào; Trang sale sau ngày 12/12.
-- Từ khóa được nhắc: `E-Commerce`, `EzyArticle`, `UTM`, `EzyMarketing`, `EzyRating`.
-- Bài được dẫn: [Quà tặng cho shop thời trang: đổi một món quà hữu ích lấy thông tin của người chưa mua](./tra-cuu-marketing.md#bai-1639); [Landing Page là gì? Khi nào nên sử dụng Landing Page?](./tra-cuu-marketing.md#bai-1171); [Cấu trúc một Landing Page chuyển đổi cao gồm những gì?](./tra-cuu-marketing.md#bai-1175).
+- Original category: Building a fashion website; Inbound marketing fashion.
+- Article sections: Why the sale needs a private page; Page 12.12 of the website template contains what; How the page is created; Page sale after 12/12.
+- Features mentioned: `E-Commerce`, `EzyArticle`, `UTM`, `EzyMarketing`, `EzyRating`.
+- Referenced articles: [Gift for fashion shop: exchange a useful gift to get information from the unacquired](./tra-cuu-marketing.md#bai-1639); [When to use Landing Page?](./tra-cuu-marketing.md#bai-1171); [The structure of a high-conversion landing page includes what?](./tra-cuu-marketing.md#bai-1175).
 
 <a id="bai-1639"></a>
 
-### Quà tặng cho shop thời trang: đổi một món quà hữu ích lấy thông tin của người chưa mua
+### Gift for fashion shop: exchange a useful gift to get information from the unacquired
 
-[Bài gốc](https://ezyplatform.com/blog/qua-tang-de-khach-de-lai-thong-tin-shop-thoi-trang?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/qua-tang-de-khach-de-lai-thong-tin-shop-thoi-trang?lang=vi) · Use case
 
-- Nhãn gốc: Xây dựng website thời trang; Inbound marketing fashion.
-- Đề mục trong bài: Vì sao người chưa mua không để lại gì; Chọn quà theo nỗi lo của từng nhóm khách; Đặt lời mời ở đúng chỗ khách đang cần; Những lỗi hay gặp khi làm quà tặng cho shop thời trang.
-- Từ khóa được nhắc: `EzyCRM`, `EzyRating`, `E-Commerce`, `EzyMarketing`.
-- Bài được dẫn: [Blog cho shop thời trang: viết bài từ câu khách hỏi, kéo khách từ Google và dẫn tới sản phẩm](./tra-cuu-marketing.md#bai-1599); [Lookbook và bộ sưu tập theo mùa: kể chuyện bằng hình ảnh để khách hình dung mình mặc đồ](./tra-cuu-marketing.md#bai-1601); [Biến một bài blog thành nhiều bài đăng Facebook, TikTok cho shop thời trang mà không viết lại từ đầu](./tra-cuu-marketing.md#bai-1602).
+- Original category: Building a fashion website; Inbound marketing fashion.
+- Article sections: Why don’t the person who doesn’t buy anything; Choose gifts according to the concerns of each guest group; Placing the invitation in the right place the guest needs; The mistakes that you make when making a gift to a fashion shop.
+- Features mentioned: `EzyCRM`, `EzyRating`, `E-Commerce`, `EzyMarketing`.
+- Referenced articles: [Fashion Store Blogging: Answer Customer Questions, Attract Search Traffic, and Lead Readers to Products](./tra-cuu-marketing.md#bai-1599); [Lookbook and seasonal collection: stories with images to make guests imagine themselves dressed](./tra-cuu-marketing.md#bai-1601); [Transforming a blog post into multiple Facebook posts, TikTok for fashion shop without re-writing from the beginning](./tra-cuu-marketing.md#bai-1602).
 
 <a id="bai-1634"></a>
 
-### SEO cho bài so sánh và trang sản phẩm trên EzyPlatform: Hương Camera dẫn người đang chọn máy đến đúng sản phẩm
+### SEO for comparisons and product pages on EzyPlatform: The camera guides people who are choosing the machine to the right product
 
-[Bài gốc](https://ezyplatform.com/blog/seo-bai-so-sanh-va-trang-san-pham-tren-ezyplatform?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/seo-bai-so-sanh-va-trang-san-pham-tren-ezyplatform?lang=vi) · Use case
 
-- Nhãn gốc: SEO.
-- Đề mục trong bài: Xem người đang chọn máy hỏi gì và đi đâu; Dựng cụm "Chọn máy ảnh cho người mới"; Viết bài so sánh để giúp người đọc chọn; Đo đường đi từ bài viết đến đơn hàng.
-- Từ khóa được nhắc: `EzyChat`, `EzyRating`, `Search Console`, `EzyArticle`.
-- Bài được dẫn: [SEO theo mùa trên website EzyPlatform: Hương Camera chuẩn bị cụm "Bảo quản máy ảnh" trước mùa nồm](./tra-cuu-marketing.md#bai-1631); [Chiến lược SEO dài hạn trên EzyPlatform: kế hoạch 12 tháng xây uy tín theo chủ đề của Hương Camera](./tra-cuu-marketing.md#bai-1619); [Search Intent trên website EzyPlatform: mỗi mục đích tìm kiếm, một loại trang](./tra-cuu-marketing.md#bai-1603).
+- Original category: SEO.
+- Article sections: See what the machine is asking and where to go; Choose a camera for new people"; Write a comparison to help readers choose; Measure the way from the letter to the order.
+- Features mentioned: `EzyChat`, `EzyRating`, `Search Console`, `EzyArticle`.
+- Referenced articles: [Season-by SEO on the website EzyPlatform: Hanoi Camera prepares the "Camera Conservation" set before the season](./tra-cuu-marketing.md#bai-1631); [Long-term SEO Strategy on EzyPlatform: 12 Months of Reputable Building Plan on the Theme of Hanoi Camera](./tra-cuu-marketing.md#bai-1619); [Search Intent on the website of EzyPlatform: each search purpose, a type of page](./tra-cuu-marketing.md#bai-1603).
 
 <a id="bai-1631"></a>
 
-### SEO theo mùa trên website EzyPlatform: Hương Camera chuẩn bị cụm "Bảo quản máy ảnh" trước mùa nồm
+### Season-by SEO on the website EzyPlatform: Hanoi Camera prepares the "Camera Conservation" set before the season
 
-[Bài gốc](https://ezyplatform.com/blog/seo-theo-mua-tren-website-ezyplatform?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/seo-theo-mua-tren-website-ezyplatform?lang=vi) · Use case
 
-- Nhãn gốc: SEO.
-- Đề mục trong bài: Xem khách bắt đầu tìm về mùa nồm từ khi nào; Google Trends: người Hà Nội tìm "nồm" từ khi nào; EzyRating: khách trên website tìm gì vào mùa nồm năm trước; Đo kết quả so với cùng kỳ năm trước.
-- Từ khóa được nhắc: `EzyRating`, `EzyChat`, `EzyMarketing`, `EzyArticle`, `Search Console`.
-- Bài được dẫn: [SEO địa phương cho website EzyPlatform: Hương Camera đón khách tìm "cửa hàng máy ảnh gần đây"](./tra-cuu-marketing.md#bai-1630); [SEO cho bài so sánh và trang sản phẩm trên EzyPlatform: Hương Camera dẫn người đang chọn máy đến đúng…](./tra-cuu-marketing.md#bai-1634).
+- Original category: SEO.
+- Article sections: See when the guests start looking for the season; Google Trends: How Do You Want to Find Your Goals; EzyRating: what guests on the website were looking for in the summer of the year ago; Measured results compared to the same year before.
+- Features mentioned: `EzyRating`, `EzyChat`, `EzyMarketing`, `EzyArticle`, `Search Console`.
+- Referenced articles: [Local SEO for the website EzyPlatform: The House Camera welcomes guests searching for "the camera store recently"](./tra-cuu-marketing.md#bai-1630); [SEO for comparisons and product pages on EzyPlatform: The camera guides people who are choosing the machine to the right…](./tra-cuu-marketing.md#bai-1634).
 
 <a id="bai-1630"></a>
 
-### SEO địa phương cho website EzyPlatform: Hương Camera đón khách tìm "cửa hàng máy ảnh gần đây"
+### Local SEO for the website EzyPlatform: The House Camera welcomes guests searching for "the camera store recently"
 
-[Bài gốc](https://ezyplatform.com/blog/seo-dia-phuong-cho-website-ezyplatform?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/seo-dia-phuong-cho-website-ezyplatform?lang=vi) · Use case
 
-- Nhãn gốc: SEO.
-- Đề mục trong bài: Xem khách tìm cửa hàng bằng những từ nào; Hoàn thiện Hồ sơ doanh nghiệp trên Google; Thống nhất tên, địa chỉ, số điện thoại ở mọi nơi; Đo hiệu quả SEO địa phương.
-- Từ khóa được nhắc: `EzyChat`, `Search Console`, `EzyRating`, `EzyArticle`, `EzySupport`, `utm`.
-- Bài được dẫn: [Tăng tỷ lệ nhấp từ AI cho website: 6 cách thu hút traffic từ ChatGPT, Gemini, Perplexity và các công cụ…](./tra-cuu-marketing.md#bai-1620); [Chiến lược SEO dài hạn trên EzyPlatform: kế hoạch 12 tháng xây uy tín theo chủ đề của Hương Camera](./tra-cuu-marketing.md#bai-1619); [Content Marketing với EzyPlatform: Nội dung sau mua giúp khách của Hương Camera dùng tốt và quay lại](./tra-cuu-marketing.md#bai-1561).
+- Original category: SEO.
+- Article sections: Look at the shop in what words; Complete your business profile on Google; Unify name, address, phone number everywhere; Measurement of local SEO effectiveness.
+- Features mentioned: `EzyChat`, `Search Console`, `EzyRating`, `EzyArticle`, `EzySupport`, `utm`.
+- Referenced articles: [Increase the click rate from AI to website: 6 ways to attract traffic from ChatGPT, Gemini, Perplexity and tools…](./tra-cuu-marketing.md#bai-1620); [Long-term SEO Strategy on EzyPlatform: 12 Months of Reputable Building Plan on the Theme of Hanoi Camera](./tra-cuu-marketing.md#bai-1619); [Content Marketing with EzyPlatform: Next content to help guests of Hanoi Camera use well and return](./tra-cuu-marketing.md#bai-1561).
 
 <a id="bai-1620"></a>
 
-### Tăng tỷ lệ nhấp từ AI cho website: 6 cách thu hút traffic từ ChatGPT, Gemini, Perplexity và các công cụ AI khác
+### Increase clicks from AI to website: 6 ways to attract traffic from ChatGPT, Gemini, Perplexity and other AI tools
 
-[Bài gốc](https://ezyplatform.com/blog/tang-ty-le-nhap-tu-ai-cho-website?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/tang-ty-le-nhap-tu-ai-cho-website?lang=vi) · Use case
 
-- Nhãn gốc: SEO.
-- Đề mục trong bài: Traffic từ AI là gì? Vì sao website cần quan tâm?; Traffic từ AI là gì?; Người dùng có thể nhấp vào link website từ ChatGPT, Gemini, Perplexity như thế nào?; Mất bao lâu để website bắt đầu nhận traffic từ AI?.
-- Từ khóa được nhắc: `EzyRating`, `Search Console`, `robots.txt`.
-- Bài được dẫn: [SEO là gì? Cách Google hoạt động như thế nào](./tra-cuu-marketing.md#bai-1024); [Đo lường hiệu quả SEO bằng dữ liệu](./tra-cuu-marketing.md#bai-1042); [Google Search Console: Công cụ theo dõi &amp; tối ưu hiệu suất tìm kiếm website](./tra-cuu-marketing.md#bai-1038).
+- Original category: SEO.
+- Article sections: What is traffic from AI?Why a website needs to be careful?; What is traffic from?; How users can click on the website link from ChatGPT, Gemini, Perplexity?; How long does it take to start receiving traffic from AI?.
+- Features mentioned: `EzyRating`, `Search Console`, `robots.txt`.
+- Referenced articles: [What is SEO? how does Google work](./tra-cuu-marketing.md#bai-1024); [Measure SEO Efficiency by Data](./tra-cuu-marketing.md#bai-1042); [Google Search Console: Tracking and Tracking; optimized website search performance](./tra-cuu-marketing.md#bai-1038).
 
 <a id="bai-1619"></a>
 
-### Chiến lược SEO dài hạn trên EzyPlatform: kế hoạch 12 tháng xây uy tín theo chủ đề của Hương Camera
+### Long-term SEO Strategy on EzyPlatform: 12 Months of Reputable Building Plan on the Theme of Hanoi Camera
 
-[Bài gốc](https://ezyplatform.com/blog/chien-luoc-seo-dai-han-tren-ezyplatform?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/chien-luoc-seo-dai-han-tren-ezyplatform?lang=vi) · Use case
 
-- Nhãn gốc: SEO.
-- Đề mục trong bài: Chọn các cụm chủ đề cho 12 tháng; Dựng quy trình viết để giữ nhịp đăng bài; Lên lịch cập nhật bài cũ mỗi quý; Ghép tất cả vào kế hoạch SEO 12 tháng.
-- Từ khóa được nhắc: `EzyRating`, `Search Console`, `EzyChat`, `EzySupport`, `EzyArticle`, `EzyMarketing`.
-- Bài được dẫn: [Đo hiệu quả SEO bằng EzyRating và Search Console: bảng đo hằng tháng của Hương Camera](./tra-cuu-marketing.md#bai-1617); [Cách xây dựng nội dung chuyên sâu để giữ khách hàng ở lại lâu hơn](./tra-cuu-marketing.md#bai-1044); [SEO địa phương cho website EzyPlatform: Hương Camera đón khách tìm "cửa hàng máy ảnh gần đây"](./tra-cuu-marketing.md#bai-1630).
+- Original category: SEO.
+- Article sections: Choose themes for 12 months; Create the writing process to keep the post rhythm; Updates of the old card each quarter; Incorporate it all into a 12-month SEO plan.
+- Features mentioned: `EzyRating`, `Search Console`, `EzyChat`, `EzySupport`, `EzyArticle`, `EzyMarketing`.
+- Referenced articles: [SEO Efficiency Measurement with EzyRating and Search Console: The Monthly Measurement Table of the Hanoi Camera](./tra-cuu-marketing.md#bai-1617); [How to build deep content to keep customers staying longer](./tra-cuu-marketing.md#bai-1044); [Local SEO for the website EzyPlatform: The House Camera welcomes guests searching for "the camera store recently"](./tra-cuu-marketing.md#bai-1630).
 
 <a id="bai-1617"></a>
 
-### Đo hiệu quả SEO bằng EzyRating và Search Console: bảng đo hằng tháng của Hương Camera
+### SEO Efficiency Measurement with EzyRating and Search Console: The Monthly Measurement Table of the Hanoi Camera
 
-[Bài gốc](https://ezyplatform.com/blog/do-hieu-qua-seo-bang-ezyrating-va-search-console?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/do-hieu-qua-seo-bang-ezyrating-va-search-console?lang=vi) · Use case
 
-- Nhãn gốc: SEO.
-- Đề mục trong bài: Chọn con số cho từng câu hỏi; Khách từ Google có tăng không; Từ khóa có lên hạng không; Ghép tất cả vào một bảng đo hằng tháng.
-- Từ khóa được nhắc: `Search Console`, `EzyRating`, `EzyMarketing`.
-- Bài được dẫn: [Tăng tỷ lệ nhấp từ Google cho website EzyPlatform: Hương Camera viết lại tiêu đề cho hai bài ít người bấm](./tra-cuu-marketing.md#bai-1616); [Đo lường hiệu quả SEO bằng dữ liệu](./tra-cuu-marketing.md#bai-1042).
+- Original category: SEO.
+- Article sections: Choose a number for each question; Google’s guests are increasing; The key is up to class; Mix it all into a monthly table.
+- Features mentioned: `Search Console`, `EzyRating`, `EzyMarketing`.
+- Referenced articles: [Increase the click rate from Google to the website EzyPlatform: The Camera re-writing the title for two less-click posts](./tra-cuu-marketing.md#bai-1616); [Measure SEO Efficiency by Data](./tra-cuu-marketing.md#bai-1042).
 
 <a id="bai-1616"></a>
 
-### Tăng tỷ lệ nhấp từ Google cho website EzyPlatform: Hương Camera viết lại tiêu đề cho hai bài ít người bấm
+### Increase the click rate from Google to the website EzyPlatform: The Camera re-writing the title for two less-click posts
 
-[Bài gốc](https://ezyplatform.com/blog/tang-ty-le-nhap-tu-google-cho-website-ezyplatform?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/tang-ty-le-nhap-tu-google-cho-website-ezyplatform?lang=vi) · Use case
 
-- Nhãn gốc: SEO.
-- Đề mục trong bài: Nhìn lại hai bài trên trang kết quả của Google; Viết lại tiêu đề; Viết lại đoạn mô tả; Đo lại bằng Search Console và EzyRating.
-- Từ khóa được nhắc: `Search Console`, `EzyRating`, `EzyArticle`.
-- Bài được dẫn: [Google Search Console cho website EzyPlatform: Hương Camera xem Google thấy Camera Blog ra sao](./tra-cuu-marketing.md#bai-1614); [Tối ưu CTR – Cách làm cho người ta muốn bấm vào bài của bạn trên Google](./tra-cuu-marketing.md#bai-1037); [Đo hiệu quả SEO bằng EzyRating và Search Console: bảng đo hằng tháng của Hương Camera](./tra-cuu-marketing.md#bai-1617).
+- Original category: SEO.
+- Article sections: Look back to two posts on Google’s results page; Write the title again; Write the description; Search Console and EzyRating.
+- Features mentioned: `Search Console`, `EzyRating`, `EzyArticle`.
+- Referenced articles: [Google Search Console for the website EzyPlatform: Google Camera Viewing How Google Camera Blog sees](./tra-cuu-marketing.md#bai-1614); [CTR Optimization – How to Make People Want to Click on Your Posts on Google](./tra-cuu-marketing.md#bai-1037); [SEO Efficiency Measurement with EzyRating and Search Console: The Monthly Measurement Table of the Hanoi Camera](./tra-cuu-marketing.md#bai-1617).
 
 <a id="bai-1614"></a>
 
-### Google Search Console cho website EzyPlatform: Hương Camera xem Google thấy Camera Blog ra sao
+### Google Search Console for the website EzyPlatform: Google Camera Viewing How Google Camera Blog sees
 
-[Bài gốc](https://ezyplatform.com/blog/google-search-console-cho-website-ezyplatform?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/google-search-console-cho-website-ezyplatform?lang=vi) · Use case
 
-- Nhãn gốc: SEO.
-- Đề mục trong bài: Xác minh website Hương Camera; Gửi sitemap và kiểm tra bài "Chụp trong nhà bị tối"; Kiểm tra bài mới bằng công cụ Kiểm tra URL; Tìm bài nhiều lượt hiển thị nhưng ít lượt nhấp.
-- Từ khóa được nhắc: `EzyArticle`, `EzyRating`, `Search Console`, `EzySEO`.
-- Bài được dẫn: [Internal link và cụm nội dung với chuyên mục, thẻ và menu của EzyArticle](./tra-cuu-marketing.md#bai-1613); [Google Search Console: Công cụ theo dõi &amp; tối ưu hiệu suất tìm kiếm website](./tra-cuu-marketing.md#bai-1038); [Technical SEO cơ bản cho website EzyPlatform: Hương Camera kiểm tra kỹ thuật trước khi chạy SEO](./tra-cuu-marketing.md#bai-1611).
+- Original category: SEO.
+- Article sections: Check the website of the camera; Send a sitemap and check the post "Photo in the dark house""; Check new posts with the URL check tool; Find a lot of shows but a few clicks.
+- Features mentioned: `EzyArticle`, `EzyRating`, `Search Console`, `EzySEO`.
+- Referenced articles: [Internal links and content columns with the forums, tags and menu of EzyArticle](./tra-cuu-marketing.md#bai-1613); [Google Search Console: Tracking and Tracking; optimized website search performance](./tra-cuu-marketing.md#bai-1038); [Basic SEO Technical for the website EzyPlatform: The Camera Testing Technical Before Running SEO](./tra-cuu-marketing.md#bai-1611).
 
 <a id="bai-1613"></a>
 
-### Internal link và cụm nội dung với chuyên mục, thẻ và menu của EzyArticle
+### Internal links and content columns with the forums, tags and menu of EzyArticle
 
-[Bài gốc](https://ezyplatform.com/blog/internal-link-va-cum-noi-dung-tren-ezyarticle?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/internal-link-va-cum-noi-dung-tren-ezyarticle?lang=vi) · Use case
 
-- Nhãn gốc: SEO.
-- Đề mục trong bài: Vẽ sơ đồ cụm "Chụp thiếu sáng"; Đặt liên kết trong bài; Dùng chuyên mục, thẻ và menu của EzyArticle; Đo trên EzyRating: người đọc có đi tiếp trong cụm không.
-- Từ khóa được nhắc: `EzyArticle`, `EzyRating`, `Search Console`.
-- Bài được dẫn: [Technical SEO cơ bản cho website EzyPlatform: Hương Camera kiểm tra kỹ thuật trước khi chạy SEO](./tra-cuu-marketing.md#bai-1611); [Internal Link: Bản chất của một hệ thống nội dung thông minh và kiến trúc thông tin](./tra-cuu-marketing.md#bai-1031); [Google Search Console cho website EzyPlatform: Hương Camera xem Google thấy Camera Blog ra sao](./tra-cuu-marketing.md#bai-1614).
+- Original category: SEO.
+- Article sections: Painting the map of "Fotography of Lack of Light""; Put the link in the post; Use the tags, tags and menu of EzyArticle; Measurement on EzyRating: the reader is going on in the set.
+- Features mentioned: `EzyArticle`, `EzyRating`, `Search Console`.
+- Referenced articles: [Basic SEO Technical for the website EzyPlatform: The Camera Testing Technical Before Running SEO](./tra-cuu-marketing.md#bai-1611); [Internal Link: The essence of an intelligent content system and information architecture](./tra-cuu-marketing.md#bai-1031); [Google Search Console for the website EzyPlatform: Google Camera Viewing How Google Camera Blog sees](./tra-cuu-marketing.md#bai-1614).
 
 <a id="bai-1611"></a>
 
-### Technical SEO cơ bản cho website EzyPlatform: Hương Camera kiểm tra kỹ thuật trước khi chạy SEO
+### Basic SEO Technical for the website EzyPlatform: The Camera Testing Technical Before Running SEO
 
-[Bài gốc](https://ezyplatform.com/blog/technical-seo-co-ban-cho-website-ezyplatform?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/technical-seo-co-ban-cho-website-ezyplatform?lang=vi) · Use case
 
-- Nhãn gốc: SEO.
-- Đề mục trong bài: Đo tốc độ trang của Hương Camera; Giảm dung lượng ảnh trước khi tải lên thư viện Media; Xem website Hương Camera trên điện thoại; Kiểm tra sitemap và robots.txt của Hương Camera.
-- Từ khóa được nhắc: `EzyArticle`, `robots.txt`, `EzySEO`, `Search Console`.
-- Bài được dẫn: [Viết bài chuẩn SEO trên EzyArticle: Hương Camera viết bài "Chụp trong nhà bị tối" từ đầu đến khi đăng](./tra-cuu-marketing.md#bai-1608); [Technical SEO: Kiến trúc nền tảng định đoạt khả năng hiển thị của Website](./tra-cuu-marketing.md#bai-1030); [Internal link và cụm nội dung với chuyên mục, thẻ và menu của EzyArticle](./tra-cuu-marketing.md#bai-1613).
+- Original category: SEO.
+- Article sections: Measure the speed of the camera; Reduce the image space before uploading to the Media Library; Watch the camera on the phone; Check the sitemap and robots.txt of the Camera.
+- Features mentioned: `EzyArticle`, `robots.txt`, `EzySEO`, `Search Console`.
+- Referenced articles: [Writing SEO standards on EzyArticle: The Camera Writing "Fotography in the Dark House" from the beginning to the post](./tra-cuu-marketing.md#bai-1608); [Technical SEO: Platform architecture measures the visibility of the website](./tra-cuu-marketing.md#bai-1030); [Internal links and content columns with the forums, tags and menu of EzyArticle](./tra-cuu-marketing.md#bai-1613).
 
 <a id="bai-1608"></a>
 
-### Viết bài chuẩn SEO trên EzyArticle: Hương Camera viết bài "Chụp trong nhà bị tối" từ đầu đến khi đăng
+### Writing SEO standards on EzyArticle: The Camera Writing "Fotography in the Dark House" from the beginning to the post
 
-[Bài gốc](https://ezyplatform.com/blog/viet-bai-chuan-seo-tren-ezyarticle?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/viet-bai-chuan-seo-tren-ezyarticle?lang=vi) · Use case
 
-- Nhãn gốc: SEO.
-- Đề mục trong bài: Lập phiếu bài viết từ bảng từ khóa chung; Dựng dàn ý với tiêu đề và các đề mục; Tiêu đề và đề mục của bài; Đo xem người đọc có ở lại không.
-- Từ khóa được nhắc: `EzyArticle`, `EzyRating`.
-- Bài được dẫn: [Search Intent trên website EzyPlatform: mỗi mục đích tìm kiếm, một loại trang](./tra-cuu-marketing.md#bai-1603); [Cách viết bài chuẩn SEO (Onpage Content)](./tra-cuu-marketing.md#bai-1029); [Technical SEO cơ bản cho website EzyPlatform: Hương Camera kiểm tra kỹ thuật trước khi chạy SEO](./tra-cuu-marketing.md#bai-1611).
+- Original category: SEO.
+- Article sections: Voting articles from a common keyword table; Setting up with the title and the subjects; Title and title of the post; Find out if the reader remains.
+- Features mentioned: `EzyArticle`, `EzyRating`.
+- Referenced articles: [Search Intent on the website of EzyPlatform: each search purpose, a type of page](./tra-cuu-marketing.md#bai-1603); [How to Write SEO (Onpage Content)](./tra-cuu-marketing.md#bai-1029); [Basic SEO Technical for the website EzyPlatform: The Camera Testing Technical Before Running SEO](./tra-cuu-marketing.md#bai-1611).
 
 <a id="bai-1605"></a>
 
-### Inbound Marketing cho website thời trang: lộ trình thu hút khách truy cập website thời trang
+### Inbound Marketing for Fashion Website: The Trail to Attract Fashion Website Visitors
 
-[Bài gốc](https://ezyplatform.com/blog/inbound-marketing-cho-website-thoi-trang-voi-ezyplatform?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/inbound-marketing-cho-website-thoi-trang-voi-ezyplatform?lang=vi) · Use case
 
-- Nhãn gốc: Xây dựng website thời trang; Inbound marketing fashion.
-- Đề mục trong bài: Vì sao outbound marketing là không đủ?; Inbound marketing là gì?; Một số hình thức nội dung có thể áp dụng cho shop thời trang; Lộ trình thu hút khách truy cập website thời trang.
-- Từ khóa được nhắc: `Search Console`, `EzyRating`, `EzyCRM`, `EzySEO`.
-- Bài được dẫn: [1.Hướng dẫn xây dựng website thời trang cho người mới](./tra-cuu-website.md#bai-943); [Inbound Marketing là gì? Vì sao nó trở thành xu hướng marketing hiện đại](./tra-cuu-marketing.md#bai-931); [Xây dựng chiến lược Inbound Marketing hoàn chỉnh](./tra-cuu-marketing.md#bai-950).
+- Original category: Building a fashion website; Inbound marketing fashion.
+- Article sections: Why outbound marketing is not enough?; What is Inbound Marketing?; Some forms of content can apply to fashion shop; The way to attract visitors to the fashion website.
+- Features mentioned: `Search Console`, `EzyRating`, `EzyCRM`, `EzySEO`.
+- Referenced articles: [Guide to building a fashion website for new people](./tra-cuu-website.md#bai-943); [What is Inbound Marketing? Why It Becomes a Modern Marketing Trend](./tra-cuu-marketing.md#bai-931); [Building a complete Inbound Marketing strategy](./tra-cuu-marketing.md#bai-950).
 
 <a id="bai-1603"></a>
 
-### Search Intent trên website EzyPlatform: mỗi mục đích tìm kiếm, một loại trang
+### Search Intent on the website of EzyPlatform: each search purpose, a type of page
 
-[Bài gốc](https://ezyplatform.com/blog/search-intent-tren-website-ezyplatform?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/search-intent-tren-website-ezyplatform?lang=vi) · Use case
 
-- Nhãn gốc: SEO.
-- Đề mục trong bài: Bốn mục đích tìm kiếm, bốn loại trang trên website Hương Camera; Thêm cột "Mục đích" vào bảng từ khóa chung; Khi chưa chắc, Hương Camera xem trang 1 của Google; Kiểm tra lại các trang đã có của Hương Camera.
-- Từ khóa được nhắc: `EzyArticle`, `EzyRating`.
-- Bài được dẫn: [Nghiên cứu từ khóa cho website EzyPlatform: từ câu hỏi của khách đến danh sách bài viết](./tra-cuu-marketing.md#bai-1590); [Search Intent – Hiểu đúng mục đích tìm kiếm của khách hàng](./tra-cuu-marketing.md#bai-1027); [Viết bài chuẩn SEO trên EzyArticle: Hương Camera viết bài "Chụp trong nhà bị tối" từ đầu đến khi đăng](./tra-cuu-marketing.md#bai-1608).
+- Original category: SEO.
+- Article sections: Four search purposes, four kinds of pages on the Web site of the Camera; Add the column "Destination" to the general keyword table; Unfortunately, the camera is viewing Google’s page 1; Check out the old pages of the Camera.
+- Features mentioned: `EzyArticle`, `EzyRating`.
+- Referenced articles: [Keyword Research for an EzyPlatform Website: Turn Customer Questions into Article Ideas](./tra-cuu-marketing.md#bai-1590); [Search Intent – Understand the purpose of the customer search](./tra-cuu-marketing.md#bai-1027); [Writing SEO standards on EzyArticle: The Camera Writing "Fotography in the Dark House" from the beginning to the post](./tra-cuu-marketing.md#bai-1608).
 
 <a id="bai-1602"></a>
 
-### Biến một bài blog thành nhiều bài đăng Facebook, TikTok cho shop thời trang mà không viết lại từ đầu
+### Transforming a blog post into multiple Facebook posts, TikTok for fashion shop without re-writing from the beginning
 
-[Bài gốc](https://ezyplatform.com/blog/tai-dung-noi-dung-cho-mang-xa-hoi-shop-thoi-trang?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/tai-dung-noi-dung-cho-mang-xa-hoi-shop-thoi-trang?lang=vi) · Use case
 
-- Nhãn gốc: Xây dựng website thời trang; Inbound marketing fashion.
-- Đề mục trong bài: Nội dung gốc và các mảnh có thể cắt ra; Chọn kênh theo nhóm khách; Một bài gốc, một tuần đăng; Lập kho nội dung để lần sau không phải bắt đầu từ đầu.
-- Từ khóa được nhắc: `EzyRating`, `EzyCRM`, `EzyMarketing`, `UTM`.
-- Bài được dẫn: [Blog cho shop thời trang: viết bài từ câu khách hỏi, kéo khách từ Google và dẫn tới sản phẩm](./tra-cuu-marketing.md#bai-1599); [Lookbook và bộ sưu tập theo mùa: kể chuyện bằng hình ảnh để khách hình dung mình mặc đồ](./tra-cuu-marketing.md#bai-1601); [Xác định khách hàng cho shop thời trang: xây Buyer Persona cho người chưa mua hàng](./tra-cuu-marketing.md#bai-1597).
+- Original category: Building a fashion website; Inbound marketing fashion.
+- Article sections: The original content and pieces can be cut off; Choose the channel by guest group; One original post, one week; Storage content so that the next time does not start from the beginning.
+- Features mentioned: `EzyRating`, `EzyCRM`, `EzyMarketing`, `UTM`.
+- Referenced articles: [Fashion Store Blogging: Answer Customer Questions, Attract Search Traffic, and Lead Readers to Products](./tra-cuu-marketing.md#bai-1599); [Lookbook and seasonal collection: stories with images to make guests imagine themselves dressed](./tra-cuu-marketing.md#bai-1601); [Identify customers for fashion shop: build Buyer Persona for those who don’t buy](./tra-cuu-marketing.md#bai-1597).
 
 <a id="bai-1601"></a>
 
-### Lookbook và bộ sưu tập theo mùa: kể chuyện bằng hình ảnh để khách hình dung mình mặc đồ
+### Lookbook and seasonal collection: stories with images to make guests imagine themselves dressed
 
-[Bài gốc](https://ezyplatform.com/blog/lookbook-bo-suu-tap-theo-mua-cho-website-thoi-trang?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/lookbook-bo-suu-tap-theo-mua-cho-website-thoi-trang?lang=vi) · Use case
 
-- Nhãn gốc: Xây dựng website thời trang; Inbound marketing fashion.
-- Đề mục trong bài: Lookbook khác gì với danh sách sản phẩm; Lên kế hoạch cho một bộ sưu tập theo mùa; Ba cách đặt lookbook vào website; Xem lookbook có đưa khách tới sản phẩm không.
-- Từ khóa được nhắc: `EzyCRM`, `EzyRating`.
-- Bài được dẫn: [SEO trang sản phẩm thời trang: kiểm tra những gì Google đang thấy trên website của bạn](./tra-cuu-marketing.md#bai-1600); [Xác định khách hàng cho shop thời trang: xây Buyer Persona cho người chưa mua hàng](./tra-cuu-marketing.md#bai-1597); [Hành trình mua đồ thời trang online: vẽ bản đồ từ lúc khách lướt mạng đến khi đặt hàng](./tra-cuu-marketing.md#bai-1598).
+- Original category: Building a fashion website; Inbound marketing fashion.
+- Article sections: Lookbook is different from product list; Planning for a seasonal collection; 3 ways to put a lookbook on a website; Looking out if the lookbook brings customers to the product.
+- Features mentioned: `EzyCRM`, `EzyRating`.
+- Referenced articles: [SEO fashion product page: check what Google is seeing on your website](./tra-cuu-marketing.md#bai-1600); [Identify customers for fashion shop: build Buyer Persona for those who don’t buy](./tra-cuu-marketing.md#bai-1597); [Map the Online Fashion Shopping Journey From Browsing to Ordering](./tra-cuu-marketing.md#bai-1598).
 
 <a id="bai-1600"></a>
 
-### SEO trang sản phẩm thời trang: kiểm tra những gì Google đang thấy trên website của bạn
+### SEO fashion product page: check what Google is seeing on your website
 
-[Bài gốc](https://ezyplatform.com/blog/seo-trang-san-pham-danh-muc-thoi-trang?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/seo-trang-san-pham-danh-muc-thoi-trang?lang=vi) · Use case
 
-- Nhãn gốc: Xây dựng website thời trang; Inbound marketing fashion.
-- Đề mục trong bài: Bốn thứ Google đọc đầu tiên ở một trang sản phẩm; Kiểm tra thực tế một trang sản phẩm; Mở rộng ra cả website: trang danh mục, bộ sưu tập và trang chủ; Kiểm tra sơ đồ trang và theo dõi kết quả.
-- Từ khóa được nhắc: `EzyArticle`, `EzySEO`, `E-Commerce`, `sitemap.xml`, `Search Console`, `EzyRating`.
-- Bài được dẫn: [Blog cho shop thời trang: viết bài từ câu khách hỏi, kéo khách từ Google và dẫn tới sản phẩm](./tra-cuu-marketing.md#bai-1599); [Search Intent – Hiểu đúng mục đích tìm kiếm của khách hàng](./tra-cuu-marketing.md#bai-1027); [Hành trình mua đồ thời trang online: vẽ bản đồ từ lúc khách lướt mạng đến khi đặt hàng](./tra-cuu-marketing.md#bai-1598).
+- Original category: Building a fashion website; Inbound marketing fashion.
+- Article sections: The first four things Google read on a product page; Check the reality of a product page; Expand to the entire website: category pages, collections and homepage; Check the page diagram and follow the results.
+- Features mentioned: `EzyArticle`, `EzySEO`, `E-Commerce`, `sitemap.xml`, `Search Console`, `EzyRating`.
+- Referenced articles: [Fashion Store Blogging: Answer Customer Questions, Attract Search Traffic, and Lead Readers to Products](./tra-cuu-marketing.md#bai-1599); [Search Intent – Understand the purpose of the customer search](./tra-cuu-marketing.md#bai-1027); [Map the Online Fashion Shopping Journey From Browsing to Ordering](./tra-cuu-marketing.md#bai-1598).
 
 <a id="bai-1599"></a>
 
-### Blog cho shop thời trang: viết bài từ câu khách hỏi, kéo khách từ Google và dẫn tới sản phẩm
+### Fashion Store Blogging: Answer Customer Questions, Attract Search Traffic, and Lead Readers to Products
 
-[Bài gốc](https://ezyplatform.com/blog/blog-phoi-do-keo-khach-tu-google-cho-shop-thoi-trang?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/blog-phoi-do-keo-khach-tu-google-cho-shop-thoi-trang?lang=vi) · Use case
 
-- Nhãn gốc: Xây dựng website thời trang; Inbound marketing fashion.
-- Đề mục trong bài: Khách vẫn đọc khi nội dung đúng thứ họ cần; Trang nào đón khách ở từng giai đoạn tìm kiếm; Chọn đề tài từ câu khách đã hỏi; Xem bài có đang kéo khách và dẫn tới sản phẩm.
-- Từ khóa được nhắc: `EzyCRM`, `Search Console`, `EzyRating`.
-- Bài được dẫn: [Hành trình mua đồ thời trang online: vẽ bản đồ từ lúc khách lướt mạng đến khi đặt hàng](./tra-cuu-marketing.md#bai-1598); [Xác định khách hàng cho shop thời trang: xây Buyer Persona cho người chưa mua hàng](./tra-cuu-marketing.md#bai-1597); [Hướng dẫn xây dựng hệ thống Blog Marketing kéo khách hàng từ Google](./tra-cuu-marketing.md#bai-1132).
+- Original category: Building a fashion website; Inbound marketing fashion.
+- Article sections: The guest still read when the content is right what they need; The guests in each search phase; Choose the subject from the guest asked; See if the card is attracting guests and leads to the product.
+- Features mentioned: `EzyCRM`, `Search Console`, `EzyRating`.
+- Referenced articles: [Map the Online Fashion Shopping Journey From Browsing to Ordering](./tra-cuu-marketing.md#bai-1598); [Identify customers for fashion shop: build Buyer Persona for those who don’t buy](./tra-cuu-marketing.md#bai-1597); [The Blog Marketing Building Guide draws customers from Google](./tra-cuu-marketing.md#bai-1132).
 
 <a id="bai-1598"></a>
 
-### Hành trình mua đồ thời trang online: vẽ bản đồ từ lúc khách lướt mạng đến khi đặt hàng
+### Map the Online Fashion Shopping Journey From Browsing to Ordering
 
-[Bài gốc](https://ezyplatform.com/blog/hanh-trinh-mua-do-thoi-trang-online?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/hanh-trinh-mua-do-thoi-trang-online?lang=vi) · Use case
 
-- Nhãn gốc: Xây dựng website thời trang; Inbound marketing fashion.
-- Đề mục trong bài: Hành trình mua đồ không đi theo một đường thẳng; Bản đồ hành trình tổng thể: khách đi những đường nào; Phễu chuyển đổi: khách rơi nhiều nhất ở bước nào; Chọn ba việc xử lý trước.
-- Từ khóa được nhắc: `EzyRating`.
-- Bài được dẫn: [Xác định khách hàng cho shop thời trang: xây Buyer Persona cho người chưa mua hàng](./tra-cuu-marketing.md#bai-1597); [Mapping Customer Journey – Cách vẽ bản đồ hành trình khách hàng thực tế](./tra-cuu-marketing.md#bai-964); [Vẽ bản đồ Customer Journey bằng dữ liệu thực tế trên EzyPlatform](./tra-cuu-marketing.md#bai-1446).
+- Original category: Building a fashion website; Inbound marketing fashion.
+- Article sections: The shopping journey does not follow a straight line; The road map: which guests go; Conversion: Which guests fall the most in the step; Choose three processes first.
+- Features mentioned: `EzyRating`.
+- Referenced articles: [Identify customers for fashion shop: build Buyer Persona for those who don’t buy](./tra-cuu-marketing.md#bai-1597); [Mapping Customer Journey – How to draw a real customer journey map](./tra-cuu-marketing.md#bai-964); [Painting the Customer Journey map with real data on EzyPlatform](./tra-cuu-marketing.md#bai-1446).
 
 <a id="bai-1597"></a>
 
-### Xác định khách hàng cho shop thời trang: xây Buyer Persona cho người chưa mua hàng
+### Identify customers for fashion shop: build Buyer Persona for those who don’t buy
 
-[Bài gốc](https://ezyplatform.com/blog/xac-dinh-khach-hang-shop-thoi-trang-buyer-persona?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/xac-dinh-khach-hang-shop-thoi-trang-buyer-persona?lang=vi) · Use case
 
-- Nhãn gốc: Xây dựng website thời trang; Inbound marketing fashion.
-- Đề mục trong bài: Vì sao nên xây persona cho người chưa mua; Người chưa mua để lại dấu vết ở đâu ?; Đọc dữ liệu người chưa mua trong EzyRating và EzyCRM; Xem lại sau một tháng.
-- Từ khóa được nhắc: `EzyCRM`, `Search Console`, `EzyRating`.
-- Bài được dẫn: [Inbound Marketing cho shop thời trang: vì sao khách mua đồ không còn đợi quảng cáo](./tra-cuu-marketing.md#bai-1596); [Hướng dẫn xác định khách hàng mục tiêu và xây dựng Buyer Persona](./tra-cuu-marketing.md#bai-1327); [Hướng dẫn tạo Form đăng ký và thu thập khách hàng tiềm năng](./tra-cuu-marketing.md#bai-1142).
+- Original category: Building a fashion website; Inbound marketing fashion.
+- Article sections: Why to build a person for those who don't buy; Who doesn’t buy, leaves traces ?; Read the data of the unacquired in EzyRating and EzyCRM; See again after a month.
+- Features mentioned: `EzyCRM`, `Search Console`, `EzyRating`.
+- Referenced articles: [Inbound Marketing for Fashion Shop: Why Buyers Don’t Wait for Advertising](./tra-cuu-marketing.md#bai-1596); [Guidelines to identify target customers and build Buyer Persona](./tra-cuu-marketing.md#bai-1327); [Guide to Creating Registration Form and Collecting Potential Customers](./tra-cuu-marketing.md#bai-1142).
 
 <a id="bai-1596"></a>
 
-### Inbound Marketing cho shop thời trang: vì sao khách mua đồ không còn đợi quảng cáo
+### Inbound Marketing for Fashion Shop: Why Buyers Don’t Wait for Advertising
 
-[Bài gốc](https://ezyplatform.com/blog/inbound-marketing-cho-shop-thoi-trang?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/inbound-marketing-cho-shop-thoi-trang?lang=vi) · Use case
 
-- Nhãn gốc: Xây dựng website thời trang; Inbound marketing fashion.
-- Đề mục trong bài: Quảng cáo dừng thì khách dừng: vấn đề của shop chỉ dựa vào quảng cáo; Khách mua đồ thời trang đi qua những bước nào trước khi đặt hàng; Vì sao nên gom mọi thứ về website của shop; Việc nhỏ làm ngay trong tuần này.
-- Từ khóa được nhắc: `Search Console`, `EzyRating`, `EzySEO`.
-- Bài được dẫn: [Inbound Marketing cho website thời trang: lộ trình thu hút khách truy cập website thời trang](./tra-cuu-marketing.md#bai-1605); [Inbound Marketing là gì? Vì sao nó trở thành xu hướng marketing hiện đại](./tra-cuu-marketing.md#bai-931); [Xây dựng chiến lược Inbound Marketing hoàn chỉnh](./tra-cuu-marketing.md#bai-950).
+- Original category: Building a fashion website; Inbound marketing fashion.
+- Article sections: Advertising stops when guests stop: the shop’s problem is based on advertising; Customers shop fashion passing through what steps before ordering; Why Should You Collect Everything On The Shop Website; The little work this week.
+- Features mentioned: `Search Console`, `EzyRating`, `EzySEO`.
+- Referenced articles: [Inbound Marketing for Fashion Website: The Trail to Attract Fashion Website Visitors](./tra-cuu-marketing.md#bai-1605); [What is Inbound Marketing? Why It Becomes a Modern Marketing Trend](./tra-cuu-marketing.md#bai-931); [Building a complete Inbound Marketing strategy](./tra-cuu-marketing.md#bai-950).
 
 <a id="bai-1590"></a>
 
-### Nghiên cứu từ khóa cho website EzyPlatform: từ câu hỏi của khách đến danh sách bài viết
+### Keyword Research for an EzyPlatform Website: Turn Customer Questions into Article Ideas
 
-[Bài gốc](https://ezyplatform.com/blog/nghien-cuu-tu-khoa-cho-website-ezyplatform?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/nghien-cuu-tu-khoa-cho-website-ezyplatform?lang=vi) · Use case
 
-- Nhãn gốc: SEO.
-- Đề mục trong bài: Bắt đầu từ câu hỏi của khách; Mở rộng thành danh sách từ khóa; Đo từng từ khóa; Lập danh sách bài viết, mỗi bài một từ khóa chính.
-- Từ khóa được nhắc: `EzyChat`, `EzyRating`, `EzyArticle`.
-- Bài được dẫn: [SEO cho website Hương Camera: Google đọc trang của bạn như thế nào](./tra-cuu-marketing.md#bai-1575); [Nghiên cứu từ khóa (Keyword Research) từ A–Z](./tra-cuu-marketing.md#bai-1025); [Search Intent trên website EzyPlatform: mỗi mục đích tìm kiếm, một loại trang](./tra-cuu-marketing.md#bai-1603).
+- Original category: SEO.
+- Article sections: Start with the guest’s questions; Expand to a list of keywords; Measure each keyword; Create a list of articles, each one key word.
+- Features mentioned: `EzyChat`, `EzyRating`, `EzyArticle`.
+- Referenced articles: [SEO for Web Camera: How Google Read Your Page](./tra-cuu-marketing.md#bai-1575); [Keyword Research from A to Z](./tra-cuu-marketing.md#bai-1025); [Search Intent on the website of EzyPlatform: each search purpose, a type of page](./tra-cuu-marketing.md#bai-1603).
 
 <a id="bai-1575"></a>
 
-### SEO cho website Hương Camera: Google đọc trang của bạn như thế nào
+### SEO for Web Camera: How Google Read Your Page
 
-[Bài gốc](https://ezyplatform.com/blog/seo-cho-website-huong-camera-google-doc-trang-cua-ban-nhu-the-nao?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/seo-cho-website-huong-camera-google-doc-trang-cua-ban-nhu-the-nao?lang=vi) · Use case
 
-- Nhãn gốc: SEO.
-- Đề mục trong bài: Website Hương Camera có những loại trang nào; Đường đi của Googlebot đến một bài viết của Hương Camera; Google đọc được gì trên trang của Hương Camera; Lộ trình chín bài tiếp theo.
-- Từ khóa được nhắc: `EzyArticle`, `Search Console`, `EzyRating`.
-- Bài được dẫn: [SEO là gì? Cách Google hoạt động như thế nào](./tra-cuu-marketing.md#bai-1024); [Internal Link: Bản chất của một hệ thống nội dung thông minh và kiến trúc thông tin](./tra-cuu-marketing.md#bai-1031); [Google Search Console: Công cụ theo dõi &amp; tối ưu hiệu suất tìm kiếm website](./tra-cuu-marketing.md#bai-1038).
+- Original category: SEO.
+- Article sections: What kinds of webcams are there; Googlebot's path to a post by Hanoi Camera; What Google has read on the camera page; The next 9th track.
+- Features mentioned: `EzyArticle`, `Search Console`, `EzyRating`.
+- Referenced articles: [What is SEO? how does Google work](./tra-cuu-marketing.md#bai-1024); [Internal Link: The essence of an intelligent content system and information architecture](./tra-cuu-marketing.md#bai-1031); [Google Search Console: Tracking and Tracking; optimized website search performance](./tra-cuu-marketing.md#bai-1038).
 
 <a id="bai-1564"></a>
 
-### Content Marketing với EzyPlatform: Nhìn lại một năm Camera Blog và lên kế hoạch cho năm sau
+### Content Marketing with EzyPlatform: Look back to a year Camera Blog and plan for the next year
 
-[Bài gốc](https://ezyplatform.com/blog/content-marketing-voi-ezyplatform-nhin-lai-mot-nam-camera-blog-va-len-ke-hoach-cho-nam-sau?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/content-marketing-voi-ezyplatform-nhin-lai-mot-nam-camera-blog-va-len-ke-hoach-cho-nam-sau?lang=vi) · Use case
 
-- Nhãn gốc: Content Marketing với EzyPlatform.
-- Đề mục trong bài: Đo lại cả năm trên một trang; Có bao nhiêu người tìm đến, và họ đi đến đâu; Nội dung có đáng tiền không; Nhìn lại hành trình qua câu chuyện của chị Lan.
-- Từ khóa được nhắc: `EzyRating`, `EzyMarketing`, `EzyChat`.
-- Bài được dẫn: [Inbound Marketing với EzyPlatform: Chăm sóc khách hàng tự động để người đọc trở thành khách quen](./tra-cuu-marketing.md#bai-1552).
+- Original category: Content Marketing with EzyPlatform.
+- Article sections: Measured the whole year on one page; How many people are coming, and where they are going; Is the content worth the money; Take a look at the story of Mrs. Lan.
+- Features mentioned: `EzyRating`, `EzyMarketing`, `EzyChat`.
+- Referenced articles: [Inbound Marketing with EzyPlatform: Automatic Customer Care so that readers become familiar guests](./tra-cuu-marketing.md#bai-1552).
 
 <a id="bai-1563"></a>
 
-### Content Marketing với EzyPlatform: Mời thợ ảnh và khách quen cùng viết cho Camera Blog
+### Content Marketing with EzyPlatform: Invite photographers and guests to write together for Camera Blog
 
-[Bài gốc](https://ezyplatform.com/blog/content-marketing-voi-ezyplatform-moi-tho-anh-va-khach-quen-cung-viet-cho-camera-blog?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/content-marketing-voi-ezyplatform-moi-tho-anh-va-khach-quen-cung-viet-cho-camera-blog?lang=vi) · Use case
 
-- Nhãn gốc: Content Marketing với EzyPlatform.
-- Đề mục trong bài: Ai nên mời viết cho Camera Blog; Tìm người viết ở đâu; Mời viết và giao đề bài; Bài khách mời có giúp người đọc không.
-- Từ khóa được nhắc: `EzyChat`, `EzyRating`, `EzyArticle`, `EzyMarketing`.
-- Bài được dẫn: [Content Marketing với EzyPlatform: Nội dung sau mua giúp khách của Hương Camera dùng tốt và quay lại](./tra-cuu-marketing.md#bai-1561); [Content Marketing với EzyPlatform: Biến ảnh và đánh giá của khách thành nội dung cho Camera Blog](./tra-cuu-marketing.md#bai-1557); [Content Marketing với EzyPlatform: Xây hệ thống nội dung bền vững cho Hương Camera](./tra-cuu-marketing.md#bai-1545).
+- Original category: Content Marketing with EzyPlatform.
+- Article sections: Who should invite to write for the Camera Blog; Where to find a writer; Please write and write; Does the guest help the reader.
+- Features mentioned: `EzyChat`, `EzyRating`, `EzyArticle`, `EzyMarketing`.
+- Referenced articles: [Content Marketing with EzyPlatform: Next content to help guests of Hanoi Camera use well and return](./tra-cuu-marketing.md#bai-1561); [Content Marketing with EzyPlatform: Transforming Guests' Images and Reviews into Content for Camera Blog](./tra-cuu-marketing.md#bai-1557); [Content Marketing with EzyPlatform: Building a Sustainable Content System for The Camera](./tra-cuu-marketing.md#bai-1545).
 
 <a id="bai-1561"></a>
 
-### Content Marketing với EzyPlatform: Nội dung sau mua giúp khách của Hương Camera dùng tốt và quay lại
+### Content Marketing with EzyPlatform: Next content to help guests of Hanoi Camera use well and return
 
-[Bài gốc](https://ezyplatform.com/blog/content-marketing-voi-ezyplatform-noi-dung-sau-mua-giup-khach-cua-huong-camera-dung-tot-va-quay-lai?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/content-marketing-voi-ezyplatform-noi-dung-sau-mua-giup-khach-cua-huong-camera-dung-tot-va-quay-lai?lang=vi) · Use case
 
-- Nhãn gốc: Content Marketing với EzyPlatform.
-- Đề mục trong bài: Nhìn lại dữ liệu để biết khách đã mua hỏi gì; Lập bảng nội dung cho chuyên mục "Dùng và bảo quản"; Ba loại bài trong chuyên mục; Khách có mua tiếp không.
-- Từ khóa được nhắc: `EzyChat`, `EzyRating`, `EzyMarketing`.
-- Bài được dẫn: [Content Marketing với EzyPlatform: Lên lịch nội dung theo mùa mua sắm cho Camera Blog](./tra-cuu-marketing.md#bai-1558); [Content Marketing với EzyPlatform: Biến ảnh và đánh giá của khách thành nội dung cho Camera Blog](./tra-cuu-marketing.md#bai-1557); [Inbound Marketing với EzyPlatform: Chăm sóc khách hàng tự động để người đọc trở thành khách quen](./tra-cuu-marketing.md#bai-1552).
+- Original category: Content Marketing with EzyPlatform.
+- Article sections: Check out the data to see what the guest asked; Create a content table for the "Use and Storage" section"; Three types of cards in the professional; The guest will continue to buy.
+- Features mentioned: `EzyChat`, `EzyRating`, `EzyMarketing`.
+- Referenced articles: [Content Marketing with EzyPlatform: Calendar Season-by Shopping Content for Camera Blog](./tra-cuu-marketing.md#bai-1558); [Content Marketing with EzyPlatform: Transforming Guests' Images and Reviews into Content for Camera Blog](./tra-cuu-marketing.md#bai-1557); [Inbound Marketing with EzyPlatform: Automatic Customer Care so that readers become familiar guests](./tra-cuu-marketing.md#bai-1552).
 
 <a id="bai-1558"></a>
 
-### Content Marketing với EzyPlatform: Lên lịch nội dung theo mùa mua sắm cho Camera Blog
+### Content Marketing with EzyPlatform: Calendar Season-by Shopping Content for Camera Blog
 
-[Bài gốc](https://ezyplatform.com/blog/content-marketing-voi-ezyplatform-len-lich-noi-dung-theo-mua-mua-sam-cho-camera-blog?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/content-marketing-voi-ezyplatform-len-lich-noi-dung-theo-mua-mua-sam-cho-camera-blog?lang=vi) · Use case
 
-- Nhãn gốc: Content Marketing với EzyPlatform.
-- Đề mục trong bài: Mùa mua sắm là gì; Nhận biết mùa mua sắm của Hương Camera từ dữ liệu; Tháng nào bán vượt trội; Sau mùa: kiểm tra lại để năm sau làm tốt hơn.
-- Từ khóa được nhắc: `EzyRating`, `EzyCRM`, `EzyMarketing`, `EzyArticle`, `UTM`.
-- Bài được dẫn: [Content Marketing với EzyPlatform: Biến ảnh và đánh giá của khách thành nội dung cho Camera Blog](./tra-cuu-marketing.md#bai-1557); [Content Marketing với EzyPlatform: Viết bài Camera Blog để Hương Camera lên top Google](./tra-cuu-marketing.md#bai-1531); [Content Marketing với EzyPlatform: Viết chuỗi email bài học cho người đăng ký Camera Blog](./tra-cuu-marketing.md#bai-1553).
+- Original category: Content Marketing with EzyPlatform.
+- Article sections: What is the shopping season; Recognize the shopping season of the Hang Camera from data; The month of sale is superior; After season: check again so that next year do better.
+- Features mentioned: `EzyRating`, `EzyCRM`, `EzyMarketing`, `EzyArticle`, `UTM`.
+- Referenced articles: [Content Marketing with EzyPlatform: Transforming Guests' Images and Reviews into Content for Camera Blog](./tra-cuu-marketing.md#bai-1557); [Content Marketing with EzyPlatform: Writing Camera Blog Posts to Make Camera Top Google](./tra-cuu-marketing.md#bai-1531); [Content Marketing with EzyPlatform: Writing e-mail chain lessons for Camera Blog subscribers](./tra-cuu-marketing.md#bai-1553).
 
 <a id="bai-1557"></a>
 
-### Content Marketing với EzyPlatform: Biến ảnh và đánh giá của khách thành nội dung cho Camera Blog
+### Content Marketing with EzyPlatform: Transforming Guests' Images and Reviews into Content for Camera Blog
 
-[Bài gốc](https://ezyplatform.com/blog/content-marketing-voi-ezyplatform-bien-anh-va-danh-gia-cua-khach-thanh-noi-dung-cho-camera-blog?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/content-marketing-voi-ezyplatform-bien-anh-va-danh-gia-cua-khach-thanh-noi-dung-cho-camera-blog?lang=vi) · Use case
 
-- Nhãn gốc: Content Marketing với EzyPlatform.
-- Đề mục trong bài: Thu thập đánh giá; Hỏi vào lúc nào; Hỏi thế nào để khách trả lời; Bài viết có giúp người đọc đi tiếp không.
-- Từ khóa được nhắc: `EzyMarketing`, `EzyRating`, `EzyChat`.
-- Bài được dẫn: [Inbound Marketing với EzyPlatform: Chăm sóc khách hàng tự động để người đọc trở thành khách quen](./tra-cuu-marketing.md#bai-1552).
+- Original category: Content Marketing with EzyPlatform.
+- Article sections: collecting the assessment; Ask when; How to ask guests to answer; Does the article help the reader to continue reading.
+- Features mentioned: `EzyMarketing`, `EzyRating`, `EzyChat`.
+- Referenced articles: [Inbound Marketing with EzyPlatform: Automatic Customer Care so that readers become familiar guests](./tra-cuu-marketing.md#bai-1552).
 
 <a id="bai-1554"></a>
 
-### Content Marketing với EzyPlatform: Viết trang sản phẩm Hương Camera như một bài nội dung
+### Content Marketing with EzyPlatform: Writing Page of Product Camera as a Content Post
 
-[Bài gốc](https://ezyplatform.com/blog/content-marketing-voi-ezyplatform-viet-trang-san-pham-huong-camera-nhu-mot-bai-noi-dung?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/content-marketing-voi-ezyplatform-viet-trang-san-pham-huong-camera-nhu-mot-bai-noi-dung?lang=vi) · Use case
 
-- Nhãn gốc: Content Marketing với EzyPlatform.
-- Đề mục trong bài: Vì sao trang sản phẩm cũng là nội dung; Khung một trang sản phẩm: trả lời câu hỏi theo đúng thứ tự khách đặt ra; Ví dụ: trang sản phẩm ống kính 50mm f/1.8; Mỗi lượt xem sản phẩm tốn bao nhiêu.
-- Từ khóa được nhắc: `EzyChat`, `EzyRating`, `EzyMarketing`.
+- Original category: Content Marketing with EzyPlatform.
+- Article sections: Why the product page is also content; Frame a product page: answer the question in the right order guest set; For example: product page 50mm f/1.8 lens; See how much the product costs.
+- Features mentioned: `EzyChat`, `EzyRating`, `EzyMarketing`.
 
 <a id="bai-1553"></a>
 
-### Content Marketing với EzyPlatform: Viết chuỗi email bài học cho người đăng ký Camera Blog
+### Content Marketing with EzyPlatform: Writing e-mail chain lessons for Camera Blog subscribers
 
-[Bài gốc](https://ezyplatform.com/blog/content-marketing-voi-ezyplatform-viet-chuoi-email-bai-hoc-cho-nguoi-dang-ky-camera-blog?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/content-marketing-voi-ezyplatform-viet-chuoi-email-bai-hoc-cho-nguoi-dang-ky-camera-blog?lang=vi) · Use case
 
-- Nhãn gốc: Content Marketing với EzyPlatform.
-- Đề mục trong bài: Vì sao là chuỗi bài học, không phải bản tin; Lên dàn ý cho cả chuỗi; Viết từng email; Trong EzyRating: người đọc làm gì sau khi bấm.
-- Từ khóa được nhắc: `EzyRating`, `EzyMail`, `EzyMarketing`, `THYMELEAF`, `UTM`.
+- Original category: Content Marketing with EzyPlatform.
+- Article sections: Why is the lesson chain, not the newsletter; Up to the whole chain; Write every email; In EzyRating: What the reader does after clicking.
+- Features mentioned: `EzyRating`, `EzyMail`, `EzyMarketing`, `THYMELEAF`, `UTM`.
 
 <a id="bai-1552"></a>
 
-### Inbound Marketing với EzyPlatform: Chăm sóc khách hàng tự động để người đọc trở thành khách quen
+### Inbound Marketing with EzyPlatform: Automatic Customer Care so that readers become familiar guests
 
-[Bài gốc](https://ezyplatform.com/blog/inbound-marketing-voi-ezyplatform-cham-soc-khach-hang-tu-dong-de-nguoi-doc-tro-thanh-khach-quen?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/inbound-marketing-voi-ezyplatform-cham-soc-khach-hang-tu-dong-de-nguoi-doc-tro-thanh-khach-quen?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing.
-- Đề mục trong bài: Chăm sóc tự động là gì, và vì sao cần nó; Chuẩn bị: chia khách thành từng nhóm; Chăm sóc người mới: từ người đọc lạ thành người đăng ký; Giữ cho tự động hóa vẫn có hơi ấm con người.
-- Từ khóa được nhắc: `EzyMarketing`, `EzyRating`.
+- Original category: Inbound Marketing.
+- Article sections: What is Automatic Care, and Why Do You Need It; Preparation: Divide guests into each group; Care for new people: from strange readers to registered people; Keeping for automation still a little warm man.
+- Features mentioned: `EzyMarketing`, `EzyRating`.
 
 <a id="bai-1545"></a>
 
-### Content Marketing với EzyPlatform: Xây hệ thống nội dung bền vững cho Hương Camera
+### Content Marketing with EzyPlatform: Building a Sustainable Content System for The Camera
 
-[Bài gốc](https://ezyplatform.com/blog/content-marketing-voi-ezyplatform-xay-he-thong-noi-dung-ben-vung-cho-huong-camera?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/content-marketing-voi-ezyplatform-xay-he-thong-noi-dung-ben-vung-cho-huong-camera?lang=vi) · Use case
 
-- Nhãn gốc: Content Marketing với EzyPlatform.
-- Đề mục trong bài: Yếu tố con người: ai làm và làm theo bước nào; Ba vai trò trong một đội nội dung nhỏ; Sáu bước nối các vai trò với nhau; Yếu tố kỹ thuật nội dung: viết thế nào để bài làm được việc của nó.
-- Từ khóa được nhắc: `UTM`, `EzyRating`, `EzyArticle`, `EzyMarketing`.
+- Original category: Content Marketing with EzyPlatform.
+- Article sections: Human factor: who does and what steps do; Three roles in a small content team; Six steps to connect the roles together; Content Technical Factor: How to Write to Make It Work.
+- Features mentioned: `UTM`, `EzyRating`, `EzyArticle`, `EzyMarketing`.
 
 <a id="bai-1543"></a>
 
-### Content Marketing với EzyPlatform: Đo hiệu quả nội dung Camera Blog của Hương Camera
+### Content Marketing with EzyPlatform: Measure the Efficiency of Camera Blog Content
 
-[Bài gốc](https://ezyplatform.com/blog/content-marketing-voi-ezyplatform-do-hieu-qua-noi-dung-camera-blog-cua-huong-camera?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/content-marketing-voi-ezyplatform-do-hieu-qua-noi-dung-camera-blog-cua-huong-camera?lang=vi) · Use case
 
-- Nhãn gốc: Content Marketing với EzyPlatform.
-- Đề mục trong bài: Năm câu hỏi, một đường đi trong EzyRating; Lượt truy cập: có ai tìm đến Camera Blog không; Lớp thứ nhất: toàn cảnh trên Dashboard; Thói quen đo cuối tháng.
-- Từ khóa được nhắc: `EzyRating`, `UTM`.
+- Original category: Content Marketing with EzyPlatform.
+- Article sections: Five Questions, A Way in EzyRating; Visit: Does anyone search for the Camera Blog; First Class: Full Scene on the Dashboard; Habits of the end of the month.
+- Features mentioned: `EzyRating`, `UTM`.
 
 <a id="bai-1542"></a>
 
-### Content Marketing với EzyPlatform: Kể câu chuyện Hương Camera trên Camera Blog
+### Content Marketing with EzyPlatform: Tell the Story of the Camera on the Camera Blog
 
-[Bài gốc](https://ezyplatform.com/blog/content-marketing-voi-ezyplatform-ke-cau-chuyen-huong-camera-tren-camera-blog?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/content-marketing-voi-ezyplatform-ke-cau-chuyen-huong-camera-tren-camera-blog?lang=vi) · Use case
 
-- Nhãn gốc: Content Marketing với EzyPlatform.
-- Đề mục trong bài: Vì sao câu chuyện giúp nội dung được nhớ; Khung kể chuyện bốn phần; Câu chuyện của Hương Camera; Biết câu chuyện có hiệu quả hay không.
-- Từ khóa được nhắc: `EzyArticle`, `EzyRating`.
+- Original category: Content Marketing with EzyPlatform.
+- Article sections: Why the story helps the content be remembered; The story of four parts; The story of the camera; Know if the story works.
+- Features mentioned: `EzyArticle`, `EzyRating`.
 
 <a id="bai-1541"></a>
 
-### Content Marketing với EzyPlatform: Đưa nội dung Camera Blog của Hương Camera lên mạng xã hội
+### Content Marketing with EzyPlatform: Put Camera Blog content on social networks
 
-[Bài gốc](https://ezyplatform.com/blog/content-marketing-voi-ezyplatform-dua-noi-dung-camera-blog-cua-huong-camera-len-mang-xa-hoi?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/content-marketing-voi-ezyplatform-dua-noi-dung-camera-blog-cua-huong-camera-len-mang-xa-hoi?lang=vi) · Use case
 
-- Nhãn gốc: Content Marketing với EzyPlatform.
-- Đề mục trong bài: Vì sao Camera Blog cần mạng xã hội; Một bài blog, nhiều bài đăng; Mỗi nền tảng một cách nói; Đo xem mạng xã hội có mang khách về không.
-- Từ khóa được nhắc: `EzyRating`, `UTM`, `EzyArticle`.
+- Original category: Content Marketing with EzyPlatform.
+- Article sections: Why Camera Blog needs social networks; One blog, many posts; Every foundation in a way; See if the social network is bringing guests.
+- Features mentioned: `EzyRating`, `UTM`, `EzyArticle`.
 
 <a id="bai-1532"></a>
 
-### Content Marketing với EzyPlatform: Biến Camera Blog thành phễu chuyển đổi cho Hương Camera
+### Content Marketing with EzyPlatform: Transforming Camera Blog to Transforming to Camera
 
-[Bài gốc](https://ezyplatform.com/blog/content-marketing-voi-ezyplatform-bien-camera-blog-thanh-pheu-chuyen-doi-cho-huong-camera?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/content-marketing-voi-ezyplatform-bien-camera-blog-thanh-pheu-chuyen-doi-cho-huong-camera?lang=vi) · Use case
 
-- Nhãn gốc: Content Marketing với EzyPlatform.
-- Đề mục trong bài: Phễu nội dung là gì; Tầng thu hút: giúp người mới tìm đến; Tầng nuôi dưỡng: giữ liên lạc với người đã quan tâm; Tìm chỗ người đọc đang bỏ đi bằng EzyRating.
-- Từ khóa được nhắc: `EzyRating`, `EzyArticle`.
+- Original category: Content Marketing with EzyPlatform.
+- Article sections: What is the content; The attractive floor: help new people find; Growth Floor: Keeping in touch with the person concerned; Find places that readers are leaving with EzyRating.
+- Features mentioned: `EzyRating`, `EzyArticle`.
 
 <a id="bai-1531"></a>
 
-### Content Marketing với EzyPlatform: Viết bài Camera Blog để Hương Camera lên top Google
+### Content Marketing with EzyPlatform: Writing Camera Blog Posts to Make Camera Top Google
 
-[Bài gốc](https://ezyplatform.com/blog/content-marketing-voi-ezyplatform-viet-bai-camera-blog-de-huong-camera-len-top-google?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/content-marketing-voi-ezyplatform-viet-bai-camera-blog-de-huong-camera-len-top-google?lang=vi) · Use case
 
-- Nhãn gốc: Content Marketing với EzyPlatform.
-- Đề mục trong bài: Chọn một câu hỏi của khách và xem Google đang trả lời thế nào; Dựng khung bài trước khi viết; Viết tiêu đề, đường dẫn và đoạn mô tả; Theo dõi kết quả sau khi đăng.
-- Từ khóa được nhắc: `EzyArticle`, `EzyRating`, `Search Console`.
+- Original category: Content Marketing with EzyPlatform.
+- Article sections: Choose a guest question and see how Google is answering; Write the book before writing; Write the title, path and description; Following the results after posting.
+- Features mentioned: `EzyArticle`, `EzyRating`, `Search Console`.
 
 <a id="bai-1526"></a>
 
-### Content Marketing với EzyPlatform: Lập chiến lược nội dung cho Camera Blog của Hương Camera
+### Content Marketing with EzyPlatform: Implementing Content Strategy for Camera Blog
 
-[Bài gốc](https://ezyplatform.com/blog/content-marketing-voi-ezyplatform-lap-chien-luoc-noi-dung-cho-camera-blog-cua-huong-camera?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/content-marketing-voi-ezyplatform-lap-chien-luoc-noi-dung-cho-camera-blog-cua-huong-camera?lang=vi) · Use case
 
-- Nhãn gốc: Content Marketing với EzyPlatform.
-- Đề mục trong bài: Đặt mục tiêu trước khi chọn chủ đề; Xác định khách hàng mục tiêu; Tìm từ khóa từ chính câu hỏi của khách; Xem lại chiến lược mỗi tháng.
-- Từ khóa được nhắc: `EzyRating`, `EzyArticle`, `UTM`.
+- Original category: Content Marketing with EzyPlatform.
+- Article sections: Set a target before choosing a topic; Identify the target customer; Find the keyword from the guest’s question; Look at the strategy every month.
+- Features mentioned: `EzyRating`, `EzyArticle`, `UTM`.
 
 <a id="bai-1525"></a>
 
-### Content Marketing với EzyPlatform: Một chủ đề, sáu dạng nội dung cho Hương Camera
+### Content Marketing with EzyPlatform: One Theme, Six Forms of Content for The Camera
 
-[Bài gốc](https://ezyplatform.com/blog/content-marketing-voi-ezyplatform-mot-chu-de-sau-dang-noi-dung-cho-huong-camera?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/content-marketing-voi-ezyplatform-mot-chu-de-sau-dang-noi-dung-cho-huong-camera?lang=vi) · Use case
 
-- Nhãn gốc: Content Marketing với EzyPlatform.
-- Đề mục trong bài: Blog: nền tảng của mọi dạng nội dung khác; Video: cho khách thấy sự khác biệt bằng mắt; Infographic: tóm tắt để lưu lại và chia sẻ; Một bài blog, nhiều dạng nội dung.
-- Từ khóa được nhắc: `EzyArticle`.
+- Original category: Content Marketing with EzyPlatform.
+- Article sections: Blog: the foundation of all other forms of content; Video: showing guests the difference with the eyes; Infographic: summary to save and share; A blog, a lot of content.
+- Features mentioned: `EzyArticle`.
 
 <a id="bai-1519"></a>
 
-### Content Marketing với EzyPlatform: Xếp nội dung Camera Blog theo từng giai đoạn của hành trình khách hàng
+### Content Marketing with EzyPlatform: Ranking Camera Blog content by each stage of the customer journey
 
-[Bài gốc](https://ezyplatform.com/blog/content-marketing-voi-ezyplatform-xep-noi-dung-camera-blog-theo-tung-giai-doan-cua-hanh-trinh-khach-hang?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/content-marketing-voi-ezyplatform-xep-noi-dung-camera-blog-theo-tung-giai-doan-cua-hanh-trinh-khach-hang?lang=vi) · Use case
 
-- Nhãn gốc: Content Marketing với EzyPlatform.
-- Đề mục trong bài: Mỗi giai đoạn, khách hỏi một kiểu câu hỏi; Xếp các bài hiện có vào ba giai đoạn; Ghi giai đoạn vào chính bài viết trong EzyArticle; Theo dõi từng giai đoạn bằng EzyRating.
-- Từ khóa được nhắc: `EzyArticle`, `EzyRating`.
+- Original category: Content Marketing with EzyPlatform.
+- Article sections: Each stage, guests ask a kind of question; Rank the present posts in three stages; Write the phase into the same article in EzyArticle; Tracking each stage with EzyRating.
+- Features mentioned: `EzyArticle`, `EzyRating`.
 
 <a id="bai-1518"></a>
 
-### Content Marketing với EzyPlatform: Vì sao Hương Camera xây Camera Blog thay vì chỉ chạy quảng cáo
+### Content Marketing with EzyPlatform: Why Camera Build Camera Blog instead of Just Running Ads
 
-[Bài gốc](https://ezyplatform.com/blog/content-marketing-voi-ezyplatform-vi-sao-huong-camera-xay-camera-blog-thay-vi-chi-chay-quang-cao?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/content-marketing-voi-ezyplatform-vi-sao-huong-camera-xay-camera-blog-thay-vi-chi-chay-quang-cao?lang=vi) · Use case
 
-- Nhãn gốc: Content Marketing với EzyPlatform.
-- Đề mục trong bài: Quảng cáo và nội dung khác nhau ở đâu; Nhìn lại Camera Blog như một tài sản; Nội dung tiếp tục làm việc sau khi đăng; Chuỗi bài Content Marketing sẽ đi qua những gì.
-- Từ khóa được nhắc: `EzyArticle`, `EzyRating`.
+- Original category: Content Marketing with EzyPlatform.
+- Article sections: Where is advertising and content different; Look back to the Camera Blog as an asset; The content continues to work after posting; Content Marketing will go through what.
+- Features mentioned: `EzyArticle`, `EzyRating`.
 
 <a id="bai-1513"></a>
 
-### Trợ lý AI tư vấn chọn máy với EzyPlatform: Trả lời câu hỏi của khách bằng chính nội dung Camera Blog
+### AI Assistant Advisory Choosing Machine with EzyPlatform: Answer Guests' Questions with the Camera Blog Content
 
-[Bài gốc](https://ezyplatform.com/blog/tro-ly-ai-tu-van-chon-may-voi-ezyplatform-tra-loi-cau-hoi-cua-khach-bang-chinh-noi-dung-camera-blog?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/tro-ly-ai-tu-van-chon-may-voi-ezyplatform-tra-loi-cau-hoi-cua-khach-bang-chinh-noi-dung-camera-blog?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing với EzyPlatform.
-- Đề mục trong bài: Trợ lý lấy câu trả lời từ đâu; Chuẩn bị nội dung cho trợ lý; Đặt trợ lý ở đúng điểm chạm; Đo lường và đưa vào hệ thống chung.
-- Từ khóa được nhắc: `EzyAI`, `EzyRAG`, `EzyVector`.
+- Original category: Inbound Marketing with EzyPlatform.
+- Article sections: Where does the assistant get the answer; Prepare the contents for the assistant; Place the assistant at the right touch point; Measure and put into the common system.
+- Features mentioned: `EzyAI`, `EzyRAG`, `EzyVector`.
 
 <a id="bai-1512"></a>
 
-### Đo lường Customer Journey với EzyPlatform: Gom số liệu của cả hành trình vào một chỗ để ra quyết định
+### Measure Customer Journey with EzyPlatform: Gom the whole journey data to one place to make decisions
 
-[Bài gốc](https://ezyplatform.com/blog/do-luong-customer-journey-voi-ezyplatform-gom-so-lieu-cua-ca-hanh-trinh-vao-mot-cho-de-ra-quyet-dinh?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/do-luong-customer-journey-voi-ezyplatform-gom-so-lieu-cua-ca-hanh-trinh-vao-mot-cho-de-ra-quyet-dinh?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing với EzyPlatform.
-- Đề mục trong bài: Khách đang rơi nhiều nhất ở đâu; Truy ngược: khách vào giỏ hàng từ đâu; Đi từng khách để tìm nguyên nhân; Gom về một trang và đo lại mỗi tháng.
-- Từ khóa được nhắc: `EzyRating`, `EzyCRM`, `UTM`, `EzyChat`, `EzyLogin`.
-- Bài được dẫn: [Inbound Marketing với EzyPlatform: Chăm sóc khách hàng tự động để người đọc trở thành khách quen](./tra-cuu-marketing.md#bai-1552).
+- Original category: Inbound Marketing with EzyPlatform.
+- Article sections: Where the guests fall most; Backback: Where the guests go into the basket from; Go to visitors to find the cause; Go to a page and measure each month.
+- Features mentioned: `EzyRating`, `EzyCRM`, `UTM`, `EzyChat`, `EzyLogin`.
+- Referenced articles: [Inbound Marketing with EzyPlatform: Automatic Customer Care so that readers become familiar guests](./tra-cuu-marketing.md#bai-1552).
 
 <a id="bai-1506"></a>
 
-### Điểm chạm trên website Hương Camera: Khách gặp cửa hàng ở đâu và cần gì ở mỗi nơi
+### Touching points on the website: where the guests meet the store and what they need in each place
 
-[Bài gốc](https://ezyplatform.com/blog/diem-cham-tren-website-huong-camera-khach-gap-cua-hang-o-dau-va-can-gi-o-moi-noi?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/diem-cham-tren-website-huong-camera-khach-gap-cua-hang-o-dau-va-can-gi-o-moi-noi?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing với EzyPlatform.
-- Đề mục trong bài: Điểm chạm là gì; Đi một vòng để ghi lại các điểm chạm; Mỗi điểm chạm trả lời một câu hỏi; Theo dõi điểm chạm bằng EzyRating.
-- Từ khóa được nhắc: `EzyRating`.
+- Original category: Inbound Marketing with EzyPlatform.
+- Article sections: What is the touch point; Go a round to record the touch points; Each touch point responds to a question; Tracking touch points with EzyRating.
+- Features mentioned: `EzyRating`.
 
 <a id="bai-1505"></a>
 
-### Customer Lifetime Value với EzyPlatform: Chăm sóc khách sau lần mua đầu tiên để họ quay lại Hương Camera
+### Customer Lifetime Value with EzyPlatform: Care for customers after the first purchase so they return to the Camera
 
-[Bài gốc](https://ezyplatform.com/blog/sau-lan-mua-dau-tien-giu-khach-quay-lai-bang-noi-dung-huu-ich-tren-ezyplatform?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/sau-lan-mua-dau-tien-giu-khach-quay-lai-bang-noi-dung-huu-ich-tren-ezyplatform?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing với EzyPlatform.
-- Đề mục trong bài: Tính CLV từ dữ liệu đơn hàng; Chăm sóc sau bán: nội dung đúng với sản phẩm khách vừa mua; Chuỗi email tự động sau lần mua đầu tiên; Theo dõi tác động lên CLV.
-- Từ khóa được nhắc: `EzyDelivery`, `EzyCRM`.
+- Original category: Inbound Marketing with EzyPlatform.
+- Article sections: Calculate CLV from order data; After-sales care: the content is right to the customer's product just purchased; Automatic email chain after the first purchase; Monitoring the impact on CLV.
+- Features mentioned: `EzyDelivery`, `EzyCRM`.
 
 <a id="bai-1504"></a>
 
-### Growth Marketing với EzyPlatform: Thử nghiệm từng bước để nhiều khách đi đến lần mua đầu tiên hơn
+### Growth Marketing with EzyPlatform: Test Each Step to Help More Customers Make Their First Purchase
 
-[Bài gốc](https://ezyplatform.com/blog/growth-marketing-voi-ezyplatform-thu-nghiem-tung-buoc-de-nhieu-khach-di-den-lan-mua-dau-tien-hon?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/growth-marketing-voi-ezyplatform-thu-nghiem-tung-buoc-de-nhieu-khach-di-den-lan-mua-dau-tien-hon?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing với EzyPlatform.
-- Đề mục trong bài: Nhìn hành trình thành một phễu; Đặt giả thuyết trước khi thay đổi; Dựng thử nghiệm A/B trong VS Code; Ghi lại mọi thử nghiệm.
-- Từ khóa được nhắc: `EzyArticle`, `EzyRating`.
+- Original category: Inbound Marketing with EzyPlatform.
+- Article sections: See the journey into a hole; Set theory before changing; A/B testing in VS Code; Record all tests.
+- Features mentioned: `EzyArticle`, `EzyRating`.
 
 <a id="bai-1482"></a>
 
-### Hành trình khách hàng theo mô hình đăng ký với EzyPlatform: Từ một bài học thử đến lần mua sản phẩm đầu tiên của khách hàng
+### Customer travel according to the registration model with EzyPlatform: From a trial lesson to the first customer product purchase
 
-[Bài gốc](https://ezyplatform.com/blog/hanh-trinh-khach-hang-theo-mo-hinh-dang-ky-voi-ezyplatform-tu-mot-bai-hoc-thu-den-lan-gia-han-dau-tien?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/hanh-trinh-khach-hang-theo-mo-hinh-dang-ky-voi-ezyplatform-tu-mot-bai-hoc-thu-den-lan-gia-han-dau-tien?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing với EzyPlatform.
-- Đề mục trong bài: Biến bài viết rời rạc thành một chuỗi bài học có thứ tự; Trial: bài học thử đặt ngay ở điểm chạm khách đang đọc; Activation: bài học đầu tiên cho khách một kết quả tự làm được; Bảng theo dõi tháng đầu tiên.
-- Từ khóa được nhắc: `EzyArticle`, `EzyRating`.
+- Original category: Inbound Marketing with EzyPlatform.
+- Article sections: Convert the article to a series of lessons in order; Trial: Test lesson set right at the touch point of the guest is reading; Activation: The first lesson to give a guest a self-made result; The first monitoring month.
+- Features mentioned: `EzyArticle`, `EzyRating`.
 
 <a id="bai-1475"></a>
 
-### Nâng cao trải nghiệm khách hàng với EzyPlatform: Đưa nội dung khách cần đến đúng điểm chạm
+### Improve customer experience with EzyPlatform: Give the customer content to the right touch point
 
-[Bài gốc](https://ezyplatform.com/blog/nang-cao-trai-nghiem-khach-hang-voi-ezyplatform-tim-va-sua-diem-gay-gian-doan?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/nang-cao-trai-nghiem-khach-hang-voi-ezyplatform-tim-va-sua-diem-gay-gian-doan?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing với EzyPlatform.
-- Đề mục trong bài: Xác định khách cần gì tiếp theo ở từng điểm chạm; Trang bài viết: bài liên quan và danh mục lớn có ảnh; Dựng khối bài liên quan và danh mục trong VS Code; Theo dõi bằng EzyRating.
-- Từ khóa được nhắc: `EzyArticle`, `EzyRating`.
-- Bài được dẫn: [Điểm chạm trên website Hương Camera: Khách gặp cửa hàng ở đâu và cần gì ở mỗi nơi](./tra-cuu-marketing.md#bai-1506).
+- Original category: Inbound Marketing with EzyPlatform.
+- Article sections: Find out what the guest needs next at each touch point; Posts: Related posts and big categories with photos; Create related card blocks and categories in VS Code; Tracking with EzyRating.
+- Features mentioned: `EzyArticle`, `EzyRating`.
+- Referenced articles: [Touching points on the website: where the guests meet the store and what they need in each place](./tra-cuu-marketing.md#bai-1506).
 
 <a id="bai-1474"></a>
 
-### Cá nhân hóa giao diện website với EzyPlatform: Quản lý nội dung trong admin và hiển thị theo nhu cầu khách hàng
+### Personalize the website interface with EzyPlatform: Manage content in admin and display according to customer needs
 
-[Bài gốc](https://ezyplatform.com/blog/ca-nhan-hoa-hanh-trinh-khach-hang-bang-du-lieu-voi-ezyplatform?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/ca-nhan-hoa-hanh-trinh-khach-hang-bang-du-lieu-voi-ezyplatform?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing với EzyPlatform.
-- Đề mục trong bài: Xác định phần giao diện thay đổi ở lần truy cập thứ hai; Ghi nhận sản phẩm khách đã xem; Bổ sung chức năng trong VS Code; Kiểm tra các trường hợp đặc biệt.
-- Từ khóa được nhắc: `EzyCRM`.
+- Original category: Inbound Marketing with EzyPlatform.
+- Article sections: Determine the change in the interface in the second access; Recognize the guest products that you have seen; Add functionality in VS Code; Check out special cases.
+- Features mentioned: `EzyCRM`.
 
 <a id="bai-1472"></a>
 
-### Micro-moments là gì? Hiểu đúng những khoảnh khắc khách hàng chủ động tìm câu trả lời
+### What is Micro-moments? understand the right moments that customers are actively looking for answers
 
-[Bài gốc](https://ezyplatform.com/blog/micro-moments-la-gi-hieu-dung-nhung-khoanh-khac-khach-hang-chu-dong-tim-cau-tra-loi?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/micro-moments-la-gi-hieu-dung-nhung-khoanh-khac-khach-hang-chu-dong-tim-cau-tra-loi?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing.
-- Đề mục trong bài: Micro-moment không phải một giai đoạn mới trong hành trình; Bốn nhóm Micro-moments phổ biến; Không phải mọi hành động đều là Micro-moment; Giá trị nhận được sau bài viết.
-- Từ khóa được nhắc: `Search Console`, `EzyRating`.
+- Original category: Inbound Marketing.
+- Article sections: Micro-moment is not a new stage in the journey; Four Micro-Moments Groups; Not every action is a micro-moment; The value received after the writing.
+- Features mentioned: `Search Console`, `EzyRating`.
 
 <a id="bai-1466"></a>
 
-### Xây dựng hành trình đa kênh với EzyPlatform: Đưa khách hàng về cùng một nội dung và dữ liệu
+### Building a multi-channel journey with EzyPlatform: bringing customers to the same content and data
 
-[Bài gốc](https://ezyplatform.com/blog/xay-dung-hanh-trinh-da-kenh-voi-ezyplatform-dua-khach-hang-ve-cung-mot-noi-dung-va-du-lieu?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/xay-dung-hanh-trinh-da-kenh-voi-ezyplatform-dua-khach-hang-ve-cung-mot-noi-dung-va-du-lieu?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing với EzyPlatform.
-- Đề mục trong bài: Chọn một nội dung làm điểm đến chung; Hoàn thiện nội dung và CTA trên website; Đưa người đọc từ Social Media về đúng URL; Giá trị nhận được sau khi hoàn thành.
-- Từ khóa được nhắc: `EzyRating`, `EzyMail`, `EzyCRM`, `EzySupport`, `EzyChat`, `Search Console`.
+- Original category: Inbound Marketing with EzyPlatform.
+- Article sections: Choose a content as a common destination; Complete content and CTA on the website; Bring the reader from social media to the right URL; The value received after completion.
+- Features mentioned: `EzyRating`, `EzyMail`, `EzyCRM`, `EzySupport`, `EzyChat`, `Search Console`.
 
 <a id="bai-1465"></a>
 
-### Tìm Micro-moments của khách hàng với EzyPlatform: Từ nhu cầu chọn máy ảnh đến hành động mua hàng
+### Find Micro-moments of customers with EzyPlatform: From the need to select the camera to the purchase action
 
-[Bài gốc](https://ezyplatform.com/blog/micro-moments-tren-ezyplatform-tim-dung-nhu-cau-de-dua-khach-hang-den-noi-dung-phu-hop?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/micro-moments-tren-ezyplatform-tim-dung-nhu-cau-de-dua-khach-hang-den-noi-dung-phu-hop?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing với EzyPlatform.
-- Đề mục trong bài: Bắt đầu từ một nhu cầu đã có dữ liệu; Kiểm tra Google đang đưa khách hàng đến đâu; Khoảnh khắc nào giúp khách hàng tiến gần quyết định mua?; Giá trị nhận được sau khi hoàn thành.
-- Từ khóa được nhắc: `Search Console`, `EzyRating`, `E-Commerce`, `EzyCRM`, `EzySupport`.
+- Original category: Inbound Marketing with EzyPlatform.
+- Article sections: Starting with a already data requirement; Check where Google is bringing customers; The moment that helps the customer approach the decision to purchase?; The value received after completion.
+- Features mentioned: `Search Console`, `EzyRating`, `E-Commerce`, `EzyCRM`, `EzySupport`.
 
 <a id="bai-1446"></a>
 
-### Vẽ bản đồ Customer Journey bằng dữ liệu thực tế trên EzyPlatform
+### Painting the Customer Journey map with real data on EzyPlatform
 
-[Bài gốc](https://ezyplatform.com/blog/ve-ban-do-customer-journey-bang-du-lieu-thuc-te-tren-ezyplatform?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/ve-ban-do-customer-journey-bang-du-lieu-thuc-te-tren-ezyplatform?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing với EzyPlatform.
-- Đề mục trong bài: Chọn đúng hành trình cần đưa vào bản đồ; Xác định nhóm khách hàng từ dữ liệu đang có; Chia hành trình theo hành động thực tế; Giá trị nhận được sau khi hoàn thành.
-- Từ khóa được nhắc: `EzyCRM`, `EzySupport`, `E-Commerce`, `EzyRating`, `Search Console`, `EzyChat`, `EzyArticle`, `EzyMail`.
-- Bài được dẫn: [Mapping Customer Journey – Cách vẽ bản đồ hành trình khách hàng thực tế](./tra-cuu-marketing.md#bai-964).
+- Original category: Inbound Marketing with EzyPlatform.
+- Article sections: Choose the right journey to put on the map; Identify the customer group from the data that is available; Divide the journey by practical action; The value received after completion.
+- Features mentioned: `EzyCRM`, `EzySupport`, `E-Commerce`, `EzyRating`, `Search Console`, `EzyChat`, `EzyArticle`, `EzyMail`.
+- Referenced articles: [Mapping Customer Journey – How to draw a real customer journey map](./tra-cuu-marketing.md#bai-964).
 
 <a id="bai-1445"></a>
 
-### Kiểm kê hành trình khách hàng hiện tại trên EzyPlatform: Biết website đang thiếu gì trước khi tối ưu
+### Check the current customer journey on EzyPlatform: Know what the website is lacking before optimizing
 
-[Bài gốc](https://ezyplatform.com/blog/kiem-ke-hanh-trinh-khach-hang-hien-tai-tren-ezyplatform-biet-website-dang-thieu-gi-truoc-khi-toi-uu?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/kiem-ke-hanh-trinh-khach-hang-hien-tai-tren-ezyplatform-biet-website-dang-thieu-gi-truoc-khi-toi-uu?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing với EzyPlatform.
-- Đề mục trong bài: Chọn một hành trình cụ thể để kiểm tra; Kiểm tra đường đi từ bài viết đến sản phẩm; Kiểm tra trang sản phẩm và hành động tiếp theo; Giá trị nhận được sau khi hoàn thành.
-- Từ khóa được nhắc: `EzyCRM`, `EzySupport`, `E-Commerce`, `EzyRating`, `EzyMail`.
-- Bài được dẫn: [Tư duy chiến lược về Customer Journey trong thời đại số](./tra-cuu-marketing.md#bai-953).
+- Original category: Inbound Marketing with EzyPlatform.
+- Article sections: Choose a specific journey to check; Check the way from article to product; Check the product page and follow the action; The value received after completion.
+- Features mentioned: `EzyCRM`, `EzySupport`, `E-Commerce`, `EzyRating`, `EzyMail`.
+- Referenced articles: [Strategic Thinking of Customer Journey in the Digital Age](./tra-cuu-marketing.md#bai-953).
 
 <a id="bai-1444"></a>
 
-### Quản lý yêu cầu hỗ trợ khách hàng với EzySupport: Từ tiếp nhận đến xử lý hoàn tất
+### Customer Support Requirements Management with EzySupport: From receipt to completion processing
 
-[Bài gốc](https://ezyplatform.com/blog/quan-ly-yeu-cau-ho-tro-khach-hang-voi-ezysupport-tu-tiep-nhan-den-xu-ly-hoan-tat?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/quan-ly-yeu-cau-ho-tro-khach-hang-voi-ezysupport-tu-tiep-nhan-den-xu-ly-hoan-tat?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing với EzyPlatform.
-- Đề mục trong bài: Chuẩn bị một yêu cầu hỗ trợ thử nghiệm; Gửi yêu cầu từ giao diện website; Kiểm tra yêu cầu trong EzySupport; Giá trị nhận được sau khi hoàn thành.
-- Từ khóa được nhắc: `EzyRating`, `EzySupport`, `EzyCRM`.
+- Original category: Inbound Marketing with EzyPlatform.
+- Article sections: Prepare a request for experimental support; Send a request from the website; Check the requests in EzySupport; The value received after completion.
+- Features mentioned: `EzyRating`, `EzySupport`, `EzyCRM`.
 
 <a id="bai-1443"></a>
 
-### Đóng vòng lặp hành trình khách hàng với EzyRating: Biến phản hồi thành hành động cải thiện
+### Close the customer journey with EzyRating: Transform feedback into improvement action
 
-[Bài gốc](https://ezyplatform.com/blog/dong-vong-lap-hanh-trinh-khach-hang-voi-ezyrating?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/dong-vong-lap-hanh-trinh-khach-hang-voi-ezyrating?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing với EzyPlatform.
-- Đề mục trong bài: Chọn một nhóm đánh giá để kiểm tra; Phân loại phản hồi theo điểm chạm; Kiểm tra dữ liệu trước khi kết luận nguyên nhân; Giá trị nhận được sau khi hoàn thành.
-- Từ khóa được nhắc: `EzyRating`, `EzySupport`, `EzyChat`, `EzyArticle`, `EzyCRM`, `EzyMail`, `E-Commerce`.
+- Original category: Inbound Marketing with EzyPlatform.
+- Article sections: Select a review group to check; Reaction by touch point; Check the data before concluding the cause; The value received after completion.
+- Features mentioned: `EzyRating`, `EzySupport`, `EzyChat`, `EzyArticle`, `EzyCRM`, `EzyMail`, `E-Commerce`.
 
 <a id="bai-1442"></a>
 
-### Giữ chân khách hàng sau mua với EzyPlatform: Tạo lý do để khách quay lại đúng lúc
+### Keep the customer foot after purchasing with EzyPlatform: Create reasons for guests to return in time
 
-[Bài gốc](https://ezyplatform.com/blog/giu-chan-khach-hang-sau-mua-voi-ezyplatform-tao-ly-do-de-khach-quay-lai-dung-luc?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/giu-chan-khach-hang-sau-mua-voi-ezyplatform-tao-ly-do-de-khach-quay-lai-dung-luc?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing với EzyPlatform.
-- Đề mục trong bài: Chọn nhóm khách hàng cần giữ chân; Kiểm tra hồ sơ trước khi chăm sóc; Phân nhóm theo nhu cầu sau mua; Giá trị nhận được sau khi hoàn thành.
-- Từ khóa được nhắc: `E-Commerce`, `EzyCRM`, `EzyMail`, `EzySupport`, `EzyArticle`, `EzyChat`.
+- Original category: Inbound Marketing with EzyPlatform.
+- Article sections: Choose a group of customers to keep their feet; Check the records before taking care; Divide according to demand after purchase; The value received after completion.
+- Features mentioned: `E-Commerce`, `EzyCRM`, `EzyMail`, `EzySupport`, `EzyArticle`, `EzyChat`.
 
 <a id="bai-1441"></a>
 
-### Giá trị vòng đời khách hàng (CLV): Đo và tăng bằng dữ liệu từ EzyCRM
+### Customer Lifecycle Value (CLV): Measure and increase by data from EzyCRM
 
-[Bài gốc](https://ezyplatform.com/blog/gia-tri-vong-doi-khach-hang-clv-do-va-tang-bang-du-lieu-tu-ezycrm?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/gia-tri-vong-doi-khach-hang-clv-do-va-tang-bang-du-lieu-tu-ezycrm?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing với EzyPlatform.
-- Đề mục trong bài: Giá trị vòng đời khách hàng (CLV): Đo và tăng bằng dữ liệu từ EzyCRM; Chọn đúng nhóm khách hàng cần đo; Nối hồ sơ khách hàng với đơn hàng hợp lệ; Giá trị nhận được sau khi hoàn thành.
-- Từ khóa được nhắc: `EzyCRM`, `E-Commerce`, `EzySupport`, `EzyChat`, `EzyMail`.
+- Original category: Inbound Marketing with EzyPlatform.
+- Article sections: Customer Lifecycle Value (CLV): Measure and increase by data from EzyCRM; Choose the right customer group to measure; Link the customer profile with valid order; The value received after completion.
+- Features mentioned: `EzyCRM`, `E-Commerce`, `EzySupport`, `EzyChat`, `EzyMail`.
 
 <a id="bai-1440"></a>
 
-### Chi phí Marketing theo từng kênh: Tính đúng và tối ưu với dữ liệu EzyPlatform
+### Marketing costs by channel: accurate and optimized with EzyPlatform data
 
-[Bài gốc](https://ezyplatform.com/blog/chi-phi-marketing-theo-tung-kenh-tinh-dung-va-toi-uu-voi-du-lieu-ezyplatform?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/chi-phi-marketing-theo-tung-kenh-tinh-dung-va-toi-uu-voi-du-lieu-ezyplatform?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing với EzyPlatform.
-- Đề mục trong bài: Chọn thời gian và vai trò của từng kênh; Ghi đủ chi phí, không chỉ tiền quảng cáo; Đặt đơn giá cho bài viết và chiến dịch email; Giá trị nhận được sau khi hoàn thành.
-- Từ khóa được nhắc: `EzyMarketing`, `UTM`, `EzyCRM`.
-- Bài được dẫn: [Thời gian ra quyết định: Rút ngắn bằng nội dung và dữ liệu đúng lúc trên EzyPlatform](./tra-cuu-marketing.md#bai-1439); [Giá trị vòng đời khách hàng (CLV): Đo và tăng bằng dữ liệu từ EzyCRM](./tra-cuu-marketing.md#bai-1441).
+- Original category: Inbound Marketing with EzyPlatform.
+- Article sections: Choose the time and role of each channel; Save enough expenses, not just advertising money; Set a single price for posts and email campaigns; The value received after completion.
+- Features mentioned: `EzyMarketing`, `UTM`, `EzyCRM`.
+- Referenced articles: [Time of Decision Making: Shorten with the right time content and data on EzyPlatform](./tra-cuu-marketing.md#bai-1439); [Customer Lifecycle Value (CLV): Measure and increase by data from EzyCRM](./tra-cuu-marketing.md#bai-1441).
 
 <a id="bai-1439"></a>
 
-### Thời gian ra quyết định: Rút ngắn bằng nội dung và dữ liệu đúng lúc trên EzyPlatform
+### Time of Decision Making: Shorten with the right time content and data on EzyPlatform
 
-[Bài gốc](https://ezyplatform.com/blog/thoi-gian-ra-quyet-dinh-rut-ngan-bang-noi-dung-va-du-lieu-dung-luc-tren-ezyplatform?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/thoi-gian-ra-quyet-dinh-rut-ngan-bang-noi-dung-va-du-lieu-dung-luc-tren-ezyplatform?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing với EzyPlatform.
-- Đề mục trong bài: Chọn điểm bắt đầu và điểm kết thúc có thể kiểm tra; Tạo các mốc thời gian cho một hành trình; Tìm khoảng chờ dài nhất; Giá trị nhận được sau khi hoàn thành.
-- Từ khóa được nhắc: `EzyCRM`, `EzyMail`, `EzyChat`, `EzySupport`, `EzyArticle`.
+- Original category: Inbound Marketing with EzyPlatform.
+- Article sections: Select the starting point and the end point can be checked; Create timeline for a journey; Find the longest waiting; The value received after completion.
+- Features mentioned: `EzyCRM`, `EzyMail`, `EzyChat`, `EzySupport`, `EzyArticle`.
 
 <a id="bai-1437"></a>
 
-### Tổng hợp kiến thức Inbound Marketing: Lộ trình từ nền tảng đến vận hành thực tế
+### Inbound Marketing: A journey from the foundation to the practical operation
 
-[Bài gốc](https://ezyplatform.com/blog/tong-hop-kien-thuc-inbound-marketing-lo-trinh-tu-nen-tang-den-van-hanh-thuc-te?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/tong-hop-kien-thuc-inbound-marketing-lo-trinh-tu-nen-tang-den-van-hanh-thuc-te?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing với EzyPlatform.
-- Đề mục trong bài: Nền tảng Inbound Marketing và hành trình khách hàng; 1. Tổng quan Inbound Marketing; 2. Chuỗi kiến thức Customer Journey; Nên bắt đầu từ đâu?.
-- Từ khóa được nhắc: `Search Console`, `EzyCRM`, `EzyArticle`, `EzyRating`, `EzySupport`.
-- Bài được dẫn: [Inbound Marketing là gì? Vì sao nó trở thành xu hướng marketing hiện đại](./tra-cuu-marketing.md#bai-931); [Hành trình khách hàng trong Inbound Marketing](./tra-cuu-marketing.md#bai-932); [Xây dựng Website chuẩn Inbound Marketing](./tra-cuu-marketing.md#bai-938).
+- Original category: Inbound Marketing with EzyPlatform.
+- Article sections: Inbound Marketing Platform and Customer Travel; The Inbound Marketing; The Customer Journey Knowledge Chain; Where to start?.
+- Features mentioned: `Search Console`, `EzyCRM`, `EzyArticle`, `EzyRating`, `EzySupport`.
+- Referenced articles: [What is Inbound Marketing? Why It Becomes a Modern Marketing Trend](./tra-cuu-marketing.md#bai-931); [Customer Travel in Inbound Marketing](./tra-cuu-marketing.md#bai-932); [The Inbound Marketing Website](./tra-cuu-marketing.md#bai-938).
 
 <a id="bai-1435"></a>
 
-### Tối ưu điểm chạm Chatbot với EzyPlatform: Trả lời đúng lúc bằng dữ liệu thật
+### Optimize Chatbot touch point with EzyPlatform: Reply in time with real data
 
-[Bài gốc](https://ezyplatform.com/blog/toi-uu-diem-cham-chatbot-voi-ezyplatform-tra-loi-dung-luc-bang-du-lieu-that?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/toi-uu-diem-cham-chatbot-voi-ezyplatform-tra-loi-dung-luc-bang-du-lieu-that?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing với EzyPlatform.
-- Đề mục trong bài: Chọn một tình huống chatbot cần xử lý; Chuẩn bị dữ liệu để chatbot tra cứu; Tạo kỹ năng tư vấn cho Hương Camera trong EzyAI; Giá trị nhận được sau khi hoàn thành.
-- Từ khóa được nhắc: `EzyAI`, `EzyChat`, `EzyArticle`.
+- Original category: Inbound Marketing with EzyPlatform.
+- Article sections: Choose a chatbot situation to deal with; Prepare data for chatbot search; Create the skills of consulting for the camera in EzyAI; The value received after completion.
+- Features mentioned: `EzyAI`, `EzyChat`, `EzyArticle`.
 
 <a id="bai-1434"></a>
 
-### Tối ưu điểm chạm Email với EzyPlatform: Đưa người đọc quay lại đúng nội dung
+### Optimize the E-mail touch point with EzyPlatform: Get the reader back to the right content
 
-[Bài gốc](https://ezyplatform.com/blog/toi-uu-diem-cham-email-voi-ezyplatform-dua-nguoi-doc-quay-lai-dung-noi-dung?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/toi-uu-diem-cham-email-voi-ezyplatform-dua-nguoi-doc-quay-lai-dung-noi-dung?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing với EzyPlatform.
-- Đề mục trong bài: Chọn đúng người nhận và nội dung cần gửi; Đăng ký thử và kiểm tra subscriber trong EzyCRM; Bật thông báo bài viết mới theo lịch; Giá trị nhận được sau khi hoàn thành.
-- Từ khóa được nhắc: `EzyCRM`, `EzyMail`.
+- Original category: Inbound Marketing with EzyPlatform.
+- Article sections: Choose the right recipient and the content to be sent; Test and check subscriber in EzyCRM; Open the new article in the calendar; The value received after completion.
+- Features mentioned: `EzyCRM`, `EzyMail`.
 
 <a id="bai-1430"></a>
 
-### Tối ưu điểm chạm Social Media với EzyPlatform: Đưa người đọc từ bài đăng về đúng nội dung
+### Optimize Social Media Touch Point with EzyPlatform: Bring the Reader from the Post on the Right Content
 
-[Bài gốc](https://ezyplatform.com/blog/toi-uu-diem-cham-social-media-voi-ezyplatform-dua-nguoi-doc-tu-bai-dang-ve-dung-noi-dung?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/toi-uu-diem-cham-social-media-voi-ezyplatform-dua-nguoi-doc-tu-bai-dang-ve-dung-noi-dung?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing với EzyPlatform.
-- Đề mục trong bài: Chọn một bài viết và một mục tiêu chia sẻ; Viết bài đăng từ vấn đề thật của khách hàng; Tạo hình ảnh phù hợp với nội dung Social Media; Giá trị nhận được sau khi hoàn thành.
-- Từ khóa được nhắc: `EzyArticle`.
+- Original category: Inbound Marketing with EzyPlatform.
+- Article sections: Choose an article and a shared goal; Write a post from the real customer issue; Create images that fit the social media content; The value received after completion.
+- Features mentioned: `EzyArticle`.
 
 <a id="bai-1421"></a>
 
-### Tối ưu điểm chạm Website với EzyPlatform: Giúp khách đọc tiếp và đi đến hành động
+### Improve Website Touchpoints with EzyPlatform: Help Visitors Keep Reading and Take Action
 
-[Bài gốc](https://ezyplatform.com/blog/website-dao-sau-toi-uu-trung-tam-hanh-trinh-khach-hang?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/website-dao-sau-toi-uu-trung-tam-hanh-trinh-khach-hang?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing với EzyPlatform.
-- Đề mục trong bài: Chọn một trang khách hàng thực sự truy cập; Vẽ đường đi mong muốn trên website; Kết nối bài viết bằng term và internal link; Giá trị nhận được sau khi hoàn thành.
-- Từ khóa được nhắc: `EzyArticle`, `Page Fragment`.
+- Original category: Inbound Marketing with EzyPlatform.
+- Article sections: Choose a real customer page; Draw the desired path on the website; Connect text by term and internal link; The value received after completion.
+- Features mentioned: `EzyArticle`, `Page Fragment`.
 
 <a id="bai-1420"></a>
 
-### Tối ưu điểm chạm Google Search với EzyPlatform: Từ sitemap đến truy vấn thực tế
+### Google Search touch point optimization with EzyPlatform: From sitemap to real-world queries
 
-[Bài gốc](https://ezyplatform.com/blog/google-search-dao-sau-toi-uu-diem-cham-dau-tien-cua-huong-camera?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/google-search-dao-sau-toi-uu-diem-cham-dau-tien-cua-huong-camera?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing với EzyPlatform.
-- Đề mục trong bài: Chọn một bài viết để theo dõi; Kiểm tra nội dung hiển thị trên kết quả tìm kiếm; Kiểm tra bài viết trong sitemap của EzySEO; Giá trị nhận được sau khi hoàn thành.
-- Từ khóa được nhắc: `EzySEO`, `Search Console`, `EzyArticle`.
+- Original category: Inbound Marketing with EzyPlatform.
+- Article sections: Choose an article to follow; Check the content displayed on the search results; Check the article in the sitemap of EzySEO; The value received after completion.
+- Features mentioned: `EzySEO`, `Search Console`, `EzyArticle`.
 
 <a id="bai-1412"></a>
 
-### Tạo landing page giúp khách hàng đưa ra quyết định với EzyPlatform
+### Creating landing page helps customers make decisions with EzyPlatform
 
-[Bài gốc](https://ezyplatform.com/blog/landing-page-san-pham-va-danh-gia-khach-hang-noi-dung-cho-giai-doan-quyet-dinh?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/landing-page-san-pham-va-danh-gia-khach-hang-noi-dung-cho-giai-doan-quyet-dinh?lang=vi) · Guide
 
-- Nhãn gốc: Inbound Marketing với EzyPlatform.
-- Đề mục trong bài: Xác định Landing Page dùng để làm gì; Trường hợp 1: Landing Page hiển thị chi tiết sản phẩm; Trường hợp 2: Landing Page dùng cho quảng cáo; Giá trị nhận được sau khi hoàn thành.
-- Từ khóa được nhắc: `EzyCRM`.
+- Original category: Inbound Marketing with EzyPlatform.
+- Article sections: Find out what the landing page is to do; Case 1: Landing Page shows product details; Case 2: Landing Page for Advertising; The value received after completion.
+- Features mentioned: `EzyCRM`.
 
 <a id="bai-1411"></a>
 
-### Xây nội dung cho giai đoạn Cân nhắc: Tạo chuỗi bài và thu thập subscriber với EzyPlatform
+### Create content for the consideration phase: Create a series of posts and collect subscribers with EzyPlatform
 
-[Bài gốc](https://ezyplatform.com/blog/xay-noi-dung-cho-giai-doan-can-nhac-ebook-tren-ezyplatform?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/xay-noi-dung-cho-giai-doan-can-nhac-ebook-tren-ezyplatform?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing với EzyPlatform.
-- Đề mục trong bài: Chọn chủ đề và xây cấu trúc chuỗi bài; Gom các bài theo chủ đề và kết nối bằng internal link; Cho đọc một phần trước khi yêu cầu đăng ký; Giá trị nhận được sau khi hoàn thành.
-- Từ khóa được nhắc: `EzyArticle`, `EzyCRM`.
+- Original category: Inbound Marketing with EzyPlatform.
+- Article sections: Choose a topic and build a chain structure; Gom posts by topic and connect by internal link; Read a part before requesting registration; The value received after completion.
+- Features mentioned: `EzyArticle`, `EzyCRM`.
 
 <a id="bai-1409"></a>
 
-### Hướng dẫn viết bài chuẩn SEO với EzyPlatform
+### Posts Tagged with SEO with EzyPlatform
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-viet-bai-chuan-seo-voi-ezyplatform?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-viet-bai-chuan-seo-voi-ezyplatform?lang=vi) · Guide
 
-- Nhãn gốc: Inbound Marketing với EzyPlatform.
-- Đề mục trong bài: Trước khi viết, hãy dành vài phút nghĩ xem khách hàng đang tìm gì; Đặt tiêu đề sao cho vừa đúng ý khách, vừa mời được người ta bấm vào; Xây dựng cấu trúc bài viết sao cho dễ đọc, dễ quét; Rà lại một lượt bằng checklist trước khi bấm đăng.
-- Từ khóa được nhắc: `EzyArticle`, `EzySEO`.
+- Original category: Inbound Marketing with EzyPlatform.
+- Article sections: Before writing, spend a few minutes thinking about what the customer is looking for; Set the title so that the guest is right, just invite people to click on; Build the structure of the article so that it is easy to read, easy to scan; Write a checklist before clicking on.
+- Features mentioned: `EzyArticle`, `EzySEO`.
 
 <a id="bai-1408"></a>
 
-### Giúp khách hàng nhận biết thương hiệu của bạn với EzyPlatform: viết bài chuẩn SEO và đưa nội dung đến đúng người
+### Help customers recognize your brand with EzyPlatform: write SEO standards and bring content to the right person
 
-[Bài gốc](https://ezyplatform.com/blog/-giup-khach-hang-nhan-biet-thuong-hieu-voi-ezyplatform-viet-bai-chuan-seo-va-dua-noi-dung-den-dung-nguoi?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/-giup-khach-hang-nhan-biet-thuong-hieu-voi-ezyplatform-viet-bai-chuan-seo-va-dua-noi-dung-den-dung-nguoi?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing với EzyPlatform.
-- Đề mục trong bài: Nhận biết thương hiệu không phải là "được nhìn thấy", mà là "được tìm thấy đúng lúc"; Nội dung cho giai đoạn Nhận biết: trả lời câu hỏi trước, bán hàng để sau; EzySEO: âm thầm giúp nội dung đến với Google nhanh hơn; Từ Nhận biết sang Cân nhắc.
-- Từ khóa được nhắc: `EzySEO`.
+- Original category: Inbound Marketing with EzyPlatform.
+- Article sections: The brand recognition is not “visible”, but “finds at the right time”"; Content for the Recognition stage: answer questions first, sell to later; EzySEO: Silent help content come to Google faster; From recognition to consideration.
+- Features mentioned: `EzySEO`.
 
 <a id="bai-1405"></a>
 
-### Kết nối các điểm chạm khách hàng với EzyPlatform: từ Google, Website, Social đến Chatbot và Email
+### Connect customer touch points to EzyPlatform: from Google, Website, Social to Chatbot and Email
 
-[Bài gốc](https://ezyplatform.com/blog/cham-soc-khach-hang-sau-ban-tai-huong-camera-bien-nguoi-mua-mot-lan-thanh-khach-hang-gan-bo-lau-dai?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/cham-soc-khach-hang-sau-ban-tai-huong-camera-bien-nguoi-mua-mot-lan-thanh-khach-hang-gan-bo-lau-dai?lang=vi) · Guide
 
-- Nhãn gốc: Inbound Marketing với EzyPlatform.
-- Đề mục trong bài: Điểm chạm khách hàng là gì, và vì sao đáng để chị Hương quan tâm; Google Search: điểm chạm đầu tiên, trước cả khi khách hàng biết đến Hương Camera; Website: không chỉ là nơi "giới thiệu cửa hàng"; Checklist tối ưu điểm chạm khách hàng.
-- Từ khóa được nhắc: `EzyArticle`, `EzySEO`.
-- Bài được dẫn: [Giúp khách hàng nhận diện sản phẩm của bạn với EzyPlatform: Từ website đến Google và mạng xã hội](./tra-cuu-marketing.md#bai-1382).
+- Original category: Inbound Marketing with EzyPlatform.
+- Article sections: What is the touch point of the customer, and why it’s worth your attention; Google Search: the first touch point, before the customer knows about the camera; Website: not just where "the shop is presented"; Best Checklist to Customer Point.
+- Features mentioned: `EzyArticle`, `EzySEO`.
+- Referenced articles: [Help customers identify your products with EzyPlatform: From website to Google and social networks](./tra-cuu-marketing.md#bai-1382).
 
 <a id="bai-1388"></a>
 
-### Sales Funnel là gì? Và vì sao nó không hề đối lập với Customer Journey
+### What is Sales Funnel? and why it doesn’t contradict Customer Journey
 
-[Bài gốc](https://ezyplatform.com/blog/sales-funnel-la-gi-va-vi-sao-no-khong-he-doi-lap-voi-customer-journey?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/sales-funnel-la-gi-va-vi-sao-no-khong-he-doi-lap-voi-customer-journey?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing.
-- Đề mục trong bài: Nhắc lại nhanh: Customer Journey là gì; Sales Funnel là gì; Vì sao hai khái niệm này không hề đối lập nhau; Cách hai khái niệm bổ trợ cho nhau trong thực tế.
-- Bài được dẫn: [Tư duy chiến lược về Customer Journey trong thời đại số](./tra-cuu-marketing.md#bai-953).
+- Original category: Inbound Marketing.
+- Article sections: What is Customer Journey; What is Sales Funnel; Why are these two concepts not contradictory; How two concepts complement each other in reality.
+- Referenced articles: [Strategic Thinking of Customer Journey in the Digital Age](./tra-cuu-marketing.md#bai-953).
 
 <a id="bai-1382"></a>
 
-### Giúp khách hàng nhận diện sản phẩm của bạn với EzyPlatform: Từ website đến Google và mạng xã hội
+### Help customers identify your products with EzyPlatform: From website to Google and social networks
 
-[Bài gốc](https://ezyplatform.com/blog/giup-khach-hang-nhan-dien-san-pham-cua-ban-voi-ezyplatform?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/giup-khach-hang-nhan-dien-san-pham-cua-ban-voi-ezyplatform?lang=vi) · Guide
 
-- Nhãn gốc: Inbound Marketing với EzyPlatform.
-- Đề mục trong bài: Xây dựng bộ nhận diện thương hiệu trước khi tạo website; Tạo website để khách hàng có một nơi tìm hiểu chính thức; Viết bài để khách hàng có thể tìm thấy sản phẩm của bạn; Khi khách hàng bắt đầu tương tác, dữ liệu sẽ trở nên quan trọng.
-- Từ khóa được nhắc: `EzySEO`, `EzyArticle`, `Search Console`, `EzyCRM`.
-- Bài được dẫn: [Tư duy chiến lược công nghệ cho cửa hàng máy ảnh trên EzyPlatform: Từ website đến vận hành liên thông](./tra-cuu-marketing.md#bai-1371).
+- Original category: Inbound Marketing with EzyPlatform.
+- Article sections: Create a brand recognition before creating a website; Create a website so that customers have a place to find out; Write posts so that customers can find your product; When the customer begins to interact, the data becomes important.
+- Features mentioned: `EzySEO`, `EzyArticle`, `Search Console`, `EzyCRM`.
+- Referenced articles: [Thinking Technology Strategy for Camera Store on EzyPlatform: From Website to Communications Operations](./tra-cuu-marketing.md#bai-1371).
 
 <a id="bai-1371"></a>
 
-### Tư duy chiến lược công nghệ cho cửa hàng máy ảnh trên EzyPlatform: Từ website đến vận hành liên thông
+### Thinking Technology Strategy for Camera Store on EzyPlatform: From Website to Communications Operations
 
-[Bài gốc](https://ezyplatform.com/blog/tu-duy-chien-luoc-cong-nghe-cho-cua-hang-may-anh-tren-ezyplatform-tu-website-den-van-hanh-lien-thong?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/tu-duy-chien-luoc-cong-nghe-cho-cua-hang-may-anh-tren-ezyplatform-tu-website-den-van-hanh-lien-thong?lang=vi) · Guide
 
-- Nhãn gốc: Inbound Marketing với EzyPlatform.
-- Đề mục trong bài: Bốn nhóm tính năng cần có, và câu hỏi liệu như vậy đã đủ để bán được hàng chưa; Tư duy chiến lược công nghệ: ba bước theo đúng ba lớp đã trình bày ở bài 1; Dùng EzyPlatform để tạo website cho cửa hàng máy ảnh; Mở rộng khi cần — đề xuất EzyPlatform hoặc tự xây dựng đội ngũ công nghệ.
-- Từ khóa được nhắc: `EzyArticle`, `EzyMail`, `EzyOA`, `EzyPayment`, `EzyDelivery`, `EzyCRM`, `EzyRating`.
-- Bài được dẫn: [Tư duy chiến lược về Customer Journey trên EzyPlatform](./tra-cuu-marketing.md#bai-1370).
+- Original category: Inbound Marketing with EzyPlatform.
+- Article sections: Four groups of features need to be, and the question is whether such is enough to sell the goods; Strategic Thinking Technology: Three Steps in the Right Three Classes presented in Article 1; Use EzyPlatform to create a website for a camera store; Expand when needed — proposing EzyPlatform or building a technology team.
+- Features mentioned: `EzyArticle`, `EzyMail`, `EzyOA`, `EzyPayment`, `EzyDelivery`, `EzyCRM`, `EzyRating`.
+- Referenced articles: [Strategic Thinking on Customer Journey on EzyPlatform](./tra-cuu-marketing.md#bai-1370).
 
 <a id="bai-1370"></a>
 
-### Tư duy chiến lược về Customer Journey trên EzyPlatform
+### Strategic Thinking on Customer Journey on EzyPlatform
 
-[Bài gốc](https://ezyplatform.com/blog/tu-duy-chien-luoc-ve-customer-journey-tren-ezyplatform?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/tu-duy-chien-luoc-ve-customer-journey-tren-ezyplatform?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing với EzyPlatform.
-- Đề mục trong bài: chuẩn bị: Đặt tên cho thương hiệu; Tư duy đầu tiên: xác định hành trình khách hàng thật của Hương Camera, rồi mô hình hóa lại thành phễu; Tư duy thứ hai: Áp dụng công nghệ xuyên suốt hành trình khách hàng.
-- Từ khóa được nhắc: `EzyCRM`.
+- Original category: Inbound Marketing with EzyPlatform.
+- Article sections: preparation: Set a name for the brand; First thought: identify the real customer journey of the Hang Camera, and then model it back to the phenomenon; Second thought: Apply technology throughout the customer journey.
+- Features mentioned: `EzyCRM`.
 
 <a id="bai-1364"></a>
 
-### Tối ưu SEO on-page với EzyArticle: từ khóa, meta, cấu trúc URL, đa ngôn ngữ
+### Optimizing SEO on-page with EzyArticle: keywords, meta, URL structure, multi-language
 
-[Bài gốc](https://ezyplatform.com/blog/toi-uu-seo-on-page-voi-ezyarticle-tu-khoa-meta-cau-truc-url-da-ngon-ngu?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/toi-uu-seo-on-page-voi-ezyarticle-tu-khoa-meta-cau-truc-url-da-ngon-ngu?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing với EzyPlatform.
-- Đề mục trong bài: Từ khóa: bắt đầu từ chân dung khách hàng, không phải từ công cụ; Meta: tiêu đề và mô tả là thứ quyết định người ta có click vào hay không; Cấu trúc URL: gọn, rõ nghĩa, và phản ánh đúng vị trí bài viết trong chuyên mục; Đa ngôn ngữ: quy trình từng bước, kèm ví dụ mẫu cụ thể.
-- Từ khóa được nhắc: `EzyCRM`, `EzyArticle`, `EzyRating`, `EzySEO`.
+- Original category: Inbound Marketing with EzyPlatform.
+- Article sections: Keywords: starting with the customer portrait, not the tool; Meta: title and description are what decides whether or not people click on; URL structure: compact, clear, and reflect the correct location of the article in the category; Multi-language: step-by-step process, accompanied by a specific sample.
+- Features mentioned: `EzyCRM`, `EzyArticle`, `EzyRating`, `EzySEO`.
 
 <a id="bai-1352"></a>
 
-### Xây dựng Buyer Persona và Content Pillar dựa trên dữ liệu thực tế từ EzyCRM và cấu trúc chuyên mục của EzyArticle
+### Build Buyer Persona and Content Pillar based on real data from EzyCRM and EzyArticle’s portfolio structure
 
-[Bài gốc](https://ezyplatform.com/blog/xay-dung-buyer-persona-va-content-pillar-tren-cau-truc-chuyen-muc-cua-ezyarticle?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/xay-dung-buyer-persona-va-content-pillar-tren-cau-truc-chuyen-muc-cua-ezyarticle?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing với EzyPlatform.
-- Đề mục trong bài: Buyer Persona không nên được xây dựng bằng phỏng đoán; EzyCRM cung cấp dữ liệu gì để xây dựng Buyer Persona?; Thông tin khách hàng; Kết nối EzyArticle và EzyCRM để tạo vòng lặp dữ liệu.
-- Từ khóa được nhắc: `EzyCRM`, `EzyArticle`, `EzyRating`.
+- Original category: Inbound Marketing with EzyPlatform.
+- Article sections: Buyer Persona should not be built by prediction; What data EzyCRM provides to build Buyer Persona?; Customer information; Connect EzyArticle and EzyCRM to create data cycles.
+- Features mentioned: `EzyCRM`, `EzyArticle`, `EzyRating`.
 
 <a id="bai-1351"></a>
 
-### Bạn đã có chiến lược Inbound Marketing, giờ chỉ còn thiếu một nền tảng để hiện thực hóa nó
+### You’ve already had an Inbound Marketing strategy, now there’s only a lack of a platform to realize it
 
-[Bài gốc](https://ezyplatform.com/blog/vi-sao-inbound-marketing-bat-dau-tu-noi-dung-khong-phai-quang-cao?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/vi-sao-inbound-marketing-bat-dau-tu-noi-dung-khong-phai-quang-cao?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing với EzyPlatform.
-- Đề mục trong bài: Nếu bạn chưa rõ Inbound Marketing là gì; Vấn đề thật sự không phải là thiếu ý tưởng, mà là thiếu nơi để hiện thực hóa; Inbound cần nội dung, EzyPlatform có nơi sản xuất nội dung; Vì sao đây là điều khiến EzyPlatform khác với việc chỉ "có một cái blog".
-- Từ khóa được nhắc: `EzyArticle`, `EzyCRM`, `EzyMail`, `EzyPayment`, `EzyDelivery`, `EzyAI`, `EzyRAG`, `EzyVector`.
+- Original category: Inbound Marketing with EzyPlatform.
+- Article sections: If you don’t know what Inbound Marketing is; The real problem is not the lack of ideas, but the lack of place to realize; Inbound needs content, EzyPlatform has a place to produce content; Why this is what makes EzyPlatform different from just having a blog".
+- Features mentioned: `EzyArticle`, `EzyCRM`, `EzyMail`, `EzyPayment`, `EzyDelivery`, `EzyAI`, `EzyRAG`, `EzyVector`.
 
 <a id="bai-1344"></a>
 
-### Hướng dẫn xây dựng quy trình phối hợp Marketing và Sales trong Inbound Marketing
+### Co-operation of Marketing and Sales in Inbound Marketing
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-xay-dung-quy-trinh-phoi-hop-marketing-va-sales-trong-inbound-marketing?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-xay-dung-quy-trinh-phoi-hop-marketing-va-sales-trong-inbound-marketing?lang=vi) · Guide
 
-- Nhãn gốc: Inbound Marketing.
-- Đề mục trong bài: Vì sao Marketing và Sales cần phối hợp trong Inbound Marketing; Phân định trách nhiệm của Marketing và Sales; Thống nhất định nghĩa Lead, MQL, SQL; Vòng khép kín của quy trình phối hợp.
+- Original category: Inbound Marketing.
+- Article sections: Why Marketing and Sales Need Coordination in Inbound Marketing; Differentiation of Marketing and Sales Responsibility; Unified definitions of Lead, MQL, SQL; The closed circle of the coordination process.
 
 <a id="bai-1343"></a>
 
-### Hướng dẫn đánh giá và cải tiến chiến lược Inbound Marketing theo từng quý
+### Guidelines to evaluate and improve Inbound Marketing strategy per quarter
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-danh-gia-va-cai-tien-chien-luoc-inbound-marketing-theo-tung-quy?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-danh-gia-va-cai-tien-chien-luoc-inbound-marketing-theo-tung-quy?lang=vi) · Guide
 
-- Nhãn gốc: Inbound Marketing.
-- Đề mục trong bài: Vì sao không nên xây chiến lược Inbound một lần rồi giữ nguyên; Bao lâu nên đánh giá lại chiến lược; So sánh KPI mục tiêu với kết quả thực tế; Vòng lặp Plan, Execute, Measure, Analyze, Optimize.
-- Từ khóa được nhắc: `UTM`.
+- Original category: Inbound Marketing.
+- Article sections: Why not build an Inbound strategy once and keep it the same; How long to review the strategy; Compare target KPI with real results; Planning, Execute, Measure, Analysis, Optimize.
+- Features mentioned: `UTM`.
 
 <a id="bai-1341"></a>
 
-### Hướng dẫn phân bổ ngân sách và nguồn lực cho chiến lược Inbound Marketing
+### Budget and resource allocation guide for Inbound Marketing strategies
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-phan-bo-ngan-sach-va-nguon-luc-cho-chien-luoc-inbound-marketing?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-phan-bo-ngan-sach-va-nguon-luc-cho-chien-luoc-inbound-marketing?lang=vi) · Guide
 
-- Nhãn gốc: Inbound Marketing.
-- Đề mục trong bài: Xác định ngân sách dựa trên mục tiêu Inbound Marketing; Xác định các nhóm chi phí chính; Công cụ và nền tảng; Đừng cố chia ngân sách cố định cho mọi kênh.
+- Original category: Inbound Marketing.
+- Article sections: Budget determination based on the Inbound Marketing objectives; Identify the main cost groups; Tools and Foundations; Do not try to share the fixed budget to each channel.
 
 <a id="bai-1340"></a>
 
-### Hướng dẫn lập kế hoạch Inbound Marketing 90 ngày cho doanh nghiệp
+### Inbound Marketing 90 Days for Business
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-lap-ke-hoach-inbound-marketing-90-ngay-cho-doanh-nghiep?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-lap-ke-hoach-inbound-marketing-90-ngay-cho-doanh-nghiep?lang=vi) · Guide
 
-- Nhãn gốc: Inbound Marketing.
-- Đề mục trong bài: Vì sao chọn khung thời gian chín mươi ngày; Đánh giá hiện trạng marketing; Chọn một mục tiêu chính cho 90 ngày; Tổng quan cả ba giai đoạn.
+- Original category: Inbound Marketing.
+- Article sections: Why choose a 90 day time frame; Assessment of the marketplace; Choose a main target for 90 days; View all three stages.
 
 <a id="bai-1339"></a>
 
-### Hướng dẫn đo lường và tìm điểm nghẽn trong phễu Inbound Marketing
+### Measurement and finding blocks in Inbound Marketing
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-do-luong-va-tim-diem-nghen-trong-pheu-inbound-marketing?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-do-luong-va-tim-diem-nghen-trong-pheu-inbound-marketing?lang=vi) · Guide
 
-- Nhãn gốc: Inbound Marketing.
-- Đề mục trong bài: Vẽ Funnel trước khi đo lường; Đừng chỉ nhìn tổng Traffic, hãy xem Traffic đến từ đâu; Landing Page Conversion Rate: Visitor có thực hiện hành động không?; Quy trình review Funnel hàng tuần và hàng tháng.
+- Original category: Inbound Marketing.
+- Article sections: Paint the Funnel before measuring; Don’t just look at the total traffic, see where traffic comes from; Landing Page Conversion Rate: Does the visitor take action?; Funnel review processes weekly and monthly.
 
 <a id="bai-1336"></a>
 
-### Cách kết hợp SEO, Social Media, Email và các kênh thành một hệ thống Inbound
+### How to combine SEO, Social Media, Email and Channels into an Inbound System
 
-[Bài gốc](https://ezyplatform.com/blog/cach-ket-hop-seo-social-media-e-mail-va-cac-kenh-thanh-mot-he-thong-inbound?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/cach-ket-hop-seo-social-media-e-mail-va-cac-kenh-thanh-mot-he-thong-inbound?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing.
-- Đề mục trong bài: Vai trò khác nhau của từng kênh; SEO giúp tạo nhu cầu chủ động như thế nào; Social Media giúp phân phối và tạo tương tác; Ví dụ minh họa: luồng chiến dịch hoàn chỉnh.
-- Từ khóa được nhắc: `UTM`.
+- Original category: Inbound Marketing.
+- Article sections: Different roles of each channel; How SEO helps create an active need; Social media helps to distribute and create interactions; Example illustration: complete campaign flow.
+- Features mentioned: `UTM`.
 
 <a id="bai-1335"></a>
 
-### Hướng dẫn xây dựng quy trình nuôi dưỡng Lead đến khi sẵn sàng mua hàng
+### Guide to Building Lead Nutrition Process Until You Are Ready to Buy
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-xay-dung-quy-trinh-nuoi-duong-lead-den-khi-san-sang-mua-hang?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-xay-dung-quy-trinh-nuoi-duong-lead-den-khi-san-sang-mua-hang?lang=vi) · Guide
 
-- Nhãn gốc: Inbound Marketing.
-- Đề mục trong bài: Không phải Lead nào cũng sẵn sàng mua; Phân loại Lead; Segmentation; Ví dụ minh họa toàn bộ quy trình.
+- Original category: Inbound Marketing.
+- Article sections: Not everyone is ready to buy; The Lead; Segmentation; Example of the whole process.
 
 <a id="bai-1334"></a>
 
-### Hướng dẫn xây dựng hệ thống chuyển đổi khách truy cập thành Lead
+### Conversion of guests into lead
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-xay-dung-he-thong-chuyen-doi-khach-truy-cap-thanh-lead?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-xay-dung-he-thong-chuyen-doi-khach-truy-cap-thanh-lead?lang=vi) · Guide
 
-- Nhãn gốc: Inbound Marketing.
-- Đề mục trong bài: Vì sao Traffic không đồng nghĩa với khách hàng; Xác định Conversion Goal; Chọn Lead Magnet phù hợp; Luồng thực tế của hệ thống chuyển đổi.
+- Original category: Inbound Marketing.
+- Article sections: Why Traffic doesn’t mean to customers; Conversion Goal; Choose the right lead magnet; The real flow of the conversion system.
 
 <a id="bai-1328"></a>
 
-### Cách xây dựng chiến lược Content và SEO để thu hút đúng khách hàng
+### How to build content and SEO strategies to attract the right customers
 
-[Bài gốc](https://ezyplatform.com/blog/cach-xay-dung-chien-luoc-content-va-seo-de-thu-hut-dung-khach-hang?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/cach-xay-dung-chien-luoc-content-va-seo-de-thu-hut-dung-khach-hang?lang=vi) · Guide
 
-- Nhãn gốc: Inbound Marketing.
-- Đề mục trong bài: Bắt đầu từ Buyer Persona, không bắt đầu từ Google; Tiếp theo là Customer Journey; Tìm những câu hỏi khách hàng thực sự đang tìm kiếm; Luồng đơn giản nhất để hình dung Inbound Content.
+- Original category: Inbound Marketing.
+- Article sections: Starting with Buyer Persona, not starting with Google; Next is Customer Journey; Find the real customer questions you are looking for; The simplest stream to imagine Inbound Content.
 
 <a id="bai-1327"></a>
 
-### Hướng dẫn xác định khách hàng mục tiêu và xây dựng Buyer Persona
+### Guidelines to identify target customers and build Buyer Persona
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-xac-dinh-khach-hang-muc-tieu-va-xay-dung-buyer-persona?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-xac-dinh-khach-hang-muc-tieu-va-xay-dung-buyer-persona?lang=vi) · Guide
 
-- Nhãn gốc: Inbound Marketing.
-- Đề mục trong bài: Phân biệt Target Audience, Customer Segment và Buyer Persona; Thu thập dữ liệu từ khách hàng hiện tại; Phỏng vấn Sales và Customer Support; Ví dụ một Buyer Persona hoàn chỉnh.
+- Original category: Inbound Marketing.
+- Article sections: Difference between Target Audience, Customer Segment and Buyer Persona; Collect data from current customers; Sales and Customer Support; For example, a complete Buyer Persona.
 
 <a id="bai-1325"></a>
 
-### Cách xác định mục tiêu và KPI cho chiến lược Inbound Marketing
+### How to define goals and KPIs for Inbound Marketing Strategy
 
-[Bài gốc](https://ezyplatform.com/blog/cach-xac-dinh-muc-tieu-va-kpi-cho-chien-luoc-inbound-marketing?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/cach-xac-dinh-muc-tieu-va-kpi-cho-chien-luoc-inbound-marketing?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing.
-- Đề mục trong bài: Bắt đầu từ mục tiêu kinh doanh thay vì KPI marketing; Phân biệt Business Goal và Marketing Goal; Áp dụng SMART cho mục tiêu Inbound; Tạo bảng KPI theo tháng, quý.
+- Original category: Inbound Marketing.
+- Article sections: Start with business goals instead of KPI marketing; Business Goal and Marketing Goal; Apply SMART to the Inbound Target; Create a KPI table per month, dear.
 
 <a id="bai-1324"></a>
 
-### Hướng dẫn xây dựng chiến lược Inbound Marketing từ đầu cho doanh nghiệp
+### Inbound marketing strategy from the beginning for business
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-xay-dung-chien-luon-inbound-marketing-tu-dau-cho-doanh-nghiep?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-xay-dung-chien-luon-inbound-marketing-tu-dau-cho-doanh-nghiep?lang=vi) · Guide
 
-- Nhãn gốc: Inbound Marketing.
-- Đề mục trong bài: Doanh nghiệp cần chuẩn bị gì trước khi làm Inbound Marketing; Xác định vấn đề kinh doanh cần giải quyết; Xác định sản phẩm, dịch vụ muốn tập trung; Checklist một chiến lược Inbound Marketing cơ bản.
+- Original category: Inbound Marketing.
+- Article sections: What Businesses Need to Prepare Before Inbound Marketing; Identify business problems to be solved; Identify the product, the service wants to focus; Checklist a basic Inbound Marketing strategy.
 
 <a id="bai-1323"></a>
 
-### Xây dựng quy trình Social Media Marketing bền vững cho doanh nghiệp
+### Building a sustainable social media marketing process for business
 
-[Bài gốc](https://ezyplatform.com/blog/xay-dung-quy-trinh-social-media-marketing-ben-vung-cho-doanh-nghiep?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/xay-dung-quy-trinh-social-media-marketing-ben-vung-cho-doanh-nghiep?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing.
-- Đề mục trong bài: Vì sao doanh nghiệp thường làm Social Media rất mạnh vài tháng rồi dừng; Xây dựng Content Pillar; Xây dựng Content Calendar; Mô hình vận hành tổng thể.
+- Original category: Inbound Marketing.
+- Article sections: Why doanh often make social media so strong for a few months and then stop; Creating a Content Pillar; Creating a Content Calendar; The overall operating model.
 
 <a id="bai-1319"></a>
 
-### Hướng dẫn xây dựng cộng đồng và nuôi dưỡng khách hàng trên Social Media
+### Guidelines to build community and feed customers on social media
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-xay-dung-cong-dong-va-nuoi-duong-khach-hang-tren-social-media?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-xay-dung-cong-dong-va-nuoi-duong-khach-hang-tren-social-media?lang=vi) · Guide
 
-- Nhãn gốc: Inbound Marketing.
-- Đề mục trong bài: Khác biệt giữa Audience và Community; Tại sao không nên chỉ đăng bài rồi bỏ đó; Trả lời comment và tin nhắn; Nuôi dưỡng khách hàng cũ thành người giới thiệu thương hiệu.
+- Original category: Inbound Marketing.
+- Article sections: Difference Between Audience and Community; Why not just post and leave it; Reply to comments and messages; Growing old customers as a brand presentator.
 
 <a id="bai-1316"></a>
 
-### Social Listening – Cách tìm insight và nhu cầu khách hàng từ mạng xã hội
+### Social Listening – How to find insights and customer needs from social networks
 
-[Bài gốc](https://ezyplatform.com/blog/social-listening-cach-tim-insight-va-nhu-cau-khach-hang-tu-mang-xa-hoi?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/social-listening-cach-tim-insight-va-nhu-cau-khach-hang-tu-mang-xa-hoi?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing.
-- Đề mục trong bài: Social Listening là gì; Social Monitoring và Social Listening khác nhau thế nào; Theo dõi thương hiệu, sản phẩm, đối thủ và chủ đề; Xây một quy trình đơn giản để thu thập insight định kỳ.
+- Original category: Inbound Marketing.
+- Article sections: What is Social Listening; How Social Monitoring and Social Listening Difference; Tracking brands, products, competitors and themes; Build a simple process to collect periodic insights.
 
 <a id="bai-1315"></a>
 
-### Cách sử dụng Social Media để kéo traffic về website
+### How to use social media to draw traffic to a website
 
-[Bài gốc](https://ezyplatform.com/blog/cach-su-dung-social-media-de-keo-traffic-ve-website?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/cach-su-dung-social-media-de-keo-traffic-ve-website?lang=vi) · Guide
 
-- Nhãn gốc: Inbound Marketing.
-- Đề mục trong bài: Vì sao không nên xây toàn bộ tài sản nội dung chỉ trên mạng xã hội; Khái niệm Owned Media và vai trò của website; Chọn nội dung nào phù hợp để kéo traffic; Phân biệt traffic nhiều và traffic chất lượng.
-- Từ khóa được nhắc: `UTM`.
+- Original category: Inbound Marketing.
+- Article sections: Why not build all the content property just on social networks; The concept of Owned Media and the role of the website; Choose which content is suitable for tracking traffic; Difference between high traffic and quality traffic.
+- Features mentioned: `UTM`.
 
 <a id="bai-1310"></a>
 
-### Social Media đóng vai trò gì trong chiến lược Inbound Marketing?
+### What is the role social media plays in the Inbound Marketing strategy?
 
-[Bài gốc](https://ezyplatform.com/blog/social-media-dong-vai-tro-gi-trong-chien-luoc-inbound-marketing?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/social-media-dong-vai-tro-gi-trong-chien-luoc-inbound-marketing?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing.
-- Đề mục trong bài: Social Media khác gì khi làm theo tư duy Inbound và quảng cáo truyền thống; Social Media nằm ở đâu trong hành trình khách hàng; Bốn vai trò chính của Social Media trong Inbound Marketing; Ví dụ một hành trình khách hàng từ Facebook, TikTok đến website.
+- Original category: Inbound Marketing.
+- Article sections: What's different from doing inbound thinking and traditional advertising; Where are social media in the customer journey; The four main roles of Social Media in Inbound Marketing; For example, a customer journey from Facebook, TikTok to the website.
 
 <a id="bai-1309"></a>
 
-### Xây dựng hệ thống Marketing Automation hoàn chỉnh cho doanh nghiệp
+### Building a complete marketing automation system for business
 
-[Bài gốc](https://ezyplatform.com/blog/xay-dung-he-thong-marketing-automation-hoan-chinh-cho-doanh-nghiep?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/xay-dung-he-thong-marketing-automation-hoan-chinh-cho-doanh-nghiep?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing.
-- Đề mục trong bài: Thu hút khách hàng bằng Content Marketing; Chuyển đổi bằng Landing Page và Lead Magnet; Thu thập dữ liệu; Tái tiếp cận và tăng giá trị vòng đời khách hàng.
+- Original category: Inbound Marketing.
+- Article sections: Attracting customers through content marketing; Conversion by Landing Page and Lead Magnet; collecting data; Re-access and increase customer life cycle value.
 
 <a id="bai-1308"></a>
 
-### Đo lường và tối ưu Workflow Marketing Automation
+### Measurement and optimization of Workflow Marketing Automation
 
-[Bài gốc](https://ezyplatform.com/blog/do-luong-va-toi-uu-workflow-marketing-automation?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/do-luong-va-toi-uu-workflow-marketing-automation?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing.
-- Đề mục trong bài: Open Rate — email có được mở ra không; Click Rate — email có khiến người đọc hành động không; Conversion Rate — hành động đó có dẫn đến kết quả mong muốn không; ROI — tất cả nỗ lực đó có đáng giá không.
-- Từ khóa được nhắc: `EzyMarketing`.
+- Original category: Inbound Marketing.
+- Article sections: Open Rate — is the email opened; Click Rate — does the email make the reader act; Conversion Rate — does that act lead to the desired result; ROI — is all that effort worth it.
+- Features mentioned: `EzyMarketing`.
 
 <a id="bai-1307"></a>
 
-### Những sai lầm phổ biến khi triển khai Marketing Automation
+### Common errors when implementing Marketing Automation
 
-[Bài gốc](https://ezyplatform.com/blog/nhung-sai-lam-pho-bien-khi-trien-khai-marketing-automation?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/nhung-sai-lam-pho-bien-khi-trien-khai-marketing-automation?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing.
-- Đề mục trong bài: Workflow quá phức tạp; Gửi email quá nhiều; Không phân khúc khách hàng; Không đo lường hiệu quả.
+- Original category: Inbound Marketing.
+- Article sections: Workflow is too complex; Send too much email; No customer division; Not measuring effectiveness.
 
 <a id="bai-1306"></a>
 
-### Các khái niệm cá nhân hóa Marketing Automation bằng dữ liệu khách hàng
+### The concept of personalizing Marketing Automation with customer data
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-ca-nhan-hoa-marketing-automation-bang-du-lieu-khach-hang?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/huong-dan-ca-nhan-hoa-marketing-automation-bang-du-lieu-khach-hang?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing.
-- Đề mục trong bài: Dynamic Content — nội dung tự thay đổi theo người đọc; Segmentation — chia khách hàng thành các nhóm; Behavioral Trigger — kích hoạt theo hành vi; Recommendation — gợi ý sản phẩm phù hợp.
-- Từ khóa được nhắc: `EzyMarketing`, `EzyMail`.
+- Original category: Inbound Marketing.
+- Article sections: Dynamic Content — the content changes according to the reader; Segmentation — divide customers into groups; Behavioral Trigger — activate according to behavior; Recommendation — proposed the appropriate product.
+- Features mentioned: `EzyMarketing`, `EzyMail`.
 
 <a id="bai-1297"></a>
 
-### Lead Scoring – Cách chấm điểm khách hàng tiềm năng tự động
+### Lead Scoring – How to automatically score potential customers
 
-[Bài gốc](https://ezyplatform.com/blog/lead-scoring-cach-cham-diem-khach-hang-tiem-nang-tu-dong?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/lead-scoring-cach-cham-diem-khach-hang-tiem-nang-tu-dong?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing.
-- Đề mục trong bài: Lead Score là gì?; Chấm điểm theo hành vi; Chấm điểm theo thông tin; Khi nào chuyển cho Sales?.
+- Original category: Inbound Marketing.
+- Article sections: What is Lead Score?; Point according to behavior; Point according to information; When to Transfer to Sales?.
 
 <a id="bai-1291"></a>
 
-### Hướng dẫn lựa chọn nền tảng Marketing Automation phù hợp
+### The appropriate marketing automation platform
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-lua-chon-nen-tang-marketing-automation-phu-hop?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-lua-chon-nen-tang-marketing-automation-phu-hop?lang=vi) · Guide
 
-- Nhãn gốc: Inbound Marketing.
-- Đề mục trong bài: Trước khi so sánh, hãy tự hỏi mình cần gì; Điểm dễ bị bỏ quên: khả năng nói chuyện với Website và CRM; Ba nhóm nền tảng, ba kiểu bài toán khác nhau; Vậy khi nào nên tự xây hệ thống riêng?.
-- Từ khóa được nhắc: `EzyMail`, `EzyMarketing`.
+- Original category: Inbound Marketing.
+- Article sections: Before comparing, ask yourself what you need; Easy to Forget: the ability to talk with the Website and CRM; Three basic groups, three different types of mathematics; When to build your own system?.
+- Features mentioned: `EzyMail`, `EzyMarketing`.
 
 <a id="bai-1290"></a>
 
-### Marketing Automation là gì? Vì sao doanh nghiệp nên tự động hóa marketing?
+### What is Marketing Automation?Why Business Should Automate Marketing?
 
-[Bài gốc](https://ezyplatform.com/blog/marketing-automation-la-gi-vi-sao-doanh-nghiep-nen-tu-dong-hoa-marketing?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/marketing-automation-la-gi-vi-sao-doanh-nghiep-nen-tu-dong-hoa-marketing?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing.
-- Đề mục trong bài: Marketing Automation là gì?; Vì sao doanh nghiệp nên tự động hóa?; Vậy Marketing Automation có phải là Email Marketing?; Vậy nên bắt đầu tự động hóa từ đâu?.
-- Từ khóa được nhắc: `EzyMail`, `EzyMarketing`.
+- Original category: Inbound Marketing.
+- Article sections: What is Marketing Automation?; Why Business Should Automate?; Marketing Automation is Email Marketing?; Where to start automation?.
+- Features mentioned: `EzyMail`, `EzyMarketing`.
 
 <a id="bai-1289"></a>
 
-### Hướng dẫn tự động hóa Email Marketing bằng Workflow
+### Email Marketing Automation with Workflow
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-tu-dong-hoa-email-marketing-bang-workflow?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-tu-dong-hoa-email-marketing-bang-workflow?lang=vi) · Guide
 
-- Nhãn gốc: Inbound Marketing.
-- Đề mục trong bài: Workflow là gì?; Trigger — sự kiện khởi động Workflow; Automation — chuỗi email sẽ được gửi; Áp dụng cho các tình huống khác.
-- Từ khóa được nhắc: `EzyMail`, `EzyMarketing`.
+- Original category: Inbound Marketing.
+- Article sections: What is Workflow?; Trigger — starting Workflow Event; Automation — the email chain will be sent; Apply to other situations.
+- Features mentioned: `EzyMail`, `EzyMarketing`.
 
 <a id="bai-1288"></a>
 
-### Các bước xây dựng hệ thống Email Marketing hoàn chỉnh trong chiến lược Inbound
+### The steps to build a complete email marketing system in the Inbound strategy
 
-[Bài gốc](https://ezyplatform.com/blog/xay-dung-he-thong-email-marketing-hoan-chinh-trong-chien-luoc-inbound?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/xay-dung-he-thong-email-marketing-hoan-chinh-trong-chien-luoc-inbound?lang=vi) · Guide
 
-- Nhãn gốc: Inbound Marketing.
-- Đề mục trong bài: Luồng thu thập dữ liệu; Thu hút khách hàng bằng Content Marketing; Thu thập thông tin bằng Lead Magnet; Chăm sóc sau bán và khuyến khích mua lại.
-- Từ khóa được nhắc: `EzyMail`.
+- Original category: Inbound Marketing.
+- Article sections: Stream gathers data; Attracting customers through content marketing; Information collection with Lead Magnet; After-sales care and encouraging the purchase.
+- Features mentioned: `EzyMail`.
 
 <a id="bai-1281"></a>
 
-### Những sai lầm khiến Email Marketing không mang lại khách hàng
+### The errors that make email marketing not bring customers
 
-[Bài gốc](https://ezyplatform.com/blog/-nhung-sai-lam-khien-email-marketing-khong-mang-lai-khach-hang?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/-nhung-sai-lam-khien-email-marketing-khong-mang-lai-khach-hang?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing.
-- Đề mục trong bài: Thiếu chiến lược; Gửi quá nhiều email; Nội dung thiếu giá trị; Không kiểm tra trước khi gửi.
+- Original category: Inbound Marketing.
+- Article sections: Lack of strategy; sending too many emails; Lack of value; Not checking before sending.
 
 <a id="bai-1279"></a>
 
-### Các khái niệm cốt lõi trong Workflow tự động hóa Email Marketing
+### The core concepts in Workflow Automation Email Marketing
 
-[Bài gốc](https://ezyplatform.com/blog/-huong-dan-tu-dong-hoa-email-marketing-bang-workflow?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/-huong-dan-tu-dong-hoa-email-marketing-bang-workflow?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing.
-- Đề mục trong bài: Workflow là gì?; Trigger — sự kiện khởi động Workflow; Automation — chuỗi email sẽ được gửi; Một số Workflow phổ biến.
+- Original category: Inbound Marketing.
+- Article sections: What is Workflow?; Trigger — starting Workflow Event; Automation — the email chain will be sent; Some common workflow.
 
 <a id="bai-1274"></a>
 
-### Hướng dẫn xây dựng chuỗi Email Lead Nurturing
+### Email Lead Nurturing
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-xay-dung-chuoi-email-lead-nurturing?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-xay-dung-chuoi-email-lead-nurturing?lang=vi) · Guide
 
-- Nhãn gốc: Inbound Marketing.
-- Đề mục trong bài: Lead Nurturing là gì?; Cách nuôi dưỡng khách hàng theo từng giai đoạn; Khi nào nên bán hàng?; Ví dụ workflow thực tế.
-- Từ khóa được nhắc: `EzyMarketing`.
+- Original category: Inbound Marketing.
+- Article sections: What is Lead Nurturing?; How to feed customers in each stage; When to sell?; For example, the workflow.
+- Features mentioned: `EzyMarketing`.
 
 <a id="bai-1273"></a>
 
-### Hướng dẫn xây dựng chuỗi Email Welcome tự động
+### Automatic Welcome Email Chain Building Guide
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-xay-dung-chuoi-email-welcome-tu-dong?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-xay-dung-chuoi-email-welcome-tu-dong?lang=vi) · Guide
 
-- Nhãn gốc: Inbound Marketing.
-- Đề mục trong bài: Email chào mừng — gửi ngay, và nói đúng lý do họ vừa đăng ký; Email giới thiệu doanh nghiệp — gửi sau khoảng 2 ngày, khi họ đã sẵn sàng nghe nhiều hơn; Email cung cấp tài nguyên — gửi thứ có giá trị ngay lập tức, không chỉ hứa hẹn; Email dẫn dắt đến hành động tiếp theo — biến người đọc thành người tương tác.
-- Từ khóa được nhắc: `EzyMarketing`.
+- Original category: Inbound Marketing.
+- Article sections: Email Welcome — send right now, and tell the right reason they just registered; Email to Enterprise Presentation — send after about 2 days, when they are ready to hear more; Email provides resources — sending something worth immediately, not just promising; Email leads to the next action — become a reader to an interactive person.
+- Features mentioned: `EzyMarketing`.
 
 <a id="bai-1259"></a>
 
-### Hướng dẫn phân khúc khách hàng để gửi đúng email
+### Guidelines for Customer Section to send the right email
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-phan-khuc-khach-hang-de-gui-dung-email?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-phan-khuc-khach-hang-de-gui-dung-email?lang=vi) · Guide
 
-- Nhãn gốc: Inbound Marketing.
-- Đề mục trong bài: Phân khúc theo hành vi — nhìn vào việc họ đã làm, không phải điều họ nói; Phân khúc theo sở thích — chủ đề nào khiến họ dừng lại; Phân khúc theo lịch sử mua hàng — đừng mời mua thứ họ vừa mua tuần trước; Phân khúc theo vòng đời khách hàng — mối quan hệ đang ở đâu.
-- Từ khóa được nhắc: `EzyMarketing`.
+- Original category: Inbound Marketing.
+- Article sections: Divided by behavior — look at what they did, not what they said; Divided by preference — the subject that stopped them; Distributed by history of purchases — Don’t buy what you bought last week; Divided by customer life cycle — where is the relationship.
+- Features mentioned: `EzyMarketing`.
 
 <a id="bai-1258"></a>
 
-### Hướng dẫn thiết kế mẫu email chuyên nghiệp
+### Professional Email Design Guide
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-thiet-ke-mau-email-chuyen-nghiep?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-thiet-ke-mau-email-chuyen-nghiep?lang=vi) · Guide
 
-- Nhãn gốc: Inbound Marketing.
-- Đề mục trong bài: Bố cục email — đừng để người đọc phải đoán nên nhìn vào đâu; Responsive trên điện thoại; Email HTML và Email Text — cái bạn không thấy nhưng luôn cần có.
-- Từ khóa được nhắc: `EzyMail`.
-- Bài được dẫn: [Cách viết email khiến khách hàng muốn mở và đọc](./tra-cuu-marketing.md#bai-1257).
+- Original category: Inbound Marketing.
+- Article sections: My father email — Don’t let the reader guess where to look; Responsive on the phone; HTML and Email Text — what you don’t see, but you always need.
+- Features mentioned: `EzyMail`.
+- Referenced articles: [How to write emails that make customers want to open and read](./tra-cuu-marketing.md#bai-1257).
 
 <a id="bai-1257"></a>
 
-### Cách viết email khiến khách hàng muốn mở và đọc
+### How to write emails that make customers want to open and read
 
-[Bài gốc](https://ezyplatform.com/blog/cach-viet-email-khien-khach-hang-muon-mo-va-doc?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/cach-viet-email-khien-khach-hang-muon-mo-va-doc?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing.
-- Đề mục trong bài: Viết tiêu đề (Subject Line); Preview Text (đoạn xem trước); Cấu trúc email; Những lỗi cần tránh.
+- Original category: Inbound Marketing.
+- Article sections: Subject Line (Subject Line); Preview text (preview text); The email structure; The mistakes to avoid.
 
 <a id="bai-1239"></a>
 
-### Hướng dẫn lựa chọn nền tảng Email Marketing phù hợp
+### Select the right email marketing platform
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-lua-chon-nen-tang-email-marketing-phu-hop?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-lua-chon-nen-tang-email-marketing-phu-hop?lang=vi) · Guide
 
-- Nhãn gốc: Inbound Marketing.
-- Đề mục trong bài: Tiêu chí 1 — Chi phí; Tiêu chí 2 — Có sẵn hệ thống hay phải tích hợp thêm; Tiêu chí 3 — Mức độ kiểm soát dữ liệu; Tiêu chí 5 — Khối lượng và tần suất gửi.
-- Từ khóa được nhắc: `EzyMail`, `EzyMarketing`.
-- Bài được dẫn: [Email Marketing là gì? Vì sao vẫn hiệu quả trong thời đại mạng xã hội?](./tra-cuu-marketing.md#bai-1223); [Cung Cấp Dịch Vụ Gửi Email Marketing Trên Thị Trường](./tra-cuu-chung.md#bai-318).
+- Original category: Inbound Marketing.
+- Article sections: The 1st — Costs; The Qualification 2 — system or need to be integrated; The Three — Level of data control; The 5th — Volume and frequency of sending.
+- Features mentioned: `EzyMail`, `EzyMarketing`.
+- Referenced articles: [What is Email Marketing?Why It's Still Effective in the Social Network Age?](./tra-cuu-marketing.md#bai-1223); [Suppliers of Email Marketing Services on the Market](./tra-cuu-chung.md#bai-318).
 
 <a id="bai-1227"></a>
 
-### Hướng dẫn xây dựng danh sách email chất lượng từ đầu
+### Building a quality email list from the beginning
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-xay-dung-danh-sach-email-chat-luong-tu-dau?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-xay-dung-danh-sach-email-chat-luong-tu-dau?lang=vi) · Guide
 
-- Nhãn gốc: Inbound Marketing.
-- Đề mục trong bài: Vì sao không nên mua danh sách email?; Các cách thu thập email hợp pháp; Cách 1 — Form đặt đúng chỗ trong nội dung; Checklist xây dựng danh sách email.
-- Từ khóa được nhắc: `EzyMail`, `EzyMarketing`.
+- Original category: Inbound Marketing.
+- Article sections: Why not buy an email list?; How to collect legal emails; The way 1 — Forms set the right place in the content; Checklist to build an email list.
+- Features mentioned: `EzyMail`, `EzyMarketing`.
 
 <a id="bai-1223"></a>
 
-### Email Marketing là gì? Vì sao vẫn hiệu quả trong thời đại mạng xã hội?
+### What is Email Marketing?Why It's Still Effective in the Social Network Age?
 
-[Bài gốc](https://ezyplatform.com/blog/email-marketing-la-gi?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/email-marketing-la-gi?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing.
-- Đề mục trong bài: Email Marketing là gì?; EzyMarketing — công cụ tôi sẽ dùng để triển khai; Vai trò trong Inbound Marketing; Khi nào doanh nghiệp nên triển khai?.
-- Từ khóa được nhắc: `EzyMarketing`, `EzyMail`.
-- Bài được dẫn: [Email Marketing trong chiến lược Inbound Marketing](./tra-cuu-marketing.md#bai-941); [Marketing Automation – Tự động hóa Inbound Marketing](./tra-cuu-marketing.md#bai-942).
+- Original category: Inbound Marketing.
+- Article sections: What is Email Marketing?; EzyMarketing — the tools I will use to implement; Role in Inbound Marketing; When to start a business?.
+- Features mentioned: `EzyMarketing`, `EzyMail`.
+- Referenced articles: [Email Marketing in Inbound Marketing Strategy](./tra-cuu-marketing.md#bai-941); [Marketing Automation – Inbound Marketing Automation](./tra-cuu-marketing.md#bai-942).
 
 <a id="bai-1221"></a>
 
-### Hướng dẫn cấu hình quảng cáo trên Ezymarketing cho website
+### Advertising Configuration Guide on Ezymarketing for Website
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-cau-hinh-quang-cao-tren-ezymarketing-cho-website?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-cau-hinh-quang-cao-tren-ezymarketing-cho-website?lang=vi) · Guide
 
-- Nhãn gốc: Xây dựng website nội dung; Publishing; Tiktok pixel.
-- Đề mục trong bài: Truy cập danh sách quảng cáo; Tạo quảng cáo mới; Kiểm tra quảng cáo sau khi tạo; Kiểm tra hiển thị ngoài website.
-- Từ khóa được nhắc: `EzyMarketing`.
-- Bài được dẫn: [Hướng dẫn thiết lập Tiktok Affiate liên kết với website Publishing](./tra-cuu-website.md#bai-1197).
+- Original category: Building a website content; Publishing; Tiktok pixel.
+- Article sections: Access to the advertising list; Create a new advertisement; Check the ads after creating; Check out outside the website.
+- Features mentioned: `EzyMarketing`.
+- Referenced articles: [Tiktok Affiate link to website publishing](./tra-cuu-website.md#bai-1197).
 
 <a id="bai-1220"></a>
 
-### Hướng dẫn phân phối Lead Magnet để tiếp cận nhiều khách hàng hơn
+### Lead Magnet Distribution Guide to More Customers
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-phan-phoi-lead-magnet-de-tiep-can-nhieu-khach-hang-hon?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-phan-phoi-lead-magnet-de-tiep-can-nhieu-khach-hang-hon?lang=vi) · Guide
 
-- Nhãn gốc: Inbound Marketing; Xây dựng website nội dung.
-- Đề mục trong bài: Blog SEO — kênh chậm nhưng bền nhất; Landing Page — một trang, một mục tiêu; Facebook — kênh nhanh nhất để thử nghiệm; Quảng cáo Google và Meta.
+- Original category: Inbound Marketing; Building a website content.
+- Article sections: Blog SEO — the slowest but lasting channel; Landing Page — one page, one goal; Facebook — the fastest channel to test; Google Ads and Meta Ads.
 
 <a id="bai-1218"></a>
 
-### Hướng dẫn thêm file ads.txt cho quảng cáo Google AdSense trên website
+### Add ads.txt file to Google AdSense ads on the website
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-them-file-adstxt-cho-quang-cao-google-adsense-tren-website?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-them-file-adstxt-cho-quang-cao-google-adsense-tren-website?lang=vi) · Guide
 
-- Nhãn gốc: EzyPlatform; Xây dựng website nội dung; Publishing; Google.
-- Đề mục trong bài: ads.txt là gì?; Tạo bài viết mới với tên ads.txt; Chỉnh sửa bài viết và thiết lập đúng dạng file; Kiểm tra trạng thái website và hoàn tất yêu cầu trong AdSense.
-- Bài được dẫn: [Hướng dẫn chi tiết cách chèn mã quảng cáo Google AdSense vào website Publishing](./tra-cuu-marketing.md#bai-1198).
+- Original category: EzyPlatform; Building a website content; Publishing; Google.
+- Article sections: what is ads.txt?; Create a new post with the name ads.txt; Edit the article and set the right file format; Check the status of the website and complete requests in AdSense.
+- Referenced articles: [Detailed instructions about how to insert Google AdSense ad code into the Publishing website](./tra-cuu-marketing.md#bai-1198).
 
 <a id="bai-1216"></a>
 
-### Hướng dẫn dùng AI để tạo Lead Magnet và thu hút khách hàng tiềm năng
+### AI Guide to Creating Lead Magnet and Attracting Potential Customers
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-tao-ebook-checklist-va-template-de-thu-hut-khach-hang-tiem-nang?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-tao-ebook-checklist-va-template-de-thu-hut-khach-hang-tiem-nang?lang=vi) · Guide
 
-- Nhãn gốc: Inbound Marketing; Xây dựng website nội dung.
-- Đề mục trong bài: Tại sao tôi chọn tích hợp AI thay vì làm tài liệu PDF; Tính năng 1 — Chatbot phân tích báo cáo tài chính; Điều tạo ra sự khác biệt thật sự: AI của tôi không phải ChatGPT thuần túy; Vòng lặp từ người lạ đến khách hàng tiềm năng.
+- Original category: Inbound Marketing; Building a website content.
+- Article sections: Why I choose AI integration instead of making PDF documents; Capacity 1 — Chatbot analyzes financial statements; What makes the real difference: My AI is not pure ChatGPT; Repeat from strangers to potential customers.
 
 <a id="bai-1215"></a>
 
-### 10 loại Lead Magnet hiệu quả nhất cho doanh nghiệp
+### The 10 Most Effective Lead Magnet Types for Business
 
-[Bài gốc](https://ezyplatform.com/blog/10-loai-lead-magnet-hieu-qua-nhat-cho-doanh-nghiep?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/10-loai-lead-magnet-hieu-qua-nhat-cho-doanh-nghiep?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing.
-- Đề mục trong bài: Bộ Prompt AI; Hướng dẫn dùng AI cho lĩnh vực của bạn; Khóa học miễn phí; Báo giá / Tư vấn miễn phí.
+- Original category: Inbound Marketing.
+- Article sections: The Prompt AI; Guide to using AI for your field; The free course; Free advice / free advice.
 
 <a id="bai-1198"></a>
 
-### Hướng dẫn chi tiết cách chèn mã quảng cáo Google AdSense vào website Publishing
+### Detailed instructions about how to insert Google AdSense ad code into the Publishing website
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-chi-tiet-cach-chen-ma-quang-cao-google-adsense-vao-website?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-chi-tiet-cach-chen-ma-quang-cao-google-adsense-vao-website?lang=vi) · Guide
 
-- Nhãn gốc: Xây dựng website nội dung; Publishing; Google.
-- Đề mục trong bài: Truy cập Google AdSense và nhấn Đăng ký; Nhập thông tin website; Vào mục Quảng cáo; Kiểm tra đơn vị quảng cáo đã tạo.
-- Từ khóa được nhắc: `EzySupport`, `Search Console`.
+- Original category: Building a website content; Publishing; Google.
+- Article sections: Go to Google AdSense and click Registration; Enter information on the website; Go to the advertising; Check the advertising unit created.
+- Features mentioned: `EzySupport`, `Search Console`.
 
 <a id="bai-1186"></a>
 
-### Lead Magnet là gì? Vì sao khách hàng sẵn sàng để lại thông tin?
+### What is Lead Magnet?Why customers are willing to leave information?
 
-[Bài gốc](https://ezyplatform.com/blog/lead-magnet-la-gi-vi-sao-khach-hang-san-sang-de-lai-thong-tin?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/lead-magnet-la-gi-vi-sao-khach-hang-san-sang-de-lai-thong-tin?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing; Xây dựng website nội dung.
-- Đề mục trong bài: Lead Magnet thật ra là gì?; Công cụ trên trang thì sao, có phải Lead Magnet không?; Tại sao người đọc không tự nhiên để lại email?; Những lỗi tôi thấy khi nhìn lại trang của mình.
-- Bài được dẫn: [10 loại Lead Magnet hiệu quả nhất cho doanh nghiệp](./tra-cuu-marketing.md#bai-1215).
+- Original category: Inbound Marketing; Building a website content.
+- Article sections: What is Lead Magnet?; What is the tool on the page, is it a Lead Magnet?; Why readers do not naturally leave emails?; The mistakes I saw when I looked back on my page.
+- Referenced articles: [The 10 Most Effective Lead Magnet Types for Business](./tra-cuu-marketing.md#bai-1215).
 
 <a id="bai-1185"></a>
 
-### Hướng dẫn đo lường và tối ưu Landing Page bằng dữ liệu
+### Measurement and optimization of landing page by data
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-do-luong-va-toi-uu-landing-page-bang-du-lieu?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-do-luong-va-toi-uu-landing-page-bang-du-lieu?lang=vi) · Guide
 
-- Nhãn gốc: Inbound Marketing; Xây dựng website nội dung.
-- Đề mục trong bài: Bắt đầu từ GA4 — biết ai đến, đến từ đâu, và ở lại bao lâu; Heatmap — nhìn thấy người đọc đang chú ý vào chỗ nào; Scroll depth — trang có bị bỏ dở giữa chừng không; Nhìn lại thật sự tôi đang ở đâu.
-- Từ khóa được nhắc: `EzySupport`, `EzyRating`.
+- Original category: Inbound Marketing; Building a website content.
+- Article sections: Starting with GA4 — know who comes, where it comes, and how long it remains; Heatmap — see where the reader is paying attention; Scroll depth — the page is missing in the middle; Look back where I really am.
+- Features mentioned: `EzySupport`, `EzyRating`.
 
 <a id="bai-1184"></a>
 
-### Những lỗi khiến Landing Page có nhiều traffic nhưng không có chuyển đổi
+### The errors that make the landing page has a lot of traffic but no conversions
 
-[Bài gốc](https://ezyplatform.com/blog/nhung-loi-khien-landing-page-co-nhieu-traffic-nhung-khong-co-chuyen-doi?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/nhung-loi-khien-landing-page-co-nhieu-traffic-nhung-khong-co-chuyen-doi?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing; Xây dựng website nội dung.
-- Đề mục trong bài: Form quá dài; Nội dung lan man; Thiếu bằng chứng xã hội; Case study thực tế: nhìn vào con số đo lường của chính trang mình.
+- Original category: Inbound Marketing; Building a website content.
+- Article sections: The form is too long; by Lan Man; Lack of social evidence; Case study real: look at the measurement number of your own page.
 
 <a id="bai-1183"></a>
 
-### CTA trên Landing Page: Cách tăng tỷ lệ chuyển đổi
+### CTA on Landing Page: How to Increase Conversion Rate
 
-[Bài gốc](https://ezyplatform.com/blog/cta-tren-landing-page-cach-tang-t%E1%BB%B7-le-chuyen-doi?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/cta-tren-landing-page-cach-tang-t%E1%BB%B7-le-chuyen-doi?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing; Xây dựng website nội dung.
-- Đề mục trong bài: Vị trí đặt CTA: gần đúng lúc người đọc sẵn sàng nhất; Màu sắc CTA: phải nổi bật hơn mọi thứ xung quanh; Nội dung CTA: chữ trên nút phải nói rõ điều sắp xảy ra; CTA theo từng giai đoạn khách hàng: không phải ai cũng sẵn sàng mua ngay.
+- Original category: Inbound Marketing; Building a website content.
+- Article sections: Location of CTA: near the time the readers are most ready; Color CTA: Must stand out more than everything around; CTA content: the letter on the button must explain what is going to happen; CTA according to each customer phase: not everyone is ready to buy right now.
 
 <a id="bai-1181"></a>
 
-### Hướng dẫn tạo Landing Page bán hàng hiệu quả
+### Create a landing page for effective sales
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-tao-landing-page-ban-hang-hieu-qua?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-tao-landing-page-ban-hang-hieu-qua?lang=vi) · Guide
 
-- Nhãn gốc: Inbound Marketing; Xây dựng website nội dung.
-- Đề mục trong bài: Công thức AIDA: dẫn người đọc qua bốn trạng thái tâm lý; Công thức PAS: khoét đúng vào vấn đề trước khi đưa ra giải pháp; Story Selling: bán bằng một câu chuyện, không phải một bản mô tả; Thực hành: Landing Page bán sản phẩm.
+- Original category: Inbound Marketing; Building a website content.
+- Article sections: AIDA formula: leads the reader through four psychological states; The PAS formula: correctly climb the problem before giving a solution; Story Selling: Selling with a story, not a description; Practice: Landing Page to Sell Products.
 
 <a id="bai-1180"></a>
 
-### Hướng dẫn tạo Landing Page thu thập khách hàng tiềm năng
+### Landing Page Guidelines Gather Potential Customers
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-tao-landing-page-thu-thap-khach-hang-tiem-nang-MTE4MA==?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-tao-landing-page-thu-thap-khach-hang-tiem-nang-MTE4MA==?lang=vi) · Guide
 
-- Nhãn gốc: Inbound Marketing; Xây dựng website nội dung.
-- Đề mục trong bài: Một địa chỉ trang riêng, tách khỏi trang chủ; Form gửi dữ liệu về hệ thống; Một nơi để tôi xem lại danh sách người đã đăng ký; Đo lường: bao nhiêu người vào trang, bao nhiêu người điền form.
-- Từ khóa được nhắc: `EzyArticle`, `EzySupport`, `EzyMail`, `EzyRating`, `EzyCRM`.
+- Original category: Inbound Marketing; Building a website content.
+- Article sections: A separate page address, separated from the main page; Forms sending data about the system; A place for me to review the list of registered people; Measure: how many people enter the page, how many people fill in the form.
+- Features mentioned: `EzyArticle`, `EzySupport`, `EzyMail`, `EzyRating`, `EzyCRM`.
 
 <a id="bai-1177"></a>
 
-### Hướng dẫn cách tạo chiến dịch quảng cáo tìm kiếm từ khóa trên Google cho website
+### How to Create a Keyword Search Campaign on Google for a Website
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-cach-tao-chien-dich-quang-cao-tim-kiem-tu-khoa-tren-google-cho-website?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-cach-tao-chien-dich-quang-cao-tim-kiem-tu-khoa-tren-google-cho-website?lang=vi) · Guide
 
-- Nhãn gốc: Xây dựng website nội dung; Google.
-- Đề mục trong bài: Thiết lập chiến dịch quảng cáo tìm kiếm trên Google; Thiết lập từ khóa, quảng cáo, ngân sách và xuất bản chiến dịch.
-- Bài được dẫn: [Xây dựng website thời trang với EzyPlatform](./tra-cuu-website.md#bai-1447); [Hướng dẫn cách tạo chiến dịch quảng cáo tìm kiếm từ khóa trên Google cho website Publishing (Phần 1)](./tra-cuu-marketing.md#bai-1172); [Hướng dẫn cách tạo chiến dịch quảng cáo tìm kiếm từ khóa trên Google cho website Publishing (Phần2)](./tra-cuu-marketing.md#bai-1174).
+- Original category: Building a website content; Google.
+- Article sections: Set up a search advertising campaign on Google; Set Keywords, Advertising, Budget and Campaign Publishing.
+- Referenced articles: [Building a fashion website with EzyPlatform](./tra-cuu-website.md#bai-1447); [How to Create a Google Keyword Search Advertising Campaign for a Publishing Website (Part 1)](./tra-cuu-marketing.md#bai-1172); [How to Create a Google Keyword Search Advertising Campaign for a Publishing Website (Part 2)](./tra-cuu-marketing.md#bai-1174).
 
 <a id="bai-1175"></a>
 
-### Cấu trúc một Landing Page chuyển đổi cao gồm những gì?
+### The structure of a high-conversion landing page includes what?
 
-[Bài gốc](https://ezyplatform.com/blog/cau-truc-mot-landing-page-chuyen-doi-cao-gom-nhung-gi?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/cau-truc-mot-landing-page-chuyen-doi-cao-gom-nhung-gi?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing; Xây dựng website nội dung.
-- Đề mục trong bài: Hero Section: ấn tượng đầu tiên quyết định việc người đọc có ở lại không; USP: vì sao người đọc nên chọn cuốn này, không phải cuốn khác; Benefits: người đọc nhận được gì, không phải sách có chương gì; Thực hành: Phân tích Landing Page thành công.
-- Bài được dẫn: [Hướng dẫn tạo Landing Page thu thập khách hàng tiềm năng](./tra-cuu-marketing.md#bai-1131).
+- Original category: Inbound Marketing; Building a website content.
+- Article sections: Hero Section: The first impression determines whether the reader remains; USP: Why readers should choose this book, not another book; Benefits: What the reader gets, not what the book has chapters; Practice: Successful Landing Page Analysis.
+- Referenced articles: [Landing Page Guidelines Gather Potential Customers](./tra-cuu-marketing.md#bai-1131).
 
 <a id="bai-1174"></a>
 
-### Hướng dẫn cách tạo chiến dịch quảng cáo tìm kiếm từ khóa trên Google cho website Publishing (Phần2)
+### How to Create a Google Keyword Search Advertising Campaign for a Publishing Website (Part 2)
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-cach-tao-chien-dich-quang-cao-tim-kiem-tu-khoa-tren-google-cho-website-publishing-phan2?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-cach-tao-chien-dich-quang-cao-tim-kiem-tu-khoa-tren-google-cho-website-publishing-phan2?lang=vi) · Guide
 
-- Nhãn gốc: Xây dựng website nội dung; Publishing; Google.
-- Đề mục trong bài: Nhập thông tin từ khóa cho chiến dịch; Tạo nội dung quảng cáo tìm kiếm; Thêm dòng tiêu đề cho quảng cáo; Xem lại và xuất bản chiến dịch.
-- Bài được dẫn: [Hướng dẫn cách tạo chiến dịch quảng cáo tìm kiếm từ khóa trên Google cho website Publishing (Phần 1)](./tra-cuu-marketing.md#bai-1172).
+- Original category: Building a website content; Publishing; Google.
+- Article sections: Enter Keyword Information for the Campaign; Create a search advertisement; Add a title line to the advertising; View and publish the campaign.
+- Referenced articles: [How to Create a Google Keyword Search Advertising Campaign for a Publishing Website (Part 1)](./tra-cuu-marketing.md#bai-1172).
 
 <a id="bai-1172"></a>
 
-### Hướng dẫn cách tạo chiến dịch quảng cáo tìm kiếm từ khóa trên Google cho website Publishing (Phần 1)
+### How to Create a Google Keyword Search Advertising Campaign for a Publishing Website (Part 1)
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-cach-tao-chien-dich-quang-cao-tim-kiem-tu-khoa-tren-google-cho-website-publishing?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-cach-tao-chien-dich-quang-cao-tim-kiem-tu-khoa-tren-google-cho-website-publishing?lang=vi) · Guide
 
-- Nhãn gốc: Xây dựng website nội dung; Publishing; Google.
-- Đề mục trong bài: Truy cập Google Ads và bắt đầu tạo chiến dịch; Chọn mục tiêu chiến dịch; Chọn loại chiến dịch Tìm kiếm; Thiết lập tối đa hóa AI cho chiến dịch Tìm kiếm.
+- Original category: Building a website content; Publishing; Google.
+- Article sections: Go to Google Ads and start creating campaigns; Choose the Campaign Target; Choose the type of search campaign; Set up AI maximum for search campaigns.
 
 <a id="bai-1171"></a>
 
-### Landing Page là gì? Khi nào nên sử dụng Landing Page?
+### When to use Landing Page?
 
-[Bài gốc](https://ezyplatform.com/blog/-landing-page-la-gi-khi-nao-nen-su-dung-landing-page?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/-landing-page-la-gi-khi-nao-nen-su-dung-landing-page?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing; Xây dựng website nội dung.
-- Đề mục trong bài: Landing Page khác website thông thường thế nào?; Landing Page khác Homepage thế nào?; Khi nào nên tạo Landing Page?; Các loại Landing Page phổ biến.
-- Bài được dẫn: [Hướng dẫn tạo Landing Page thu thập khách hàng tiềm năng](./tra-cuu-marketing.md#bai-1131).
+- Original category: Inbound Marketing; Building a website content.
+- Article sections: How is the landing page different from the usual website?; How to Landing Page Homepage?; When to create a landing page?; Popular types of landing pages.
+- Referenced articles: [Landing Page Guidelines Gather Potential Customers](./tra-cuu-marketing.md#bai-1131).
 
 <a id="bai-1170"></a>
 
-### Hướng dẫn kết nối Google Search Console cho website Chứng khoán
+### Google Search Console Connecting Guide to Securities Website
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-tich-hop-facebook-pixel-va-tiktok-pixel-de-do-hieu-qua-quang-cao?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-tich-hop-facebook-pixel-va-tiktok-pixel-de-do-hieu-qua-quang-cao?lang=vi) · Guide
 
-- Nhãn gốc: Inbound Marketing; Xây dựng website nội dung.
-- Đề mục trong bài: Vì sao tôi cần Google Search Console trước khi nghĩ đến traffic; Tạo tài khoản và thêm website vào Google Search Console; Gắn mã theo dõi bằng thẻ HTML; Theo dõi nguồn truy cập trên dashboard.
-- Từ khóa được nhắc: `Search Console`, `robots.txt`, `EzySupport`.
+- Original category: Inbound Marketing; Building a website content.
+- Article sections: Why I need Google Search Console before thinking about traffic; Create an account and add a website to Google Search Console; Link the tracking code with HTML tags; Tracking access on the dashboard.
+- Features mentioned: `Search Console`, `robots.txt`, `EzySupport`.
 
 <a id="bai-1169"></a>
 
-### Hướng dẫn kết nối Google Analytics 4 cho website Chứng khoán
+### Google Analytics 4 Connectivity Guide for Securities Website
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-ket-noi-google-analytics-4-va-google-search-console-cho-website-chung-khoan?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-ket-noi-google-analytics-4-va-google-search-console-cho-website-chung-khoan?lang=vi) · Guide
 
-- Nhãn gốc: Inbound Marketing; Xây dựng website nội dung.
-- Đề mục trong bài: Tại sao phải cài ngay, không chờ trang có traffic?; Chuẩn bị trước khi bắt đầu; — Tạo tài khoản; — Kiểm tra xem mã đã hoạt động chưa.
-- Từ khóa được nhắc: `EzySupport`.
-- Bài được dẫn: [Hướng dẫn kết nối Google Search Console cho website Chứng khoán](./tra-cuu-marketing.md#bai-1170).
+- Original category: Inbound Marketing; Building a website content.
+- Article sections: Why install right now, not waiting for a page with traffic?; Prepare before starting; — Create an account; — Check if the code works.
+- Features mentioned: `EzySupport`.
+- Referenced articles: [Google Search Console Connecting Guide to Securities Website](./tra-cuu-marketing.md#bai-1170).
 
 <a id="bai-1166"></a>
 
-### Hướng dẫn tạo chiến dịch quảng cáo Facebook cho website Publishing (Phần 3)
+### Guide to creating Facebook advertising campaigns for website publishing (Part 3)
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-tao-chien-dich-quang-cao-facebook-cho-website-publishing-phan-3?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-tao-chien-dich-quang-cao-facebook-cho-website-publishing-phan-3?lang=vi) · Guide
 
-- Nhãn gốc: Xây dựng website nội dung; Publishing; Facebook Pixel.
-- Đề mục trong bài: Đặt tên quảng cáo; Chọn danh tính quảng cáo; Chọn thiết lập và định dạng quảng cáo; Lưu ý khi hoàn tất chiến dịch quảng cáo Facebook cho web.
-- Bài được dẫn: [Hướng dẫn tạo chiến dịch quảng cáo Facebook cho website Publishing (Phần 2)](./tra-cuu-marketing.md#bai-1165).
+- Original category: Building a website content; Publishing; Facebook Pixel.
+- Article sections: Set the Advertising Name; Choose the advertising identity; Select Set and Format Advertising; Note when completing Facebook advertising campaign for the web.
+- Referenced articles: [Guide to Creating Facebook Ad Campaign for Website Publishing (Part 2)](./tra-cuu-marketing.md#bai-1165).
 
 <a id="bai-1165"></a>
 
-### Hướng dẫn tạo chiến dịch quảng cáo Facebook cho website Publishing (Phần 2)
+### Guide to Creating Facebook Ad Campaign for Website Publishing (Part 2)
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-tao-chien-dich-quang-cao-facebook-cho-website-publishing-phan-2?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-tao-chien-dich-quang-cao-facebook-cho-website-publishing-phan-2?lang=vi) · Guide
 
-- Nhãn gốc: Xây dựng website nội dung; Publishing; Facebook Pixel.
-- Đề mục trong bài: Đặt tên nhóm quảng cáo; Chọn mục tiêu hiệu quả; Chọn Trang Facebook đại diện; Kiểm tra vị trí quảng cáo và an toàn thương hiệu.
-- Bài được dẫn: [Hướng dẫn tạo chiến dịch quảng cáo Facebook cho website Publishing (Phần 1)](./tra-cuu-marketing.md#bai-1164).
+- Original category: Building a website content; Publishing; Facebook Pixel.
+- Article sections: Name the advertising group; Choose an effective target; Select the Facebook page representative; Check the advertising location and brand security.
+- Referenced articles: [Guide to Creating Facebook Ad Campaign for Website Publishing (Part 1)](./tra-cuu-marketing.md#bai-1164).
 
 <a id="bai-1164"></a>
 
-### Hướng dẫn tạo chiến dịch quảng cáo Facebook cho website Publishing (Phần 1)
+### Guide to Creating Facebook Ad Campaign for Website Publishing (Part 1)
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-tao-chien-dich-quang-cao-facebook-cho-website-publishing?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-tao-chien-dich-quang-cao-facebook-cho-website-publishing?lang=vi) · Guide
 
-- Nhãn gốc: Xây dựng website nội dung; Publishing; Facebook Pixel.
-- Đề mục trong bài: Truy cập Trình quản lý quảng cáo Meta; Chọn tài khoản quảng cáo và nhấn Tạo; Chọn mục tiêu chiến dịch; Kiểm tra thử nghiệm A/B và hạng mục quảng cáo đặc biệt.
-- Bài được dẫn: [Hướng Dẫn Thiết Lập Tài Khoản Và Tạo Chiến Dịch Quảng Cáo Facebook Cho Website Thời Trang](./tra-cuu-website.md#bai-1069).
+- Original category: Building a website content; Publishing; Facebook Pixel.
+- Article sections: Access to Meta Advertising Manager; Select an advertising account and press Create; Choose the Campaign Target; Check the A/B test and special advertising categories.
+- Referenced articles: [Guide to Accounting and Creating Facebook Advertising Campaigns for Fashion Website](./tra-cuu-website.md#bai-1069).
 
 <a id="bai-1148"></a>
 
-### Biến website thành hệ thống tạo khách hàng tự động 24/7
+### Convert a website into a customer-making system 24/7
 
-[Bài gốc](https://ezyplatform.com/blog/bien-website-thanh-he-thong-tao-khach-hang-tu-dong-247?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/bien-website-thanh-he-thong-tao-khach-hang-tu-dong-247?lang=vi) · Guide
 
-- Nhãn gốc: Inbound Marketing; Xây dựng website nội dung.
-- Đề mục trong bài: /7 nghĩa là gì, thật sự?; Hãy hình dung hành trình của một người lạ hoàn toàn; — Kéo người vào bằng nội dung, rồi dùng quảng cáo để đẩy nhanh; Thực hành: Xây mô hình cho chính bạn.
-- Từ khóa được nhắc: `EzyChat`, `EzyAI`.
+- Original category: Inbound Marketing; Building a website content.
+- Article sections: 7 what it really means?; Imagine the journey of a completely stranger; — Take people in with content, then use advertisements to speed up; Practice: Build a model for yourself.
+- Features mentioned: `EzyChat`, `EzyAI`.
 
 <a id="bai-1147"></a>
 
-### Hướng Dẫn Thiết Lập Và Chạy Quảng Cáo Google Ads Cho Website Publishing (Phần 2)
+### Google Ads Ads for Website Publishing (Part 2)
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-thiet-lap-va-chay-quang-cao-google-ads-cho-website-publishing-phan-2?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-thiet-lap-va-chay-quang-cao-google-ads-cho-website-publishing-phan-2?lang=vi) · Guide
 
-- Nhãn gốc: Xây dựng website nội dung; Publishing; Google.
-- Đề mục trong bài: Thêm dòng tiêu đề cho quảng cáo; Thêm dòng tiêu đề dài và nội dung mô tả; Tùy chọn định dạng bổ sung; Kiểm tra trạng thái chiến dịch trong danh sách chiến dịch.
-- Từ khóa được nhắc: `UTM`.
-- Bài được dẫn: [Hướng Dẫn Thiết Lập Và Chạy Quảng Cáo Google Ads Cho Website Publishing (Phần 1)](./tra-cuu-marketing.md#bai-1145).
+- Original category: Building a website content; Publishing; Google.
+- Article sections: Add a title line to the advertising; Add a long title line and description content; Options for additional formats; Check the campaign status in the campaign list.
+- Features mentioned: `UTM`.
+- Referenced articles: [Google Ads for Website Publishing (Part 1)](./tra-cuu-marketing.md#bai-1145).
 
 <a id="bai-1146"></a>
 
-### Tối ưu website chuẩn SEO để xuất hiện trên Google
+### Optimize SEO standard websites to appear on Google
 
-[Bài gốc](https://ezyplatform.com/blog/toi-uu-website-chuan-seo-de-xuat-hien-tren-google?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/toi-uu-website-chuan-seo-de-xuat-hien-tren-google?lang=vi) · Guide
 
-- Nhãn gốc: Inbound Marketing; Xây dựng website nội dung.
-- Đề mục trong bài: SEO Onpage là gì — và tại sao nó quan trọng hơn bạn nghĩ; — Cấu trúc URL: địa chỉ sạch, Google thích hơn; — Meta Title: câu đầu tiên Google đọc; Vậy đây đã gọi là SEO tốt chưa?.
-- Từ khóa được nhắc: `Search Console`.
+- Original category: Inbound Marketing; Building a website content.
+- Article sections: What is SEO onpage — and why it’s more important than you think; — URL structure: clean addresses, Google prefer; — Meta Title: The first word Google read; This is called a good SEO?.
+- Features mentioned: `Search Console`.
 
 <a id="bai-1145"></a>
 
-### Hướng Dẫn Thiết Lập Và Chạy Quảng Cáo Google Ads Cho Website Publishing (Phần 1)
+### Google Ads for Website Publishing (Part 1)
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-thiet-lap-va-chay-quang-cao-google-ads-cho-website-publishing?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-thiet-lap-va-chay-quang-cao-google-ads-cho-website-publishing?lang=vi) · Guide
 
-- Nhãn gốc: Xây dựng website nội dung; Publishing; Google.
-- Đề mục trong bài: Truy cập tài khoản Google Ads; Tạo tài khoản Google Ads mới; Bắt đầu tạo chiến dịch đầu tiên; Một số lưu ý khi chạy Google Ads cho website Publishing.
-- Bài được dẫn: [Hướng dẫn quảng cáo website thời trang trên Google Ads](./tra-cuu-website.md#bai-1073).
+- Original category: Building a website content; Publishing; Google.
+- Article sections: Access to Google Ads Account; Create a new Google Ads account; Start the first campaign; Some notes when running Google Ads for website publishing.
+- Referenced articles: [Fashion website advertising guide on Google Ads](./tra-cuu-website.md#bai-1073).
 
 <a id="bai-1142"></a>
 
-### Hướng dẫn tạo Form đăng ký và thu thập khách hàng tiềm năng
+### Guide to Creating Registration Form and Collecting Potential Customers
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-tao-form-dang-ky-va-thu-thap-khach-hang-tiem-nang?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-tao-form-dang-ky-va-thu-thap-khach-hang-tiem-nang?lang=vi) · Guide
 
-- Nhãn gốc: Inbound Marketing; Xây dựng website nội dung.
-- Đề mục trong bài: Form nên hỏi những gì?; Bao nhiêu trường là đủ?; Form ngắn hay dài?; Ghi chú khi triển khai trên EzyPlatform.
+- Original category: Inbound Marketing; Building a website content.
+- Article sections: Forms ask what?; How many schools are enough?; Short or long form?; Note when deployed on EzyPlatform.
 
 <a id="bai-1139"></a>
 
-### Hướng dẫn thiết lập Facebook Pixel cho website Publishing (Phần 2)
+### Facebook Pixel Setup Guide for Website Publishing (Part 2)
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-thiet-lap-facebook-pixel-cho-website-publishing-phan-2?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-thiet-lap-facebook-pixel-cho-website-publishing-phan-2?lang=vi) · Guide
 
-- Nhãn gốc: Xây dựng website nội dung; Publishing; Facebook Pixel.
-- Đề mục trong bài: Dán mã cơ sở vào website; Tối ưu hóa cách thiết lập Meta Pixel; Hoàn tất các bước thiết lập Pixel; Kiểm tra danh sách đối tượng đã tạo và sự kiện.
-- Từ khóa được nhắc: `Ezysupport`.
-- Bài được dẫn: [Hướng dẫn thiết lập Facebook Pixel cho website Publishing](./tra-cuu-marketing.md#bai-1136).
+- Original category: Building a website content; Publishing; Facebook Pixel.
+- Article sections: Enter the base code to the website; Optimize how to set up the Meta Pixel; Complete the Pixel setup steps; Check the list of created objects and events.
+- Features mentioned: `Ezysupport`.
+- Referenced articles: [Facebook Pixel to Publishing Website](./tra-cuu-marketing.md#bai-1136).
 
 <a id="bai-1138"></a>
 
-### Hướng dẫn thiết lập Tiktok Pixel cho website Publishing (Phần 2)
+### Tiktok Pixel Setup Guide for Website Publishing (Part 2)
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-thiet-lap-tiktok-pixel-cho-website-publishing-phan-2?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-thiet-lap-tiktok-pixel-cho-website-publishing-phan-2?lang=vi) · Guide
 
-- Nhãn gốc: Xây dựng website nội dung; Publishing; Tiktok pixel.
-- Đề mục trong bài: Dán mã TikTok Pixel vào website Publishing trên EzyPlatform; Quản lý cấu hình Pixel; Thiết lập sự kiện trên website Publishing; Kiểm tra trạng thái Pixel sau khi hoàn tất.
-- Bài được dẫn: [Hướng dẫn thiết lập Tiktok Pixel cho website Publishing (Phần 1)](./tra-cuu-marketing.md#bai-1137).
+- Original category: Building a website content; Publishing; Tiktok pixel.
+- Article sections: Add the TikTok Pixel code to the Publishing website on EzyPlatform; Management of Pixel configuration; Set up events on the website Publishing; Check the Pixel status after completion.
+- Referenced articles: [Tiktok Pixel Setup Guide for Website Publishing (Part 1)](./tra-cuu-marketing.md#bai-1137).
 
 <a id="bai-1137"></a>
 
-### Hướng dẫn thiết lập Tiktok Pixel cho website Publishing (Phần 1)
+### Tiktok Pixel Setup Guide for Website Publishing (Part 1)
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-thiet-lap-tiktok-pixel-cho-website-publishing?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-thiet-lap-tiktok-pixel-cho-website-publishing?lang=vi) · Guide
 
-- Nhãn gốc: Xây dựng website nội dung; Publishing; Tiktok pixel.
-- Đề mục trong bài: Vì sao website Publishing nên cài Tiktok Pixel ?; Cách liên kết TikTok Pixel vào website Publishing; Đăng nhập tài khoản TikTok for Business; Sao chép mã cơ sở TikTok Pixel.
-- Bài được dẫn: [Hướng dẫn chi tiết cách liên kết TikTok Pixel vào website thời trang (Phần 2)](./tra-cuu-website.md#bai-993); [Hướng dẫn chi tiết cách liên kết TikTok Pixel vào website thời trang](./tra-cuu-website.md#bai-991).
+- Original category: Building a website content; Publishing; Tiktok pixel.
+- Article sections: Why website publishing should install Tiktok Pixel ?; How to link TikTok Pixel to the Publishing website; Log in to the TikTok for Business account; Copy of the TikTok Pixel base code.
+- Referenced articles: [Detailed instructions how to link TikTok Pixel to a fashion website (Part 2)](./tra-cuu-website.md#bai-993); [Detailed instructions how to link TikTok Pixel to a fashion website](./tra-cuu-website.md#bai-991).
 
 <a id="bai-1136"></a>
 
-### Hướng dẫn thiết lập Facebook Pixel cho website Publishing
+### Facebook Pixel to Publishing Website
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-thiet-lap-facebook-pixel-cho-website-publishing?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-thiet-lap-facebook-pixel-cho-website-publishing?lang=vi) · Guide
 
-- Nhãn gốc: Xây dựng website nội dung; Publishing; Facebook Pixel.
-- Đề mục trong bài: Truy cập Meta Business và chọn tài khoản quảng cáo; Tạo trang quản lý tài sản doanh nghiệp; Nhập thông tin hồ sơ doanh nghiệp; Sao chép mã cơ sở Meta Pixel.
-- Bài được dẫn: [Cách thiết lập Facebook Pixel về việc kinh doanh thời trang cho người mới bắt đầu ?](./tra-cuu-website.md#bai-919).
+- Original category: Building a website content; Publishing; Facebook Pixel.
+- Article sections: Go to Meta Business and select an advertising account; Create a business asset management page; Enter the business profile information; Copy the Meta Pixel code.
+- Referenced articles: [How to set up Facebook Pixel on fashion business for beginners ?](./tra-cuu-website.md#bai-919).
 
 <a id="bai-1135"></a>
 
-### Hướng dẫn tạo CTA giúp tăng tỷ lệ chuyển đổi trên website
+### CTA creation guidelines help increase conversion rates on the website
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-tao-cta-giup-tang-t%E1%BB%B7-le-chuyen-doi-tren-website?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-tao-cta-giup-tang-t%E1%BB%B7-le-chuyen-doi-tren-website?lang=vi) · Guide
 
-- Nhãn gốc: Inbound Marketing; Xây dựng website nội dung.
-- Đề mục trong bài: Vị trí đặt CTA hiệu quả; Khi nào nên đặt CTA mạnh, khi nào nên nhẹ?; CTA cho blog; Những lỗi hay gặp khi viết CTA.
+- Original category: Inbound Marketing; Building a website content.
+- Article sections: Effective CTA placement; when to use a strong or subtle CTA; CTAs for blogs; common mistakes when writing CTAs.
 
 <a id="bai-1134"></a>
 
-### Hướng dẫn thiết lập Google Search Console cho website Publishing
+### Google Search Console for Website Publishing
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-thiet-lap-google-search-console-cho-website-publishing?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-thiet-lap-google-search-console-cho-website-publishing?lang=vi) · Guide
 
-- Nhãn gốc: Xây dựng website nội dung; Publishing; Google.
-- Đề mục trong bài: Vì sao website Publishing nên cài Google Search Console ?; Truy cập Google Search Console và thêm website Publishing; Google Search Console kiểm tra trạng thái xác minh; Lưu ý khi thiết lập Google Search Console cho website Publishing.
-- Từ khóa được nhắc: `Search Console`, `robots.txt`, `EzySupport`.
+- Original category: Building a website content; Publishing; Google.
+- Article sections: Why Publishing website should install Google Search Console ?; Go to Google Search Console and add website publishing; Google Search Console checks status verification; Note when setting up Google Search Console for website publishing.
+- Features mentioned: `Search Console`, `robots.txt`, `EzySupport`.
 
 <a id="bai-1132"></a>
 
-### Hướng dẫn xây dựng hệ thống Blog Marketing kéo khách hàng từ Google
+### The Blog Marketing Building Guide draws customers from Google
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-xay-dung-he-thong-blog-marketing-keo-khach-hang-tu-google?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-xay-dung-he-thong-blog-marketing-keo-khach-hang-tu-google?lang=vi) · Guide
 
-- Nhãn gốc: Inbound Marketing; Xây dựng website nội dung.
-- Đề mục trong bài: Chọn chủ đề blog; Khi nào nên thu hẹp chủ đề blog?; Nghiên cứu từ khóa — biết người ta đang gõ gì lên Google; Ghi chú khi triển khai trên EzyPlatform.
-- Từ khóa được nhắc: `EzyArticle`.
-- Bài được dẫn: [Xây dựng hệ thống Content Marketing bền vững cho doanh nghiệp](./tra-cuu-marketing.md#bai-1017).
+- Original category: Inbound Marketing; Building a website content.
+- Article sections: Choose a blog topic; When to reduce the blog topic?; Research of Keywords — i know what people are writing on Google; Note when deployed on EzyPlatform.
+- Features mentioned: `EzyArticle`.
+- Referenced articles: [Building a Sustainable Content Marketing System for Business](./tra-cuu-marketing.md#bai-1017).
 
 <a id="bai-1131"></a>
 
-### Hướng dẫn tạo Landing Page thu thập khách hàng tiềm năng
+### Landing Page Guidelines Gather Potential Customers
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-tao-landing-page-thu-thap-khach-hang-tiem-nang?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-tao-landing-page-thu-thap-khach-hang-tiem-nang?lang=vi) · Guide
 
-- Nhãn gốc: Inbound Marketing; Xây dựng website nội dung.
-- Đề mục trong bài: Landing Page là gì?; Landing Page tôi đã xây cho chungkhoan.ezyplatform.com; Khi nào nên dùng Landing Page?; Những lỗi hay gặp khiến trang không ai mua.
+- Original category: Inbound Marketing; Building a website content.
+- Article sections: What is Landing Page?; Landing Page I have built for the site.ezyplatform.com; When to use landing page?; The errors that make the page no one purchases.
 
 <a id="bai-1128"></a>
 
-### Hướng Dẫn Cách Tạo Google Analytics Cho Website Publishing
+### How to Create Google Analytics for Website Publishing
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-cach-tao-google-analytics-cho-website-publishing?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-cach-tao-google-analytics-cho-website-publishing?lang=vi) · Guide
 
-- Nhãn gốc: Xây dựng website nội dung; Publishing; Google.
-- Đề mục trong bài: Vì sao website Publishing nên cài Google Analytics?; Truy cập mục Quản trị trong Google Analytics; Tạo tài sản Google Analytics cho website Publishing; Một số lưu ý khi cài Google Analytics cho website Publishing.
-- Từ khóa được nhắc: `EzySupport`.
-- Bài được dẫn: [Cách tạo Google Analytics cho một website bán hàng về mặt thời trang dành cho người mới ?](./tra-cuu-website.md#bai-917).
+- Original category: Building a website content; Publishing; Google.
+- Article sections: Why Website Publishing should install Google Analytics?; Access to the Administration in Google Analytics; Creating Google Analytics Property for Website Publishing; Some note when installing Google Analytics for website publishing.
+- Features mentioned: `EzySupport`.
+- Referenced articles: [How to create Google Analytics for a fashionable sales website for new people ?](./tra-cuu-website.md#bai-917).
 
 <a id="bai-1127"></a>
 
-### Hướng dẫn các công cụ đo lường traffic cho website Publishing
+### Guide to traffic measurement tools for website publishing
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-cac-cong-cu-do-luong-traffic-cho-website-publishing?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-cac-cong-cu-do-luong-traffic-cho-website-publishing?lang=vi) · Guide
 
-- Nhãn gốc: EzyPlatform; Xây dựng website nội dung; Publishing; Facebook Pixel; Tiktok pixel; Google.
-- Đề mục trong bài: Google Search Console – Đo lường traffic SEO từ Google; Google Analytics 4 – Theo dõi hành vi người dùng trên website; Facebook Pixel – Đo lường traffic từ Facebook; Nên kết hợp các công cụ đo lường traffic như thế nào?.
-- Từ khóa được nhắc: `Search Console`, `EzyRating`.
+- Original category: EzyPlatform; Building a website content; Publishing; Facebook Pixel; Tiktok pixel; Google.
+- Article sections: Google Search Console – Measure SEO traffic from Google; Google Analytics 4 – Tracking user behavior on the website; Facebook Pixel – Measurement of Facebook Traffic; How to combine traffic measurement tools?.
+- Features mentioned: `Search Console`, `EzyRating`.
 
 <a id="bai-1123"></a>
 
-### Hướng dẫn xây dựng cấu trúc website giúp khách hàng dễ tìm thấy thông tin
+### The website structure guide makes it easy for customers to find information
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-xay-dung-cau-truc-website-giup-khach-hang-de-tim-thay-thong-tin?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-xay-dung-cau-truc-website-giup-khach-hang-de-tim-thay-thong-tin?lang=vi) · Guide
 
-- Nhãn gốc: Inbound Marketing; Xây dựng website nội dung.
-- Đề mục trong bài: Thiết kế menu như thế nào?; Menu nói ngôn ngữ của người dùng, không phải của người làm website; Nhìn lại menu tôi đã xây cho chungkhoan.ezyplatform.com; Ghi chú khi dùng sitemap trên EzyPlatform.
-- Từ khóa được nhắc: `EzyArticle`.
+- Original category: Inbound Marketing; Building a website content.
+- Article sections: How to Design Menu?; The menu speaks the language of the user, not the website maker; Look back to the menu I built for the site.ezyplatform.com; Note when using sitemap on EzyPlatform.
+- Features mentioned: `EzyArticle`.
 
 <a id="bai-1122"></a>
 
-### Hướng dẫn tạo website chuẩn marketing
+### Create a standard marketing website
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-tao-mot-website-cho-nguoi-lam-marketing?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-tao-mot-website-cho-nguoi-lam-marketing?lang=vi) · Guide
 
-- Nhãn gốc: Inbound Marketing; Xây dựng website nội dung.
-- Đề mục trong bài: Website chuẩn marketing là gì?; Các thành phần của một website chuẩn marketing; Trang chủ - ấn tượng đầu tiên và định hướng người dùng; Tối ưu chuyển đổi.
-- Từ khóa được nhắc: `Search Console`, `EzyRating`, `EzyMarketing`, `Thymeleaf`.
-- Bài được dẫn: [Hướng dẫn cách đo lường traffic cho website](./tra-cuu-website.md#bai-1067); [Cách tạo Google Analytics cho một website bán hàng về mặt thời trang dành cho người mới ?](./tra-cuu-website.md#bai-917); [Cách thiết lập Google Search Console về kinh doanh thời trang cho người mới ?](./tra-cuu-website.md#bai-918).
+- Original category: Inbound Marketing; Building a website content.
+- Article sections: What is a Standard Marketing Website?; The components of a standard marketing website; Home - first impression and user orientation; Optimize the conversion.
+- Features mentioned: `Search Console`, `EzyRating`, `EzyMarketing`, `Thymeleaf`.
+- Referenced articles: [How to measure traffic for a website](./tra-cuu-website.md#bai-1067); [How to create Google Analytics for a fashionable sales website for new people ?](./tra-cuu-website.md#bai-917); [How to set up Google Search Console on fashion business for new people ?](./tra-cuu-website.md#bai-918).
 
 <a id="bai-1044"></a>
 
-### Cách xây dựng nội dung chuyên sâu để giữ khách hàng ở lại lâu hơn
+### How to build deep content to keep customers staying longer
 
-[Bài gốc](https://ezyplatform.com/blog/xay-dung-chien-luoc-seo-dai-han-topical-authority?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/xay-dung-chien-luoc-seo-dai-han-topical-authority?lang=vi) · Guide
 
-- Nhãn gốc: Inbound Marketing; SEO.
-- Đề mục trong bài: Chọn một mảng nội dung thế mạnh để đào sâu; Cách sắp xếp nội dung theo cụm để tạo sức mạnh tổng thể; Giữ cách viết và trình bày thống nhất; Nuôi dưỡng và cập nhật kiến thức thường xuyên.
-- Từ khóa được nhắc: `EzyArticle`, `EzySeo`, `EzyRating`, `EzySupport`.
+- Original category: Inbound Marketing; SEO.
+- Article sections: Choose a strong piece of content to deepen; How to arrange content according to clusters to create overall power; Keep writing and presentation united; Repair and update knowledge regularly.
+- Features mentioned: `EzyArticle`, `EzySeo`, `EzyRating`, `EzySupport`.
 
 <a id="bai-1042"></a>
 
-### Đo lường hiệu quả SEO bằng dữ liệu
+### Measure SEO Efficiency by Data
 
-[Bài gốc](https://ezyplatform.com/blog/do-luong-hieu-qua-seo-bang-du-lieu?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/do-luong-hieu-qua-seo-bang-du-lieu?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing; SEO.
-- Đề mục trong bài: Organic Traffic – Lưu lượng truy cập tự nhiên; Keyword Ranking – Thứ hạng từ khóa; Time on Site – Thời gian trên trang; Conversion từ SEO – Giá trị cuối cùng.
-- Từ khóa được nhắc: `Search Console`, `EzyRating`.
+- Original category: Inbound Marketing; SEO.
+- Article sections: Organic Traffic – Natural traffic; Keyword Ranking – Keyword Rankings; Time on Site – Time on Site; Conversion from SEO – Final Value.
+- Features mentioned: `Search Console`, `EzyRating`.
 
 <a id="bai-1038"></a>
 
-### Google Search Console: Công cụ theo dõi &amp; tối ưu hiệu suất tìm kiếm website
+### Google Search Console: Tracking and Tracking; optimized website search performance
 
-[Bài gốc](https://ezyplatform.com/blog/google-search-console-cong-cu-bat-benh-website-chuan-nhat-dinh-phai-dung?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/google-search-console-cong-cu-bat-benh-website-chuan-nhat-dinh-phai-dung?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing; SEO.
-- Đề mục trong bài: Khai báo Sitemap để tăng tốc độ index; Kiểm tra trạng thái lập chỉ mục (Index); Phân tích dữ liệu tìm kiếm (Search Performance); Cấu hình crawl &amp; robots.txt.
-- Từ khóa được nhắc: `Search Console`, `EzySEO`, `robots.txt`.
+- Original category: Inbound Marketing; SEO.
+- Article sections: Submit a sitemap to speed up indexing; Check indexing status; Analyze search performance; Configure crawling and robots.txt.
+- Features mentioned: `Search Console`, `EzySEO`, `robots.txt`.
 
 <a id="bai-1037"></a>
 
-### Tối ưu CTR – Cách làm cho người ta muốn bấm vào bài của bạn trên Google
+### CTR Optimization – How to Make People Want to Click on Your Posts on Google
 
-[Bài gốc](https://ezyplatform.com/blog/toi-uu-ctr-cach-lam-cho-nguoi-ta-muon-bam-vao-bai-cua-ban-tren-google?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/toi-uu-ctr-cach-lam-cho-nguoi-ta-muon-bam-vao-bai-cua-ban-tren-google?lang=vi) · Guide
 
-- Nhãn gốc: Inbound Marketing; SEO.
-- Đề mục trong bài: Tiêu đề &amp; 2. Đoạn mô tả – Viết đúng cái người ta cần; Làm sao để Google hiển thị đúng tiêu đề bạn viết?; Cách dùng Summary để hiển thị mô tả trên Google; Rich Snippet – Chiếm dụng "đất nền" trên Google.
-- Từ khóa được nhắc: `EzyCRM`, `EzyArticle`.
+- Original category: Inbound Marketing; SEO.
+- Article sections: Titles and descriptions: Write what readers need; How to get Google to display the title you wrote; Use Summary to display a description on Google; Use rich snippets to gain visibility on Google.
+- Features mentioned: `EzyCRM`, `EzyArticle`.
 
 <a id="bai-1031"></a>
 
-### Internal Link: Bản chất của một hệ thống nội dung thông minh và kiến trúc thông tin
+### Internal Link: The essence of an intelligent content system and information architecture
 
-[Bài gốc](https://ezyplatform.com/blog/internal-link-xay-he-thong-noi-dung-thong-minh?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/internal-link-xay-he-thong-noi-dung-thong-minh?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing; SEO.
-- Đề mục trong bài: Bản chất kỹ thuật của Internal Link: Vượt qua khái niệm "Điều hướng"; Xây dựng Topic Cluster: Tư duy quy hoạch dữ liệu; Phân tích ngữ nghĩa của Anchor Text và Ngữ cảnh xung quanh; Vận hành luồng Internal Link trên hệ thống EzyPlatform.
-- Từ khóa được nhắc: `EzyArticle`, `EzyCRM`.
+- Original category: Inbound Marketing; SEO.
+- Article sections: The technical nature of the Internal Link: Overcoming the concept of "Righting"; Building Topic Cluster: Data Planning Thinking; Anchor Text and Environmental Language Analysis; Operating Internal Link on the EzyPlatform system.
+- Features mentioned: `EzyArticle`, `EzyCRM`.
 
 <a id="bai-1030"></a>
 
-### Technical SEO: Kiến trúc nền tảng định đoạt khả năng hiển thị của Website
+### Technical SEO: Platform architecture measures the visibility of the website
 
-[Bài gốc](https://ezyplatform.com/blog/technical-seo-co-ban-cho-website?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/technical-seo-co-ban-cho-website?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing; SEO.
-- Đề mục trong bài: Tại sao Technical SEO lại quan trọng đến vậy?; Bốn trụ cột kỹ thuật cần nắm rõ; Page Speed – Tốc độ trang: không chỉ là cảm nhận của người dùng; Checklist nhanh trước khi đầu tư vào content.
-- Từ khóa được nhắc: `Search Console`, `robots.txt`.
+- Original category: Inbound Marketing; SEO.
+- Article sections: Why Technical SEO Is So Important?; Four Technical Columns Need to Be Understood; Page Speed – Page Speed: Not just the user’s feeling; Quick checklist before investing in content.
+- Features mentioned: `Search Console`, `robots.txt`.
 
 <a id="bai-1029"></a>
 
-### Cách viết bài chuẩn SEO (Onpage Content)
+### How to Write SEO (Onpage Content)
 
-[Bài gốc](https://ezyplatform.com/blog/cach-viet-bai-chuan-seo-onpage-content?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/cach-viet-bai-chuan-seo-onpage-content?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing; SEO.
-- Đề mục trong bài: Vì sao nhiều bài viết chuẩn SEO nhưng vẫn không lên top?; Onpage Content là gì?; Cấu trúc bài viết chuẩn SEO; Sai lầm phổ biến khi viết SEO.
-- Từ khóa được nhắc: `EzyArticle`, `EzyCRM`.
+- Original category: Inbound Marketing; SEO.
+- Article sections: Why many SEO posts are standard but still not up top?; What is onpage content?; Structures of SEO writing; Common mistakes when writing SEO.
+- Features mentioned: `EzyArticle`, `EzyCRM`.
 
 <a id="bai-1027"></a>
 
-### Search Intent – Hiểu đúng mục đích tìm kiếm của khách hàng
+### Search Intent – Understand the purpose of the customer search
 
-[Bài gốc](https://ezyplatform.com/blog/search-intent-hieu-dung-muc-dich-tim-kiem-cua-khach-hang?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/search-intent-hieu-dung-muc-dich-tim-kiem-cua-khach-hang?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing; SEO.
-- Đề mục trong bài: Vấn đề thực tế: đúng từ khóa nhưng sai mục đích; Search Intent là gì?; Google xếp hạng dựa trên Intent, không chỉ dựa trên Keyword; Kết nối Intent vào toàn bộ hệ thống marketing.
-- Từ khóa được nhắc: `search console`, `EzyRating`, `EzyArticle`, `EzyCRM`.
-- Bài được dẫn: [Hành trình khách hàng trong Inbound Marketing](./tra-cuu-marketing.md#bai-932).
+- Original category: Inbound Marketing; SEO.
+- Article sections: Real problem: the right keyword but the wrong purpose; What is Search Intent?; Google rankings based on Intent, not just on Keyword; Connect Intent to the entire marketing system.
+- Features mentioned: `search console`, `EzyRating`, `EzyArticle`, `EzyCRM`.
+- Referenced articles: [Customer Travel in Inbound Marketing](./tra-cuu-marketing.md#bai-932).
 
 <a id="bai-1025"></a>
 
-### Nghiên cứu từ khóa (Keyword Research) từ A–Z
+### Keyword Research from A to Z
 
-[Bài gốc](https://ezyplatform.com/blog/nghien-cuu-tu-khoa-keyword-research-tu-a-z?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/nghien-cuu-tu-khoa-keyword-research-tu-a-z?lang=vi) · Guide
 
-- Nhãn gốc: Inbound Marketing; SEO.
-- Đề mục trong bài: Vấn đề thực tế: viết nhiều nhưng không ai tìm thấy; Từ khóa là gì, và vì sao nên bắt đầu từ từ khóa; Các loại từ khóa; Những sai lầm thường gặp.
-- Từ khóa được nhắc: `Search Console`.
-- Bài được dẫn: [SEO là gì? Cách Google hoạt động như thế nào](./tra-cuu-marketing.md#bai-1024); [Nghiên cứu từ khóa cho website EzyPlatform: từ câu hỏi của khách đến danh sách bài viết](./tra-cuu-marketing.md#bai-1590); [Search Intent – Hiểu đúng mục đích tìm kiếm của khách hàng](./tra-cuu-marketing.md#bai-1027).
+- Original category: Inbound Marketing; SEO.
+- Article sections: The real problem: write a lot but no one finds it; What is Keyword, and why to start with Keyword; Types of Keywords; Often the mistakes are made.
+- Features mentioned: `Search Console`.
+- Referenced articles: [What is SEO? how does Google work](./tra-cuu-marketing.md#bai-1024); [Keyword Research for an EzyPlatform Website: Turn Customer Questions into Article Ideas](./tra-cuu-marketing.md#bai-1590); [Search Intent – Understand the purpose of the customer search](./tra-cuu-marketing.md#bai-1027).
 
 <a id="bai-1024"></a>
 
-### SEO là gì? Cách Google hoạt động như thế nào
+### What is SEO? how does Google work
 
-[Bài gốc](https://ezyplatform.com/blog/seo-la-gi-cach-google-hoat-dong-nhu-the-nao?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/seo-la-gi-cach-google-hoat-dong-nhu-the-nao?lang=vi) · Guide
 
-- Nhãn gốc: Inbound Marketing; SEO.
-- Đề mục trong bài: Vấn đề thực tế: có website, không có khách; SEO nằm ở đâu trên trang kết quả tìm kiếm; Vì sao SEO mang lại nguồn khách bền vững; SEO trong thời đại AI tìm kiếm.
-- Từ khóa được nhắc: `robots.txt`, `EzyArticle`, `EzySEO`, `Search Console`.
-- Bài được dẫn: [SEO cho website Hương Camera: Google đọc trang của bạn như thế nào](./tra-cuu-marketing.md#bai-1575); [Internal Link: Bản chất của một hệ thống nội dung thông minh và kiến trúc thông tin](./tra-cuu-marketing.md#bai-1031); [Google Search Console: Công cụ theo dõi &amp; tối ưu hiệu suất tìm kiếm website](./tra-cuu-marketing.md#bai-1038).
+- Original category: Inbound Marketing; SEO.
+- Article sections: The real problem: there is a website, no guests; Where is SEO on the search results page; Why SEO Brings Sustainable Customer Resources; SEO in the Age of Searching.
+- Features mentioned: `robots.txt`, `EzyArticle`, `EzySEO`, `Search Console`.
+- Referenced articles: [SEO for Web Camera: How Google Read Your Page](./tra-cuu-marketing.md#bai-1575); [Internal Link: The essence of an intelligent content system and information architecture](./tra-cuu-marketing.md#bai-1031); [Google Search Console: Tracking and Tracking; optimized website search performance](./tra-cuu-marketing.md#bai-1038).
 
 <a id="bai-1017"></a>
 
-### Xây dựng hệ thống Content Marketing bền vững cho doanh nghiệp
+### Building a Sustainable Content Marketing System for Business
 
-[Bài gốc](https://ezyplatform.com/blog/xay-dung-he-thong-content-marketing-ben-vung-cho-doanh-nghiep?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/xay-dung-he-thong-content-marketing-ben-vung-cho-doanh-nghiep?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing; Content Marketing.
-- Đề mục trong bài: Chuyện gì đã xảy ra khi làm content rất mạnh lúc đầu xong rồi lại dừng?; Content Marketing bền vững là gì?; Bốn yếu tố cốt lõi để xây dựng hệ thống Content Marketing; Content Marketing trong thời đại AI - dùng đúng chỗ.
+- Original category: Inbound Marketing; Content Marketing.
+- Article sections: What happened when the content was very strong at the beginning and then stopped?; What is Sustainable Content Marketing?; Four Core Factors to Build Content Marketing System; Content Marketing in the AI Age - Use the Right Place.
 
 <a id="bai-1016"></a>
 
-### Đo lường hiệu quả Content Marketing – Từ dữ liệu đến tối ưu
+### Content Marketing Efficiency Measurement – From Data to Optimum
 
-[Bài gốc](https://ezyplatform.com/blog/do-luong-hieu-qua-content-marketing-tu-du-lieu-den-toi-uu?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/do-luong-hieu-qua-content-marketing-tu-du-lieu-den-toi-uu?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing; Content Marketing.
-- Đề mục trong bài: Khi content không còn là vấn đề, mà là cách bạn hiểu nó; Đo lường content không phải để “xem số”, mà để hiểu vấn đề; Những chỉ số thực sự cần quan tâm; Đo lường content trong bối cảnh AI.
+- Original category: Inbound Marketing; Content Marketing.
+- Article sections: When content is no longer a problem, but how you understand it; Measure content is not to “see numbers”, but to understand the problem; The indicators really need to be concerned; Measurement of content in the context of AI.
 
 <a id="bai-1013"></a>
 
-### Storytelling trong Content Marketing – Cách kể câu chuyện để tăng cảm xúc, ghi nhớ và chuyển đổi
+### Storytelling in Content Marketing – How to tell stories to increase emotions, memory and conversion
 
-[Bài gốc](https://ezyplatform.com/blog/storytelling-trong-content-marketing-cach-ke-cau-chuyen-de-tang-cam-xuc-ghi-nho-va-chuyen-doi?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/storytelling-trong-content-marketing-cach-ke-cau-chuyen-de-tang-cam-xuc-ghi-nho-va-chuyen-doi?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing; Content Marketing.
-- Đề mục trong bài: Tại sao nội dung nhiều, nhưng lại không ai nhớ?; Storytelling trong Content Marketing là gì?; Vì sao Storytelling lại hiệu quả đến vậy?; Storytelling trong thời đại AI.
+- Original category: Inbound Marketing; Content Marketing.
+- Article sections: Why is there a lot of content, but no one remembers it?; What is Storytelling in Content Marketing?; Why is Storytelling so effective?; Storytelling in the Age of AI.
 
 <a id="bai-1012"></a>
 
-### Social Media Content – Phân phối nội dung trên mạng xã hội
+### Social Media Content – Distribution of content on social networks
 
-[Bài gốc](https://ezyplatform.com/blog/social-media-content-phan-phoi-noi-dung-tren-mang-xa-hoi?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/social-media-content-phan-phoi-noi-dung-tren-mang-xa-hoi?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing; Content Marketing.
-- Đề mục trong bài: Vì sao nội dung tốt nhưng không có người xem?; Social Media Content là gì?; Các hình thức nội dung phổ biến trên mạng xã hội; Một nội dung - nhiều nền tảng.
+- Original category: Inbound Marketing; Content Marketing.
+- Article sections: Why is it good but no one sees?; What is Social Media Content?; Popular forms of content on social networks; One content - many foundation.
 
 <a id="bai-1011"></a>
 
-### Content Funnel – Xây dựng phễu nội dung chuyển đổi
+### Content Funnel – Converting content
 
-[Bài gốc](https://ezyplatform.com/blog/content-funnel-xay-dung-pheu-noi-dung-chuyen-doi?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/content-funnel-xay-dung-pheu-noi-dung-chuyen-doi?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing; Content Marketing.
-- Đề mục trong bài: Có traffic rồi, nhưng vẫn không có khách hàng?; Content Funnel là gì?; Tầng 1: Content thu hút traffic (Top of Funnel); Cách liên kết ba tầng thành một hệ thống thực sự hoạt động.
+- Original category: Inbound Marketing; Content Marketing.
+- Article sections: There is traffic, but there are no customers?; What is Content Funnel?; Top of Funnel (Top of Funnell); How to connect three floors to a really working system.
 
 <a id="bai-1010"></a>
 
-### SEO Content – Cách viết nội dung lên top Google
+### SEO Content – How to write content to the top of Google
 
-[Bài gốc](https://ezyplatform.com/blog/seo-content-cach-viet-noi-dung-len-top-google?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/seo-content-cach-viet-noi-dung-len-top-google?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing; Content Marketing; SEO.
-- Đề mục trong bài: Vì sao nhiều bài viết không có traffic dù nội dung tốt?; SEO Content là gì?; Bốn nguyên tắc cốt lõi khi viết SEO Content; SEO Content trong thời đại AI.
+- Original category: Inbound Marketing; Content Marketing; SEO.
+- Article sections: Why many articles have no traffic even though good content?; What is SEO Content?; The four core principles when writing SEO content; SEO Content in the Age of AI.
 
 <a id="bai-1009"></a>
 
-### Cách xây dựng chiến lược Content Marketing hiệu quả
+### How to build an effective content marketing strategy
 
-[Bài gốc](https://ezyplatform.com/blog/cach-xay-dung-chien-luoc-content-marketing-hieu-qua?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/cach-xay-dung-chien-luoc-content-marketing-hieu-qua?lang=vi) · Guide
 
-- Nhãn gốc: Inbound Marketing; Content Marketing.
-- Đề mục trong bài: Làm content đều mà vẫn không có kết quả.; Chiến lược Content Marketing là gì?; bước xây dựng chiến lược Content Marketing; Làm content trong thời đại AI, nên tiếp cận thế nào?.
+- Original category: Inbound Marketing; Content Marketing.
+- Article sections: Make content without any results.; What is Content Marketing Strategy?; building a Content Marketing Strategy; To make content in the AI age, how to approach it?.
 
 <a id="bai-1008"></a>
 
-### Các dạng nội dung phổ biến trong Content Marketing
+### Popular forms of content in content marketing
 
-[Bài gốc](https://ezyplatform.com/blog/cac-dang-noi-dung-pho-bien-trong-content-marketing-uu-nhuoc-diem-tung-loai?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/cac-dang-noi-dung-pho-bien-trong-content-marketing-uu-nhuoc-diem-tung-loai?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing; Content Marketing.
-- Đề mục trong bài: Content không phải "1 loại" - mà là cả một hệ thống; Blog - Nền tảng traffic dài hạn; Video - Nội dung tác động mạnh nhất; AI có thể thay đổi cuộc chơi nhưng không thay thế được tất cả.
+- Original category: Inbound Marketing; Content Marketing.
+- Article sections: Content is not "one type" - but a whole system; Blog - Long-term traffic platform; Video - The strongest impact content; Who can change the game, but cannot replace it all.
 
 <a id="bai-995"></a>
 
-### Content Marketing là gì? Và tại sao doanh nghiệp nào cũng cần làm?
+### What is Content Marketing? and Why Every Business Should Do It?
 
-[Bài gốc](https://ezyplatform.com/blog/content-marketing-la-gi-vai-tro-trong-chien-luoc-marketing-hien-dai?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/content-marketing-la-gi-vai-tro-trong-chien-luoc-marketing-hien-dai?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing; Content Marketing.
-- Đề mục trong bài: Khách hàng đã thay đổi cách họ mua hàng; Content Marketing là gì?; Khác gì quảng cáo truyền thống?; Vậy doanh nghiệp cần làm gì trong thời đại AI?.
+- Original category: Inbound Marketing; Content Marketing.
+- Article sections: Customers have changed their way of buying; What is Content Marketing?; What else is traditional advertising?; What Businesses Should Do in the Age of AI?.
 
 <a id="bai-989"></a>
 
-### Xây dựng hệ thống đo lường Customer Journey bằng dữ liệu
+### Building a Customer Journey Measurement System with Data
 
-[Bài gốc](https://ezyplatform.com/blog/xay-dung-he-thong-do-luong-customer-journey-bang-du-lieu?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/xay-dung-he-thong-do-luong-customer-journey-bang-du-lieu?lang=vi) · Use case
 
-- Nhãn gốc: Hành trình khách hàng.
-- Đề mục trong bài: Vì sao doanh nghiệp phải đo lường hành trình khách hàng?; Tư duy đúng: từ dữ liệu → insight → quyết định; Thiết lập Google Analytics để theo dõi hành trình khách hàng; Đo lường Customer Journey để tối ưu tăng trưởng dài hạn.
-- Từ khóa được nhắc: `EzySEO`, `EzyMarketing`, `EzyCRM`, `EzyLogin`, `EzyChat`, `EzyMail`.
+- Original category: The customer journey.
+- Article sections: Why Business Should Measure Customer Journey?; Right thinking: from data → insight → decisions; Set up Google Analytics to track customer travel; Measure Customer Journey to optimize long-term growth.
+- Features mentioned: `EzySEO`, `EzyMarketing`, `EzyCRM`, `EzyLogin`, `EzyChat`, `EzyMail`.
 
 <a id="bai-988"></a>
 
-### Customer Lifetime Value (CLV) và chiến lược giữ chân khách hàng
+### Customer Lifetime Value (CLV) and Customer Stay Strategy
 
-[Bài gốc](https://ezyplatform.com/blog/customer-lifetime-value-clv-va-chien-luoc-giu-chan-khach-hang?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/customer-lifetime-value-clv-va-chien-luoc-giu-chan-khach-hang?lang=vi) · Use case
 
-- Nhãn gốc: Hành trình khách hàng.
-- Đề mục trong bài: Vì sao giữ chân khách hàng quan trọng hơn tìm khách hàng mới?; Customer Lifetime Value (CLV) là gì?; Cách tính CLV đơn giản; CLV cao giúp doanh nghiệp tăng trưởng bền vững.
+- Original category: The customer journey.
+- Article sections: Why Keeping a Customer Foot is More Important Than Finding a New Customer?; What is Customer Lifetime Value (CLV)?; The CLV is simple; CLV high helps doanh to grow sustainably.
 
 <a id="bai-986"></a>
 
-### Growth Marketing và tối ưu hành trình khách hàng
+### Growth Marketing and Customer Journey Optimization
 
-[Bài gốc](https://ezyplatform.com/blog/growth-marketing-va-toi-uu-hanh-trinh-khach-hang?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/growth-marketing-va-toi-uu-hanh-trinh-khach-hang?lang=vi) · Use case
 
-- Nhãn gốc: Hành trình khách hàng.
-- Đề mục trong bài: Growth Marketing là gì?; Tư duy Growth Marketing: Tăng trưởng là quá trình tối ưu liên tục; Ứng dụng A/B Testing để tối ưu hành trình khách hàng; Tăng trưởng nhanh nhưng vẫn bền vững.
-- Từ khóa được nhắc: `EzyArticle`, `EzyRating`, `EzyPayment`, `EzyCRM`, `EzyLogin`, `EzySupport`, `EzyChat`.
+- Original category: The customer journey.
+- Article sections: What is Growth Marketing?; Growth Marketing: Growth is a continuous optimum process; A/B Testing app to optimize customer travel; Grow fast but sustainable.
+- Features mentioned: `EzyArticle`, `EzyRating`, `EzyPayment`, `EzyCRM`, `EzyLogin`, `EzySupport`, `EzyChat`.
 
 <a id="bai-984"></a>
 
-### Customer Experience (CX) – Trải nghiệm khách hàng quyết định tăng trưởng
+### Customer Experience (CX) – Customer experience determines growth
 
-[Bài gốc](https://ezyplatform.com/blog/customer-experience-cx-trai-nghiem-khach-hang-quyet-dinh-tang-truong?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/customer-experience-cx-trai-nghiem-khach-hang-quyet-dinh-tang-truong?lang=vi) · Use case
 
-- Nhãn gốc: Hành trình khách hàng.
-- Đề mục trong bài: Customer Experience (CX) là gì?; Mối liên hệ giữa trải nghiệm – niềm tin – chuyển đổi – trung thành; Các yếu tố tạo nên trải nghiệm khách hàng tích cực; Cách thiết kế chiến lược Customer Experience.
+- Original category: The customer journey.
+- Article sections: What is Customer Experience (CX)?; Relationship between experience – belief – conversion – loyalty; Factors that create a positive customer experience; How to Design Customer Experience Strategy.
 
 <a id="bai-974"></a>
 
-### Cá nhân hóa hành trình khách hàng bằng dữ liệu
+### Personalizing customer travel with data
 
-[Bài gốc](https://ezyplatform.com/blog/ca-nhan-hoa-hanh-trinh-khach-hang-bang-du-lieu?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/ca-nhan-hoa-hanh-trinh-khach-hang-bang-du-lieu?lang=vi) · Guide
 
-- Nhãn gốc: Inbound Marketing.
-- Đề mục trong bài: Vì sao cá nhân hóa trở thành yêu cầu bắt buộc?; Cá nhân hóa hành trình khách hàng là gì?; Những dữ liệu nào giúp Academy cá nhân hóa?; – Liên tục cải tiến dựa trên dữ liệu.
-- Từ khóa được nhắc: `EzyLogin`, `EzyRating`, `EzySupport`, `EzyArticle`, `EzySeo`.
-- Bài được dẫn: [Hành trình khách hàng trong Inbound Marketing](./tra-cuu-marketing.md#bai-932).
+- Original category: Inbound Marketing.
+- Article sections: Why personality becomes a compulsory requirement?; What is Customer Travel Personalization?; What data helps the Academy to personalize?; – Continuous improvement based on data.
+- Features mentioned: `EzyLogin`, `EzyRating`, `EzySupport`, `EzyArticle`, `EzySeo`.
+- Referenced articles: [Customer Travel in Inbound Marketing](./tra-cuu-marketing.md#bai-932).
 
 <a id="bai-973"></a>
 
-### Omnichannel Customer Journey – Hành trình khách hàng đa kênh liền mạch
+### Omnichannel Customer Journey – Multi-Channel Customer Travel
 
-[Bài gốc](https://ezyplatform.com/blog/them-ca-nhung-plugin-cua-ezyplatform-vao-bai-viet?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/them-ca-nhung-plugin-cua-ezyplatform-vao-bai-viet?lang=vi) · Use case
 
-- Nhãn gốc: Hành trình khách hàng.
-- Đề mục trong bài: Omnichannel Customer Journey là gì?; Tư duy quan trọng khi xây dựng hành trình đa kênh; Các kênh chính trong Omnichannel Customer Journey; Sai lầm phổ biến khi làm Omnichannel.
-- Từ khóa được nhắc: `EzyRating`.
+- Original category: The customer journey.
+- Article sections: What is Omnichannel Customer Journey?; Thinking important when building a multi-channel journey; Main Channels in Omnichannel Customer Journey; Common mistakes when doing Omnichannel.
+- Features mentioned: `EzyRating`.
 
 <a id="bai-972"></a>
 
-### Micro-moments – Khoảnh khắc quyết định trong hành trình khách hàng
+### Micro-moments – the decisive moment in the customer journey
 
-[Bài gốc](https://ezyplatform.com/blog/micro-moments-khoanh-khac-quyet-dinh-trong-hanh-trinh-khach-hang?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/micro-moments-khoanh-khac-quyet-dinh-trong-hanh-trinh-khach-hang?lang=vi) · Use case
 
-- Nhãn gốc: Hành trình khách hàng.
-- Đề mục trong bài: Micro-moments là gì?; Tư duy quan trọng khi hiểu Micro-moments; Ba loại Micro-moments phổ biến; Micro-moments và chiến lược tăng trưởng.
-- Từ khóa được nhắc: `EzyRating`, `EzyMail`.
+- Original category: The customer journey.
+- Article sections: What is Micro-Moments?; Thinking important when understanding micro-moments; Three types of micro-moments; Micro-moments and growth strategy.
+- Features mentioned: `EzyRating`, `EzyMail`.
 
 <a id="bai-964"></a>
 
-### Mapping Customer Journey – Cách vẽ bản đồ hành trình khách hàng thực tế
+### Mapping Customer Journey – How to draw a real customer journey map
 
-[Bài gốc](https://ezyplatform.com/blog/mapping-customer-journey-cach-ve-ban-do-hanh-trinh-khach-hang-thuc-te?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/mapping-customer-journey-cach-ve-ban-do-hanh-trinh-khach-hang-thuc-te?lang=vi) · Guide
 
-- Nhãn gốc: Inbound Marketing.
-- Đề mục trong bài: Vì sao doanh nghiệp cần vẽ bản đồ hành trình khách hàng?; Xác định chân dung khách hàng mục tiêu (Persona); Xác định các giai đoạn trong hành trình; Công cụ hỗ trợ vẽ và theo dõi Customer Journey.
+- Original category: Inbound Marketing.
+- Article sections: Why Businesses Need to Paint a Customer Travel Map?; Identifying the target customer portrait (Persona); Identify the stages of the journey; Supporting tools to draw and track Customer Journey.
 
 <a id="bai-953"></a>
 
-### Tư duy chiến lược về Customer Journey trong thời đại số
+### Strategic Thinking of Customer Journey in the Digital Age
 
-[Bài gốc](https://ezyplatform.com/blog/tu-duy-chien-luoc-ve-customer-journey-trong-thoi-dai-so?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/tu-duy-chien-luoc-ve-customer-journey-trong-thoi-dai-so?lang=vi) · Use case
 
-- Nhãn gốc: Hành trình khách hàng.
-- Đề mục trong bài: Hành trình khách hàng (Customer Journey) là gì?; Tư duy đầu tiên: Tin vào số liệu, không tin vào cảm tính; Tư duy thứ hai: Phải có công cụ đo lường hành trình khách hàng; Customer Journey là nền tảng tăng trưởng dài hạn.
-- Từ khóa được nhắc: `EzyRating`, `e-commerce`.
+- Original category: The customer journey.
+- Article sections: What is Customer Journey?; First thought: Believe in figures, not believe in emotions; Second thought: It needs to be a tool to measure customer journey; Customer Journey is the long-term growth platform.
+- Features mentioned: `EzyRating`, `e-commerce`.
 
 <a id="bai-950"></a>
 
-### Xây dựng chiến lược Inbound Marketing hoàn chỉnh
+### Building a complete Inbound Marketing strategy
 
-[Bài gốc](https://ezyplatform.com/blog/xay-dung-chien-luoc-inbound-marketing-hoan-chinh?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/xay-dung-chien-luoc-inbound-marketing-hoan-chinh?lang=vi) · Guide
 
-- Nhãn gốc: Inbound Marketing.
-- Đề mục trong bài: – Xác định khách hàng mục tiêu; – Xây dựng chiến lược nội dung theo hành trình khách hàng; – Chọn kênh marketing phù hợp; – Xây tài sản marketing dài hạn.
-- Từ khóa được nhắc: `EzyArticle`, `Search Console`, `EzyRating`.
+- Original category: Inbound Marketing.
+- Article sections: Identify the target customer; – Building a content strategy according to the customer journey; – Choose the right marketing channel; – Building long-term marketing assets.
+- Features mentioned: `EzyArticle`, `Search Console`, `EzyRating`.
 
 <a id="bai-944"></a>
 
-### Đo lường hiệu quả Inbound Marketing
+### Measurement of Inbound Marketing Effects
 
-[Bài gốc](https://ezyplatform.com/blog/do-luong-hieu-qua-inbound-marketing?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/do-luong-hieu-qua-inbound-marketing?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing.
-- Đề mục trong bài: Tại sao phải đo lường?; Những chỉ số quan trọng cần theo dõi; Traffic – Lưu lượng truy cập; Đo lường theo toàn bộ hành trình khách hàng.
-- Từ khóa được nhắc: `Search Console`, `EzyRating`.
+- Original category: Inbound Marketing.
+- Article sections: Why to measure?; Important indicators to be monitored; Traffic – traffic of access; Measured by the entire customer journey.
+- Features mentioned: `Search Console`, `EzyRating`.
 
 <a id="bai-942"></a>
 
-### Marketing Automation – Tự động hóa Inbound Marketing
+### Marketing Automation – Inbound Marketing Automation
 
-[Bài gốc](https://ezyplatform.com/blog/marketing-automation-tu-dong-hoa-inbound-marketing?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/marketing-automation-tu-dong-hoa-inbound-marketing?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing.
-- Đề mục trong bài: Vì sao doanh nghiệp cần Marketing Automation?; Marketing Automation là gì?; Vai trò của Marketing Automation trong Inbound Marketing; EzyMail – nền tảng email của EzyPlatform.
-- Từ khóa được nhắc: `EzyMail`, `EzyDelivery`.
+- Original category: Inbound Marketing.
+- Article sections: Why Businesses Need Marketing Automation?; What is Marketing Automation?; Role of Marketing Automation in Inbound Marketing; EzyMail – EzyPlatform’s email platform.
+- Features mentioned: `EzyMail`, `EzyDelivery`.
 
 <a id="bai-941"></a>
 
-### Email Marketing trong chiến lược Inbound Marketing
+### Email Marketing in Inbound Marketing Strategy
 
-[Bài gốc](https://ezyplatform.com/blog/email-marketing-trong-chien-luoc-inbound-marketing?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/email-marketing-trong-chien-luoc-inbound-marketing?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing.
-- Đề mục trong bài: Vì sao email vẫn là kênh nuôi dưỡng lead mạnh nhất?; Lead Nurturing – mục tiêu cốt lõi của Email Marketing trong Inbound; EzyMail – công cụ email cho toàn bộ hệ thống EzyPlatform; Vấn đề spam và cách phòng tránh.
-- Từ khóa được nhắc: `EzyMail`, `EzyDelivery`.
+- Original category: Inbound Marketing.
+- Article sections: Why email remains the strongest lead feed channel?; Lead Nurturing – the core goal of Email Marketing in Inbound; EzyMail – email tool for the entire EzyPlatform system; Spam and how to avoid it.
+- Features mentioned: `EzyMail`, `EzyDelivery`.
 
 <a id="bai-939"></a>
 
-### Lead Magnet – Cách thu hút khách hàng để lại thông tin
+### Lead Magnet – How to Attract Customers to Leave Information
 
-[Bài gốc](https://ezyplatform.com/blog/lead-magnet-cach-thu-hut-khach-hang-de-lai-thong-tin-?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/lead-magnet-cach-thu-hut-khach-hang-de-lai-thong-tin-?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing.
-- Đề mục trong bài: Vì sao khách hàng không dễ dàng để lại thông tin?; Lead Magnet là gì?; Vì sao Lead Magnet quan trọng với EzyPlatform Academy?; Một Lead Magnet hiệu quả cần có gì?.
+- Original category: Inbound Marketing.
+- Article sections: Why the customer is not easy to leave information?; What is Lead Magnet?; Why Lead Magnet is Important with EzyPlatform Academy?; What A Effective Lead Magnet Does Need?.
 
 <a id="bai-938"></a>
 
-### Xây dựng Website chuẩn Inbound Marketing
+### The Inbound Marketing Website
 
-[Bài gốc](https://ezyplatform.com/blog/xay-dung-website-chuan-inbound-marketing?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/xay-dung-website-chuan-inbound-marketing?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing.
-- Đề mục trong bài: Website không chỉ là trang giới thiệu; Nhận diện thương hiệu – nền tảng trước khi làm bất cứ điều gì; UX/UI – người dùng quyết định ở lại hay không trong vòng 10 giây; CTA – cầu nối giữa "đọc" và "hành động".
-- Từ khóa được nhắc: `EzyArticle`, `EzyDelivery`.
-- Bài được dẫn: [4.Cách tạo bộ nhận diện thương hiệu cho website thời trang dành cho người mới](./tra-cuu-website.md#bai-954).
+- Original category: Inbound Marketing.
+- Article sections: The website is not just a presentation page; Brands recognition – the foundation before doing anything; UX/UI – the user decides whether or not to stay within 10 seconds; CTA – the bridge between “read” and “action”".
+- Features mentioned: `EzyArticle`, `EzyDelivery`.
+- Referenced articles: [How to Create a Brand Identifier for a Fashion Website for New People](./tra-cuu-website.md#bai-954).
 
 <a id="bai-936"></a>
 
-### SEO – Cách để khách hàng tìm thấy bạn trên Google
+### SEO – How to Make Customers Find You on Google
 
-[Bài gốc](https://ezyplatform.com/blog/seo-cach-de-khach-hang-tim-thay-ban-tren-google?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/seo-cach-de-khach-hang-tim-thay-ban-tren-google?lang=vi) · Use case
 
-- Nhãn gốc: Hành trình khách hàng.
-- Đề mục trong bài: Trong Inbound Marketing, khách hàng phải tìm thấy bạn trước; Vì sao SEO đặc biệt quan trọng trong Inbound Marketing?; Ba yếu tố quan trọng của SEO; SEO và Content Marketing luôn đi cùng nhau.
+- Original category: The customer journey.
+- Article sections: In Inbound Marketing, customers must first find you; Why SEO is So Important in Inbound Marketing?; Three important aspects of SEO; SEO and Content Marketing are always together.
 
 <a id="bai-932"></a>
 
-### Hành trình khách hàng trong Inbound Marketing
+### Customer Travel in Inbound Marketing
 
-[Bài gốc](https://ezyplatform.com/blog/hanh-trinh-khach-hang-trong-inbound-marketing?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/hanh-trinh-khach-hang-trong-inbound-marketing?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing.
-- Đề mục trong bài: Buyer Journey gồm những gì?; Giai đoạn Nhận biết (Awareness); Giai đoạn Cân nhắc (Consideration); Giai đoạn Ra quyết định (Decision).
-- Từ khóa được nhắc: `EzyRating`, `EzyArticle`, `EzySeo`, `EzySupport`.
+- Original category: Inbound Marketing.
+- Article sections: What Buyer Journey includes?; The Awareness (Awareness); The Phase of Consideration (Consideration); The Decision (Decision of Decision).
+- Features mentioned: `EzyRating`, `EzyArticle`, `EzySeo`, `EzySupport`.
 
 <a id="bai-931"></a>
 
-### Inbound Marketing là gì? Vì sao nó trở thành xu hướng marketing hiện đại
+### What is Inbound Marketing? Why It Becomes a Modern Marketing Trend
 
-[Bài gốc](https://ezyplatform.com/blog/inbound-marketing-la-gi?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/inbound-marketing-la-gi?lang=vi) · Use case
 
-- Nhãn gốc: Inbound Marketing.
-- Đề mục trong bài: Inbound Marketing là gì?; Một số hình thức nội dung có thể áp dụng cho Inbound Marketing; Nếu chưa khởi nghiệp, có nên làm Inbound không?; Đo lường và tối ưu.
-- Từ khóa được nhắc: `Search Console`, `ezyarticle`, `ezyseo`.
+- Original category: Inbound Marketing.
+- Article sections: What is Inbound Marketing?; Some forms of content may apply to Inbound Marketing; If you don’t start, do you need to start inbound?; Measured and optimized.
+- Features mentioned: `Search Console`, `ezyarticle`, `ezyseo`.
 
 <a id="bai-636"></a>
 
-### Mức độ tiêu thụ công nghệ của Marketing Agency hiện đại
+### The level of consumption of technology of the modern Marketing Agency
 
-[Bài gốc](https://ezyplatform.com/blog/marketing-agency-va-cong-nghe-ho-su-dung-cong-cu-gi-de-dan-dau-thi-truong?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/marketing-agency-va-cong-nghe-ho-su-dung-cong-cu-gi-de-dan-dau-thi-truong?lang=vi) · Use case
 
-- Nhãn gốc: Marketing Agency.
-- Đề mục trong bài: Góc nhìn chiến lược dành cho CEO, CMO, và Nhà sáng lập Agency; AI: Một công cụ cần sử dụng một cách cẩn thận – sử dụng, nhưng không lạm dụng; Cơ cấu công nghệ theo chức năng; Tác động thị trường và xu hướng.
+- Original category: Marketing Agency.
+- Article sections: Strategic View for CEO, CMO, and Founder Agency; AI: A tool to be used carefully – use, but not abuse; Technical structure according to function; Market Effects and Trends.
 
 <a id="bai-635"></a>
 
-### Giá trị cốt lõi của một Marketing Agency chuyên nghiệp
+### The core values of a professional marketing agency
 
-[Bài gốc](https://ezyplatform.com/blog/gia-tri-cot-loi-cua-mot-marketing-agency-chuyen-nghiep?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/gia-tri-cot-loi-cua-mot-marketing-agency-chuyen-nghiep?lang=vi) · Use case
 
-- Nhãn gốc: Marketing Agency.
-- Đề mục trong bài: Một định nghĩa chiến lược dành cho lãnh đạo cấp cao và người làm tư vấn phát triển thương hiệu; Ba năng lực cốt lõi của một Marketing Agency chuyên nghiệp; Từ năng lực đến giá trị: 6 giá trị cốt lõi của một Marketing Agency chuyên nghiệp; Khả năng tích hợp công nghệ &amp; tối ưu vận hành (Tech Integration &amp; Automation Thinking).
+- Original category: Marketing Agency.
+- Article sections: A strategic definition for senior leaders and brand consultants; Three core capabilities of a professional marketing agency; From capability to value: Six things a professional agency delivers; Integrating technology and automating operations.
 
 <a id="bai-633"></a>
 
-### Marketing Agency kiếm tiền như thế nào? Mô hình doanh thu &amp; hợp đồng
+### How does the marketing agency make money; contract
 
-[Bài gốc](https://ezyplatform.com/blog/-marketing-agency-kiem-tien-nhu-the-nao-mo-hinh-doanh-thu-hop-dong?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/-marketing-agency-kiem-tien-nhu-the-nao-mo-hinh-doanh-thu-hop-dong?lang=vi) · Use case
 
-- Nhãn gốc: Marketing Agency.
-- Đề mục trong bài: Project-Based Pricing (Theo dự án); Retainer-Based (Phí cố định hàng tháng); Hourly / Input-Based (Theo giờ hoặc đầu vào); Subscription &amp; Productized Services.
+- Original category: Marketing Agency.
+- Article sections: Project-based pricing; Monthly retainers; Hourly or input-based pricing; Subscriptions and productized services.
 
 <a id="bai-629"></a>
 
-### Các loại hình Marketing Agency phổ biến &amp; cách chọn đúng đối tác cho doanh nghiệp
+### The types of marketing agencies are popular &; how to choose the right partner for the business
 
-[Bài gốc](https://ezyplatform.com/blog/cac-loai-marketing-agency-hien-nay-va-diem-khac-biet-chinh?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/cac-loai-marketing-agency-hien-nay-va-diem-khac-biet-chinh?lang=vi) · Use case
 
-- Nhãn gốc: Marketing Agency.
-- Đề mục trong bài: Full-Service Agency – Toàn diện, quy mô, đồng bộ; Specialized Agency – Tập trung chuyên sâu, hiệu quả cao; Boutique Agency – Sáng tạo cao, cá nhân hóa tốt; So sánh nhanh các loại Marketing Agency.
+- Original category: Marketing Agency.
+- Article sections: Full-Service Agency – Comprehensive, scale, synchronized; Specialized Agency – Concentration, High Efficiency; Boutique Agency – High creativity, good personalization; Compare Fast Marketing Agencies.
 
 <a id="bai-628"></a>
 
-### Marketing Agency cần gì? Và tại sao EzyPlatform là giải pháp công nghệ tối ưu
+### What Marketing Agency needs? and why EzyPlatform is the optimal technology solution
 
-[Bài gốc](https://ezyplatform.com/blog/marketing-agency-can-gi-va-tai-sao-ezyplatform-la-giai-phap-cong-nghe-toi-uu?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/marketing-agency-can-gi-va-tai-sao-ezyplatform-la-giai-phap-cong-nghe-toi-uu?lang=vi) · Use case
 
-- Nhãn gốc: Marketing Agency.
-- Đề mục trong bài: yếu tố cốt lõi mà một Marketing Agency hiện đại không thể thiếu; EzyPlatform – Hệ sinh thái mở dành riêng cho Agency vận hành hiệu quả; Bảng so sánh nhu cầu – giải pháp EzyPlatform; Lợi thế cạnh tranh cốt lõi của EzyPlatform.
-- Từ khóa được nhắc: `websocket`, `Marketplace`, `EzyArticle`.
+- Original category: Marketing Agency.
+- Article sections: the core factor that a modern marketing agency cannot lack; EzyPlatform – an open ecosystem dedicated to the Agency to operate efficiently; Compare Table of Requirements – EzyPlatform Solutions; The core competitive advantage of EzyPlatform.
+- Features mentioned: `websocket`, `Marketplace`, `EzyArticle`.
 
 <a id="bai-625"></a>
 
-### Lợi ích khi thuê Marketing Agency: Vì sao doanh nghiệp cần họ?
+### Benefits of Renting a Marketing Agency: Why Businesses Need Them?
 
-[Bài gốc](https://ezyplatform.com/blog/loi-ich-khi-thue-marketing-agency-vi-sao-doanh-nghiep-can-ho?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/loi-ich-khi-thue-marketing-agency-vi-sao-doanh-nghiep-can-ho?lang=vi) · Use case
 
-- Nhãn gốc: Marketing Agency.
-- Đề mục trong bài: Giới thiệu: Không chỉ là "thuê ngoài" – đây là chiến lược tăng trưởng; Chi phí cơ hội: Tối ưu hóa nguồn lực trong khi rút ngắn thời gian triển khai; Tiếp cận chuyên môn cao theo chiều sâu và chiều rộng; Tư duy đo lường và tối ưu hiệu suất theo mô hình Performance.
+- Original category: Marketing Agency.
+- Article sections: Introduction: Not just “outdoor” – this is a growth strategy; Opportunity Cost: Optimize resources while shortening the implementation time; High expertise in depth and width; Measurement and optimization of performance according to the performance model.
 
 <a id="bai-621"></a>
 
-### Marketing Agency cung cấp dịch vụ gì? Họ làm gì cho khách hàng?
+### What marketing agencies offer services? what do they do for customers?
 
-[Bài gốc](https://ezyplatform.com/blog/marketing-agency-cung-cap-dich-vu-gi-ho-lam-gi-cho-khach-hang?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/marketing-agency-cung-cap-dich-vu-gi-ho-lam-gi-cho-khach-hang?lang=vi) · Use case
 
-- Nhãn gốc: Marketing Agency.
-- Đề mục trong bài: Tổng quan: Marketing Agency làm gì?; Các nhóm dịch vụ chính của Marketing Agency; Mô tả chi tiết từng nhóm dịch vụ; Liên kết giữa Marketing Agency và EzyPlatform.
+- Original category: Marketing Agency.
+- Article sections: What does the Marketing Agency do?; The main service groups of the Marketing Agency; Detailed description of each service group; Relationship between Marketing Agency and EzyPlatform.
 
 <a id="bai-620"></a>
 
-### Marketing Agency là gì? Họ là ai trong thế giới marketing hiện đại?
+### What is Marketing Agency?Who are they in the modern marketing world?
 
-[Bài gốc](https://ezyplatform.com/blog/marketing-agency-la-gi-ho-la-ai-trong-the-gioi-marketing-hien-dai?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/marketing-agency-la-gi-ho-la-ai-trong-the-gioi-marketing-hien-dai?lang=vi) · Use case
 
-- Nhãn gốc: Marketing Agency.
-- Đề mục trong bài: Marketing Agency là gì? và Phân biệt với các hình thức khác; Định nghĩa cơ bản:; Phân biệt với các hình thức khác; Một số ví dụ về agency nổi bật (quốc tế và Việt Nam).
+- Original category: Marketing Agency.
+- Article sections: What is Marketing Agency? and Difference from Other Forms; The basic definition:; Difference from other forms; Some examples of the outstanding agencies (International and Vietnam).
 
 <a id="bai-537"></a>
 
-### Nhiều Mục Tiêu Trong Việc Bỏ Thuế Khoán, Chuyển Sang Thuế Trực Tiếp
+### Many Goals in the Cancellation of Tax, Transfer to Direct Tax
 
-[Bài gốc](https://ezyplatform.com/blog/nhieu-muc-tieu-kep-trong-viec-bo-thue-khoan-chuyen-sang-thue-truc-tiep?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/nhieu-muc-tieu-kep-trong-viec-bo-thue-khoan-chuyen-sang-thue-truc-tiep?lang=vi) · Use case
 
-- Nhãn gốc: Chuyển đổi Hộ Kinh Doanh lên Doanh Nghiệp.
-- Đề mục trong bài: Bối cảnh &amp; Quy mô thực tế; Mục tiêu đa chiều của cải cách; Lộ trình thực hiện; Tầm nhìn dài hạn.
+- Original category: Convert business to business.
+- Article sections: Context and actual scope; The reform's multiple objectives; Implementation roadmap; Long-term vision.
 
 <a id="bai-509"></a>
 
-### Thiếu Đo Lường Hiệu Quả &amp; Bỏ Qua Trải Nghiệm Khách Hàng
+### Lack of efficiency and; Abandoned the customer experience
 
-[Bài gốc](https://ezyplatform.com/blog/thieu-do-luong-hieu-qua-bo-qua-trai-nghiem-khach-hang?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/thieu-do-luong-hieu-qua-bo-qua-trai-nghiem-khach-hang?lang=vi) · Use case
 
-- Nhãn gốc: Hành trình khách hàng.
+- Original category: The customer journey.
 
 <a id="bai-495"></a>
 
-### Hướng dẫn Chi tiết Tạo lập &amp; Phát hành Hóa đơn Điện tử
+### The detailed creation and; issuing electronic bills
 
-[Bài gốc](https://ezyplatform.com/blog/huong-dan-chi-tiet-tao-lap-phat-hanh-hoa-don-dien-tu?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/huong-dan-chi-tiet-tao-lap-phat-hanh-hoa-don-dien-tu?lang=vi) · Guide
 
-- Nhãn gốc: Chuyển đổi Hộ Kinh Doanh lên Doanh Nghiệp.
-- Đề mục trong bài: Chọn loại hóa đơn; Nhập thông tin bắt buộc trên hóa đơn; Lưu tạm &amp; Xem trước; Lập hóa đơn điều chỉnh.
+- Original category: Convert business to business.
+- Article sections: Select the invoice type; Enter required invoice information; Save a draft and preview it; Issue an adjustment invoice.
 
 <a id="bai-493"></a>
 
-### Cài đặt và Cấu hình Phần mềm Phát hành Hóa đơn Điện tử
+### Install and Configurate the Electronic Account Release Software
 
-[Bài gốc](https://ezyplatform.com/blog/-cai-dat-va-cau-hinh-phan-mem-phat-hanh-hoa-don-dien-tu?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/-cai-dat-va-cau-hinh-phan-mem-phat-hanh-hoa-don-dien-tu?lang=vi) · Guide
 
-- Nhãn gốc: Chuyển đổi Hộ Kinh Doanh lên Doanh Nghiệp.
-- Đề mục trong bài: Lựa chọn và cài đặt giải pháp T-VAN; Hướng Dẫn Cài Đặt Plugin Ký Điện Tử Trên Cổng Thông Tin Tổng Cục Thuế; Yêu cầu hệ thống; Kiểm tra và khắc phục.
+- Original category: Convert business to business.
+- Article sections: Selection and installation of the T-VAN solution; Installer Plugins for Electronic Signature on the General Tax Office Information Portal; Require the system; Check and fix.
 
 <a id="bai-492"></a>
 
-### Đăng ký Sử dụng Hóa đơn Điện tử Trên Cổng Tổng cục Thuế
+### Registration using electronic invoices on the General Tax Office Portal
 
-[Bài gốc](https://ezyplatform.com/blog/dang-ky-su-dung-hoa-don-dien-tu-tren-cong-tong-cuc-thue?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/dang-ky-su-dung-hoa-don-dien-tu-tren-cong-tong-cuc-thue?lang=vi) · Guide
 
-- Nhãn gốc: Chuyển đổi Hộ Kinh Doanh lên Doanh Nghiệp.
-- Đề mục trong bài: Nhập thông tin người nộp thuế; Chọn hình thức hóa đơn; Chọn phương thức truyền dữ liệu; Xem lại tờ khai.
+- Original category: Convert business to business.
+- Article sections: Enter the information of the taxpayer; Choose the form of the bill; Choose the method of data transfer; Look at the statement.
 
 <a id="bai-488"></a>
 
-### Tổng quan về hóa đơn điện tử cho hộ kinh doanh
+### Overview of the electronic invoice for the business
 
-[Bài gốc](https://ezyplatform.com/blog/tong-quan-ve-hoa-don-dien-tu-cho-ho-kinh-doanh?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/tong-quan-ve-hoa-don-dien-tu-cho-ho-kinh-doanh?lang=vi) · Use case
 
-- Nhãn gốc: Chuyển đổi Hộ Kinh Doanh lên Doanh Nghiệp.
-- Đề mục trong bài: Bối cảnh và cơ sở pháp lý; Lợi ích chiến lược; Yếu tố cần chuẩn bị; Khuyến nghị cho hộ kinh doanh.
+- Original category: Convert business to business.
+- Article sections: Context and legal basis; The strategic benefits; Factors need to be prepared; Recommendations for the business.
 
 <a id="bai-467"></a>
 
-### Các sai lầm phổ biến khi chuyển đổi từ hộ kinh doanh lên doanh nghiệp và giải pháp khắc phục
+### Common errors when switching from business to business and solutions to fix
 
-[Bài gốc](https://ezyplatform.com/blog/cac-sai-lam-pho-bien-khi-chuyen-doi-tu-ho-kinh-doanh-len-doanh-nghiep-va-giai-phap-khac-phuc?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/cac-sai-lam-pho-bien-khi-chuyen-doi-tu-ho-kinh-doanh-len-doanh-nghiep-va-giai-phap-khac-phuc?lang=vi) · Use case
 
-- Nhãn gốc: Chuyển đổi Hộ Kinh Doanh lên Doanh Nghiệp.
-- Đề mục trong bài: Các sai lầm điển hình khi chuyển đổi; Giải pháp và kinh nghiệm thực tế; Gợi ý công cụ công nghệ nên trang bị ngay từ đầu.
+- Original category: Convert business to business.
+- Article sections: Typical errors when converting; Real solutions and experience; Technical tools should be equipped from the beginning.
 
 <a id="bai-465"></a>
 
-### Chọn loại hình doanh nghiệp phù hợp nhất khi chuyển từ hộ kinh doanh lên doanh nghiệp
+### Choose the most suitable type of business when moving from business to business
 
-[Bài gốc](https://ezyplatform.com/blog/-chon-loai-hinh-doanh-nghiep-phu-hop-nhat-khi-chuyen-tu-ho-kinh-doanh-len-doanh-nghiep?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/-chon-loai-hinh-doanh-nghiep-phu-hop-nhat-khi-chuyen-tu-ho-kinh-doanh-len-doanh-nghiep?lang=vi) · Use case
 
-- Nhãn gốc: Chuyển đổi Hộ Kinh Doanh lên Doanh Nghiệp.
-- Đề mục trong bài: Phân tích 4 loại hình doanh nghiệp phổ biến; Gợi ý lựa chọn phù hợp với hộ kinh doanh; Lưu ý về thuế và quản lý tài chính theo loại hình doanh nghiệp; Hệ thống phần mềm hỗ trợ quản lý phù hợp theo quy mô doanh nghiệp.
+- Original category: Convert business to business.
+- Article sections: Analysis of 4 types of common business; Choose the right choice for the business; Note on tax and financial management by type of business; Software support management according to the business size.
 
 <a id="bai-462"></a>
 
-### Các thay đổi quan trọng về thuế và chính sách khi chuyển từ hộ kinh doanh lên doanh nghiệp
+### Important changes in tax and policy when transiting from business to business
 
-[Bài gốc](https://ezyplatform.com/blog/cac-thay-doi-quan-trong-ve-thue-va-chinh-sach-khi-chuyen-tu-ho-kinh-doanh-len-doanh-nghiep?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/cac-thay-doi-quan-trong-ve-thue-va-chinh-sach-khi-chuyen-tu-ho-kinh-doanh-len-doanh-nghiep?lang=vi) · Use case
 
-- Nhãn gốc: Chuyển đổi Hộ Kinh Doanh lên Doanh Nghiệp.
-- Đề mục trong bài: Thay đổi từ thuế khoán sang chế độ thuế kê khai đầy đủ; Yêu cầu lưu trữ chứng từ và báo cáo định kỳ; Chính sách ưu đãi dành cho doanh nghiệp vừa và nhỏ; Hạ tầng công nghệ phục vụ quản lý thuế và tài chính.
+- Original category: Convert business to business.
+- Article sections: Change from stock tax to full tax system; Request archiving certificates and periodic reports; The preferential policy for small and medium doanh; Infrastructure technology serves tax and financial management.
 
 <a id="bai-461"></a>
 
-### Quy trình chuyển đổi từ hộ kinh doanh lên doanh nghiệp: Chi tiết các bước
+### Transition from business to business: details of the steps
 
-[Bài gốc](https://ezyplatform.com/blog/quy-trinh-chuyen-doi-tu-ho-kinh-doanh-len-doanh-nghiep-chi-tiet-cac-buoc?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/quy-trinh-chuyen-doi-tu-ho-kinh-doanh-len-doanh-nghiep-chi-tiet-cac-buoc?lang=vi) · Guide
 
-- Nhãn gốc: Chuyển đổi Hộ Kinh Doanh lên Doanh Nghiệp.
-- Đề mục trong bài: Chuẩn bị hồ sơ; Nộp hồ sơ đăng ký; Hoàn thiện thủ tục thuế ban đầu; Chuyển đổi thông tin với các bên liên quan.
+- Original category: Convert business to business.
+- Article sections: Preparing the records; Submit the registration file; Complete the initial tax procedure; Exchange information with the interested parties.
 
 <a id="bai-460"></a>
 
-### Tổng quan về chuyển đổi từ hộ kinh doanh lên doanh nghiệp: Những điều cần biết
+### Overview of the transition from business to business: What to know
 
-[Bài gốc](https://ezyplatform.com/blog/tong-quan-ve-chuyen-doi-tu-ho-kinh-doanh-len-doanh-nghiep-nhung-dieu-can-biet?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/tong-quan-ve-chuyen-doi-tu-ho-kinh-doanh-len-doanh-nghiep-nhung-dieu-can-biet?lang=vi) · Use case
 
-- Nhãn gốc: Chuyển đổi Hộ Kinh Doanh lên Doanh Nghiệp.
-- Đề mục trong bài: Vấn đề hiện nay của hộ kinh doanh tại Việt Nam; Các loại hình doanh nghiệp hiện nay; Thay đổi về thuế và chính sách khi chuyển từ hộ kinh doanh sang doanh nghiệp; Lợi ích tổng thể khi chuyển đổi từ hộ kinh doanh sang doanh nghiệp.
+- Original category: Convert business to business.
+- Article sections: The current business issue in Vietnam; The types of business today; Tax and policy changes when moving from business to business; Total benefits when transiting from business to business.
 
 <a id="bai-456"></a>
 
-### Dự báo tác động của Nghị quyết 68 tới nền kinh tế tư nhân
+### The impact of Resolution 68 on the private economy
 
-[Bài gốc](https://ezyplatform.com/blog/du-bao-tac-dong-cua-nghi-quyet-68-toi-nen-kinh-te-tu-nhan?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/du-bao-tac-dong-cua-nghi-quyet-68-toi-nen-kinh-te-tu-nhan?lang=vi) · Use case
 
-- Nhãn gốc: Chuyển đổi Hộ Kinh Doanh lên Doanh Nghiệp.
-- Đề mục trong bài: Kịch bản 1: Quyết liệt – “Bứt phá”; Kịch bản 2: Ổn định – “Vững bước”; Kịch bản 3: Chậm trễ – “Thách thức”.
+- Original category: Convert business to business.
+- Article sections: Scenario 1: Decisive – “Breaking””; Scenario 2: Stable – “Stop Steps””; Scenario 3: Late – “The Challenge””.
 
 <a id="bai-455"></a>
 
-### Đánh giá tính khả thi của Nghị quyết 68
+### Assessment of the possibility of the resolution 68
 
-[Bài gốc](https://ezyplatform.com/blog/danh-gia-tinh-kha-thi-cua-nghi-quyet-68?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/danh-gia-tinh-kha-thi-cua-nghi-quyet-68?lang=vi) · Use case
 
-- Nhãn gốc: Chuyển đổi Hộ Kinh Doanh lên Doanh Nghiệp.
-- Đề mục trong bài: Ưu thế chính sách; Rào cản khách quan; Rào cản chủ quan; Điều kiện tiên quyết.
+- Original category: Convert business to business.
+- Article sections: The policy advantage; Barrier to the objective; The barrier of the master; Preliminary conditions.
 
 <a id="bai-454"></a>
 
-### Giải mã các chỉ tiêu số trọng yếu trong Nghị quyết 68
+### Declaration of the critical indicators in Decision 68
 
-[Bài gốc](https://ezyplatform.com/blog/giai-ma-cac-chi-tieu-so-trong-yeu-trong-nghi-quyet-68?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/giai-ma-cac-chi-tieu-so-trong-yeu-trong-nghi-quyet-68?lang=vi) · Use case
 
-- Nhãn gốc: Chuyển đổi Hộ Kinh Doanh lên Doanh Nghiệp.
-- Đề mục trong bài: Quy mô doanh nghiệp: 2 triệu vào 2030, 3 triệu vào 2045; Tốc độ tăng trưởng bình quân 10–12%/năm; Đóng góp 55–58% GDP và 35–40% thu ngân sách; Top 3 ASEAN về đổi mới sáng tạo &amp; chuyển đổi số.
+- Original category: Convert business to business.
+- Article sections: Number of businesses: 2 million by 2030 and 3 million by 2045; Average annual growth of 10–12%; Contribution of 55–58% of GDP and 35–40% of budget revenue; Top three in ASEAN for innovation and digital transformation.
 
 <a id="bai-213"></a>
 
-### Mạng xã hội đang thay đổi cách tạo dựng mối quan hệ của người trẻ như thế nào?
+### How social networks are changing how to build the relationship of young people?
 
-[Bài gốc](https://ezyplatform.com/blog/mang-xa-hoi-dang-thay-doi-cach-tao-dung-moi-quan-he-cua-nguoi-tre-nhu-the-nao?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/mang-xa-hoi-dang-thay-doi-cach-tao-dung-moi-quan-he-cua-nguoi-tre-nhu-the-nao?lang=vi) · Guide
 
-- Nhãn gốc: Marketing.
-- Đề mục trong bài: đầu tiên: Tìm hiểu qua mạng trước hết; Ngại gặp mặt; Mạng xã hội gây ra nhiều tan vỡ.
+- Original category: Marketing.
+- Article sections: first: Learn through the internet first; Unfortunate to meet; Social networks cause many breakdowns.
 
 <a id="bai-209"></a>
 
-### CRM và những lời chúc sinh nhật: Khi cá nhân hoá trở nên máy móc
+### CRM and birthday wishes: When personalization becomes machine
 
-[Bài gốc](https://ezyplatform.com/blog/crm-va-nhung-loi-chuc-sinh-nhat-khi-ca-nhan-hoa-tro-nen-may-moc?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/crm-va-nhung-loi-chuc-sinh-nhat-khi-ca-nhan-hoa-tro-nen-may-moc?lang=vi) · Use case
 
-- Nhãn gốc: Marketing.
-- Đề mục trong bài: Vì sao lời chúc mừng sinh nhật từ CRM "mất chất"?; Khi mọi email đều na ná nhau; Cá nhân hóa nửa vời; Tập trung vào trải nghiệm, không chỉ là giảm giá.
+- Original category: Marketing.
+- Article sections: Why Birthday Congratulations From CRM "Lost""?; When all the emails are on each other; Personalized half; Focus on experience, not just a discount.
 
 <a id="bai-208"></a>
 
-### CRM là gì?
+### What is CRM?
 
-[Bài gốc](https://ezyplatform.com/blog/cmr-la-gi-tat-ca-nhung-gi-ban-can-biet-ve-cmr?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/cmr-la-gi-tat-ca-nhung-gi-ban-can-biet-ve-cmr?lang=vi) · Use case
 
-- Nhãn gốc: Marketing.
-- Đề mục trong bài: Khái niệm CRM; Cơ chế hoạt động của CRM; Ứng dụng và Lợi ích của CRM.
+- Original category: Marketing.
+- Article sections: The concept of CRM; Mechanisms of CRM; The benefits and benefits of CRM.
 
 <a id="bai-207"></a>
 
-### Top 5 Cuốn sách Lập trình viên cần đọc năm 2025
+### Top 5 Books A Programmer Should Read in 2025
 
-[Bài gốc](https://ezyplatform.com/blog/top-5-cuon-sach-lap-trinh-vien-can-doc-nam-2025?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/top-5-cuon-sach-lap-trinh-vien-can-doc-nam-2025?lang=vi) · Use case
 
-- Nhãn gốc: Marketing.
-- Đề mục trong bài: Cuốn sách "Lập trình AI cho người mới bắt đầu" - TS. Lương Anh Vũ &amp; Tạ Văn Dũng; Những nguyên tắc sống còn trong Lập trình; Làm chủ các mẫu thiết kế kinh điển trong Lập trình; Mở cửa Tương lai.
+- Original category: Marketing.
+- Article sections: AI Programming for Beginners by Dr. Lương Anh Vũ and Tạ Văn Dũng; Essential programming principles; Mastering classic design patterns; What comes next.
 
 <a id="bai-205"></a>
 
-### Cách để tạo ra một nhóm Zalo 1000 người
+### How to Create a 1000 Zalo Group
 
-[Bài gốc](https://ezyplatform.com/blog/cach-de-tao-ra-mot-nhom-zalo-1000-nguoi?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/cach-de-tao-ra-mot-nhom-zalo-1000-nguoi?lang=vi) · Use case
 
-- Nhãn gốc: Marketing.
-- Đề mục trong bài: Tại sao cộng đồng trên Zalo lại phổ biến?; Các bước xây dựng nhóm Zalo 1000 người; Hình thành mục tiêu rõ ràng; Duy trì và phát triển cộng đồng.
+- Original category: Marketing.
+- Article sections: Why the community on Zalo is popular?; The construction of the Zalo 1000 people group; Forming a clear goal; Maintaining and developing the community.
 
 <a id="bai-204"></a>
 
-### Cuốn sách Lập trình AI tiếng Việt đầu tiên: Đọc để không bỏ lỡ xu thế của thời đại
+### The First Vietnamese AI Programming: Reading to Not Miss the Trend of Time
 
-[Bài gốc](https://ezyplatform.com/blog/cuon-sach-lap-trinh-ai-tieng-viet-dau-tien-doc-de-khong-bo-lo-xu-the-cua-thoi-dai?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/cuon-sach-lap-trinh-ai-tieng-viet-dau-tien-doc-de-khong-bo-lo-xu-the-cua-thoi-dai?lang=vi) · Use case
 
-- Nhãn gốc: Marketing.
-- Đề mục trong bài: Cuốn sách chính là công cụ đầu tiên bằng tiếng Việt giúp bạn hiện thực hóa việc làm chủ công nghệ; Vai trò của tri thức và ngôn ngữ mẹ đẻ trong công cuộc phát triển; Link đọc thử.
+- Original category: Marketing.
+- Article sections: The main book is the first tool in Spanish to help you realize the mastery of technology; The role of knowledge and mother tongue in development work; Link to read.
 
 <a id="bai-202"></a>
 
-### Hành vi của người dùng thay đổi thế nào khi có AI
+### How the user’s behavior changes when there’s someone
 
-[Bài gốc](https://ezyplatform.com/blog/hanh-vi-cua-nguoi-dung-thay-doi-the-nao-khi-co-ai-?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/hanh-vi-cua-nguoi-dung-thay-doi-the-nao-khi-co-ai-?lang=vi) · Use case
 
-- Nhãn gốc: Marketing.
-- Đề mục trong bài: Sự dịch chuyển mạnh mẽ; Thay đổi cách tiếp cận thông tin; Tiêu dùng cá nhân hóa hơn; AI và sự phụ thuộc công nghệ của con người.
+- Original category: Marketing.
+- Article sections: A strong transfer; Changing the way of accessing information; Use more personalized; Who and the technology dependency of humans.
 
 <a id="bai-201"></a>
 
-### Những vấn đề trong  chuỗi cung ứng phần mềm tại Việt Nam
+### Problems in the supply chain of software in Vietnam
 
-[Bài gốc](https://ezyplatform.com/blog/nhung-van-de-trong--chuoi-cung-ung-phan-mem-tai-viet-nam?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/nhung-van-de-trong--chuoi-cung-ung-phan-mem-tai-viet-nam?lang=vi) · Use case
 
-- Nhãn gốc: Marketing.
-- Đề mục trong bài: Tổng quan về chuỗi cung ứng phần mềm tại Việt Nam; Những vấn đề chính trong chuỗi cung ứng phần mềm tại Việt Nam; Chưa có một ý tưởng hoàn chỉnh nào về chuỗi cung ứng phần mềm tại Việt Nam; Định hướng tương lai cho chuỗi cung ứng phần mềm.
-- Bài được dẫn: [Chuỗi cung ứng là gì? Hiểu đúng về “xương sống” của nền kinh tế hiện đại](./tra-cuu-marketing.md#bai-200).
+- Original category: Marketing.
+- Article sections: Overview of the supply chain of software in Vietnam; The main problems in the supply chain of software in Vietnam; There is no complete idea of the software supply chain in Vietnam; Future orientation for the software supply chain.
+- Referenced articles: [What is the supply chain? The right understanding of the “spinal” of the modern economy](./tra-cuu-marketing.md#bai-200).
 
 <a id="bai-200"></a>
 
-### Chuỗi cung ứng là gì? Hiểu đúng về “xương sống” của nền kinh tế hiện đại
+### What is the supply chain? The right understanding of the “spinal” of the modern economy
 
-[Bài gốc](https://ezyplatform.com/blog/chuoi-cung-ung-la-gi-hieu-dung-ve-%E2%80%9Cxuong-song%E2%80%9D-cua-nen-kinh-te-hien-dai?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/chuoi-cung-ung-la-gi-hieu-dung-ve-%E2%80%9Cxuong-song%E2%80%9D-cua-nen-kinh-te-hien-dai?lang=vi) · Use case
 
-- Nhãn gốc: Marketing.
-- Đề mục trong bài: Sự chuyển mình mạnh mẽ của thời đại; Định nghĩa chuỗi cung ứng; Các bước trong chuỗi cung ứng; Các loại mô hình chuỗi cung ứng.
+- Original category: Marketing.
+- Article sections: The strong transformation of time; Definition of supply chain; Steps in the supply chain; Types of supply chain models.
 
 <a id="bai-199"></a>
 
-### Những vấn đề của phần mềm SaaS tại Việt Nam
+### The SaaS software problems in Vietnam
 
-[Bài gốc](https://ezyplatform.com/blog/nhung-van-de-cua-phan-mem-saas-tai-viet-nam?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/nhung-van-de-cua-phan-mem-saas-tai-viet-nam?lang=vi) · Use case
 
-- Nhãn gốc: Marketing.
-- Đề mục trong bài: Từ sự phổ biến đến những vấn đề tồn đọng; Những vấn đề chính của phần mềm SaaS tại Việt Nam; Mang lại giá trị thực cho người dùng; Làm thế nào để phần mềm SaaS phát triển mạnh tại Việt Nam?.
+- Original category: Marketing.
+- Article sections: From popularity to existing issues; The main problems of SaaS software in Vietnam; Give real value to users; How SaaS Software Grows In Vietnam?.
 
 <a id="bai-186"></a>
 
-### Phần mềm SaaS là gì? Tại sao bạn nên biết phần mềm SaaS?
+### What is SaaS Software? Why should you know SaaS software?
 
-[Bài gốc](https://ezyplatform.com/blog/phan-mem-saas-la-gi-tai-sao-ban-nen-biet-phan-mem-saas?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/phan-mem-saas-la-gi-tai-sao-ban-nen-biet-phan-mem-saas?lang=vi) · Use case
 
-- Nhãn gốc: Marketing.
-- Đề mục trong bài: mềm SaaS là gì?; Đặc điểm nổi bật của SaaS:; Lợi ích của phần mềm SaaS; Làm thế nào để bắt đầu với SaaS?.
+- Original category: Marketing.
+- Article sections: what is soft SaaS?; The characteristics of SaaS:; Benefits of SaaS Software; How to start with SaaS?.
 
 <a id="bai-184"></a>
 
-### Citizen developer là nền tảng của chuyển đổi số
+### Citizen developer is the foundation of numerical conversion
 
-[Bài gốc](https://ezyplatform.com/blog/citizen-developer-lan-song-doi-moi-trong-k%E1%BB%B7-nguyen-cong-nghe?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/citizen-developer-lan-song-doi-moi-trong-k%E1%BB%B7-nguyen-cong-nghe?lang=vi) · Use case
 
-- Nhãn gốc: Marketing.
-- Đề mục trong bài: Citizen developer là gì?; Định nghĩa citizen developer; So sánh citizen developer và nhà phát triển chuyên nghiệp; Cách để trở thành citizen developer.
+- Original category: Marketing.
+- Article sections: What is a Citizen Developer?; The definition of citizen developer; Compare Citizen Developer and Professional Developer; How to Become a Citizen Developer.
 
 <a id="bai-183"></a>
 
-### Cách xác định thị trường mục tiêu
+### How to determine the target market
 
-[Bài gốc](https://ezyplatform.com/blog/cach-xac-dinh-thi-truong-muc-tieu?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/cach-xac-dinh-thi-truong-muc-tieu?lang=vi) · Use case
 
-- Nhãn gốc: Marketing.
-- Đề mục trong bài: Thị trường mục tiêu: Định nghĩa và vai trò; Phân khúc thị trường: Nền tảng của chiến lược kinh doanh; Các tiêu chí giúp phân khúc thị trường:; Kiểm nghiệm và tối ưu hóa.
-- Bài được dẫn: [Hiểu về chân dung khách hàng và Cách tạo chân dung khách hàng mục tiêu hiệu quả](./tra-cuu-marketing.md#bai-151).
+- Original category: Marketing.
+- Article sections: Target Market: Definition and Role; Market Division: The Foundations of Business Strategy; The criteria help to divide the market:; Testing and optimizing.
+- Referenced articles: [Understand the customer portrait and how to create a target customer portrait effectively](./tra-cuu-marketing.md#bai-151).
 
 <a id="bai-181"></a>
 
-### Thị trường là gì? Thị trường mục tiêu là gì?
+### What is the target market?
 
-[Bài gốc](https://ezyplatform.com/blog/thi_truong_la_gi_thi_truong_muc_tieu_la_gi?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/thi_truong_la_gi_thi_truong_muc_tieu_la_gi?lang=vi) · Use case
 
-- Nhãn gốc: Marketing.
-- Đề mục trong bài: Bạn bán hàng cho ai?; Thị trường là gì?; Thị trường mục tiêu là gì?; Tại sao xác định thị trường mục tiêu lại quan trọng?.
+- Original category: Marketing.
+- Article sections: to whom you sell?; What is the market?; What is the target market?; Why the target market is important?.
 
 <a id="bai-178"></a>
 
-### Làm sao để bạn có khách hàng đầu tiên?
+### How to get your first customer?
 
-[Bài gốc](https://ezyplatform.com/blog/lam-sao-de-ban-co-khach-hang-dau-tien?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/lam-sao-de-ban-co-khach-hang-dau-tien?lang=vi) · Use case
 
-- Nhãn gốc: Marketing.
-- Đề mục trong bài: Tại sao khách hàng đầu tiên lại quan trọng?; Đừng bỏ qua những điều sau nếu bạn muốn có khách hàng đầu tiên; Xác định đúng đối tượng khách hàng:; Kết nối trực tiếp và xây dựng cộng đồng:.
+- Original category: Marketing.
+- Article sections: Why the first customer is important?; Do not ignore the following things if you want to have the first customer; Identify the right client:; Direct connection and building community:.
 
 <a id="bai-177"></a>
 
-### Chăm sóc khách hàng: Bí quyết giữ chân và tạo dựng lòng tin
+### Customer Care: The Secret to Keep Your Foot and Create Trust
 
-[Bài gốc](https://ezyplatform.com/blog/cham-soc-khach-hang-bi-quyet-giu-chan-va-tao-dung-long-tin-?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/cham-soc-khach-hang-bi-quyet-giu-chan-va-tao-dung-long-tin-?lang=vi) · Use case
 
-- Nhãn gốc: Marketing.
-- Đề mục trong bài: Tại sao chăm sóc khách hàng lại quan trọng?; Nguyên tắc vàng trong chăm sóc khách hàng; Luôn lắng nghe khách hàng; Thường xuyên đánh giá và điều chỉnh chiến lược:.
+- Original category: Marketing.
+- Article sections: Why customer care is important?; The golden rule in customer care; Always listen to customers; Regular assessment and adjustment of strategy:.
 
 <a id="bai-174"></a>
 
-### Tại sao chiến lược thu hút khách hàng qua sản phẩm miễn phí vẫn gặp thất bại?
+### Why the strategy to attract customers through free products still fails?
 
-[Bài gốc](https://ezyplatform.com/blog/tai-sao-chien-luoc-thu-hut-khach-hang-qua-tren-van-gap-that-bai?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/tai-sao-chien-luoc-thu-hut-khach-hang-qua-tren-van-gap-that-bai?lang=vi) · Use case
 
-- Nhãn gốc: Marketing.
-- Đề mục trong bài: Khi "miễn phí" không còn là "miếng bánh ngọt"; Sự mất cân đối giữa chi phí và giá trị khách hàng; Sản phẩm dùng thử không chạm tới nhu cầu thật; Miễn phí – Lợi bất cập hại nếu không làm đúng cách.
+- Original category: Marketing.
+- Article sections: When “free” is no longer “sweets”"; The imbalance between cost and customer value; The product does not meet real needs; Free – Insufficient benefits if not done the right way.
 
 <a id="bai-168"></a>
 
-### Doanh nghiệp trong thời đại số: Không có công nghệ, khó có tương lai
+### Business in the Digital Age: Without Technology, it's hard to have a future
 
-[Bài gốc](https://ezyplatform.com/blog/doanh-nghiep-trong-thoi-dai-so-khong-co-cong-nghe-khong-co-tuong-lai?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/doanh-nghiep-trong-thoi-dai-so-khong-co-cong-nghe-khong-co-tuong-lai?lang=vi) · Use case
 
-- Nhãn gốc: Marketing.
-- Đề mục trong bài: Bối cảnh thời đại mới:; Vậy Đội ngũ công nghệ: Họ là ai?; Vì sao doanh nghiệp của bạn cần đội ngũ công nghệ?; Kết hợp cả hai mô hình.
+- Original category: Marketing.
+- Article sections: The New Age Scene:; The Tech Team: Who Are They?; Why your business needs a technology team?; Combine both models.
 
 <a id="bai-166"></a>
 
-### Tại sao chiến dịch phát tờ rơi lại thất bại trong ngành giáo dục
+### Why the fall-out campaign fails in the education industry
 
-[Bài gốc](https://ezyplatform.com/blog/tai-sao-chien-dich-phat-to-roi-lai-that-bai-trong-nganh-giao-duc?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/tai-sao-chien-dich-phat-to-roi-lai-that-bai-trong-nganh-giao-duc?lang=vi) · Use case
 
-- Nhãn gốc: Marketing.
-- Đề mục trong bài: Thực trạng: Chiến dịch phát tờ rơi và kết quả thất bại; Nguyên nhân thất bại; Nội dung tờ rơi không đủ hấp dẫn đối tượng mục tiêu; Tạo các nhóm chat cho phụ huynh.
+- Original category: Marketing.
+- Article sections: Status: Campaign and failure results; The cause of failure; The content of the drop sheet is not attractive enough to target objects; Create chat groups for parents.
 
 <a id="bai-165"></a>
 
-### Áp dụng mô hình 3T để nghiên cứu Insight khách hàng
+### Apply the 3T model to study Customer Insight
 
-[Bài gốc](https://ezyplatform.com/blog/ap-dung-mo-hinh-3t-de-nghien-cuu-insight-khach-hang?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/ap-dung-mo-hinh-3t-de-nghien-cuu-insight-khach-hang?lang=vi) · Use case
 
-- Nhãn gốc: Marketing.
-- Đề mục trong bài: Mô hình 3T Insight là gì?; Ví dụ về cách áp dụng Mô hình 3T Insight (Truth - Tension - Motivation); Ví dụ về mô hình 3T Insight trong việc nghiên cứu insight khách hàng của EzyPlatform:; Những lưu ý để áp dụng Mô hình 3T insight hiệu quả nhất.
+- Original category: Marketing.
+- Article sections: What is 3T Insight?; Examples of how to apply 3T Insight (Truth - Tension - Motivation); Examples of the 3T Insight model in EzyPlatform’s customer insight research:; The most effective 3T insight model.
 
 <a id="bai-162"></a>
 
-### Áp dụng mô hình 3C để khám phá insight khách hàng
+### Apply the 3C model to discover customer insight
 
-[Bài gốc](https://ezyplatform.com/blog/ap-dung-mo-hinh-3c-de-kham-pha-insight-khach-hang?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/ap-dung-mo-hinh-3c-de-kham-pha-insight-khach-hang?lang=vi) · Use case
 
-- Nhãn gốc: Marketing.
-- Đề mục trong bài: yếu tố trong mô hình 3C Truth; Áp dụng mô hình 3C Truth cho EzyPlatform; Case study về mô hình 3C Truth chiến dịch "Đi để trở về" - Biti’s Hunter; Lưu ý khi áp dụng mô hình 3C:.
-- Bài được dẫn: [Insight khách hàng là gì? Tìm hiểu về bản chất của Insight](./tra-cuu-marketing.md#bai-160).
+- Original category: Marketing.
+- Article sections: the 3C Truth Model; Apply the 3C Truth model for EzyPlatform; Case study on the 3C Truth model campaign "Go to Return" - Biti's Hunter; Note when using the 3C model:.
+- Referenced articles: [What is Insight Customer? Learn about the nature of Insight](./tra-cuu-marketing.md#bai-160).
 
 <a id="bai-160"></a>
 
-### Insight khách hàng là gì? Tìm hiểu về  bản chất của Insight
+### What is Insight Customer? Learn about the nature of Insight
 
-[Bài gốc](https://ezyplatform.com/blog/insight-la-gi-ban-chat-cua-insight?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/insight-la-gi-ban-chat-cua-insight?lang=vi) · Use case
 
-- Nhãn gốc: Marketing.
-- Đề mục trong bài: Hiểu Insight – Bí quyết để thương hiệu chạm đến trái tim khách hàng; Insight là gì?; Bản chất thật của Insight; Golden Circle (Why, How, What).
+- Original category: Marketing.
+- Article sections: Understanding Insight – The Secret to Brands Touch Customer's Heart; What is Insight?; The real nature of Insight; Golden Circle (Why, How, What).
 
 <a id="bai-151"></a>
 
-### Hiểu về chân dung khách hàng và Cách tạo chân dung khách hàng mục tiêu hiệu quả
+### Understand the customer portrait and how to create a target customer portrait effectively
 
-[Bài gốc](https://ezyplatform.com/blog/hieu-ve-chan-dung-khach-hang-va-cach-tao-chan-dung-khach-hang-muc-tieu-hieu-qua?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/hieu-ve-chan-dung-khach-hang-va-cach-tao-chan-dung-khach-hang-muc-tieu-hieu-qua?lang=vi) · Guide
 
-- Nhãn gốc: Marketing.
-- Đề mục trong bài: Chân dung khách hàng là gì?; Vậy tại sao bạn cần nghiên cứu Chân dung khách hàng?; Những thông tin quan trọng khi xây dựng chân dung khách hàng không thể bỏ qua; Cách trình bày chân dung khách hàng.
+- Original category: Marketing.
+- Article sections: What is the customer image?; So why do you need to study Customer Images?; The important information when building a portrait of the customer cannot be ignored; How to present the client’s portrait.
 
 <a id="bai-140"></a>
 
-### Quá trình ra quyết định mua hàng của người tiêu dùng
+### The process of making the purchase decision of the consumer
 
-[Bài gốc](https://ezyplatform.com/blog/qua-trinh-ra-quyet-dinh-mua-hang-cua-nguoi-tieu-dung?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/qua-trinh-ra-quyet-dinh-mua-hang-cua-nguoi-tieu-dung?lang=vi) · Use case
 
-- Nhãn gốc: Marketing.
-- Đề mục trong bài: Theo bạn, đâu là giai đoạn quan trọng nhất trong mỗi lần bán hàng?; Quá trình quyết định mua hàng là gì?; Tại sao doanh nghiệp cần nghiên cứu quá trình quyết định mua hàng?; Tìm kiếm thông tin (Research), với Mục tiêu là Cung cấp thông tin đầy đủ, rõ ràng, và thuyết phục để khách hàng….
+- Original category: Marketing.
+- Article sections: What is the most important phase in every sale?; What is the purchase decision process?; Why Businesses Need to Study the Purchasing Decision Process?; Search information (Research), with the aim of providing complete, clear, and convincing information to the customer….
 
 <a id="bai-136"></a>
 
-### Các vấn đề chăm sóc khách hàng qua Zalo và Giải pháp hiệu quả
+### Customer Care Problems Through Zalo and Effective Solutions
 
-[Bài gốc](https://ezyplatform.com/blog/cac-van-de-cham-soc-khach-hang-qua-zalo-va-giai-phap-hieu-qua?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/cac-van-de-cham-soc-khach-hang-qua-zalo-va-giai-phap-hieu-qua?lang=vi) · Use case
 
-- Nhãn gốc: Marketing.
-- Đề mục trong bài: Các vấn đề thường gặp phải khi chăm sóc khách hàng qua Zalo; Bộ phận CSKH trả lời chậm hoặc không đồng nhất; Quá tải tin nhắn; Theo dõi và cải tiến liên tục.
+- Original category: Marketing.
+- Article sections: Problems that are common when taking care of customers through Zalo; The CSKH department responds slowly or not uniformly; Too much message; Continuous monitoring and improvement.
 
 <a id="bai-127"></a>
 
-### Hiểu rõ 3 mục tiêu để xây dựng chiến lược marketing hiệu quả
+### 3 Goals to Build Effective Marketing Strategy
 
-[Bài gốc](https://ezyplatform.com/blog/hieu-ro-3-muc-tieu-de-xay-dung-chien-luoc-marketing-hieu-qua?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/hieu-ro-3-muc-tieu-de-xay-dung-chien-luoc-marketing-hieu-qua?lang=vi) · Use case
 
-- Nhãn gốc: Marketing.
-- Đề mục trong bài: mục tiêu quan trọng bạn cần phải biết; Business Objective - Mục tiêu kinh doanh; Marketing Objective - Mục tiêu marketing; Communication Objective - Mục tiêu truyền thông.
+- Original category: Marketing.
+- Article sections: the important goal you need to know; Business Objective - Business Objectives; Marketing Objective – the marketing objective; Communication Objective – Communication Object.
 
 <a id="bai-124"></a>
 
-### Mô hình SAVE: Hướng tiếp cận mới trong Marketing mix
+### Save Model: New Approaches in Marketing Mix
 
-[Bài gốc](https://ezyplatform.com/blog/mo-hinh-save-la?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/mo-hinh-save-la?lang=vi) · Use case
 
-- Nhãn gốc: Marketing.
-- Đề mục trong bài: Bối cảnh SAVE ra đời; Vậy mô hình SAVE là gì?; Solution - Giải pháp; Giáo dục (Education) - Xây dựng sự tin tưởng.
+- Original category: Marketing.
+- Article sections: The salvation was born; What is the Save Model?; Solution – the solution; Education – Building confidence.
 
 <a id="bai-123"></a>
 
-### Mô hình 4C là gì? Sự khác nhau giữa 4P và 4C? Cách áp dụng 4C để xây dựng chiến lược marketing mix
+### What is 4C model? the difference between 4P and 4C? how to apply 4C to build marketing mix strategy
 
-[Bài gốc](https://ezyplatform.com/blog/mo-hinh-4c-la-gi-su-khac-nhau-giua-4p-va-4ccach-ung-dung-4c-hieu-qua-cho-marketing-mix?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/mo-hinh-4c-la-gi-su-khac-nhau-giua-4p-va-4ccach-ung-dung-4c-hieu-qua-cho-marketing-mix?lang=vi) · Use case
 
-- Nhãn gốc: Marketing.
-- Đề mục trong bài: Mô hình 4C là gì?; Sự chuyển dịch từ mô hình 4P sang 4C; Cách ứng dụng 4C hiệu quả cho marketing mix; Ví dụ về sử dụng mô hình 4C.
+- Original category: Marketing.
+- Article sections: What is the 4C model?; Transition from 4P to 4C; How to use 4C for marketing mix; Examples of using the 4C model.
 
 <a id="bai-118"></a>
 
-### Mô hình 4E là gì? Cách áp dụng 4E để xây dựng chiến lược marketing mix
+### How to apply 4E to build a marketing mix strategy
 
-[Bài gốc](https://ezyplatform.com/blog/mo-hinh-4e-la-gi-cach-ung-dung-mo-hinh-4e?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/mo-hinh-4e-la-gi-cach-ung-dung-mo-hinh-4e?lang=vi) · Use case
 
-- Nhãn gốc: Marketing.
-- Đề mục trong bài: Bối cảnh mô hình 4E ra đời; Mô hình 4E là gì?; Với 4 yếu tố này, mô hình 4E mang lại 1 số vai trò chính như sau:; Ví dụ triển khai mô hình 4E.
-- Bài được dẫn: [Tại sao bạn thất bại trong marketing?](./tra-cuu-marketing.md#bai-64).
+- Original category: Marketing.
+- Article sections: The 4E model is born; What is the 4E model?; With these four factors, the 4E model brings some of the main roles as follows:; For example, the 4E model.
+- Referenced articles: [Why do you fail in marketing?](./tra-cuu-marketing.md#bai-64).
 
 <a id="bai-115"></a>
 
-### Mô hình 7P là gì? 7P khác gì so với 4P? Cách ứng dụng mô hình 7P trong Marketing mix
+### What is the 7P model? 7P is different from 4P? How to apply the 7P Model in Marketing mix
 
-[Bài gốc](https://ezyplatform.com/blog/mo-hinh-7p-la-gi-mo-hinh-7p-khac-gi-so-voi-4p-cach-ung-dung-mo-hinh-7p-trong-marketing-mix?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/mo-hinh-7p-la-gi-mo-hinh-7p-khac-gi-so-voi-4p-cach-ung-dung-mo-hinh-7p-trong-marketing-mix?lang=vi) · Use case
 
-- Nhãn gốc: Marketing.
-- Đề mục trong bài: Lý do cần một mô hình mới ra đời; Vậy mô hình 7P là gì?; Làm thế nào để ứng dụng marketing 7P hiệu quả?; Physical Evidence - Cơ sở vật chất.
-- Bài được dẫn: [Mô hình 4P là gì? Cách áp dụng 4P để xây dựng chiến lược marketing mix](./tra-cuu-marketing.md#bai-112).
+- Original category: Marketing.
+- Article sections: Require a new model; What is the 7P model?; How to make a 7P marketing application effective?; Physical Evidence - Physical Facilities.
+- Referenced articles: [How to apply 4P to build a marketing mix strategy](./tra-cuu-marketing.md#bai-112).
 
 <a id="bai-112"></a>
 
-### Mô hình 4P là gì? Cách áp dụng 4P để xây dựng chiến lược marketing mix
+### How to apply 4P to build a marketing mix strategy
 
-[Bài gốc](https://ezyplatform.com/blog/mo-hinh-4p-chia-khoa-vang-trong-%E2%80%9Clang%E2%80%9D-marketing?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/mo-hinh-4p-chia-khoa-vang-trong-%E2%80%9Clang%E2%80%9D-marketing?lang=vi) · Use case
 
-- Nhãn gốc: Marketing.
-- Đề mục trong bài: LÀM THẾ NÀO ĐỂ ỨNG DỤNG MARKETING MIX 4P HIỆU QUẢ?; Product - Sản phẩm / Dịch vụ:; Price - Giá cả; Promotion - Khuyến mãi/Xúc tiến.
-- Bài được dẫn: [Marketing Mix là gì? Giải thích chi tiết dễ hiểu nhất cho người mới bắt đầu](./tra-cuu-marketing.md#bai-106).
+- Original category: Marketing.
+- Article sections: How to Use Marketing Mix 4P Efficiency?; Product - Products / Services:; Price - Price; Promotion - Promotion / Promotion.
+- Referenced articles: [What is Marketing Mix? the most comprehensible detailed explanation for beginners](./tra-cuu-marketing.md#bai-106).
 
 <a id="bai-106"></a>
 
-### Marketing Mix là gì? Giải thích chi tiết dễ hiểu nhất cho người mới bắt đầu
+### What is Marketing Mix? the most comprehensible detailed explanation for beginners
 
-[Bài gốc](https://ezyplatform.com/blog/marketing-mix-la-gi-giai-thich-chi-tiet-de-hieu-nhat-cho-nguoi-moi-bat-dau?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/marketing-mix-la-gi-giai-thich-chi-tiet-de-hieu-nhat-cho-nguoi-moi-bat-dau?lang=vi) · Use case
 
-- Nhãn gốc: Marketing.
-- Đề mục trong bài: Marketing Mix là gì?; Vai trò của Marketing Mix; Những mô hình Marketing Mix phổ biến nhất hiện nay; Mô hình SAVE.
+- Original category: Marketing.
+- Article sections: What is Marketing Mix?; The role of Marketing Mix; The most popular marketing mix models today; The Saving Model.
 
 <a id="bai-89"></a>
 
-### Phân tích SWOT: Hoạt động cần thiết khi lập kế hoạch Marketing
+### SWOT Analysis: What to Do when Planning Marketing
 
-[Bài gốc](https://ezyplatform.com/blog/swot-la-gi-hu--khong-the-bo-qua-khi-lap-ke-hoach-marketing?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/swot-la-gi-hu--khong-the-bo-qua-khi-lap-ke-hoach-marketing?lang=vi) · Use case
 
-- Nhãn gốc: Marketing.
-- Đề mục trong bài: Tổng quan về mô hình SWOT; SWOT là từ viết tắt cho bốn yếu tố cơ bản:; Những lưu ý về cách trình bày SWOT; Ví dụ cụ thể về SWOT.
+- Original category: Marketing.
+- Article sections: A review of the SWOT model; SWOT is the short term for four basic elements:; Notes about how to present SWOT; Examples of SWOT.
 
 <a id="bai-84"></a>
 
-### Nghiên cứu thị trường là gì? Các bước để nghiên cứu thị trường chi tiết nhất hiện nay
+### What is market research? the steps to the most detailed market research now
 
-[Bài gốc](https://ezyplatform.com/blog/nghien-cuu-thi-truong-la-gi-cac-buoc-de-nghien-cuu-thi-truong-hieu-qua-nhat-?lang=vi) · Hướng dẫn
+[Original article](https://ezyplatform.com/blog/nghien-cuu-thi-truong-la-gi-cac-buoc-de-nghien-cuu-thi-truong-hieu-qua-nhat-?lang=vi) · Guide
 
-- Nhãn gốc: Marketing.
-- Đề mục trong bài: Vậy nghiên cứu thị trường là gì?; Ứng dụng của nghiên cứu thị trường; Gợi ý chi tiết các bước để nghiên cứu thị trường hiệu quả; Lựa chọn chiến lược marketing.
+- Original category: Marketing.
+- Article sections: What is Market Research?; Applications of market research; Detailed suggestions of steps to effectively study the market; Choosing a marketing strategy.
 
 <a id="bai-76"></a>
 
-### Sự khác biệt giữa Chiến lược và Chiến dịch
+### The Difference Between Strategy and Campaign
 
-[Bài gốc](https://ezyplatform.com/blog/phan-biet-chi-tiet-ve-chien-luoc-va-chien-dich?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/phan-biet-chi-tiet-ve-chien-luoc-va-chien-dich?lang=vi) · Use case
 
-- Nhãn gốc: Marketing.
-- Đề mục trong bài: Định nghĩa đơn giản về 2 khái niệm; Chiến lược (Strategy) – Lộ trình tổng thể; Chiến dịch (Campaign) – Hành động cụ thể để thực hiện chiến lược; Sự liên quan chặt chẽ đến nhau.
+- Original category: Marketing.
+- Article sections: A simple definition of two concepts; Strategy – the overall path; Campaign – specific actions to implement strategy; Relationships are close to each other.
 
 <a id="bai-75"></a>
 
-### Trang giới thiệu trên Website quan trọng thế nào?
+### How important is the website?
 
-[Bài gốc](https://ezyplatform.com/blog/trang-gioi-thieu-tren-website-quan-trong-the-nao?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/trang-gioi-thieu-tren-website-quan-trong-the-nao?lang=vi) · Use case
 
-- Nhãn gốc: Marketing.
-- Đề mục trong bài: Mọi trang web đều cần trang giới thiệu:; Xây dựng niềm tin ban đầu với mọi đối tượng; Đội ngũ lãnh đạo:; Dưới đây là một số gợi ý về bố cục trang website mà bạn có thể tham khảo:.
+- Original category: Marketing.
+- Article sections: Every website needs a presentation page:; Build initial belief with every subject; The leadership team:; Here are some suggestions about the website layout that you can refer to:.
 
 <a id="bai-72"></a>
 
-### Tại sao website của bạn ít người truy cập?
+### Why your website is less accessible?
 
-[Bài gốc](https://ezyplatform.com/blog/tai-sao-website-cua-ban-it-nguoi-truy-cap?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/tai-sao-website-cua-ban-it-nguoi-truy-cap?lang=vi) · Use case
 
-- Nhãn gốc: Marketing.
-- Đề mục trong bài: Nguyên nhân lớn nhất: Thiếu nội dung hấp dẫn và hữu ích cho người đọc; Chọn lựa sai cách truyền tải nội dung; Thiết kế không thân thiện với người dùng và tối ưu cho di động; Giải pháp giúp website tăng lượt truy cập.
-- Bài được dẫn: [Tại sao mọi doanh nghiệp đều cần xây dựng website](./tra-cuu-marketing.md#bai-69).
+- Original category: Marketing.
+- Article sections: The biggest reason: Lack of attractive and useful content for readers; Choose the wrong way to transmit content; Design not user-friendly and optimal for mobile; Solutions to increase website access.
+- Referenced articles: [Why every business needs a website](./tra-cuu-marketing.md#bai-69).
 
 <a id="bai-69"></a>
 
-### Tại sao mọi doanh nghiệp đều cần xây dựng website
+### Why every business needs a website
 
-[Bài gốc](https://ezyplatform.com/blog/tai-sao-moi-doanh-nghiep-deu-can-xay-dung-website?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/tai-sao-moi-doanh-nghiep-deu-can-xay-dung-website?lang=vi) · Use case
 
-- Nhãn gốc: Marketing.
-- Đề mục trong bài: Khách hàng của bạn đang online mọi lúc mọi nơi; Tấm danh thiếp trong xây dựng thương hiệu; Trung tâm của mọi hoạt động Digital Marketing; Xây dựng website không khó như bạn nghĩ.
+- Original category: Marketing.
+- Article sections: Your customers are online everywhere; Card in the construction of the brand; The center of all digital marketing activities; Building a website is not as difficult as you think.
 
 <a id="bai-64"></a>
 
-### Tại sao bạn thất bại trong marketing?
+### Why do you fail in marketing?
 
-[Bài gốc](https://ezyplatform.com/blog/tai-sao-ban-that-bai-trong-marketing?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/tai-sao-ban-that-bai-trong-marketing?lang=vi) · Use case
 
-- Nhãn gốc: Marketing.
-- Đề mục trong bài: Quá tham lam các nền tảng; Thiếu sự kiên trì; Ngân sách không đủ lớn.
+- Original category: Marketing.
+- Article sections: Too gentle for the foundation; Lack of perseverance; The budget is not large enough.
 
 <a id="bai-62"></a>
 
-### Sự khác biệt giữa Marketing với Quảng cáo và PR
+### The Difference Between Marketing and Advertising and PR
 
-[Bài gốc](https://ezyplatform.com/blog/su-khac-biet-giua-marketing-quang-cao-va-pr?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/su-khac-biet-giua-marketing-quang-cao-va-pr?lang=vi) · Use case
 
-- Nhãn gốc: Marketing.
-- Đề mục trong bài: Trước tiên, chúng ta cùng đi làm rõ 3 khái niệm; Sự khác biệt trong mục đích của 3 hoạt động; Các hoạt động điển hình; Ví dụ dễ hiểu về 3 hoạt động.
+- Original category: Marketing.
+- Article sections: First, let’s go to clarify three concepts; Differences in the purpose of 3 activities; The typical activities; Examples of 3 activities.
 
 <a id="bai-59"></a>
 
-### Vai trò của marketing: Tại sao mọi doanh nghiệp đều cần?
+### The Role of Marketing: Why Every Business Needs?
 
-[Bài gốc](https://ezyplatform.com/blog/vai-tro-cua-marketing-tai-sao-moi-doanh-nghiep-deu-can?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/vai-tro-cua-marketing-tai-sao-moi-doanh-nghiep-deu-can?lang=vi) · Use case
 
-- Nhãn gốc: Marketing.
-- Đề mục trong bài: Kết nối hoạt động sản xuất với thị trường; Nâng cao lợi nhuận; Xây dựng thương hiệu; Đo lường hiệu quả và cải thiện hoạt động kinh doanh.
+- Original category: Marketing.
+- Article sections: Connecting the production activity with the market; Increase profits; Building a brand; Measure Efficiency and Improve Business Activities.
 
 <a id="bai-57"></a>
 
-### Marketing là gì? Hiểu đúng về marketing để thành công
+### What is Marketing? - The right understanding of marketing to succeed
 
-[Bài gốc](https://ezyplatform.com/blog/marketing-la-gi-hieu-dung-ve-marketing-de-thanh-cong%C2%A0?lang=vi) · Ca ứng dụng
+[Original article](https://ezyplatform.com/blog/marketing-la-gi-hieu-dung-ve-marketing-de-thanh-cong%C2%A0?lang=vi) · Use case
 
-- Nhãn gốc: Marketing.
-- Đề mục trong bài: Bản chất của marketing; Định nghĩa dễ hiểu nhất về Marketing; Hai phương diện quan trọng của marketing.
+- Original category: Marketing.
+- Article sections: The nature of marketing; The most understandable definition of marketing; Two important aspects of marketing.

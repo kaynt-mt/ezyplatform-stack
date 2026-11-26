@@ -1,23 +1,23 @@
 # ezysupport
 
-Liên hệ, FAQ, tuyển dụng và nội dung hỗ trợ.
+Contact forms, FAQs, recruitment, and support content.
 
-- **Bản Marketplace trên core 1.5.9:** `0.6.2`.
-- **Module đã xác minh:** `admin-plugin`, `web-plugin`.
-- **Cài đặt:** Đạt. Xem môi trường và các giới hạn chung trong [báo cáo kiểm thử](test-report.md).
+- **Marketplace version on core 1.5.9:** `0.6.2`.
+- **Verified modules:** `admin-plugin`, `web-plugin`.
+- **Installation:** Passed. See the environment and general limitations in the [test report](test-report.md).
 
-## Bản đồ module
+## Module map
 
-| Lane / thư mục | Package khai báo | Phụ thuộc runtime khai báo |
+| Lane / directory | Declared package | Declared runtime dependencies |
 |---|---|---|
 | `admin-plugin` — `admin/plugins/ezysupport` | `org.youngmonkeys.ezysupport` | [ezyarticle](ezyarticle.md), [ezymail](ezymail.md) |
 | `web-plugin` — `web/plugins/ezysupport` | `org.youngmonkeys.ezysupport` | [ezyarticle](ezyarticle.md), [ezymail](ezymail.md) |
 
-## HTTP, UI và tài nguyên
+## HTTP, UI, and resources
 
-Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố khi mount module và quyền truy cập có thể khác giữa các lane; các URL đã gọi thật nằm ở mục kiểm thử.
+The paths below come from annotations in the JAR. Mount prefixes and access permissions may differ by lane; the URLs that were actually called are listed in the testing section.
 
-**admin-plugin** — 135 tổ hợp phương thức/URI đọc được; mẫu đại diện:
+**admin-plugin** — 135 method/URI combinations identified; representative sample:
 
 | Annotation HTTP | Class |
 |---|---|
@@ -41,7 +41,7 @@ Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố
 | `DELETE /api/v1/recruitment/{id}` | `ApiRecruitmentController` |
 | `DELETE /api/v1/indexed-data` | `ApiIndexedDataController` |
 
-**web-plugin** — 23 tổ hợp phương thức/URI đọc được; mẫu đại diện:
+**web-plugin** — 23 method/URI combinations identified; representative sample:
 
 | Annotation HTTP | Class |
 |---|---|
@@ -55,48 +55,48 @@ Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố
 | `POST /api/v1/contact-us` | `ApiSupportController` |
 | `POST /api/v1/recruitments/{id}/apply` | `ApiRecruitmentController` |
 
-- **admin-plugin – Menu (khóa cuối và path trong menus.properties):** `ezysupport: /`, `contact_us: /contact-us`, `contact_us_details: ~/contact-us/{mailId}`, `recruitment: /recruitment`, `recruitment_add: ~/recruitment/add`, `recruitment_details: ~/recruitment/{id}` (+36).
+- **admin-plugin – Menus (final keys and paths in menus.properties):** `ezysupport: /`, `contact_us: /contact-us`, `contact_us_details: ~/contact-us/{mailId}`, `recruitment: /recruitment`, `recruitment_add: ~/recruitment/add`, `recruitment_details: ~/recruitment/{id}` (+36).
 
 - **admin-plugin – Template:** `ezysupport/contact-method/add.html`, `ezysupport/contact-method/details.html`, `ezysupport/contact-method/edit.html`, `ezysupport/contact-method/list.html`, `ezysupport/contact-method/scripts.html`, `ezysupport/contact-us/details.html`, `ezysupport/contact-us/list.html` (+50).
 
-- **admin-plugin – Tài nguyên tĩnh:** `ezysupport/css/style.css`, `ezysupport/html/help.html`, `ezysupport/html/help_vi.html`, `ezysupport/js/post-settings.js`.
+- **admin-plugin – Static resources:** `ezysupport/css/style.css`, `ezysupport/html/help.html`, `ezysupport/html/help_vi.html`, `ezysupport/js/post-settings.js`.
 
 - **web-plugin – Template:** `ezysupport/about-us.html`, `ezysupport/contact-us.html`, `ezysupport/cookie-policy.html`, `ezysupport/faq.html`, `ezysupport/license.html`, `ezysupport/privacy-policy.html`, `ezysupport/purchase-guide.html` (+5).
 
-- **web-plugin – Tài nguyên tĩnh:** `ezysupport/css/style.css`, `ezysupport/js/captcha.js`, `ezysupport/js/cookie-consent.js`, `ezysupport/js/proof-of-work-captcha.js` (+1).
+- **web-plugin – Static resources:** `ezysupport/css/style.css`, `ezysupport/js/captcha.js`, `ezysupport/js/cookie-consent.js`, `ezysupport/js/proof-of-work-captcha.js` (+1).
 
-## Dữ liệu và migration
+## Data and migrations
 
-- **Bảng trong DDL đóng gói (3):** `ezysupport_contact_methods`, `ezysupport_domain_settings`, `ezysupport_social_networks`.
-- **Class có chỉ dấu JPA Entity/MappedSuperclass (3):** `ContactMethod`, `DomainSetting`, `SocialNetwork`.
-- **SQL admin-plugin (8 tệp):** `resources/scripts/contact-methods.sql`, `resources/scripts/domain-setting.sql`, `resources/scripts/scripts.sql`, `resources/scripts/alter-remove-status.sql`, `resources/scripts/alter-social-networks-1.sql`, `resources/scripts/alter-social-networks.sql`, `resources/scripts/alter-tables-1.sql` (+1).
+- **Table in the DDL package (3):** `ezysupport_contact_methods`, `ezysupport_domain_settings`, `ezysupport_social_networks`.
+- **Class with JPA Entity/MappedSuperclass (3):** `ContactMethod`, `DomainSetting`, `SocialNetwork`.
+- **SQL admin-plugin (8 files):** `resources/scripts/contact-methods.sql`, `resources/scripts/domain-setting.sql`, `resources/scripts/scripts.sql`, `resources/scripts/alter-remove-status.sql`, `resources/scripts/alter-social-networks-1.sql`, `resources/scripts/alter-social-networks.sql`, `resources/scripts/alter-tables-1.sql` (+1).
 
-## JAR, cấu hình và điểm mở rộng
+## JARs, configuration, and extension points
 
 ### admin-plugin
 
-- **JAR kiểm tra:** `ezysupport-admin-plugin-0.6.2.jar`, `ezysupport-sdk-0.6.2.jar`; 261 class cấp cao nhất sau khi bỏ trùng theo tên package/class trong lane. SDK có thể lặp giữa các lane.
-- **Package nổi bật:** `org.youngmonkeys.ezysupport.admin.request`, `org.youngmonkeys.ezysupport.pagination`, `org.youngmonkeys.ezysupport.admin.service` (+30).
-- **Controller/service/repository (mẫu):** `AdminCaptchaControllerService`, `AdminContactMethodControllerService`, `AdminContactUsControllerService`, `AdminContentTemplateControllerService`, `AdminAutoRestartEzyPlatformService`, `AdminCaptchaControllerService`, `AdminCertbotService`, `AdminCertbotValidator`, `AdminConfigurationValidator`.
-- **Class cấu hình/quyền (mẫu):** `AdminEzySupportConfig`, `AdminEzySupportMailConfig`, `AdminEzySupportNginxConfig`, `AdminEzySupportViewMetadataConfig`, `AdminPageFragmentConfig`, `CaptchaConfigs`, `DomainSetting` (+1).
-- **Điểm mở rộng tiềm năng theo tên class:** `AdminCaptchaServiceManager`, `AdminContactMethodTypeManager`, `AdminContactUsMailTypeManager`, `AdminDomainSettingEventHandler`, `AdminEditableDomainSettingMetadataManager`, `AdminShellCommandManager`, `AdminSocialNetworkStatusManager`, `AdminSocialNetworkTypeManager`, `AdminSocketSslReloadManager` (+3).
+- **JARs inspected:** `ezysupport-admin-plugin-0.6.2.jar`, `ezysupport-sdk-0.6.2.jar`; 261 top-level classes after deduplicating by package and class name within the lane. The SDK can appear in multiple lanes.
+- **Notable packages:** `org.youngmonkeys.ezysupport.admin.request`, `org.youngmonkeys.ezysupport.pagination`, `org.youngmonkeys.ezysupport.admin.service` (+30).
+- **Controllers, services, and repositories (sample):** `AdminCaptchaControllerService`, `AdminContactMethodControllerService`, `AdminContactUsControllerService`, `AdminContentTemplateControllerService`, `AdminAutoRestartEzyPlatformService`, `AdminCaptchaControllerService`, `AdminCertbotService`, `AdminCertbotValidator`, `AdminConfigurationValidator`.
+- **Configuration and permission classes (sample):** `AdminEzySupportConfig`, `AdminEzySupportMailConfig`, `AdminEzySupportNginxConfig`, `AdminEzySupportViewMetadataConfig`, `AdminPageFragmentConfig`, `CaptchaConfigs`, `DomainSetting` (+1).
+- **Potential extension points based on class names:** `AdminCaptchaServiceManager`, `AdminContactMethodTypeManager`, `AdminContactUsMailTypeManager`, `AdminDomainSettingEventHandler`, `AdminEditableDomainSettingMetadataManager`, `AdminShellCommandManager`, `AdminSocialNetworkStatusManager`, `AdminSocialNetworkTypeManager`, `AdminSocketSslReloadManager` (+3).
 
 ### web-plugin
 
-- **JAR kiểm tra:** `ezysupport-sdk-0.6.2.jar`, `ezysupport-web-plugin-0.6.2.jar`; 162 class cấp cao nhất sau khi bỏ trùng theo tên package/class trong lane. SDK có thể lặp giữa các lane.
-- **Package nổi bật:** `org.youngmonkeys.ezysupport.pagination`, `org.youngmonkeys.ezysupport.web.service`, `org.youngmonkeys.ezysupport.service` (+29).
-- **Controller/service/repository (mẫu):** `ApiCaptchaController`, `ApiEzySupportMessageController`, `ApiFaqController`, `ApiManagementUriController`, `CaptchaService`, `ContactMethodRepository`, `ContactMethodService`, `DomainSettingMetaService`, `DomainSettingRepository`.
-- **Class cấu hình/quyền (mẫu):** `CaptchaConfigs`, `DomainSetting`, `PageFragmentConfig`, `WebPageFragmentConfig`.
-- **Điểm mở rộng tiềm năng theo tên class:** `CaptchaServiceManager`, `RecruitmentViewFactory`, `SupportViewFactory`, `WebApiUriManager`, `WebCaptchaInterceptor`, `WebCaptchaServiceManager`.
+- **JARs inspected:** `ezysupport-sdk-0.6.2.jar`, `ezysupport-web-plugin-0.6.2.jar`; 162 top-level classes after deduplicating by package and class name within the lane. The SDK can appear in multiple lanes.
+- **Notable packages:** `org.youngmonkeys.ezysupport.pagination`, `org.youngmonkeys.ezysupport.web.service`, `org.youngmonkeys.ezysupport.service` (+29).
+- **Controllers, services, and repositories (sample):** `ApiCaptchaController`, `ApiEzySupportMessageController`, `ApiFaqController`, `ApiManagementUriController`, `CaptchaService`, `ContactMethodRepository`, `ContactMethodService`, `DomainSettingMetaService`, `DomainSettingRepository`.
+- **Configuration and permission classes (sample):** `CaptchaConfigs`, `DomainSetting`, `PageFragmentConfig`, `WebPageFragmentConfig`.
+- **Potential extension points based on class names:** `CaptchaServiceManager`, `RecruitmentViewFactory`, `SupportViewFactory`, `WebApiUriManager`, `WebCaptchaInterceptor`, `WebCaptchaServiceManager`.
 
-Class và resource xác nhận có cấu trúc mở rộng trong bản đóng gói, không cam kết API ổn định hoặc handler đã chạy qua mọi nhánh.
+Classes and resources show that extension points are packaged; they do not establish API stability or confirm that every handler path has run.
 
-## Quan sát trên sandbox
+## Sandbox observations
 
-Admin `/ezysupport/contact-us` và Web `/contact-us`, `/faq` → 200; không gửi yêu cầu ra ngoài.
+Admin `/ezysupport/contact-us` and Web `/contact-us` and `/faq` returned 200. No requests were sent externally.
 
-## Lưu ý khi tích hợp
+## Integration notes
 
-`ApiContactUsController` tách đánh dấu/bỏ spam khỏi đọc và xóa, là mẫu quản lý vòng đời yêu cầu tiếp nhận.
+`ApiContactUsController` separates marking or unmarking spam from reading and deleting submissions, illustrating how to manage their lifecycle.
 
-[Về chỉ mục plugin](README.md)
+[Back to the plugin index](README.md)

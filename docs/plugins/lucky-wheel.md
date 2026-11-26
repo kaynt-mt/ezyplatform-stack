@@ -1,109 +1,109 @@
 # lucky-wheel
 
-Trò quay thưởng có Admin, Web, theme và Socket.
+Prize wheel with Admin, Web, theme, and Socket modules.
 
-- **Bản Marketplace trên core 1.5.9:** `0.0.1`.
-- **Module đã xác minh:** `admin-plugin`, `web-plugin`, `theme`, `socket-plugin`, `socket-app`.
-- **Cài đặt:** Đạt. Xem môi trường và các giới hạn chung trong [báo cáo kiểm thử](test-report.md).
+- **Marketplace version on core 1.5.9:** `0.0.1`.
+- **Verified modules:** `admin-plugin`, `web-plugin`, `theme`, `socket-plugin`, `socket-app`.
+- **Installation:** Passed. See the environment and general limitations in the [test report](test-report.md).
 
-## Bản đồ module
+## Module map
 
-| Lane / thư mục | Package khai báo | Phụ thuộc runtime khai báo |
+| Lane / directory | Declared package | Declared runtime dependencies |
 |---|---|---|
-| `admin-plugin` — `admin/plugins/lucky-wheel` | `org.youngmonkeys.lucky_wheel` | Không khai báo |
-| `web-plugin` — `web/plugins/lucky-wheel` | `org.youngmonkeys.lucky_wheel` | Không khai báo |
-| `theme` — `web/themes/lucky-wheel` | `org.youngmonkeys.lucky_wheel` | Không khai báo |
-| `socket-plugin` — `socket/plugins/lucky-wheel` | `org.youngmonkeys.lucky_wheel.plugin` | Không khai báo |
-| `socket-app` — `socket/apps/lucky-wheel` | `org.youngmonkeys.lucky_wheel.app` | Không khai báo |
+| `admin-plugin` — `admin/plugins/lucky-wheel` | `org.youngmonkeys.lucky_wheel` | Not declared |
+| `web-plugin` — `web/plugins/lucky-wheel` | `org.youngmonkeys.lucky_wheel` | Not declared |
+| `theme` — `web/themes/lucky-wheel` | `org.youngmonkeys.lucky_wheel` | Not declared |
+| `socket-plugin` — `socket/plugins/lucky-wheel` | `org.youngmonkeys.lucky_wheel.plugin` | Not declared |
+| `socket-app` — `socket/apps/lucky-wheel` | `org.youngmonkeys.lucky_wheel.app` | Not declared |
 
-## HTTP, UI và tài nguyên
+## HTTP, UI, and resources
 
-Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố khi mount module và quyền truy cập có thể khác giữa các lane; các URL đã gọi thật nằm ở mục kiểm thử.
+The paths below come from annotations in the JAR. Mount prefixes and access permissions may differ by lane; the URLs that were actually called are listed in the testing section.
 
-**admin-plugin** — 1 tổ hợp phương thức/URI đọc được; mẫu đại diện:
+**admin-plugin** — 1 method/URI combination identified; representative sample:
 
 | Annotation HTTP | Class |
 |---|---|
 | `GET /settings` | `SettingsController` |
 
-**web-plugin** — 1 tổ hợp phương thức/URI đọc được; mẫu đại diện:
+**web-plugin** — 1 method/URI combination identified; representative sample:
 
 | Annotation HTTP | Class |
 |---|---|
 | `GET /api/v1/lucky-wheel` | `LuckyWheelController` |
 
-**theme** — 1 tổ hợp phương thức/URI đọc được; mẫu đại diện:
+**theme** — 1 method/URI combination identified; representative sample:
 
 | Annotation HTTP | Class |
 |---|---|
 | `GET /` | `HomeController` |
 
-- **admin-plugin – Menu (khóa cuối và path trong menus.properties):** `lucky_wheel: /lucky-wheel`, `settings: /lucky-wheel/settings`, `dashboard: /lucky-wheel/dashboard`.
+- **admin-plugin – Menus (final keys and paths in menus.properties):** `lucky_wheel: /lucky-wheel`, `settings: /lucky-wheel/settings`, `dashboard: /lucky-wheel/dashboard`.
 
 - **admin-plugin – Template:** `lucky-wheel/settings.html`.
 
-- **theme – Tài nguyên tĩnh:** `index.html`, `js/ezyclient-1.0.3.min.js`, `js/game.js`, `js/phaser.min.js` (+1).
+- **theme - Resources:** `index.html`, `js/ezyclient-1.0.3.min.js`, `js/game.js`, `js/phaser.min.js` (+1).
 
-- **socket-plugin – Tài nguyên cấu hình/mẫu:** `wheel.json`.
+- **Socket-plugin – Configuration/Sample Resource:** `wheel.json`.
 
-## Dữ liệu và migration
+## Data and migrations
 
-- Không tìm thấy `CREATE TABLE` trong các tệp SQL rời của gói; không suy ra module không lưu dữ liệu hoặc không dùng schema của core.
+- No occurrence of `CREATE TABLE` was found in the package’s standalone SQL files; this does not mean the module stores no data or does not use the core schema.
 
-## JAR, cấu hình và điểm mở rộng
+## JARs, configuration, and extension points
 
 ### admin-plugin
 
-- **JAR kiểm tra:** `lucky-wheel-admin-plugin-0.0.1.jar`; 1 class cấp cao nhất sau khi bỏ trùng theo tên package/class trong lane. SDK có thể lặp giữa các lane.
-- **Package nổi bật:** `org.youngmonkeys.lucky_wheel.controller`.
-- **JAR thư viện khác:** `javassist-3.20.0-GA.jar`.
-- **Controller/service/repository (mẫu):** `SettingsController`.
-- **Resource trong JAR (mẫu):** `admin.properties`, `config.properties`, `dictionary.properties`, `languages.properties`, `logback.xml` (+62).
+- **JARs inspected:** `lucky-wheel-admin-plugin-0.0.1.jar`; 1 top-level classes after deduplicating by package and class name within the lane. The SDK can appear in multiple lanes.
+- **Notable packages:** `org.youngmonkeys.lucky_wheel.controller`.
+- **Other library JARs:** `javassist-3.20.0-GA.jar`.
+- **Controllers, services, and repositories (sample):** `SettingsController`.
+- **JAR resources (sample):** `admin.properties`, `config.properties`, `dictionary.properties`, `languages.properties`, `logback.xml` (+62).
 
 ### web-plugin
 
-- **JAR kiểm tra:** `lucky-wheel-web-plugin-0.0.1.jar`; 1 class cấp cao nhất sau khi bỏ trùng theo tên package/class trong lane. SDK có thể lặp giữa các lane.
-- **Package nổi bật:** `org.youngmonkeys.lucky_wheel.controller`.
-- **JAR thư viện khác:** `javassist-3.20.0-GA.jar`.
-- **Controller/service/repository (mẫu):** `LuckyWheelController`.
-- **Resource trong JAR (mẫu):** `config.properties`, `logback.xml`, `messages/messages.properties`, `messages/messages_vi.properties`, `platform.properties` (+10).
+- **JARs inspected:** `lucky-wheel-web-plugin-0.0.1.jar`; 1 top-level classes after deduplicating by package and class name within the lane. The SDK can appear in multiple lanes.
+- **Notable packages:** `org.youngmonkeys.lucky_wheel.controller`.
+- **Other library JARs:** `javassist-3.20.0-GA.jar`.
+- **Controllers, services, and repositories (sample):** `LuckyWheelController`.
+- **JAR resources (sample):** `config.properties`, `logback.xml`, `messages/messages.properties`, `messages/messages_vi.properties`, `platform.properties` (+10).
 
 ### theme
 
-- **JAR kiểm tra:** `lucky-wheel-theme-0.0.1.jar`; 1 class cấp cao nhất sau khi bỏ trùng theo tên package/class trong lane. SDK có thể lặp giữa các lane.
-- **Package nổi bật:** `org.youngmonkeys.lucky_wheel.controller`.
-- **JAR thư viện khác:** `javassist-3.20.0-GA.jar`.
-- **Controller/service/repository (mẫu):** `HomeController`.
-- **Resource trong JAR (mẫu):** `config.properties`, `logback.xml`, `messages/messages.properties`, `messages/messages_vi.properties`, `platform.properties` (+11).
+- **JARs inspected:** `lucky-wheel-theme-0.0.1.jar`; 1 top-level classes after deduplicating by package and class name within the lane. The SDK can appear in multiple lanes.
+- **Notable packages:** `org.youngmonkeys.lucky_wheel.controller`.
+- **Other library JARs:** `javassist-3.20.0-GA.jar`.
+- **Controllers, services, and repositories (sample):** `HomeController`.
+- **JAR resources (sample):** `config.properties`, `logback.xml`, `messages/messages.properties`, `messages/messages_vi.properties`, `platform.properties` (+11).
 
 ### socket-plugin
 
-- **JAR kiểm tra:** `lucky-wheel-socket-plugin-0.0.1.jar`; 2 class cấp cao nhất sau khi bỏ trùng theo tên package/class trong lane. SDK có thể lặp giữa các lane.
-- **Package nổi bật:** `org.youngmonkeys.lucky_wheel.plugin.controller`, `org.youngmonkeys.lucky_wheel.plugin`.
-- **Controller/service/repository (mẫu):** `UserLoginController`.
-- **Điểm mở rộng tiềm năng theo tên class:** `PluginEntryLoader`.
+- **JARs inspected:** `lucky-wheel-socket-plugin-0.0.1.jar`; 2 top-level classes after deduplicating by package and class name within the lane. The SDK can appear in multiple lanes.
+- **Notable packages:** `org.youngmonkeys.lucky_wheel.plugin.controller`, `org.youngmonkeys.lucky_wheel.plugin`.
+- **Controllers, services, and repositories (sample):** `UserLoginController`.
+- **Potential extension points based on class names:** `PluginEntryLoader`.
 - **Zone / entry loader:** `lucky-wheel` / `org.youngmonkeys.lucky_wheel.plugin.PluginEntryLoader`.
-- **Class controller/handler/event/request (mẫu):** `UserLoginController`.
+- **Controller, handler, event, and request classes (sample):** `UserLoginController`.
 
 ### socket-app
 
-- **JAR kiểm tra:** `lucky-wheel-socket-app-0.0.1.jar`; 6 class cấp cao nhất sau khi bỏ trùng theo tên package/class trong lane. SDK có thể lặp giữa các lane.
-- **Package nổi bật:** `org.youngmonkeys.lucky_wheel.app.entity`, `org.youngmonkeys.lucky_wheel.app`, `org.youngmonkeys.lucky_wheel.app.controller` (+1).
-- **Controller/service/repository (mẫu):** `RequestController`, `WheelService`.
-- **Điểm mở rộng tiềm năng theo tên class:** `AppEntryLoader`.
+- **JARs inspected:** `lucky-wheel-socket-app-0.0.1.jar`; 6 top-level classes after deduplicating by package and class name within the lane. The SDK can appear in multiple lanes.
+- **Notable packages:** `org.youngmonkeys.lucky_wheel.app.entity`, `org.youngmonkeys.lucky_wheel.app`, `org.youngmonkeys.lucky_wheel.app.controller` (+1).
+- **Controllers, services, and repositories (sample):** `RequestController`, `WheelService`.
+- **Potential extension points based on class names:** `AppEntryLoader`.
 - **Zone / entry loader:** `lucky-wheel` / `org.youngmonkeys.lucky_wheel.app.AppEntryLoader`.
-- **Class controller/handler/event/request (mẫu):** `RequestController`.
+- **Controller, handler, event, and request classes (sample):** `RequestController`.
 
-Class và resource xác nhận có cấu trúc mở rộng trong bản đóng gói, không cam kết API ổn định hoặc handler đã chạy qua mọi nhánh.
+Classes and resources show that extension points are packaged; they do not establish API stability or confirm that every handler path has run.
 
-## Quan sát trên sandbox
+## Sandbox observations
 
-Admin `/lucky-wheel/settings` → 200. Theme Lucky Wheel đưa `/` đến `/index.html` (200); `/api/v1/lucky-wheel` → JSON 200, nhưng `/lucky-wheel` là trang “Not found”. Chưa thử lượt quay có giải thưởng.
+Admin `/lucky-wheel/settings` returned 200. The Lucky Wheel theme redirected `/` to `/index.html` (200). `/api/v1/lucky-wheel` returned JSON with status 200, but `/lucky-wheel` showed a “Not found” page. No prize-bearing spins were tested.
 
-Xem bằng chứng nạp module và cổng TCP trong [kiểm thử Socket](test-report.md#gói-cài-được-và-kiểm-thử-http). Không kiểm chứng trao đổi Socket bằng client.
+See module-loading and TCP port evidence in the [Socket checks](test-report.md#installable-packages-and-http-tests). Socket communication was not verified with a client.
 
-## Lưu ý khi tích hợp
+## Integration notes
 
-Ví dụ cả năm loại module trong một gói; kiểm theme/route và Socket riêng, JSON không chứng minh UI chạy.
+This package illustrates all five module types. Verify the theme and routes separately from Socket. A JSON response does not prove the UI works.
 
-[Về chỉ mục plugin](README.md)
+[Back to the plugin index](README.md)

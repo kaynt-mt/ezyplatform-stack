@@ -1,30 +1,30 @@
 # ezyaccount
 
-Giao diện và API tài khoản thành viên.
+Member account UI and API.
 
-- **Bản Marketplace trên core 1.5.9:** `0.2.4`.
-- **Module đã xác minh:** `admin-plugin`, `web-plugin`.
-- **Cài đặt:** Đạt. Xem môi trường và các giới hạn chung trong [báo cáo kiểm thử](test-report.md).
+- **Marketplace version on core 1.5.9:** `0.2.4`.
+- **Verified modules:** `admin-plugin`, `web-plugin`.
+- **Installation:** Passed. See the environment and general limitations in the [test report](test-report.md).
 
-## Bản đồ module
+## Module map
 
-| Lane / thư mục | Package khai báo | Phụ thuộc runtime khai báo |
+| Lane / directory | Declared package | Declared runtime dependencies |
 |---|---|---|
 | `admin-plugin` — `admin/plugins/ezyaccount` | `org.youngmonkeys.ezyaccount` | [ezyarticle](ezyarticle.md) |
 | `web-plugin` — `web/plugins/ezyaccount` | `org.youngmonkeys.ezyaccount` | [ezyarticle](ezyarticle.md) |
 
-## HTTP, UI và tài nguyên
+## HTTP, UI, and resources
 
-Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố khi mount module và quyền truy cập có thể khác giữa các lane; các URL đã gọi thật nằm ở mục kiểm thử.
+The paths below come from annotations in the JAR. Mount prefixes and access permissions may differ by lane; the URLs that were actually called are listed in the testing section.
 
-**admin-plugin** — 2 tổ hợp phương thức/URI đọc được; mẫu đại diện:
+**admin-plugin** — 2 method/URI combinations identified; representative sample:
 
 | Annotation HTTP | Class |
 |---|---|
 | `GET /settings` | `AdminEzyAccountSettingController` |
 | `PUT /api/v1/settings` | `AdminEzyAccountApiSettingController` |
 
-**web-plugin** — 12 tổ hợp phương thức/URI đọc được; mẫu đại diện:
+**web-plugin** — 12 method/URI combinations identified; representative sample:
 
 | Annotation HTTP | Class |
 |---|---|
@@ -39,50 +39,50 @@ Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố
 | `PUT /ezyaccount/api/v1/account/update` | `WebApiAccountController` |
 | `DELETE /ezyaccount/api/v1/account/members/{id}` | `WebApiAccountMemberController` |
 
-- **admin-plugin – Menu (khóa cuối và path trong menus.properties):** `ezyaccount: /`, `settings: /settings`.
+- **admin-plugin – Menus (final keys and paths in menus.properties):** `ezyaccount: /`, `settings: /settings`.
 
 - **admin-plugin – Template:** `ezyaccount/setting/index.html`.
 
 - **web-plugin – Template:** `ezyaccount/account-members.html`, `ezyaccount/common-profile.html`, `ezyaccount/edit-password-modal.html`, `ezyaccount/inbox-letter.html`, `ezyaccount/inbox.html`, `ezyaccount/media-modal.html`, `ezyaccount/notification.html` (+4).
 
-- **web-plugin – Tài nguyên tĩnh:** `ezyaccount/css/style.css`.
+- **web-plugin – Static resources:** `ezyaccount/css/style.css`.
 
-## Dữ liệu và migration
+## Data and migrations
 
-- **Bảng trong DDL đóng gói (3):** `ezyaccount_account_member_entities`, `ezyaccount_account_member_entity_activity_histories`, `ezyaccount_account_member_entity_roles`.
-- **Class có chỉ dấu JPA Entity/MappedSuperclass (3):** `AccountMemberEntity`, `AccountMemberEntityActivityHistory`, `AccountMemberEntityRole`.
-- **SQL admin-plugin (1 tệp):** `resources/scripts/scripts.sql`.
+- **Table in the DDL package (3):** `ezyaccount_account_member_entities`, `ezyaccount_account_member_entity_activity_histories`, `ezyaccount_account_member_entity_roles`.
+- **Class with JPA Entity/MappedSuperclass (3):** `AccountMemberEntity`, `AccountMemberEntityActivityHistory`, `AccountMemberEntityRole`.
+- **SQL admin-plugin (1 file):** `resources/scripts/scripts.sql`.
 
-## JAR, cấu hình và điểm mở rộng
+## JARs, configuration, and extension points
 
 ### admin-plugin
 
-- **JAR kiểm tra:** `ezyaccount-admin-plugin-0.2.4.jar`, `ezyaccount-sdk-0.2.4.jar`; 61 class cấp cao nhất sau khi bỏ trùng theo tên package/class trong lane. SDK có thể lặp giữa các lane.
-- **Package nổi bật:** `org.youngmonkeys.ezyaccount.pagination`, `org.youngmonkeys.ezyaccount.service`, `org.youngmonkeys.ezyaccount.model` (+16).
-- **JAR thư viện khác:** `core-3.5.3.jar`, `jai-imageio-core-1.4.0.jar`, `javase-3.5.3.jar`, `jcommander-1.82.jar`.
-- **Controller/service/repository (mẫu):** `AdminEzyAccountApiSettingController`, `AdminEzyAccountSettingController`, `IndexController`, `AccountMemberEntityActivityHistoryService`, `AccountMemberEntityRepository`, `AccountMemberEntityRoleRepository`, `AccountMemberEntityService`, `AdminAccountMemberEntityActivityHistoryRepository`.
-- **Class cấu hình/quyền (mẫu):** `AdminPageFragmentConfig`, `PageFragmentConfig`.
-- **Resource trong JAR (mẫu):** `ecommerce/ecommerce.properties`.
-- **Điểm mở rộng tiềm năng theo tên class:** `AccountMemberEntityRoleManager`, `AdminAccountMemberEntityRoleManager`.
+- **JARs inspected:** `ezyaccount-admin-plugin-0.2.4.jar`, `ezyaccount-sdk-0.2.4.jar`; 61 top-level classes after deduplicating by package and class name within the lane. The SDK can appear in multiple lanes.
+- **Notable packages:** `org.youngmonkeys.ezyaccount.pagination`, `org.youngmonkeys.ezyaccount.service`, `org.youngmonkeys.ezyaccount.model` (+16).
+- **Other library JARs:** `core-3.5.3.jar`, `jai-imageio-core-1.4.0.jar`, `javase-3.5.3.jar`, `jcommander-1.82.jar`.
+- **Controllers, services, and repositories (sample):** `AdminEzyAccountApiSettingController`, `AdminEzyAccountSettingController`, `IndexController`, `AccountMemberEntityActivityHistoryService`, `AccountMemberEntityRepository`, `AccountMemberEntityRoleRepository`, `AccountMemberEntityService`, `AdminAccountMemberEntityActivityHistoryRepository`.
+- **Configuration and permission classes (sample):** `AdminPageFragmentConfig`, `PageFragmentConfig`.
+- **JAR resources (sample):** `ecommerce/ecommerce.properties`.
+- **Potential extension points based on class names:** `AccountMemberEntityRoleManager`, `AdminAccountMemberEntityRoleManager`.
 
 ### web-plugin
 
-- **JAR kiểm tra:** `ezyaccount-sdk-0.2.4.jar`, `ezyaccount-web-plugin-0.2.4.jar`; 88 class cấp cao nhất sau khi bỏ trùng theo tên package/class trong lane. SDK có thể lặp giữa các lane.
-- **Package nổi bật:** `org.youngmonkeys.ezyaccount.pagination`, `org.youngmonkeys.ezyaccount.web.service`, `org.youngmonkeys.ezyaccount.web.controller.api` (+22).
-- **JAR thư viện khác:** `core-3.5.3.jar`, `jai-imageio-core-1.4.0.jar`, `javase-3.5.3.jar`, `jcommander-1.82.jar`.
-- **Controller/service/repository (mẫu):** `AccountController`, `WebAccountControllerService`, `WebAccountMemberControllerService`, `WebAccountMemberEntityActivityHistoryControllerService`, `AccountMemberEntityActivityHistoryService`, `AccountMemberEntityRepository`, `AccountMemberEntityRoleRepository`, `AccountMemberEntityService`, `EzyAccountSettingService`.
-- **Class cấu hình/quyền (mẫu):** `PageFragmentConfig`, `WebPageFragmentConfig`.
-- **Resource trong JAR (mẫu):** `ecommerce/ecommerce.properties`.
-- **Điểm mở rộng tiềm năng theo tên class:** `AccountMemberEntityRoleManager`, `EzyAccountValidateUserUpdateEventHandler`, `WebAccountMemberEntityRoleManager`.
+- **JARs inspected:** `ezyaccount-sdk-0.2.4.jar`, `ezyaccount-web-plugin-0.2.4.jar`; 88 top-level classes after deduplicating by package and class name within the lane. The SDK can appear in multiple lanes.
+- **Notable packages:** `org.youngmonkeys.ezyaccount.pagination`, `org.youngmonkeys.ezyaccount.web.service`, `org.youngmonkeys.ezyaccount.web.controller.api` (+22).
+- **Other library JARs:** `core-3.5.3.jar`, `jai-imageio-core-1.4.0.jar`, `javase-3.5.3.jar`, `jcommander-1.82.jar`.
+- **Controllers, services, and repositories (sample):** `AccountController`, `WebAccountControllerService`, `WebAccountMemberControllerService`, `WebAccountMemberEntityActivityHistoryControllerService`, `AccountMemberEntityActivityHistoryService`, `AccountMemberEntityRepository`, `AccountMemberEntityRoleRepository`, `AccountMemberEntityService`, `EzyAccountSettingService`.
+- **Configuration and permission classes (sample):** `PageFragmentConfig`, `WebPageFragmentConfig`.
+- **JAR resources (sample):** `ecommerce/ecommerce.properties`.
+- **Potential extension points based on class names:** `AccountMemberEntityRoleManager`, `EzyAccountValidateUserUpdateEventHandler`, `WebAccountMemberEntityRoleManager`.
 
-Class và resource xác nhận có cấu trúc mở rộng trong bản đóng gói, không cam kết API ổn định hoặc handler đã chạy qua mọi nhánh.
+Classes and resources show that extension points are packaged; they do not establish API stability or confirm that every handler path has run.
 
-## Quan sát trên sandbox
+## Sandbox observations
 
-Admin `/ezyaccount/settings` → 200; Web `/ezyaccount/api/v1/account` → 401 khi chưa đăng nhập.
+Admin `/ezyaccount/settings` returned 200. Web `/ezyaccount/api/v1/account` returned 401 without a login.
 
-## Lưu ý khi tích hợp
+## Integration notes
 
-Các entity thành viên, role và lịch sử hoạt động là mẫu tách ba trách nhiệm. Không dùng quyền tài khoản hệ thống thay ACL của plugin.
+The membership entities, roles, and activity history show how to separate these responsibilities. System account permissions do not replace plugin ACLs.
 
-[Về chỉ mục plugin](README.md)
+[Back to the plugin index](README.md)

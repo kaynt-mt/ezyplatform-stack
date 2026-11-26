@@ -1,23 +1,23 @@
 # ezygame
 
-Chỉ số, sự kiện và thành tích.
+Metrics, events, and achievements.
 
-- **Bản Marketplace trên core 1.5.9:** `0.0.8`.
-- **Module đã xác minh:** `admin-plugin`, `web-plugin`.
-- **Cài đặt:** Đạt. Xem môi trường và các giới hạn chung trong [báo cáo kiểm thử](test-report.md).
+- **Marketplace version on core 1.5.9:** `0.0.8`.
+- **Verified modules:** `admin-plugin`, `web-plugin`.
+- **Installation:** Passed. See the environment and general limitations in the [test report](test-report.md).
 
-## Bản đồ module
+## Module map
 
-| Lane / thư mục | Package khai báo | Phụ thuộc runtime khai báo |
+| Lane / directory | Declared package | Declared runtime dependencies |
 |---|---|---|
-| `admin-plugin` — `admin/plugins/ezygame` | `org.youngmonkeys.ezygame` | Không khai báo |
-| `web-plugin` — `web/plugins/ezygame` | `org.youngmonkeys.ezygame` | Không khai báo |
+| `admin-plugin` — `admin/plugins/ezygame` | `org.youngmonkeys.ezygame` | Not declared |
+| `web-plugin` — `web/plugins/ezygame` | `org.youngmonkeys.ezygame` | Not declared |
 
-## HTTP, UI và tài nguyên
+## HTTP, UI, and resources
 
-Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố khi mount module và quyền truy cập có thể khác giữa các lane; các URL đã gọi thật nằm ở mục kiểm thử.
+The paths below come from annotations in the JAR. Mount prefixes and access permissions may differ by lane; the URLs that were actually called are listed in the testing section.
 
-**admin-plugin** — 30 tổ hợp phương thức/URI đọc được; mẫu đại diện:
+**admin-plugin** — 30 method/URI combinations identified; representative sample:
 
 | Annotation HTTP | Class |
 |---|---|
@@ -41,51 +41,51 @@ Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố
 | `DELETE /api/v1/event-metrics/{id}` | `AdminApiEventMetricController` |
 | `DELETE /api/v1/achievement-conditions/{id}` | `AdminApiAchievementConditionController` |
 
-**web-plugin** — 1 tổ hợp phương thức/URI đọc được; mẫu đại diện:
+**web-plugin** — 1 method/URI combination identified; representative sample:
 
 | Annotation HTTP | Class |
 |---|---|
 | `GET /metrics/{id}/leaderboard` | `WebApiMetricController` |
 
-- **admin-plugin – Menu (khóa cuối và path trong menus.properties):** `ezygame: /`, `metrics: /metrics`, `metrics_add: ~/metrics/add`, `metrics_edit: ~/metrics/{id}/edit`, `event_metrics: /event-metrics`, `event_metrics_add: ~/event-metrics/add` (+8).
+- **admin-plugin – Menus (final keys and paths in menus.properties):** `ezygame: /`, `metrics: /metrics`, `metrics_add: ~/metrics/add`, `metrics_edit: ~/metrics/{id}/edit`, `event_metrics: /event-metrics`, `event_metrics_add: ~/event-metrics/add` (+8).
 
 - **admin-plugin – Template:** `ezygame/achievement-condition/add.html`, `ezygame/achievement-condition/edit.html`, `ezygame/achievement-condition/list.html`, `ezygame/achievement-condition/scripts.html`, `ezygame/achievement/add.html`, `ezygame/achievement/edit.html`, `ezygame/achievement/list.html` (+10).
 
-- **admin-plugin – Tài nguyên cấu hình/mẫu:** `ezygame/metrics.properties`.
+- **admin-plugin – Configuration and template resources:** `ezygame/metrics.properties`.
 
-## Dữ liệu và migration
+## Data and migrations
 
-- **Bảng trong DDL đóng gói (6):** `ezygame_achievement_conditions`, `ezygame_achievements`, `ezygame_event_metrics`, `ezygame_metrics`, `ezygame_player_achievements`, `ezygame_player_metrics`.
-- **Class có chỉ dấu JPA Entity/MappedSuperclass (6):** `Achievement`, `AchievementCondition`, `EventMetric`, `Metric`, `PlayerAchievement`, `PlayerMetric`.
-- **SQL admin-plugin (2 tệp):** `resources/scripts/event_metric.sql`, `resources/scripts/scripts.sql`.
+- **Table in the DDL package (6):** `ezygame_achievement_conditions`, `ezygame_achievements`, `ezygame_event_metrics`, `ezygame_metrics`, `ezygame_player_achievements`, `ezygame_player_metrics`.
+- **Class with JPA Entity/MappedSuperclass (6):** `Achievement`, `AchievementCondition`, `EventMetric`, `Metric`, `PlayerAchievement`, `PlayerMetric`.
+- **SQL admin-plugin (2 files):** `resources/scripts/event_metric.sql`, `resources/scripts/scripts.sql`.
 
-## JAR, cấu hình và điểm mở rộng
+## JARs, configuration, and extension points
 
 ### admin-plugin
 
-- **JAR kiểm tra:** `ezygame-admin-plugin-0.0.8.jar`, `ezygame-sdk-0.0.8.jar`; 180 class cấp cao nhất sau khi bỏ trùng theo tên package/class trong lane. SDK có thể lặp giữa các lane.
-- **Package nổi bật:** `org.youngmonkeys.ezygame.pagination`, `org.youngmonkeys.ezygame.repo`, `org.youngmonkeys.ezygame.service` (+25).
-- **Controller/service/repository (mẫu):** `AchievementConditionControllerService`, `AchievementControllerService`, `AdminAchievementConditionController`, `AdminAchievementConditionControllerService`, `AchievementConditionControllerService`, `AchievementConditionRepository`, `AchievementConditionService`, `AchievementConditionValidator`, `AchievementControllerService`.
-- **Class cấu hình/quyền (mẫu):** `AdminMetricConfig`, `EzyGameMessageClientConfig`.
-- **Khóa cấu hình/mẫu từ resource (không trích giá trị):** `ezygame_experience_point`.
-- **Điểm mở rộng tiềm năng theo tên class:** `BrokerMessageEvent`, `EzyGameEvent`, `EzyGameEventManager`, `EzyGameMessageClient`, `GameEventUpdateMetricEvent`, `GameEventUpdateMetricEventHandler`.
+- **JARs inspected:** `ezygame-admin-plugin-0.0.8.jar`, `ezygame-sdk-0.0.8.jar`; 180 top-level classes after deduplicating by package and class name within the lane. The SDK can appear in multiple lanes.
+- **Notable packages:** `org.youngmonkeys.ezygame.pagination`, `org.youngmonkeys.ezygame.repo`, `org.youngmonkeys.ezygame.service` (+25).
+- **Controllers, services, and repositories (sample):** `AchievementConditionControllerService`, `AchievementControllerService`, `AdminAchievementConditionController`, `AdminAchievementConditionControllerService`, `AchievementConditionControllerService`, `AchievementConditionRepository`, `AchievementConditionService`, `AchievementConditionValidator`, `AchievementControllerService`.
+- **Configuration and permission classes (sample):** `AdminMetricConfig`, `EzyGameMessageClientConfig`.
+- **Configuration and template keys from resources (values omitted):** `ezygame_experience_point`.
+- **Potential extension points based on class names:** `BrokerMessageEvent`, `EzyGameEvent`, `EzyGameEventManager`, `EzyGameMessageClient`, `GameEventUpdateMetricEvent`, `GameEventUpdateMetricEventHandler`.
 
 ### web-plugin
 
-- **JAR kiểm tra:** `ezygame-sdk-0.0.8.jar`, `ezygame-web-plugin-0.0.8.jar`; 142 class cấp cao nhất sau khi bỏ trùng theo tên package/class trong lane. SDK có thể lặp giữa các lane.
-- **Package nổi bật:** `org.youngmonkeys.ezygame.pagination`, `org.youngmonkeys.ezygame.repo`, `org.youngmonkeys.ezygame.service` (+20).
-- **Controller/service/repository (mẫu):** `AchievementConditionControllerService`, `AchievementControllerService`, `EventMetricControllerService`, `LeaderboardControllerService`, `AchievementConditionControllerService`, `AchievementConditionRepository`, `AchievementConditionService`, `AchievementConditionValidator`, `AchievementControllerService`.
-- **Class cấu hình/quyền (mẫu):** `EzyGameMessageClientConfig`.
-- **Điểm mở rộng tiềm năng theo tên class:** `BrokerMessageEvent`, `EzyGameEvent`, `EzyGameEventManager`, `EzyGameMessageClient`, `GameEventUpdateMetricEvent`, `GameEventUpdateMetricEventHandler`.
+- **JARs inspected:** `ezygame-sdk-0.0.8.jar`, `ezygame-web-plugin-0.0.8.jar`; 142 top-level classes after deduplicating by package and class name within the lane. The SDK can appear in multiple lanes.
+- **Notable packages:** `org.youngmonkeys.ezygame.pagination`, `org.youngmonkeys.ezygame.repo`, `org.youngmonkeys.ezygame.service` (+20).
+- **Controllers, services, and repositories (sample):** `AchievementConditionControllerService`, `AchievementControllerService`, `EventMetricControllerService`, `LeaderboardControllerService`, `AchievementConditionControllerService`, `AchievementConditionRepository`, `AchievementConditionService`, `AchievementConditionValidator`, `AchievementControllerService`.
+- **Configuration and permission classes (sample):** `EzyGameMessageClientConfig`.
+- **Potential extension points based on class names:** `BrokerMessageEvent`, `EzyGameEvent`, `EzyGameEventManager`, `EzyGameMessageClient`, `GameEventUpdateMetricEvent`, `GameEventUpdateMetricEventHandler`.
 
-Class và resource xác nhận có cấu trúc mở rộng trong bản đóng gói, không cam kết API ổn định hoặc handler đã chạy qua mọi nhánh.
+Classes and resources show that extension points are packaged; they do not establish API stability or confirm that every handler path has run.
 
-## Quan sát trên sandbox
+## Sandbox observations
 
-Admin `/ezygame/metrics` → 200. Danh mục ghi S, G nhưng ZIP thực tế không chứa hai module này.
+Admin `/ezygame/metrics` returned 200. The catalog lists S and G, but the ZIP contains neither module.
 
-## Lưu ý khi tích hợp
+## Integration notes
 
-Tách chỉ số dẫn xuất khỏi thao tác chính; đối chiếu lane với module thực tế, không chỉ nhãn Marketplace.
+Keep derived metrics separate from the primary operation. Check the actual module types, not just the Marketplace labels.
 
-[Về chỉ mục plugin](README.md)
+[Back to the plugin index](README.md)

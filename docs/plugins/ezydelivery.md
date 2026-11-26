@@ -1,23 +1,23 @@
 # ezydelivery
 
-Mã vận đơn, quét mã và giao nhận.
+Shipment codes, barcode scanning, and delivery.
 
-- **Bản Marketplace trên core 1.5.9:** `0.7.7`.
-- **Module đã xác minh:** `admin-plugin`, `web-plugin`.
-- **Cài đặt:** Đạt. Xem môi trường và các giới hạn chung trong [báo cáo kiểm thử](test-report.md).
+- **Marketplace version on core 1.5.9:** `0.7.7`.
+- **Verified modules:** `admin-plugin`, `web-plugin`.
+- **Installation:** Passed. See the environment and general limitations in the [test report](test-report.md).
 
-## Bản đồ module
+## Module map
 
-| Lane / thư mục | Package khai báo | Phụ thuộc runtime khai báo |
+| Lane / directory | Declared package | Declared runtime dependencies |
 |---|---|---|
 | `admin-plugin` — `admin/plugins/ezydelivery` | `org.youngmonkeys.ezydelivery` | [ecommerce](ecommerce.md), [accounting](accounting.md), [ezyarticle](ezyarticle.md) |
 | `web-plugin` — `web/plugins/ezydelivery` | `org.youngmonkeys.ezydelivery` | [ecommerce](ecommerce.md), [accounting](accounting.md), [ezyarticle](ezyarticle.md) |
 
-## HTTP, UI và tài nguyên
+## HTTP, UI, and resources
 
-Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố khi mount module và quyền truy cập có thể khác giữa các lane; các URL đã gọi thật nằm ở mục kiểm thử.
+The paths below come from annotations in the JAR. Mount prefixes and access permissions may differ by lane; the URLs that were actually called are listed in the testing section.
 
-**admin-plugin** — 150 tổ hợp phương thức/URI đọc được; mẫu đại diện:
+**admin-plugin** — 150 method/URI combinations identified; representative sample:
 
 | Annotation HTTP | Class |
 |---|---|
@@ -41,7 +41,7 @@ Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố
 | `DELETE /api/v1/shop-vehicles/product-packages` | `AdminApiShopVehicleProductPackageController` |
 | `DELETE /api/v1/shop-vehicles/{id}` | `AdminApiShopVehicleController` |
 
-**web-plugin** — 14 tổ hợp phương thức/URI đọc được; mẫu đại diện:
+**web-plugin** — 14 method/URI combinations identified; representative sample:
 
 | Annotation HTTP | Class |
 |---|---|
@@ -60,49 +60,49 @@ Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố
 | `DELETE /shipping-requests/{id}` | `WebApiUserShippingRequestController` |
 | `DELETE /user/delivery-order-codes/{deliveryOrderCode}/not-at-input-warehouse` | `WebApiUserDeliveryOrderCodeController` |
 
-- **admin-plugin – Menu (khóa cuối và path trong menus.properties):** `ezydelivery: /`, `scan_order_code: /scan-delivery-order-codes`, `declare_order_code: /delivery-order-codes`, `rejected_delivery_order_codes: /rejected-delivery-order-codes`, `photo_required_delivery_order_codes: /photo-required-delivery-order-codes`, `sensitive_delivery_order_codes: /sensitive-delivery-order-codes` (+32).
+- **admin-plugin – Menus (final keys and paths in menus.properties):** `ezydelivery: /`, `scan_order_code: /scan-delivery-order-codes`, `declare_order_code: /delivery-order-codes`, `rejected_delivery_order_codes: /rejected-delivery-order-codes`, `photo_required_delivery_order_codes: /photo-required-delivery-order-codes`, `sensitive_delivery_order_codes: /sensitive-delivery-order-codes` (+32).
 
 - **admin-plugin – Template:** `ezydelivery/accounting/overview/user-delivery-order-item.html`, `ezydelivery/all-delivery-order-code/delivery-order-history-list.html`, `ezydelivery/all-delivery-order-code/delivery-order-list.html`, `ezydelivery/all-delivery-order-code/details.html`, `ezydelivery/all-delivery-order-code/list.html`, `ezydelivery/allocate-delivery-order-code-customer/customer-details.html`, `ezydelivery/allocate-delivery-order-code-customer/customer-list.html` (+102).
 
-- **admin-plugin – Tài nguyên cấu hình/mẫu:** `administrative-type-prefix-mapping-templates/ghtk.json`, `administrative-type-prefix-mapping-templates/spx.json`, `administrative-type-prefix-mapping-templates/viettel_post.json`, `administrative-type-prefix-mapping-templates/viettel_post_small.json` (+10).
+- **admin-plugin – Configuration and template resources:** `administrative-type-prefix-mapping-templates/ghtk.json`, `administrative-type-prefix-mapping-templates/spx.json`, `administrative-type-prefix-mapping-templates/viettel_post.json`, `administrative-type-prefix-mapping-templates/viettel_post_small.json` (+10).
 
-## Dữ liệu và migration
+## Data and migrations
 
-- **Bảng trong DDL đóng gói (8):** `ezydelivery_delivery_order_shipping_rate_histories`, `ezydelivery_delivery_order_shipping_rates`, `ezydelivery_shop_vehicle_histories`, `ezydelivery_shop_vehicle_product_packages`, `ezydelivery_shop_vehicles`, `ezydelivery_user_shipping_rate_histories`, `ezydelivery_user_shipping_rates`, `ezydelivery_user_shipping_requests`.
-- **Class có chỉ dấu JPA Entity/MappedSuperclass (8):** `DeliveryOrderShippingRate`, `DeliveryOrderShippingRateHistory`, `ShopVehicle`, `ShopVehicleHistory`, `ShopVehicleProductPackage`, `UserShippingRate`, `UserShippingRateHistory`, `UserShippingRequest`.
-- **SQL admin-plugin (13 tệp):** `resources/scripts/scripts.sql`, `resources/scripts/shop_vehicle_history.sql`, `resources/scripts/user_shipping_rates.sql`, `resources/scripts/user_shipping_requests.sql`, `resources/scripts/alter_add_detailed_status.sql`, `resources/scripts/alter_delivery_order_table_100.sql`, `resources/scripts/alter_ezyplatform_user_add_username_status_index.sql` (+6).
+- **Table in the DDL packaging (8):** `ezydelivery_delivery_order_shipping_rate_histories`, `ezydelivery_delivery_order_shipping_rates`, `ezydelivery_shop_vehicle_histories`, `ezydelivery_shop_vehicle_product_packages`, `ezydelivery_shop_vehicles`, `ezydelivery_user_shipping_rate_histories`, `ezydelivery_user_shipping_rates`, `ezydelivery_user_shipping_requests`.
+- **Class with JPA Entity/MappedSuperclass indication (8):** `DeliveryOrderShippingRate`, `DeliveryOrderShippingRateHistory`, `ShopVehicle`, `ShopVehicleHistory`, `ShopVehicleProductPackage`, `UserShippingRate`, `UserShippingRateHistory`, `UserShippingRequest`.
+- **SQL admin-plugin (13 files):** `resources/scripts/scripts.sql`, `resources/scripts/shop_vehicle_history.sql`, `resources/scripts/user_shipping_rates.sql`, `resources/scripts/user_shipping_requests.sql`, `resources/scripts/alter_add_detailed_status.sql`, `resources/scripts/alter_delivery_order_table_100.sql`, `resources/scripts/alter_ezyplatform_user_add_username_status_index.sql` (+6).
 
-## JAR, cấu hình và điểm mở rộng
+## JARs, configuration, and extension points
 
 ### admin-plugin
 
-- **JAR kiểm tra:** `ezydelivery-admin-plugin-0.7.7.jar`, `ezydelivery-sdk-0.7.7.jar`; 459 class cấp cao nhất sau khi bỏ trùng theo tên package/class trong lane. SDK có thể lặp giữa các lane.
-- **Package nổi bật:** `org.youngmonkeys.ezydelivery.admin.response`, `org.youngmonkeys.ezydelivery.admin.service`, `org.youngmonkeys.ezydelivery.service` (+34).
-- **JAR thư viện khác:** `core-3.5.3.jar`, `jai-imageio-core-1.4.0.jar`, `javase-3.5.3.jar`, `jcommander-1.82.jar`.
-- **Controller/service/repository (mẫu):** `AdminApiCustomerDeliveryOrderCodeController`, `AdminApiDeliveryOrderCodeController`, `AdminApiDeliveryOrderShippingRateController`, `AdminApiEzyDeliveryCustomerController`, `AdminCustomerDeliveryOrderControllerService`, `AdminDeliveryOrderCodeValidator`, `AdminDeliveryOrderFixedCostService`, `AdminDeliveryOrderShippingRateControllerService`, `AdminDeliveryOrderShippingRateHistoryRepository`.
-- **Class cấu hình/quyền (mẫu):** `AdminAdministrativeTypeNameMappingTemplateConfig`, `AdminEzyDeliveryConfig`, `AdminEzyDeliveryDataAppenderConfig`, `AdminEzyDeliveryOAResponseMessageTemplateConfig`, `AdminEzyDeliveryOaConfig`, `AdminEzyDeliveryUserRoleConfig`, `AdminEzyDeliveryViewMetadataConfig` (+1).
-- **Khóa cấu hình/mẫu từ resource (không trích giá trị):** `content`, `contentType`, `title`.
-- **Resource trong JAR (mẫu):** `ezydelivery/ezydelivery.properties`.
-- **Điểm mở rộng tiềm năng theo tên class:** `AccountingUserFormulaBeforeUpdateEventHandler`, `AccountingUserFormulaUpdatedEventHandler`, `AdminAccountingUserFormulaBeforeUpdateEventHandler`, `AdminAccountingUserFormulaUpdatedEventHandler`, `AdminEzyDeliveryCargoTypeManager`, `AdminShopVehicleStatusManager`, `AdminShopVehicleTypeManager`, `AdminUserDeliveryOrderCodeMessageProcessor`, `AdminUserSearchDeliveryOrderCodeMessageProcessor` (+5).
+- **JARs inspected:** `ezydelivery-admin-plugin-0.7.7.jar`, `ezydelivery-sdk-0.7.7.jar`; 459 top-level classes after deduplicating by package and class name within the lane. The SDK can appear in multiple lanes.
+- **Notable packages:** `org.youngmonkeys.ezydelivery.admin.response`, `org.youngmonkeys.ezydelivery.admin.service`, `org.youngmonkeys.ezydelivery.service` (+34).
+- **Other library JARs:** `core-3.5.3.jar`, `jai-imageio-core-1.4.0.jar`, `javase-3.5.3.jar`, `jcommander-1.82.jar`.
+- **Controllers, services, and repositories (sample):** `AdminApiCustomerDeliveryOrderCodeController`, `AdminApiDeliveryOrderCodeController`, `AdminApiDeliveryOrderShippingRateController`, `AdminApiEzyDeliveryCustomerController`, `AdminCustomerDeliveryOrderControllerService`, `AdminDeliveryOrderCodeValidator`, `AdminDeliveryOrderFixedCostService`, `AdminDeliveryOrderShippingRateControllerService`, `AdminDeliveryOrderShippingRateHistoryRepository`.
+- **Configuration and permission classes (sample):** `AdminAdministrativeTypeNameMappingTemplateConfig`, `AdminEzyDeliveryConfig`, `AdminEzyDeliveryDataAppenderConfig`, `AdminEzyDeliveryOAResponseMessageTemplateConfig`, `AdminEzyDeliveryOaConfig`, `AdminEzyDeliveryUserRoleConfig`, `AdminEzyDeliveryViewMetadataConfig` (+1).
+- **Configuration and template keys from resources (values omitted):** `content`, `contentType`, `title`.
+- **JAR resources (sample):** `ezydelivery/ezydelivery.properties`.
+- **Potential extension points based on class names:** `AccountingUserFormulaBeforeUpdateEventHandler`, `AccountingUserFormulaUpdatedEventHandler`, `AdminAccountingUserFormulaBeforeUpdateEventHandler`, `AdminAccountingUserFormulaUpdatedEventHandler`, `AdminEzyDeliveryCargoTypeManager`, `AdminShopVehicleStatusManager`, `AdminShopVehicleTypeManager`, `AdminUserDeliveryOrderCodeMessageProcessor`, `AdminUserSearchDeliveryOrderCodeMessageProcessor` (+5).
 
 ### web-plugin
 
-- **JAR kiểm tra:** `ezydelivery-sdk-0.7.7.jar`, `ezydelivery-web-plugin-0.7.7.jar`; 290 class cấp cao nhất sau khi bỏ trùng theo tên package/class trong lane. SDK có thể lặp giữa các lane.
-- **Package nổi bật:** `org.youngmonkeys.ezydelivery.service`, `org.youngmonkeys.ezydelivery.web.service`, `org.youngmonkeys.ezydelivery.pagination` (+27).
-- **JAR thư viện khác:** `core-3.5.3.jar`, `jai-imageio-core-1.4.0.jar`, `javase-3.5.3.jar`, `jcommander-1.82.jar`.
-- **Controller/service/repository (mẫu):** `WebApiAccountCustomerCommissionController`, `WebApiEzyDeliveryCustomerController`, `WebApiPublicUserDeliveryOrderCodeController`, `WebApiTrackShipmentController`, `DeliveryOrderCodeValidator`, `DeliveryOrderFixedCostService`, `DeliveryOrderShippingRateHistoryRepository`, `DeliveryOrderShippingRateRepository`, `DeliveryOrderShippingRateService`.
-- **Class cấu hình/quyền (mẫu):** `EzyDeliveryOaConfig`, `WebEzyDeliveryConfig`, `WebEzyDeliveryOaConfig`.
-- **Resource trong JAR (mẫu):** `ezydelivery/ezydelivery.properties`.
-- **Điểm mở rộng tiềm năng theo tên class:** `AccountingUserFormulaBeforeUpdateEventHandler`, `AccountingUserFormulaUpdatedEventHandler`, `UpdateDeliveryOrderItemEvent`, `UserDeliveryOrderCodeMessageProcessor`, `UserSearchDeliveryOrderCodeMessageProcessor`, `UserTrackShipmentMessageProcessor`, `WebAccountingUserFormulaBeforeUpdateEventHandler`, `WebAccountingUserFormulaUpdatedEventHandler`, `WebUserDeliveryOrderCodeMessageProcessor` (+2).
+- **JARs inspected:** `ezydelivery-sdk-0.7.7.jar`, `ezydelivery-web-plugin-0.7.7.jar`; 290 top-level classes after deduplicating by package and class name within the lane. The SDK can appear in multiple lanes.
+- **Notable packages:** `org.youngmonkeys.ezydelivery.service`, `org.youngmonkeys.ezydelivery.web.service`, `org.youngmonkeys.ezydelivery.pagination` (+27).
+- **Other library JARs:** `core-3.5.3.jar`, `jai-imageio-core-1.4.0.jar`, `javase-3.5.3.jar`, `jcommander-1.82.jar`.
+- **Controllers, services, and repositories (sample):** `WebApiAccountCustomerCommissionController`, `WebApiEzyDeliveryCustomerController`, `WebApiPublicUserDeliveryOrderCodeController`, `WebApiTrackShipmentController`, `DeliveryOrderCodeValidator`, `DeliveryOrderFixedCostService`, `DeliveryOrderShippingRateHistoryRepository`, `DeliveryOrderShippingRateRepository`, `DeliveryOrderShippingRateService`.
+- **Configuration and permission classes (sample):** `EzyDeliveryOaConfig`, `WebEzyDeliveryConfig`, `WebEzyDeliveryOaConfig`.
+- **JAR resources (sample):** `ezydelivery/ezydelivery.properties`.
+- **Potential extension points based on class names:** `AccountingUserFormulaBeforeUpdateEventHandler`, `AccountingUserFormulaUpdatedEventHandler`, `UpdateDeliveryOrderItemEvent`, `UserDeliveryOrderCodeMessageProcessor`, `UserSearchDeliveryOrderCodeMessageProcessor`, `UserTrackShipmentMessageProcessor`, `WebAccountingUserFormulaBeforeUpdateEventHandler`, `WebAccountingUserFormulaUpdatedEventHandler`, `WebUserDeliveryOrderCodeMessageProcessor` (+2).
 
-Class và resource xác nhận có cấu trúc mở rộng trong bản đóng gói, không cam kết API ổn định hoặc handler đã chạy qua mọi nhánh.
+Classes and resources show that extension points are packaged; they do not establish API stability or confirm that every handler path has run.
 
-## Quan sát trên sandbox
+## Sandbox observations
 
-Admin `/ezydelivery/scan-delivery-order-codes` → 200; `/track-shipment` chưa có trong Freestyle. Không gọi đơn vị vận chuyển.
+Admin `/ezydelivery/scan-delivery-order-codes` returned 200. `/track-shipment` was not available in Freestyle. No carrier was called.
 
-## Lưu ý khi tích hợp
+## Integration notes
 
-Tách luồng chuyển trạng thái nội bộ khỏi callback của nhà cung cấp vận chuyển.
+Keep internal state transitions separate from carrier callbacks.
 
-[Về chỉ mục plugin](README.md)
+[Back to the plugin index](README.md)

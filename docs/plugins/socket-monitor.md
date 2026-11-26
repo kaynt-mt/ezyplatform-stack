@@ -1,51 +1,51 @@
 # socket-monitor
 
-Module Socket giám sát và entry loader.
+Socket monitoring module and entry loader.
 
-- **Bản Marketplace trên core 1.5.9:** `0.0.3`.
-- **Module đã xác minh:** `socket-plugin`.
-- **Cài đặt:** Có sẵn. Xem môi trường và các giới hạn chung trong [báo cáo kiểm thử](test-report.md).
+- **Marketplace version on core 1.5.9:** `0.0.3`.
+- **Verified modules:** `socket-plugin`.
+- **Installation:** View the environment and the general limits in [test report](test-report.md).
 
-## Bản đồ module
+## Module map
 
-| Lane / thư mục | Package khai báo | Phụ thuộc runtime khai báo |
+| Lane / directory | Declared package | Declared runtime dependencies |
 |---|---|---|
-| `socket-plugin` — `socket/plugins/socket-monitor` | `com.ezyplatform.socket.monitor` | Không khai báo |
+| `socket-plugin` — `socket/plugins/socket-monitor` | `com.ezyplatform.socket.monitor` | Not declared |
 
-## HTTP, UI và tài nguyên
+## HTTP, UI, and resources
 
-Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố khi mount module và quyền truy cập có thể khác giữa các lane; các URL đã gọi thật nằm ở mục kiểm thử.
+The paths below come from annotations in the JAR. Mount prefixes and access permissions may differ by lane; the URLs that were actually called are listed in the testing section.
 
-Không tìm thấy annotation HTTP thuộc các lane Admin/Web/theme đã đọc.
+No HTTP annotations were found in the Admin, Web, or theme modules inspected.
 
-Không thấy template HTML hay JS/CSS đi kèm trong các thư mục module.
+No HTML templates or JavaScript and CSS assets were found in the module directory.
 
-## Dữ liệu và migration
+## Data and migrations
 
-- Không tìm thấy `CREATE TABLE` trong các tệp SQL rời của gói; không suy ra module không lưu dữ liệu hoặc không dùng schema của core.
+- No occurrence of `CREATE TABLE` was found in the package’s standalone SQL files; this does not mean the module stores no data or does not use the core schema.
 
-## JAR, cấu hình và điểm mở rộng
+## JARs, configuration, and extension points
 
 ### socket-plugin
 
-- **JAR kiểm tra:** `socket-monitor-0.0.3.jar`; 24 class cấp cao nhất sau khi bỏ trùng theo tên package/class trong lane. SDK có thể lặp giữa các lane.
-- **Package nổi bật:** `com.ezyplatform.socket.monitor.plugin.data`, `com.ezyplatform.socket.monitor.plugin.controller`, `com.ezyplatform.socket.monitor.plugin.service` (+7).
-- **Controller/service/repository (mẫu):** `AbstractController`, `AdminLoginController`, `ModuleRequestController`, `SettingsRequestController`, `SocketMonitorAdminPermissionService`, `SocketMonitorAdminRoleRepository`, `SocketMonitorAdminRoleService`.
-- **Class cấu hình/quyền (mẫu):** `SocketMonitorPostConfig`.
-- **Điểm mở rộng tiềm năng theo tên class:** `EntryLoader`, `SocketMonitorAdminRequestInterceptor`.
+- **JARs inspected:** `socket-monitor-0.0.3.jar`; 24 top-level classes after deduplicating by package and class name within the lane. The SDK can appear in multiple lanes.
+- **Notable packages:** `com.ezyplatform.socket.monitor.plugin.data`, `com.ezyplatform.socket.monitor.plugin.controller`, `com.ezyplatform.socket.monitor.plugin.service` (+7).
+- **Controllers, services, and repositories (sample):** `AbstractController`, `AdminLoginController`, `ModuleRequestController`, `SettingsRequestController`, `SocketMonitorAdminPermissionService`, `SocketMonitorAdminRoleRepository`, `SocketMonitorAdminRoleService`.
+- **Configuration and permission classes (sample):** `SocketMonitorPostConfig`.
+- **Potential extension points based on class names:** `EntryLoader`, `SocketMonitorAdminRequestInterceptor`.
 - **Zone / entry loader:** `admin` / `com.ezyplatform.socket.monitor.plugin.EntryLoader`.
-- **Class controller/handler/event/request (mẫu):** `AbstractController`, `AdminLoginController`, `ModuleRequestController`, `SettingsRequestController`, `StatisticsRequestController`.
+- **Controller, handler, event, and request classes (sample):** `AbstractController`, `AdminLoginController`, `ModuleRequestController`, `SettingsRequestController`, `StatisticsRequestController`.
 
-Class và resource xác nhận có cấu trúc mở rộng trong bản đóng gói, không cam kết API ổn định hoặc handler đã chạy qua mọi nhánh.
+Classes and resources show that extension points are packaged; they do not establish API stability or confirm that every handler path has run.
 
-## Quan sát trên sandbox
+## Sandbox observations
 
-Đã thấy entry loader đăng ký `AdminLoginController` khi Socket khởi động; không có trang Web riêng.
+The entry loader registered `AdminLoginController` at Socket startup. The module has no standalone Web page.
 
-Xem bằng chứng nạp module và cổng TCP trong [kiểm thử Socket](test-report.md#gói-cài-được-và-kiểm-thử-http). Không kiểm chứng trao đổi Socket bằng client.
+See module-loading and TCP port evidence in the [Socket checks](test-report.md#installable-packages-and-http-tests). Socket communication was not verified with a client.
 
-## Lưu ý khi tích hợp
+## Integration notes
 
-Ví dụ package, zone và loader đăng ký handler. Kiểm handshake/quyền app và xử lý payload riêng; log startup không đủ.
+See how packages, zones, and loaders register handlers. Test the handshake, app permissions, and private payload handling separately; a startup log is not enough.
 
-[Về chỉ mục plugin](README.md)
+[Back to the plugin index](README.md)
