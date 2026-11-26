@@ -1,10 +1,12 @@
 # AgentKit workflow for bots and Devin sessions
 
-This workflow applies to AgentKit **3.2.0** (the `engineer` and `marketing` kits exported for the `portable` target), the stack owner (`chanht_tt`), and the bots and Devin sessions that work on EzyPlatform.
+This workflow is for the stack owner and the Bots and Devin sessions that work on EzyPlatform. The `ak-*` steps refer to AgentKit **3.2.0** (the `engineer` and `marketing` kits exported for the `portable` target), but the workflow does not require AgentKit.
+
+**Without AgentKit:** Follow [the Ezy-only setup](template-setup.md#2-start-the-core-without-agentkit). Use the EzyPlatform skills and Devin's built-in tools to plan, implement, test, and review. Keep the same approval, evidence, and handoff rules. If you have only one kit, use this fallback for any missing skill.
 
 ## 1. Set up and verify the portable skills
 
-From the stack checkout, supply an `AGENTKIT_API_KEY` licensed for both kits, or use an existing `ak` login:
+To use AgentKit, supply your own `AGENTKIT_API_KEY` or use an existing `ak` login. The full inventory below assumes both kits are licensed:
 
 ```sh
 python3 scripts/sync-upstream.py --require-agentkit
@@ -34,8 +36,11 @@ The stack's own [plugin build skill](../skills/ezy-build-plugin/SKILL.md) is tra
 
 ### Roles
 
-- **Owner (`chanht_tt`):** Approves production work, database/volume deletion, real `.env` or secret changes, high-risk architecture, public releases, and product decisions.
+- **Project owner:** Approves production work, database/volume deletion, real `.env` or secret changes, high-risk architecture, public releases, and product decisions.
 - **Chief of Staff:** Splits work on Devin Boards, assigns one writer per branch, checks evidence, and merges PRs for bot-owned repositories after CI and Devin Review pass.
+- **Platform Engineer:** Owns the core repository, dev runtime, shared tooling, and verified pin updates.
+- **Product Engineer:** Owns app implementation in separate repositories and hands changes to QA.
+- **QA Engineer:** Independently verifies the tested revision on dev and reports evidence and gaps.
 - **Upstream Watcher:** Tracks new versions of EzyPlatform, CPPAI, and AgentKit.
 - **Devin sessions:** Run real checks and open PRs. Do not merge unless explicitly delegated for a bot-owned repository.
 
