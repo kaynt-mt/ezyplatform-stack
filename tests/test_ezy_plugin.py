@@ -137,3 +137,7 @@ class UploadApplyTests(unittest.TestCase):
             with self.assertRaises(Exception):
                 PLUGIN.upload_and_apply_zip("http://admin.test", "admin", "secret", path)
             login.assert_not_called()
+
+    def test_rejects_plain_http_remote_admin_before_login(self):
+        with self.assertRaisesRegex(ValueError, "must use HTTPS"):
+            PLUGIN.open_admin_session("http://admin.example.test", "admin", "secret")

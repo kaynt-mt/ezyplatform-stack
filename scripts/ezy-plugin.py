@@ -82,6 +82,10 @@ def check_zip(path):
 
 
 def open_admin_session(admin_url, username, password):
+    parsed = urllib.parse.urlparse(admin_url)
+    loopback = parsed.hostname in {"localhost", "127.0.0.1", "::1"}
+    if parsed.scheme != "https" and not loopback:
+        raise ValueError("Remote Admin URLs must use HTTPS; plain HTTP is allowed only on loopback")
     cookies = http.cookiejar.CookieJar()
     opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(cookies))
     body = urllib.parse.urlencode({"username": username, "password": password}).encode()
