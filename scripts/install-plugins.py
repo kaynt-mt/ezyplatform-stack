@@ -175,6 +175,10 @@ def parse_only(value, manifest):
     return names
 
 
+def selected_plugins(value, manifest):
+    return parse_only(value, manifest) if value is not None else list(manifest)
+
+
 def install_closure(manifest, names, admin, opener):
     graph = {}
     queue = list(names)
@@ -212,7 +216,7 @@ def main():
         jar = http.cookiejar.MozillaCookieJar(str(args.admin_cookie_jar))
         jar.load(ignore_discard=True)
         opener = build_opener(ProxyHandler({}), HTTPCookieProcessor(jar), NoRedirect())
-    names = parse_only(args.only, manifest) if args.only else list(manifest)
+    names = selected_plugins(args.only, manifest)
     graph = install_closure(manifest, names, admin, opener)
     order = list(TopologicalSorter(graph).static_order())
     activate(manifest, order, args.theme)

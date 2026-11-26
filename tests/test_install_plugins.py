@@ -35,6 +35,15 @@ class ParseOnlyTests(unittest.TestCase):
                 INSTALL_PLUGINS.parse_only(value, MANIFEST)
 
 
+class SelectedPluginsTests(unittest.TestCase):
+    def test_none_selects_the_default_manifest(self):
+        self.assertEqual(INSTALL_PLUGINS.selected_plugins(None, MANIFEST), list(MANIFEST))
+
+    def test_empty_value_is_rejected_instead_of_selecting_the_manifest(self):
+        with self.assertRaisesRegex(ValueError, "at least one"):
+            INSTALL_PLUGINS.selected_plugins("", MANIFEST)
+
+
 class InstallClosureTests(unittest.TestCase):
     def install_closure(self, names, dependencies):
         def install(name, release, version, kinds, admin, opener):
