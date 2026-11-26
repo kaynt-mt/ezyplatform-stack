@@ -5,16 +5,24 @@ cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.."
 python3 scripts/sync-upstream.py --runtime-only
 docker compose version >/dev/null
 (umask 077; touch .env)
-(umask 077; python3 - <<'PY' >> .env
+python3 - <<'PY' >> .env
+import re
 from secrets import token_hex
 keys = ("MYSQL_ROOT_PASSWORD", "MYSQL_PASSWORD")
 with open(".env") as f:
-    existing = {line.split("=", 1)[0] for line in f if "=" in line}
-for key in keys:
-    if key not in existing:
-        print(f"{key}={token_hex(32)}")
+    content = f.read()
+existing = set()
+for line in content.splitlines():
+    m = re.match(r"\s*(?:export\s+)?([A-Za-z_][A-Za-z0-9_]*)\s*=", line)
+    if m:
+        existing.add(m.group(1))
+missing = [f"{key}={token_hex(32)}" for key in keys if key not in existing]
+if missing:
+    if content and not content.endswith("\n"):
+        print()
+    print("\n".join(missing))
 PY
-)
+chmod 600 .env
 
 docker compose up -d --build
 admin="http://127.0.0.1:$(docker compose port ezyplatform 9090 | cut -d: -f2)"
