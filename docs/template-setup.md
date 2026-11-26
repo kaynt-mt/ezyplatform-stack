@@ -12,7 +12,7 @@ Clone your new repository and run this from its root on a machine with the [stac
 
 ```bash
 ./scripts/up.sh
-python3 scripts/sync-upstream.py --skip-agentkit
+./scripts/sync-agent-skills.sh
 ./scripts/ezy --version
 python3 -m unittest discover -s tests -v
 ```
@@ -56,7 +56,7 @@ If you own a license, supply your own `AGENTKIT_API_KEY` through your shell's se
 ./scripts/ak --version
 ```
 
-With the key present, the script requires at least one licensed pinned kit. Without the key, it still completes with the Ezy-only skill set. Check the sync output for each kit you intended to install; sync skips kits your account does not cover. If a Bot cannot use a needed skill, fall back to the native tools or run [the workflow's checks](agentkit-workflow.md#1-set-up-and-verify-the-portable-skills) for your licensed kits.
+With the key present, the script requires at least one licensed pinned kit and uses a temporary AgentKit home for that sync, so the login session is deleted rather than retained in a Devin snapshot. Without the key, it still completes with the Ezy-only skill set. Check the sync output for each kit you intended to install; sync skips kits your account does not cover. If a Bot cannot use a needed skill, fall back to the native tools or run [the workflow's checks](agentkit-workflow.md#1-set-up-and-verify-the-portable-skills) for your licensed kits.
 
 [AgentKit's Terms of Use §3.2](https://agentkit.best/terms) prohibit redistribution of the kits or their source and forbid sharing keys or downloads with unauthorized users. The template tracks version pins and setup instructions, not paid skill files. Keep `.upstream/` and `.agents/skills/` ignored, and never copy paid kits into Git or any artifact shared with unauthorized users. Blueprint builds may generate the kits inside a private Devin environment only when every user who can access that environment is covered by your license; otherwise use the Ezy-only setup.
 
