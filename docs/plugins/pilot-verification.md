@@ -121,15 +121,18 @@ A plain `docker compose restart` after upload is not a substitute for the platfo
 
 ## 4. Rehearse backup and restore in an isolated sandbox
 
-Back up the database and the runtime volume as a matched pair while the system is in a known state. Example for the dev Compose project:
+Back up the database and the runtime volume as a matched pair while the system is in a known state. Backups contain password hashes, tokens, uploaded private media, and runtime configuration. Write them outside the Git checkout in a private directory; never commit or attach them. Example for the dev Compose project:
 
 ```bash
+BACKUP_DIR="$HOME/ezyplatform-backups/$(date +%Y%m%d-%H%M%S)"
+mkdir -p "$BACKUP_DIR" && chmod 700 "$BACKUP_DIR"
+
 docker compose exec -T mysql mysqldump -uroot -p"$MYSQL_ROOT_PASSWORD" \
-  --single-transaction --routines --triggers ezyplatform > backup/ezyplatform-db.sql
+  --single-transaction --routines --triggers ezyplatform > "$BACKUP_DIR/ezyplatform-db.sql"
 
 docker run --rm \
   -v <project>_ezyplatform-data:/data:ro \
-  -v "$PWD/backup:/backup" \
+  -v "$BACKUP_DIR:/backup" \
   alpine sh -c 'tar czf /backup/ezyplatform-runtime.tar.gz -C /data .'
 ```
 
