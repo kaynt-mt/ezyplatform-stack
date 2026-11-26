@@ -1,22 +1,22 @@
 # sites
 
-Quản lý máy chủ và cấu hình site.
+Server management and site configuration.
 
-- **Bản Marketplace trên core 1.5.9:** `0.0.3`.
-- **Module đã xác minh:** `admin-plugin`.
-- **Cài đặt:** Đạt. Xem môi trường và các giới hạn chung trong [báo cáo kiểm thử](test-report.md).
+- **Marketplace version on core 1.5.9:** `0.0.3`.
+- **Verified modules:** `admin-plugin`.
+- **Installation:** Passed. See the environment and general limitations in the [test report](test-report.md).
 
-## Bản đồ module
+## Module map
 
-| Lane / thư mục | Package khai báo | Phụ thuộc runtime khai báo |
+| Lane / directory | Declared package | Declared runtime dependencies |
 |---|---|---|
-| `admin-plugin` — `admin/plugins/sites` | `org.youngmonkeys.sites` | Không khai báo |
+| `admin-plugin` — `admin/plugins/sites` | `org.youngmonkeys.sites` | Not declared |
 
-## HTTP, UI và tài nguyên
+## HTTP, UI, and resources
 
-Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố khi mount module và quyền truy cập có thể khác giữa các lane; các URL đã gọi thật nằm ở mục kiểm thử.
+The paths below come from annotations in the JAR. Mount prefixes and access permissions may differ by lane; the URLs that were actually called are listed in the testing section.
 
-**admin-plugin** — 17 tổ hợp phương thức/URI đọc được; mẫu đại diện:
+**admin-plugin** — 17 method/URI combinations identified; representative sample:
 
 | Annotation HTTP | Class |
 |---|---|
@@ -36,37 +36,37 @@ Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố
 | `DELETE /api/v1/servers/{id}` | `AdminApiSiteServerController` |
 | `DELETE /api/v1/nodes/{nodeId}/servers/{serverType}/proxy` | `AdminApiSiteServerProxyController` |
 
-- **admin-plugin – Menu (khóa cuối và path trong menus.properties):** `sites: /`, `servers: /servers`, `settings: /settings`.
+- **admin-plugin – Menus (final keys and paths in menus.properties):** `sites: /`, `servers: /servers`, `settings: /settings`.
 
 - **admin-plugin – Template:** `sites/servers/list.html`, `sites/settings/index.html`.
 
-- **admin-plugin – Tài nguyên tĩnh:** `sites/css/style.css`.
+- **admin-plugin – Static resources:** `sites/css/style.css`.
 
-## Dữ liệu và migration
+## Data and migrations
 
-- **Bảng trong DDL đóng gói (1):** `sites_servers`.
-- **Class có chỉ dấu JPA Entity/MappedSuperclass (1):** `SiteServer`.
-- **SQL admin-plugin (2 tệp):** `resources/scripts/scripts.sql`, `resources/scripts/alter_servers_node_statuses.sql`.
+- **Table in the DDL package (1):** `sites_servers`.
+- **Class with JPA Entity/MappedSuperclass indication (1):** `SiteServer`.
+- **SQL admin-plugin (2 files):** `resources/scripts/scripts.sql`, `resources/scripts/alter_servers_node_statuses.sql`.
 
-## JAR, cấu hình và điểm mở rộng
+## JARs, configuration, and extension points
 
 ### admin-plugin
 
-- **JAR kiểm tra:** `sites-admin-plugin-0.0.3.jar`, `sites-sdk-0.0.3.jar`; 71 class cấp cao nhất sau khi bỏ trùng theo tên package/class trong lane. SDK có thể lặp giữa các lane.
-- **Package nổi bật:** `org.youngmonkeys.sites.pagination`, `org.youngmonkeys.sites.admin.service`, `org.youngmonkeys.sites.admin.controller.api` (+26).
-- **JAR thư viện khác:** `ezyfox-server-java-client-1.3.1.jar`.
-- **Controller/service/repository (mẫu):** `AdminApiSettingController`, `AdminApiSiteServerController`, `AdminApiSiteServerProxyController`, `AdminApiSocketProxyController`, `AdminPaginationSiteServerRepository`, `AdminPaginationSiteServerService`, `AdminSiteServerControllerService`, `AdminSiteServerProxyControllerService`, `AdminSiteServerProxyValidator`.
-- **Class cấu hình/quyền (mẫu):** `AdminSitesSettings`, `AdminSocketProxyPermissionSettings`.
-- **Điểm mở rộng tiềm năng theo tên class:** `AdminServerPropertiesUpdatedEventHandler`, `AdminSiteServerNodeManager`, `AdminSocketConnector`, `AdminSocketConnectorManager`, `AdminSocketProxyPermissionManager`.
+- **JARs inspected:** `sites-admin-plugin-0.0.3.jar`, `sites-sdk-0.0.3.jar`; 71 top-level classes after deduplicating by package and class name within the lane. The SDK can appear in multiple lanes.
+- **Notable packages:** `org.youngmonkeys.sites.pagination`, `org.youngmonkeys.sites.admin.service`, `org.youngmonkeys.sites.admin.controller.api` (+26).
+- **Other library JARs:** `ezyfox-server-java-client-1.3.1.jar`.
+- **Controllers, services, and repositories (sample):** `AdminApiSettingController`, `AdminApiSiteServerController`, `AdminApiSiteServerProxyController`, `AdminApiSocketProxyController`, `AdminPaginationSiteServerRepository`, `AdminPaginationSiteServerService`, `AdminSiteServerControllerService`, `AdminSiteServerProxyControllerService`, `AdminSiteServerProxyValidator`.
+- **Configuration and permission classes (sample):** `AdminSitesSettings`, `AdminSocketProxyPermissionSettings`.
+- **Potential extension points based on class names:** `AdminServerPropertiesUpdatedEventHandler`, `AdminSiteServerNodeManager`, `AdminSocketConnector`, `AdminSocketConnectorManager`, `AdminSocketProxyPermissionManager`.
 
-Class và resource xác nhận có cấu trúc mở rộng trong bản đóng gói, không cam kết API ổn định hoặc handler đã chạy qua mọi nhánh.
+Classes and resources show that extension points are packaged; they do not establish API stability or confirm that every handler path has run.
 
-## Quan sát trên sandbox
+## Sandbox observations
 
-Admin `/sites/servers` và `/sites/settings` → 200; chưa tạo site/host mới.
+Admin `/sites/servers` and `/sites/settings` returned 200. No new site or host was created.
 
-## Lưu ý khi tích hợp
+## Integration notes
 
-Tham khảo cấu hình host và vận hành nhiều site. Giữ cấu hình deployment tách khỏi chính sách quyền nghiệp vụ.
+See host configuration and multi-site operations. Keep deployment configuration separate from business authorization policy.
 
-[Về chỉ mục plugin](README.md)
+[Back to the plugin index](README.md)

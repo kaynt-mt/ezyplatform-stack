@@ -1,23 +1,23 @@
 # wordpress
 
-Cấu hình và luồng nhập dữ liệu WordPress.
+WordPress configuration and data import workflow.
 
-- **Bản Marketplace trên core 1.5.9:** `0.1.4`.
-- **Module đã xác minh:** `admin-plugin`, `web-plugin`.
-- **Cài đặt:** Đạt. Xem môi trường và các giới hạn chung trong [báo cáo kiểm thử](test-report.md).
+- **Marketplace version on core 1.5.9:** `0.1.4`.
+- **Verified modules:** `admin-plugin`, `web-plugin`.
+- **Installation:** Passed. See the environment and general limitations in the [test report](test-report.md).
 
-## Bản đồ module
+## Module map
 
-| Lane / thư mục | Package khai báo | Phụ thuộc runtime khai báo |
+| Lane / directory | Declared package | Declared runtime dependencies |
 |---|---|---|
 | `admin-plugin` — `admin/plugins/wordpress` | `org.youngmonkeys.wordpress` | [ezyarticle](ezyarticle.md) |
 | `web-plugin` — `web/plugins/wordpress` | `org.youngmonkeys.wordpress` | [ezyarticle](ezyarticle.md) |
 
-## HTTP, UI và tài nguyên
+## HTTP, UI, and resources
 
-Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố khi mount module và quyền truy cập có thể khác giữa các lane; các URL đã gọi thật nằm ở mục kiểm thử.
+The paths below come from annotations in the JAR. Mount prefixes and access permissions may differ by lane; the URLs that were actually called are listed in the testing section.
 
-**admin-plugin** — 16 tổ hợp phương thức/URI đọc được; mẫu đại diện:
+**admin-plugin** — 16 method/URI combinations identified; representative sample:
 
 | Annotation HTTP | Class |
 |---|---|
@@ -36,7 +36,7 @@ Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố
 | `PUT /api/v1/restart-data-migration` | `ApiMigrationController` |
 | `DELETE /api/v1/clear-database-information` | `ApiMigrationController` |
 
-**web-plugin** — 7 tổ hợp phương thức/URI đọc được; mẫu đại diện:
+**web-plugin** — 7 method/URI combinations identified; representative sample:
 
 | Annotation HTTP | Class |
 |---|---|
@@ -48,39 +48,39 @@ Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố
 | `GET /public/media/{year}/{month}/{day}/{hour}/{minute}/{fileName}` | `WebWpMediaController` |
 | `GET /public/media/{year}/{month}/{day}/{hour}/{minute}/{second}/{fileName}` | `WebWpMediaController` |
 
-- **admin-plugin – Menu (khóa cuối và path trong menus.properties):** `wordpress: /`, `migrate_data: /migration`, `settings: /settings`.
+- **admin-plugin – Menus (final keys and paths in menus.properties):** `wordpress: /`, `migrate_data: /migration`, `settings: /settings`.
 
 - **admin-plugin – Template:** `wordpress/migration/index.html`, `wordpress/setting/index.html`.
 
-## Dữ liệu và migration
+## Data and migrations
 
-- Không tìm thấy `CREATE TABLE` trong các tệp SQL rời của gói; không suy ra module không lưu dữ liệu hoặc không dùng schema của core.
+- No occurrence of `CREATE TABLE` was found in the package’s standalone SQL files; this does not mean the module stores no data or does not use the core schema.
 
-## JAR, cấu hình và điểm mở rộng
+## JARs, configuration, and extension points
 
 ### admin-plugin
 
-- **JAR kiểm tra:** `wordpress-admin-plugin-0.1.4.jar`, `wordpress-sdk-0.1.4.jar`; 36 class cấp cao nhất sau khi bỏ trùng theo tên package/class trong lane. SDK có thể lặp giữa các lane.
-- **Package nổi bật:** `org.youngmonkeys.wordpress.admin.migrator`, `org.youngmonkeys.wordpress.admin.event`, `org.youngmonkeys.wordpress.admin.request` (+10).
-- **JAR thư viện khác:** `jwordpress-1.0.5.jar`.
-- **Controller/service/repository (mẫu):** `AdminWpMediaController`, `ApiMigrationController`, `ApiWordpressSettingController`, `IndexController`, `AdminWordpressSettingService`, `MigrationValidator`, `WordpressSettingService`.
-- **Điểm mở rộng tiềm năng theo tên class:** `WpGetMediaFilePathEventHandler`, `WpMigrationFinishedEventHandler`, `WpMigrationFinshedEvent`, `WpMigrationRestartEvent`, `WpMigrationRestartEventHandler`, `WpMigratorManager`.
+- **JARs inspected:** `wordpress-admin-plugin-0.1.4.jar`, `wordpress-sdk-0.1.4.jar`; 36 top-level classes after deduplicating by package and class name within the lane. The SDK can appear in multiple lanes.
+- **Notable packages:** `org.youngmonkeys.wordpress.admin.migrator`, `org.youngmonkeys.wordpress.admin.event`, `org.youngmonkeys.wordpress.admin.request` (+10).
+- **Other library JARs:** `jwordpress-1.0.5.jar`.
+- **Controllers, services, and repositories (sample):** `AdminWpMediaController`, `ApiMigrationController`, `ApiWordpressSettingController`, `IndexController`, `AdminWordpressSettingService`, `MigrationValidator`, `WordpressSettingService`.
+- **Potential extension points based on class names:** `WpGetMediaFilePathEventHandler`, `WpMigrationFinishedEventHandler`, `WpMigrationFinshedEvent`, `WpMigrationRestartEvent`, `WpMigrationRestartEventHandler`, `WpMigratorManager`.
 
 ### web-plugin
 
-- **JAR kiểm tra:** `wordpress-sdk-0.1.4.jar`, `wordpress-web-plugin-0.1.4.jar`; 4 class cấp cao nhất sau khi bỏ trùng theo tên package/class trong lane. SDK có thể lặp giữa các lane.
-- **Package nổi bật:** `org.youngmonkeys.wordpress.web.service`, `org.youngmonkeys.wordpress.web.controller.api`, `org.youngmonkeys.wordpress.service` (+1).
-- **JAR thư viện khác:** `jwordpress-1.0.5.jar`.
-- **Controller/service/repository (mẫu):** `WebWpMediaController`, `WebWordpressSettingService`, `WordpressSettingService`.
+- **JARs inspected:** `wordpress-sdk-0.1.4.jar`, `wordpress-web-plugin-0.1.4.jar`; 4 top-level classes after deduplicating by package and class name within the lane. The SDK can appear in multiple lanes.
+- **Notable packages:** `org.youngmonkeys.wordpress.web.service`, `org.youngmonkeys.wordpress.web.controller.api`, `org.youngmonkeys.wordpress.service` (+1).
+- **Other library JARs:** `jwordpress-1.0.5.jar`.
+- **Controllers, services, and repositories (sample):** `WebWpMediaController`, `WebWordpressSettingService`, `WordpressSettingService`.
 
-Class và resource xác nhận có cấu trúc mở rộng trong bản đóng gói, không cam kết API ổn định hoặc handler đã chạy qua mọi nhánh.
+Classes and resources show that extension points are packaged; they do not establish API stability or confirm that every handler path has run.
 
-## Quan sát trên sandbox
+## Sandbox observations
 
-Admin `/wordpress/migration` → 200; chưa nhập dữ liệu từ WordPress.
+Admin `/wordpress/migration` returned 200. No WordPress data was imported.
 
-## Lưu ý khi tích hợp
+## Integration notes
 
-Mẫu giao diện import: tách dry run và áp dụng, báo lỗi theo bản ghi; chưa kiểm kết nối WordPress trên sandbox.
+The import UI separates a dry run from applying changes and reports errors by record. The sandbox did not verify the WordPress connection.
 
-[Về chỉ mục plugin](README.md)
+[Back to the plugin index](README.md)

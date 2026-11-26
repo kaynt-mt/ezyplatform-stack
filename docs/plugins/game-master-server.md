@@ -1,24 +1,24 @@
 # game-master-server
 
-Quản lý game master và các instance.
+Game master and instance management.
 
-- **Bản Marketplace trên core 1.5.9:** `0.0.7`.
-- **Module đã xác minh:** `admin-plugin`, `web-plugin`, `socket-plugin`.
-- **Cài đặt:** Đạt. Xem môi trường và các giới hạn chung trong [báo cáo kiểm thử](test-report.md).
+- **Marketplace version on core 1.5.9:** `0.0.7`.
+- **Verified modules:** `admin-plugin`, `web-plugin`, `socket-plugin`.
+- **Installation:** Passed. See the environment and general limitations in the [test report](test-report.md).
 
-## Bản đồ module
+## Module map
 
-| Lane / thư mục | Package khai báo | Phụ thuộc runtime khai báo |
+| Lane / directory | Declared package | Declared runtime dependencies |
 |---|---|---|
-| `admin-plugin` — `admin/plugins/game-master-server` | `org.youngmonkeys.masterserver` | Không khai báo |
-| `web-plugin` — `web/plugins/game-master-server` | `org.youngmonkeys.masterserver` | Không khai báo |
-| `socket-plugin` — `socket/plugins/game-master-server` | `org.youngmonkeys.masterserver.socket.plugin` | Không khai báo |
+| `admin-plugin` — `admin/plugins/game-master-server` | `org.youngmonkeys.masterserver` | Not declared |
+| `web-plugin` — `web/plugins/game-master-server` | `org.youngmonkeys.masterserver` | Not declared |
+| `socket-plugin` — `socket/plugins/game-master-server` | `org.youngmonkeys.masterserver.socket.plugin` | Not declared |
 
-## HTTP, UI và tài nguyên
+## HTTP, UI, and resources
 
-Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố khi mount module và quyền truy cập có thể khác giữa các lane; các URL đã gọi thật nằm ở mục kiểm thử.
+The paths below come from annotations in the JAR. Mount prefixes and access permissions may differ by lane; the URLs that were actually called are listed in the testing section.
 
-**admin-plugin** — 14 tổ hợp phương thức/URI đọc được; mẫu đại diện:
+**admin-plugin** — 14 method/URI combinations identified; representative sample:
 
 | Annotation HTTP | Class |
 |---|---|
@@ -36,7 +36,7 @@ Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố
 | `PUT /api/v1/room-instances/{instanceId}/player-count` | `AdminApiRoomInstanceController` |
 | `DELETE /api/v1/room-instances/{instanceId}` | `AdminApiRoomInstanceController` |
 
-**web-plugin** — 3 tổ hợp phương thức/URI đọc được; mẫu đại diện:
+**web-plugin** — 3 method/URI combinations identified; representative sample:
 
 | Annotation HTTP | Class |
 |---|---|
@@ -44,56 +44,56 @@ Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố
 | `GET /api/v1/game-master-server/validate-token` | `AuthenticationController` |
 | `GET /api/v1/game-master-server/instances/allocation` | `WebInstanceController` |
 
-- **admin-plugin – Menu (khóa cuối và path trong menus.properties):** `game_master_server: /game-master-server`, `instances: /game-master-server/instances`, `settings: /game-master-server/settings`.
+- **admin-plugin – Menus (final keys and paths in menus.properties):** `game_master_server: /game-master-server`, `instances: /game-master-server/instances`, `settings: /game-master-server/settings`.
 
 - **admin-plugin – Template:** `game-master-server/instances/index.html`, `game-master-server/settings/index.html`.
 
-- **admin-plugin – Tài nguyên tĩnh:** `game-master-server/js/main.js`.
+- **admin-plugin – Static resources:** `game-master-server/js/main.js`.
 
-## Dữ liệu và migration
+## Data and migrations
 
-- **Bảng trong DDL đóng gói (1):** `game_master_server_instances`.
-- **Class có chỉ dấu JPA Entity/MappedSuperclass (1):** `Instance`.
-- **SQL admin-plugin (2 tệp):** `resources/scripts/scripts.sql`, `resources/scripts/alter_instances.sql`.
+- **Table in the DDL package (1):** `game_master_server_instances`.
+- **Class with JPA Entity/MappedSuperclass indication (1):** `Instance`.
+- **SQL admin-plugin (2 files):** `resources/scripts/scripts.sql`, `resources/scripts/alter_instances.sql`.
 
-## JAR, cấu hình và điểm mở rộng
+## JARs, configuration, and extension points
 
 ### admin-plugin
 
-- **JAR kiểm tra:** `game-master-server-admin-plugin-0.0.7.jar`, `game-master-server-sdk-0.0.7.jar`; 64 class cấp cao nhất sau khi bỏ trùng theo tên package/class trong lane. SDK có thể lặp giữa các lane.
-- **Package nổi bật:** `org.youngmonkeys.masterserver.admin.request`, `org.youngmonkeys.masterserver.pagination`, `org.youngmonkeys.masterserver.admin.service` (+22).
-- **JAR thư viện khác:** `ezyfox-server-java-client-1.2.8.jar`.
-- **Controller/service/repository (mẫu):** `AdminApiAuthenticatedInstanceController`, `AdminApiRoomInstanceController`, `AdminApiSettingController`, `AdminInstanceControllerService`, `AdminApiKeyValidator`, `AdminGameMasterServerSettingService`, `AdminInstanceControllerService`, `AdminInstanceRepository`, `AdminInstanceService`.
-- **Class cấu hình/quyền (mẫu):** `GameMasterServerConfig`.
-- **Điểm mở rộng tiềm năng theo tên class:** `AdminInstanceBuildPathSupplierRegistry`, `InstanceManager`.
+- **JARs inspected:** `game-master-server-admin-plugin-0.0.7.jar`, `game-master-server-sdk-0.0.7.jar`; 64 top-level classes after deduplicating by package and class name within the lane. The SDK can appear in multiple lanes.
+- **Notable packages:** `org.youngmonkeys.masterserver.admin.request`, `org.youngmonkeys.masterserver.pagination`, `org.youngmonkeys.masterserver.admin.service` (+22).
+- **Other library JARs:** `ezyfox-server-java-client-1.2.8.jar`.
+- **Controllers, services, and repositories (sample):** `AdminApiAuthenticatedInstanceController`, `AdminApiRoomInstanceController`, `AdminApiSettingController`, `AdminInstanceControllerService`, `AdminApiKeyValidator`, `AdminGameMasterServerSettingService`, `AdminInstanceControllerService`, `AdminInstanceRepository`, `AdminInstanceService`.
+- **Configuration and permission classes (sample):** `GameMasterServerConfig`.
+- **Potential extension points based on class names:** `AdminInstanceBuildPathSupplierRegistry`, `InstanceManager`.
 
 ### web-plugin
 
-- **JAR kiểm tra:** `game-master-server-sdk-0.0.7.jar`, `game-master-server-web-plugin-0.0.7.jar`; 36 class cấp cao nhất sau khi bỏ trùng theo tên package/class trong lane. SDK có thể lặp giữa các lane.
-- **Package nổi bật:** `org.youngmonkeys.masterserver.pagination`, `org.youngmonkeys.masterserver.entity`, `org.youngmonkeys.masterserver.web.converter` (+14).
-- **Controller/service/repository (mẫu):** `AuthenticationController`, `WebInstanceController`, `WebInstanceControllerService`, `InstanceRepository`, `InstanceService`, `PaginationInstanceRepository`, `PaginationInstanceService`, `WebInstanceControllerService`.
-- **Điểm mở rộng tiềm năng theo tên class:** `AuthenticationInterceptor`.
+- **JARs inspected:** `game-master-server-sdk-0.0.7.jar`, `game-master-server-web-plugin-0.0.7.jar`; 36 top-level classes after deduplicating by package and class name within the lane. The SDK can appear in multiple lanes.
+- **Notable packages:** `org.youngmonkeys.masterserver.pagination`, `org.youngmonkeys.masterserver.entity`, `org.youngmonkeys.masterserver.web.converter` (+14).
+- **Controllers, services, and repositories (sample):** `AuthenticationController`, `WebInstanceController`, `WebInstanceControllerService`, `InstanceRepository`, `InstanceService`, `PaginationInstanceRepository`, `PaginationInstanceService`, `WebInstanceControllerService`.
+- **Potential extension points based on class names:** `AuthenticationInterceptor`.
 
 ### socket-plugin
 
-- **JAR kiểm tra:** `game-master-server-sdk-0.0.7.jar`, `game-master-server-socket-plugin-0.0.7.jar`; 32 class cấp cao nhất sau khi bỏ trùng theo tên package/class trong lane. SDK có thể lặp giữa các lane.
-- **Package nổi bật:** `org.youngmonkeys.masterserver.pagination`, `org.youngmonkeys.masterserver.entity`, `org.youngmonkeys.masterserver.converter` (+13).
-- **Controller/service/repository (mẫu):** `BrokerController`, `UserLoginController`, `InstanceRepository`, `InstanceService`, `PaginationInstanceRepository`, `PaginationInstanceService`, `SocketInstanceRepository`.
-- **Class cấu hình/quyền (mẫu):** `EzyPluginContextConfig`.
-- **Điểm mở rộng tiềm năng theo tên class:** `PluginEntryLoader`.
+- **JARs inspected:** `game-master-server-sdk-0.0.7.jar`, `game-master-server-socket-plugin-0.0.7.jar`; 32 top-level classes after deduplicating by package and class name within the lane. The SDK can appear in multiple lanes.
+- **Notable packages:** `org.youngmonkeys.masterserver.pagination`, `org.youngmonkeys.masterserver.entity`, `org.youngmonkeys.masterserver.converter` (+13).
+- **Controllers, services, and repositories (sample):** `BrokerController`, `UserLoginController`, `InstanceRepository`, `InstanceService`, `PaginationInstanceRepository`, `PaginationInstanceService`, `SocketInstanceRepository`.
+- **Configuration and permission classes (sample):** `EzyPluginContextConfig`.
+- **Potential extension points based on class names:** `PluginEntryLoader`.
 - **Zone / entry loader:** `game-master-server` / `org.youngmonkeys.masterserver.socket.plugin.PluginEntryLoader`.
-- **Class controller/handler/event/request (mẫu):** `BrokerController`, `UserLoginController`.
+- **Controller, handler, event, and request classes (sample):** `BrokerController`, `UserLoginController`.
 
-Class và resource xác nhận có cấu trúc mở rộng trong bản đóng gói, không cam kết API ổn định hoặc handler đã chạy qua mọi nhánh.
+Classes and resources show that extension points are packaged; they do not establish API stability or confirm that every handler path has run.
 
-## Quan sát trên sandbox
+## Sandbox observations
 
-Admin `/game-master-server/game-master-server` → 200; Web API instances → 401 khi chưa đăng nhập. Chưa chạy game instance.
+Admin `/game-master-server/game-master-server` returned 200; the Web instances API returned 401 without a login. No game instance was started.
 
-Xem bằng chứng nạp module và cổng TCP trong [kiểm thử Socket](test-report.md#gói-cài-được-và-kiểm-thử-http). Không kiểm chứng trao đổi Socket bằng client.
+See module-loading and TCP port evidence in the [Socket checks](test-report.md#installable-packages-and-http-tests). Socket communication was not verified with a client.
 
-## Lưu ý khi tích hợp
+## Integration notes
 
-Mẫu điều phối dịch vụ ngoài. HTTP 401 với guest không chứng minh cấp phát instance hay đăng nhập Socket.
+Use this as an example of orchestrating an external service. A 401 for an anonymous caller does not prove instance provisioning or Socket login works.
 
-[Về chỉ mục plugin](README.md)
+[Back to the plugin index](README.md)

@@ -1,24 +1,24 @@
 # consulting
 
-Tư vấn: khách hàng, nhân sự, tài liệu và theme riêng.
+Consulting: customers, staff, documents, and a dedicated theme.
 
-- **Bản Marketplace trên core 1.5.9:** `0.1.6`.
-- **Module đã xác minh:** `admin-plugin`, `web-plugin`, `theme`.
-- **Cài đặt:** Đạt. Xem môi trường và các giới hạn chung trong [báo cáo kiểm thử](test-report.md).
+- **Marketplace version on core 1.5.9:** `0.1.6`.
+- **Verified modules:** `admin-plugin`, `web-plugin`, `theme`.
+- **Installation:** Passed. See the environment and general limitations in the [test report](test-report.md).
 
-## Bản đồ module
+## Module map
 
-| Lane / thư mục | Package khai báo | Phụ thuộc runtime khai báo |
+| Lane / directory | Declared package | Declared runtime dependencies |
 |---|---|---|
 | `admin-plugin` — `admin/plugins/consulting` | `org.youngmonkeys.consulting` | [ezyarticle](ezyarticle.md), [ezysupport](ezysupport.md), [ezylogin](ezylogin.md), [ezyoa](ezyoa.md) |
 | `web-plugin` — `web/plugins/consulting` | `org.youngmonkeys.consulting` | [ezyarticle](ezyarticle.md), [ezysupport](ezysupport.md), [ezylogin](ezylogin.md), [ezyoa](ezyoa.md), [ecommerce](ecommerce.md), [ezycrm](ezycrm.md) |
 | `theme` — `web/themes/consulting` | `org.youngmonkeys.consulting` | [ezyarticle](ezyarticle.md), [ezysupport](ezysupport.md), [ezylogin](ezylogin.md), [ezyaccount](ezyaccount.md), [ezyoa](ezyoa.md) |
 
-## HTTP, UI và tài nguyên
+## HTTP, UI, and resources
 
-Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố khi mount module và quyền truy cập có thể khác giữa các lane; các URL đã gọi thật nằm ở mục kiểm thử.
+The paths below come from annotations in the JAR. Mount prefixes and access permissions may differ by lane; the URLs that were actually called are listed in the testing section.
 
-**admin-plugin** — 4 tổ hợp phương thức/URI đọc được; mẫu đại diện:
+**admin-plugin** — 4 method/URI combinations identified; representative sample:
 
 | Annotation HTTP | Class |
 |---|---|
@@ -27,7 +27,7 @@ Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố
 | `GET /employees` | `AdminEmployeeController` |
 | `GET /team-members` | `AdminTeamMembersController` |
 
-**web-plugin** — 11 tổ hợp phương thức/URI đọc được; mẫu đại diện:
+**web-plugin** — 11 method/URI combinations identified; representative sample:
 
 | Annotation HTTP | Class |
 |---|---|
@@ -40,7 +40,7 @@ Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố
 | `GET /faqs/{slug}` | `FaqController` |
 | `POST /api/v1/services/{id}/consultation/register` | `WebApiConsultationController` |
 
-**theme** — 11 tổ hợp phương thức/URI đọc được; mẫu đại diện:
+**theme** — 11 method/URI combinations identified; representative sample:
 
 | Annotation HTTP | Class |
 |---|---|
@@ -53,49 +53,49 @@ Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố
 | `GET /faqs/{slug}` | `FaqController` |
 | `POST /api/v1/services/{id}/consultation/register` | `WebApiConsultationController` |
 
-- **admin-plugin – Menu (khóa cuối và path trong menus.properties):** `consulting: /`, `customers: /customers`, `employees: /employees`, `members: /team-members`, `branches: /branches`, `page_fragments: /pages/fragments` (+1).
+- **admin-plugin – Menus (final keys and paths in menus.properties):** `consulting: /`, `customers: /customers`, `employees: /employees`, `members: /team-members`, `branches: /branches`, `page_fragments: /pages/fragments` (+1).
 
 - **theme – Template:** `about-us.html`, `consultations/history.html`, `contact-us.html`, `documents/details.html`, `documents/index.html`, `faqs/details.html`, `faqs/index.html` (+27).
 
-- **theme – Tài nguyên tĩnh:** `css/main.css`, `js/jquery.hoverdir.js`.
+- **theme - Resources:** `css/main.css`, `js/jquery.hoverdir.js`.
 
-## Dữ liệu và migration
+## Data and migrations
 
-- Không tìm thấy `CREATE TABLE` trong các tệp SQL rời của gói; không suy ra module không lưu dữ liệu hoặc không dùng schema của core.
+- No occurrence of `CREATE TABLE` was found in the package’s standalone SQL files; this does not mean the module stores no data or does not use the core schema.
 
-## JAR, cấu hình và điểm mở rộng
+## JARs, configuration, and extension points
 
 ### admin-plugin
 
-- **JAR kiểm tra:** `consulting-admin-plugin-0.1.6.jar`, `consulting-sdk-0.1.6.jar`; 12 class cấp cao nhất sau khi bỏ trùng theo tên package/class trong lane. SDK có thể lặp giữa các lane.
-- **Package nổi bật:** `org.youngmonkeys.consulting.admin.controller.view`, `org.youngmonkeys.consulting.admin.config`, `org.youngmonkeys.consulting.constant` (+1).
-- **Controller/service/repository (mẫu):** `AdminBranchController`, `AdminConsultingHelpController`, `AdminConsultingPageFragmentController`, `AdminCustomerController`.
-- **Class cấu hình/quyền (mẫu):** `AdminConsultingPostConfig`, `AdminDocumentProductConfig`, `AdminPageFragmentConfig`, `PageFragmentConfig`.
+- **JARs inspected:** `consulting-admin-plugin-0.1.6.jar`, `consulting-sdk-0.1.6.jar`; 12 top-level classes after deduplicating by package and class name within the lane. The SDK can appear in multiple lanes.
+- **Notable packages:** `org.youngmonkeys.consulting.admin.controller.view`, `org.youngmonkeys.consulting.admin.config`, `org.youngmonkeys.consulting.constant` (+1).
+- **Controllers, services, and repositories (sample):** `AdminBranchController`, `AdminConsultingHelpController`, `AdminConsultingPageFragmentController`, `AdminCustomerController`.
+- **Configuration and permission classes (sample):** `AdminConsultingPostConfig`, `AdminDocumentProductConfig`, `AdminPageFragmentConfig`, `PageFragmentConfig`.
 
 ### web-plugin
 
-- **JAR kiểm tra:** `consulting-sdk-0.1.6.jar`, `consulting-web-plugin-0.1.6.jar`; 24 class cấp cao nhất sau khi bỏ trùng theo tên package/class trong lane. SDK có thể lặp giữa các lane.
-- **Package nổi bật:** `org.youngmonkeys.consulting.web.controller.view`, `org.youngmonkeys.consulting.web.controller.api`, `org.youngmonkeys.consulting.web.view` (+11).
-- **Controller/service/repository (mẫu):** `ApiConsultingNewsController`, `ConsultationController`, `DocumentController`, `FaqController`, `WebConsultationHistoryControllerService`, `WebConsultationValidator`, `WebDocumentService`.
-- **Class cấu hình/quyền (mẫu):** `PageFragmentConfig`, `WebPageFragmentConfig`.
-- **Điểm mở rộng tiềm năng theo tên class:** `ConsultingGlobalErrorHandler`, `ConsultingGlobalExceptionHandler`, `WebConsultationViewFactory`.
+- **JARs inspected:** `consulting-sdk-0.1.6.jar`, `consulting-web-plugin-0.1.6.jar`; 24 top-level classes after deduplicating by package and class name within the lane. The SDK can appear in multiple lanes.
+- **Notable packages:** `org.youngmonkeys.consulting.web.controller.view`, `org.youngmonkeys.consulting.web.controller.api`, `org.youngmonkeys.consulting.web.view` (+11).
+- **Controllers, services, and repositories (sample):** `ApiConsultingNewsController`, `ConsultationController`, `DocumentController`, `FaqController`, `WebConsultationHistoryControllerService`, `WebConsultationValidator`, `WebDocumentService`.
+- **Configuration and permission classes (sample):** `PageFragmentConfig`, `WebPageFragmentConfig`.
+- **Potential extension points based on class names:** `ConsultingGlobalErrorHandler`, `ConsultingGlobalExceptionHandler`, `WebConsultationViewFactory`.
 
 ### theme
 
-- **JAR kiểm tra:** `consulting-sdk-0.1.6.jar`, `consulting-theme-0.1.6.jar`, `consulting-web-plugin-0.1.6.jar`; 35 class cấp cao nhất sau khi bỏ trùng theo tên package/class trong lane. SDK có thể lặp giữa các lane.
-- **Package nổi bật:** `org.youngmonkeys.consulting.web.controller.view`, `org.youngmonkeys.consulting.web.controller.api`, `org.youngmonkeys.consulting.web.view` (+11).
-- **Controller/service/repository (mẫu):** `ApiConsultingNewsController`, `ConsultationController`, `DocumentController`, `FaqController`, `WebConsultationHistoryControllerService`, `WebConsultationValidator`, `WebDocumentService`.
-- **Class cấu hình/quyền (mẫu):** `PageFragmentConfig`, `WebPageFragmentConfig`.
-- **Điểm mở rộng tiềm năng theo tên class:** `ConsultingGlobalErrorHandler`, `ConsultingGlobalExceptionHandler`, `WebConsultationViewFactory`.
+- **JARs inspected:** `consulting-sdk-0.1.6.jar`, `consulting-theme-0.1.6.jar`, `consulting-web-plugin-0.1.6.jar`; 35 top-level classes after deduplicating by package and class name within the lane. The SDK can appear in multiple lanes.
+- **Notable packages:** `org.youngmonkeys.consulting.web.controller.view`, `org.youngmonkeys.consulting.web.controller.api`, `org.youngmonkeys.consulting.web.view` (+11).
+- **Controllers, services, and repositories (sample):** `ApiConsultingNewsController`, `ConsultationController`, `DocumentController`, `FaqController`, `WebConsultationHistoryControllerService`, `WebConsultationValidator`, `WebDocumentService`.
+- **Configuration and permission classes (sample):** `PageFragmentConfig`, `WebPageFragmentConfig`.
+- **Potential extension points based on class names:** `ConsultingGlobalErrorHandler`, `ConsultingGlobalExceptionHandler`, `WebConsultationViewFactory`.
 
-Class và resource xác nhận có cấu trúc mở rộng trong bản đóng gói, không cam kết API ổn định hoặc handler đã chạy qua mọi nhánh.
+Classes and resources show that extension points are packaged; they do not establish API stability or confirm that every handler path has run.
 
-## Quan sát trên sandbox
+## Sandbox observations
 
-Admin `/consulting/customers` → danh sách người dùng; Web `/api/v1/documents` → 200; theme Consulting render được `/services`, `/documents`.
+Admin `/consulting/customers` showed a user list; Web `/api/v1/documents` returned 200. The Consulting theme rendered `/services` and `/documents`.
 
-## Lưu ý khi tích hợp
+## Integration notes
 
-Tách module nghiệp vụ khỏi template của theme. Redirect HTTP 200 sang CRUD của core không chứng minh plugin có màn hình riêng.
+Keep business modules separate from theme templates. A redirect to core CRUD that returns HTTP 200 does not prove the plugin has its own screen.
 
-[Về chỉ mục plugin](README.md)
+[Back to the plugin index](README.md)

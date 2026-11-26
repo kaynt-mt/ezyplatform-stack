@@ -1,130 +1,130 @@
-# Kiểm kê tài liệu công khai EzyPlatform
+# EzyPlatform public documentation inventory
 
-**Ngày đối chiếu:** 26/11/2026 (UTC). Bắt đầu từ thanh điều hướng [ezyplatform.com](https://ezyplatform.com/), đối chiếu [Guide tiếng Việt](https://youngmonkeys.org/projects/ezyplatform?tab=guide&lang=vi) và [Guide tiếng Anh](https://youngmonkeys.org/projects/ezyplatform?tab=guide&lang=en), rồi theo liên kết trong bài. Hai mục lục có cùng 76 bài; thêm một URL cũ `deploy-ezyplatform` có nội dung trùng bài Ubuntu: **77 URL hướng dẫn, 76 nội dung**. Ưu tiên bản Việt hoặc nội dung có sẵn nếu chưa dịch; không đếm bản dịch như bài khác. Không tìm được sitemap XML hay kho `/docs` riêng trên ezyplatform.com; độ bao phủ dưới đây là những gì menu, chỉ mục chính thức và liên kết bài dẫn đến, không phải lời khẳng định đã đọc mọi URL có thể tồn tại.
+**Reviewed November 26, 2026 (UTC).** We started from the navigation on [ezyplatform.com](https://ezyplatform.com/), compared the [Vietnamese Guide](https://youngmonkeys.org/projects/ezyplatform?tab=guide&lang=vi) with the [English Guide](https://youngmonkeys.org/projects/ezyplatform?tab=guide&lang=en), then followed links inside the articles. Both indexes list the same 76 articles. An older `deploy-ezyplatform` URL duplicates the Ubuntu article: **77 guide URLs, 76 distinct articles**. We use the Vietnamese version where available, or the available content where no translation exists; language variants do not count as separate articles. We found no XML sitemap or separate `/docs` repository on ezyplatform.com. Coverage is limited to what the navigation, official indexes, and article links expose.
 
-## Trang chính thức và tài liệu tra cứu
+## Official sites and reference documentation
 
-| Nguồn | Phạm vi |
+| Source | Scope |
 | --- | --- |
-| [Giới thiệu](https://ezyplatform.com/ezyplatform-introduction) | Nền tảng low-code, 5 phần runtime/công cụ, hệ sinh thái module; phân biệt giữa các module được nhắc và module thực sự có trong stack. |
-| [Cài đặt](https://ezyplatform.com/installation-guide) | Tài nguyên, Java/MySQL, domain, cách tìm module, hỗ trợ và tài liệu riêng từng module. |
-| [FAQ](https://ezyplatform.com/faq) | 12 mục: định nghĩa/mục tiêu, phạm vi mã mở, giao thức, cài đặt, mở rộng, thương mại, index và quy định/thời gian xét Marketplace. |
-| [Java docs](https://ezyplatform.com/java-docs) | Theo `allclasses-noframe.html` và `overview-summary.html` dưới đường dẫn 1.5.9: lấy được 962 trang (881 class/interface và 81 package summary). Admin 552 + 35, Common 7 + 3, Web 241 + 25, Socket 81 + 18. Tra sâu các lớp liên quan tới plugin, không diễn giải từng method/overload. Tiêu đề trang có thể ghi module `0.0.2 API`; đó không phải số phiên bản distribution `1.5.9` trong URL. |
-| [Marketplace](https://ezyplatform.com/market) | [Danh mục công khai](https://ezyplatform.com/api/v1/market/items?limit=100&lang=vi) trả 60 mục; lấy danh sách tab Tài liệu của từng mục, thu được nội dung 532 bài công khai. Đọc sâu phần liên quan đến thiết kế dưới đây; việc tải nội dung không đồng nghĩa với phân tích từng tài liệu Marketplace hay chạy plugin. |
+| [Introduction](https://ezyplatform.com/ezyplatform-introduction) | Low-code platform, five runtime and tooling components, and the module ecosystem. Distinguish modules mentioned in the guide from those actually installed in the stack. |
+| [Installation](https://ezyplatform.com/installation-guide) | Resources, Java and MySQL, domain setup, finding modules, support, and per-module documentation. |
+| [FAQ](https://ezyplatform.com/faq) | Twelve topics: definition and goals, open-source scope, protocols, installation, extensions, commercial use, indexes, and Marketplace rules and review timelines. |
+| [Javadoc](https://ezyplatform.com/java-docs) | The 1.5.9 `allclasses-noframe.html` and `overview-summary.html` indexes yielded 962 pages: 881 classes or interfaces and 81 package summaries. Admin: 552 + 35; Common: 7 + 3; Web: 241 + 25; Socket: 81 + 18. The research focuses on plugin-related classes, not every method or overload. A page title may show module version `0.0.2 API`; that is not the distribution version `1.5.9` in the URL. |
+| [Marketplace](https://ezyplatform.com/market) | The [public catalog](https://ezyplatform.com/api/v1/market/items?limit=100&lang=vi) returned 60 items. We listed each item's Docs tab and retrieved 532 public articles. The design-relevant material was reviewed in more depth. Retrieval alone does not imply analysis of each Marketplace document or runtime testing. |
 
-Đọc tiếp: [tổng hợp kỹ thuật](ezyplatform-deep-research.md) · [nghiên cứu framework Young Monkeys](youngmonkeys/index.md).
+Related reading: [technical research](ezyplatform-deep-research.md) · [Young Monkeys framework research](youngmonkeys/index.md).
 
-## Toàn bộ Guide theo chủ đề
+## Complete Guide by topic
 
-### Kiến trúc và hệ sinh thái
+### Architecture and ecosystem
 
-| Hướng dẫn | Nội dung / lưu ý |
+| Guide | Scope and notes |
 | --- | --- |
-| [Giới thiệu nền tảng](https://youngmonkeys.org/ezyplatform/guides/introduce-ezyplatform?lang=vi) | Host, framework, marketplace; phạm vi mã mở và thương mại có điều kiện. |
-| [Lợi ích cho người dùng](https://youngmonkeys.org/ezyplatform/guides/-what-benefits-does-ezyplatform-provide-to-users?lang=vi) | Chi phí/thời gian xây sản phẩm, thử ý tưởng và nâng chất lượng; không phải benchmark. |
-| [Cấu trúc runtime](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-structure?lang=vi) | Admin/Web/Socket; theme duy nhất, nhiều plugin, token socket phân loại. |
-| [Tech stack](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-tech-stack?lang=vi) | EzyHTTP–Jetty–Thymeleaf, EzyData–Hibernate/JPA, EzyFox Server. |
-| [Theme và plugin](https://youngmonkeys.org/ezyplatform/guides/understanding-ezyplatform-themes-and-plugins?lang=vi) | Bốn loại phần mở rộng runtime, theme, phối hợp và vị trí lưu module. |
-| [Bảo mật](https://youngmonkeys.org/ezyplatform/guides/why-ezyplatform?lang=vi) | Tách Admin/Web, BCrypt, mã hóa, chính sách URI và upload; không tự cung cấp ACL của ứng dụng. |
-| [Lộ trình](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-development-roadmap?lang=vi) | Phát triển cộng đồng/thị trường, tiến tới giảm code và AI; không coi roadmap là tính năng đã phát hành. |
-| [Mô hình cho nhà phát triển](https://youngmonkeys.org/ezyplatform/guides/how-do-developers-make-money-through-ezyplatform?lang=vi) | Làm sản phẩm/module, phân phối qua Marketplace; cân nhắc điều kiện FAQ. |
+| [Platform introduction](https://youngmonkeys.org/ezyplatform/guides/introduce-ezyplatform?lang=vi) | Host, framework, and Marketplace; scope of open source and conditions for commercial use. |
+| [Benefits for users](https://youngmonkeys.org/ezyplatform/guides/-what-benefits-does-ezyplatform-provide-to-users?lang=vi) | Product development time and cost, testing ideas, and improving quality. This is not a benchmark. |
+| [Runtime structure](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-structure?lang=vi) | Admin, Web, and Socket; one active theme, multiple plugins, and distinct Socket token types. |
+| [Tech stack](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-tech-stack?lang=vi) | EzyHTTP–Jetty–Thymeleaf, EzyData–Hibernate/JPA, and EzyFox Server. |
+| [Themes and plugins](https://youngmonkeys.org/ezyplatform/guides/understanding-ezyplatform-themes-and-plugins?lang=vi) | Four runtime extension types, themes, how they work together, and where modules are stored. |
+| [Security](https://youngmonkeys.org/ezyplatform/guides/why-ezyplatform?lang=vi) | Separation of Admin and Web, BCrypt, encryption, URI policy, and uploads. This does not supply application ACLs. |
+| [Roadmap](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-development-roadmap?lang=vi) | Community and Marketplace growth, less code, and AI. The roadmap does not establish that a feature has shipped. |
+| [Developer model](https://youngmonkeys.org/ezyplatform/guides/how-do-developers-make-money-through-ezyplatform?lang=vi) | Build products or modules and distribute them through Marketplace, subject to the FAQ conditions. |
 
-### Phát triển và đóng gói
+### Development and packaging
 
-| Hướng dẫn | Nội dung / lưu ý |
+| Guide | Scope and notes |
 | --- | --- |
-| [Chuẩn bị môi trường dev](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-setup-development-environment?lang=vi) | Tách bước cài runtime, SDK và IDE khỏi lập trình từng module. |
-| [Cài SDK](https://youngmonkeys.org/ezyplatform/guides/install-ezyplatform-sdk?lang=vi) | Chuẩn bị runtime, SDK và build thư viện phụ thuộc. |
-| [Quickstart plugin](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-plugin-development-quickstart?lang=vi) | Thứ tự tạo/import, startup test, export và kiểm tra trên runtime. |
-| [Tạo plugin](https://youngmonkeys.org/ezyplatform/guides/create-a-plugin?lang=vi) | Scaffold module, cấu hình working directory, chạy và export. |
-| [Import project](https://youngmonkeys.org/ezyplatform/guides/import-a-plugin-project?lang=vi) | Kiểm kê module phụ thuộc và thiết lập run configuration. |
-| [Import IntelliJ](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-import-a-plugin-project-to-intellij?lang=vi) | Maven/JDK, annotation processing và cấu hình chạy; tách lỗi IDE khỏi lỗi build. |
-| [Lỗi path variable IntelliJ](https://youngmonkeys.org/ezyplatform/guides/fix-intellij-not-recognizing-path-variable?lang=vi) | Chẩn đoán IDE không nhận biến đường dẫn, không đổi source để né. |
-| [Cấu trúc dự án](https://youngmonkeys.org/ezyplatform/guides/the-structure-of-a-plugin-project?lang=vi) | Maven module, SDK chia sẻ, assembly, metadata, menu, static, templates, TestNG. |
-| [Liên kết plugin](https://youngmonkeys.org/ezyplatform/guides/link-a-plugin?lang=vi) | Module mục tiêu phải có sẵn; check dependency và `@ComponentsScan`. |
-| [Lệnh SDK](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-sdk-commands?lang=vi) | `create`, `package`, `export`, `link`, phiên bản và đồng bộ dependency. |
-| [Lệnh CLI runtime](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-cli-commands?lang=vi) | Quản lý DB/server/module/cập nhật; khác SDK và wrapper của stack. |
-| [Module icon](https://youngmonkeys.org/ezyplatform/guides/guide-to-creating-icons-for-ezyplatform-plugin?lang=vi) | Chuẩn bị icon và định danh khi phân phối; không trộn với CSS icon của menu. |
-| [Sinh unit test](https://youngmonkeys.org/ezyplatform/guides/generate-unit-test-class?lang=vi) | `UnitTestClassGenerator` tạo khung, không thay assertion. |
-| [Build/chạy/export lỗi](https://youngmonkeys.org/ezyplatform/guides/nhung-ly-do-khien-ban-khong-the-build-chay-va-export-duoc-du-an-plugin-ezyplatform?lang=vi) | Chẩn đoán theo từng bước: JDK/Maven, working dir, dependency và export. |
-| [Lỗi thường gặp khác](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-some-reasons-leading-to-errors?lang=vi) | Quên export/menu/`@Authenticated`, đường dẫn có khoảng trắng. |
+| [Prepare the development environment](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-setup-development-environment?lang=vi) | Separate installation of the runtime, SDK, and IDE from development of individual modules. |
+| [Install the SDK](https://youngmonkeys.org/ezyplatform/guides/install-ezyplatform-sdk?lang=vi) | Prepare the runtime and SDK and build dependent libraries. |
+| [Plugin quickstart](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-plugin-development-quickstart?lang=vi) | Create or import the project, run startup tests, export, and verify on the runtime. |
+| [Create a plugin](https://youngmonkeys.org/ezyplatform/guides/create-a-plugin?lang=vi) | Scaffold modules, configure the working directory, run, and export. |
+| [Import a project](https://youngmonkeys.org/ezyplatform/guides/import-a-plugin-project?lang=vi) | Inventory module dependencies and set up run configurations. |
+| [Import into IntelliJ](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-import-a-plugin-project-to-intellij?lang=vi) | Maven, JDK, annotation processing, and run configuration. Separate IDE issues from build failures. |
+| [IntelliJ path variable errors](https://youngmonkeys.org/ezyplatform/guides/fix-intellij-not-recognizing-path-variable?lang=vi) | Diagnose missing IDE path variables without editing source to work around the issue. |
+| [Project structure](https://youngmonkeys.org/ezyplatform/guides/the-structure-of-a-plugin-project?lang=vi) | Maven modules, shared SDK, assembly, metadata, menus, static assets, templates, and TestNG. |
+| [Link a plugin](https://youngmonkeys.org/ezyplatform/guides/link-a-plugin?lang=vi) | The target module must already be available. Check dependencies and `@ComponentsScan`. |
+| [SDK commands](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-sdk-commands?lang=vi) | `create`, `package`, `export`, and `link`, plus versioning and dependency synchronization. |
+| [Runtime CLI commands](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-cli-commands?lang=vi) | Manage the database, server, modules, and updates. This CLI is distinct from the SDK and the stack wrapper. |
+| [Module icon](https://youngmonkeys.org/ezyplatform/guides/guide-to-creating-icons-for-ezyplatform-plugin?lang=vi) | Prepare an icon and identity for distribution, separate from menu CSS icons. |
+| [Generate unit test classes](https://youngmonkeys.org/ezyplatform/guides/generate-unit-test-class?lang=vi) | `UnitTestClassGenerator` scaffolds tests; it does not supply assertions. |
+| [Build, run, and export errors](https://youngmonkeys.org/ezyplatform/guides/nhung-ly-do-khien-ban-khong-the-build-chay-va-export-duoc-du-an-plugin-ezyplatform?lang=vi) | Diagnose each stage: JDK and Maven, working directory, dependencies, and export. |
+| [Other common errors](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-some-reasons-leading-to-errors?lang=vi) | Missing exports, menus, or `@Authenticated`, and paths containing spaces. |
 
-### HTTP, giao diện, ngôn ngữ và xác thực
+### HTTP, UI, localization, and authentication
 
-| Hướng dẫn | Nội dung / lưu ý |
+| Guide | Scope and notes |
 | --- | --- |
-| [Admin authentication](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-admin-authentication?lang=vi) | Cookie token, `@Authenticated`, `@AdminId`, proxy quyền; không dùng thay user Web. |
-| [Web authentication](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-web-authentication?lang=vi) | Tích hợp interceptor, route anonymous tùy chọn, `@UserId`, bật feature permissions. |
-| [Phân quyền](https://youngmonkeys.org/ezyplatform/guides/permission-in-ezyplatform?lang=vi) | Role–feature–API bằng `@EzyFeature`; hiệu lực Web phụ thuộc theme/cấu hình. |
-| [Trang Admin](https://youngmonkeys.org/ezyplatform/guides/create-an-admin-page?lang=vi) | Controller trả Thymeleaf view; route có tên plugin đứng trước. |
-| [Menu Admin](https://youngmonkeys.org/ezyplatform/guides/create-menus-for-admin-plugin?lang=vi) | `menus.properties`, vùng menu, icon, i18n và badge. |
-| [Badge](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-add-badge-to-admin-menu-item?lang=vi) | Cung cấp dữ liệu số lượng theo menu item; tránh đếm dữ liệu ngoài quyền. |
-| [Toolbar phải](https://youngmonkeys.org/ezyplatform/guides/add-admin-right-toolbar-tool?lang=vi) | `rightToolbarToolFragments`, region `content`, CSS/JS riêng và message key. |
-| [Hotkeys](https://youngmonkeys.org/ezyplatform/guides/hotkeys-in-ezyplatform?lang=vi) | Phím toàn cục và theo màn; kiểm tra xung đột với trình soạn thảo và UI riêng của plugin. |
-| [Popup xác nhận](https://youngmonkeys.org/ezyplatform/guides/confirmation-popup-usage?lang=vi) | Luồng Admin/Web cho thao tác nhạy cảm; server vẫn kiểm tra quyền. |
-| [Điều hướng previousScreen](https://youngmonkeys.org/ezyplatform/guides/using-previousscreen-to-link-admin-screens?lang=vi) | Giữ filter/pagination và quay về màn hợp lệ khi lưu/redirect. |
-| [JavaScript Admin](https://youngmonkeys.org/ezyplatform/guides/available-javascript-functions-in-admin?lang=vi) | `ezyadmin`: i18n, date/number, data table, toast, form errors, session, xử lý server. |
-| [JavaScript Web](https://youngmonkeys.org/ezyplatform/guides/available-javascript-functions-in-web?lang=vi) | `ezyweb`: helpers date/number, API error/form, cookie, ngôn ngữ và media URL. |
-| [Thiết kế theme](https://youngmonkeys.org/ezyplatform/guides/designing-and-programming-a-theme?lang=vi) | Tách template/fragment/layout, i18n, gắn nội dung động. |
-| [ViewDecorator](https://youngmonkeys.org/ezyplatform/guides/guide-to-implement-viewdecorator?lang=vi) | Dữ liệu dùng chung trước render, `setVariableIfAbsent`, tránh query nặng toàn site. |
-| [View schema](https://youngmonkeys.org/ezyplatform/guides/guide-to-installing-view-schema?lang=vi) | `ViewSchemaFetcher`/`ViewMultipleSchemaFetcher` mô tả URI và biến view cho tooling; không phải ACL. |
-| [Đa ngôn ngữ](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-multi-languages?lang=vi) | Message bundles, label và dữ liệu nhiều ngôn ngữ; tránh hardcode tên state hệ thống. |
-| [Cấu hình ngôn ngữ Web](https://youngmonkeys.org/ezyplatform/guides/setup-multiple-languages-for-web?lang=vi) | Bật ngôn ngữ người dùng và cấu hình mặc định; phân biệt với dịch nội dung. |
-| [Lỗi Web](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-handle-exception-and-error-for-web?lang=vi) | Global exception/error handler của Web tách logic lỗi khỏi view. |
-| [Cấu hình website](https://youngmonkeys.org/ezyplatform/guides/setup-a-website?lang=vi) | Các biến trang và cấu hình analytics; không phải công cụ đo cycle/task. |
+| [Admin authentication](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-admin-authentication?lang=vi) | Cookie tokens, `@Authenticated`, `@AdminId`, and permission proxies. This does not replace Web user authentication. |
+| [Web authentication](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-web-authentication?lang=vi) | Integrate interceptors, optionally allow anonymous requests on designated routes, use `@UserId`, and enable feature permissions. |
+| [Permissions](https://youngmonkeys.org/ezyplatform/guides/permission-in-ezyplatform?lang=vi) | Connect roles, features, and APIs using `@EzyFeature`. Enforcement on Web depends on the theme and configuration. |
+| [Admin page](https://youngmonkeys.org/ezyplatform/guides/create-an-admin-page?lang=vi) | A controller returns a Thymeleaf view; the route is prefixed with the plugin name. |
+| [Admin menus](https://youngmonkeys.org/ezyplatform/guides/create-menus-for-admin-plugin?lang=vi) | `menus.properties`, menu regions, icons, localization, and badges. |
+| [Badges](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-add-badge-to-admin-menu-item?lang=vi) | Provide counts per menu item without counting data outside the caller's permissions. |
+| [Right toolbar](https://youngmonkeys.org/ezyplatform/guides/add-admin-right-toolbar-tool?lang=vi) | `rightToolbarToolFragments`, the `content` region, dedicated CSS and JS, and message keys. |
+| [Hotkeys](https://youngmonkeys.org/ezyplatform/guides/hotkeys-in-ezyplatform?lang=vi) | Global and per-screen shortcuts. Check for conflicts with editors and plugin UI. |
+| [Confirmation dialog](https://youngmonkeys.org/ezyplatform/guides/confirmation-popup-usage?lang=vi) | Admin and Web flows for sensitive operations. The server must still check permissions. |
+| [previousScreen navigation](https://youngmonkeys.org/ezyplatform/guides/using-previousscreen-to-link-admin-screens?lang=vi) | Preserve filters and pagination and return to a valid screen after saving or redirecting. |
+| [Admin JavaScript](https://youngmonkeys.org/ezyplatform/guides/available-javascript-functions-in-admin?lang=vi) | `ezyadmin`: localization, dates and numbers, data tables, toasts, form errors, sessions, and server handling. |
+| [Web JavaScript](https://youngmonkeys.org/ezyplatform/guides/available-javascript-functions-in-web?lang=vi) | `ezyweb`: dates and numbers, API and form errors, cookies, languages, and media URLs. |
+| [Theme design](https://youngmonkeys.org/ezyplatform/guides/designing-and-programming-a-theme?lang=vi) | Separate templates, fragments, layouts, and localization; mount dynamic content. |
+| [ViewDecorator](https://youngmonkeys.org/ezyplatform/guides/guide-to-implement-viewdecorator?lang=vi) | Share data before rendering using `setVariableIfAbsent`; avoid expensive site-wide queries. |
+| [View schema](https://youngmonkeys.org/ezyplatform/guides/guide-to-installing-view-schema?lang=vi) | `ViewSchemaFetcher` and `ViewMultipleSchemaFetcher` describe URIs and view variables for tools; they do not enforce ACLs. |
+| [Multiple languages](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-multi-languages?lang=vi) | Message bundles, labels, and multilingual data. Do not hard-code system state labels. |
+| [Web language configuration](https://youngmonkeys.org/ezyplatform/guides/setup-multiple-languages-for-web?lang=vi) | Enable user languages and set defaults; this is distinct from translating content. |
+| [Web errors](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-handle-exception-and-error-for-web?lang=vi) | The global Web exception and error handler separates errors from view logic. |
+| [Website configuration](https://youngmonkeys.org/ezyplatform/guides/setup-a-website?lang=vi) | Page variables and analytics configuration, not cycle or task measurement. |
 
-### Dữ liệu, tác vụ và tích hợp
+### Data, tasks, and integrations
 
-| Hướng dẫn | Nội dung / lưu ý |
+| Guide | Scope and notes |
 | --- | --- |
-| [Phân trang](https://youngmonkeys.org/ezyplatform/guides/pagination-implementation?lang=vi) | Cursor/offset, class pair theo sort, converter, repository, service và generator. |
-| [Reactive](https://youngmonkeys.org/ezyplatform/guides/reactive-usage?lang=vi) | Chạy việc độc lập song song bằng `multiple`/`single`; không thay transaction. |
-| [Tìm kiếm Admin](https://youngmonkeys.org/ezyplatform/guides/integrating-admin-global-search?lang=vi) | `AdminSearchService` và `SearchResultModel`; kiểm tra dữ liệu trả về theo người gọi. |
-| [Cấu hình setting](https://youngmonkeys.org/ezyplatform/guides/setting-feature?lang=vi) | Kiểu dữ liệu, cập nhật cache, mã hóa, prefix key có tên plugin. |
-| [Bảng link](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-insert-data-to-link-table?lang=vi) | `ezy_links`, `LinkService` và appender; không index deep link riêng tư. |
-| [Hàm record ngẫu nhiên](https://youngmonkeys.org/ezyplatform/guides/how-to-install-the-random-record-query-function?lang=vi) | Phương án random skip/limit tránh `ORDER BY RAND` trên tập lớn. |
-| [Event nội bộ](https://youngmonkeys.org/ezyplatform/guides/create-and-handle-internal-events-in-ezyplatform?lang=vi) | Phân luồng theo tên, priority, `VoidEvent` và handler trả kết quả. |
-| [Batch AdminDataAppender](https://youngmonkeys.org/ezyplatform/guides/guide-to-implementing-batch-jobs-with-admindataappender?lang=vi) | Query/transform/save, checkpoint, kiểm soát batch và lifecycle. |
-| [Cron](https://youngmonkeys.org/ezyplatform/guides/guide-to-using-cron-expressions-supported-by-ezyplatform?lang=vi) | 5/6 trường, chủ nhật = 0, không `? L W #` hoặc trường năm. |
-| [Notification và letter](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-send-notification-and-letter?lang=vi) | Template, service, receiver và API/UI Web. Không đồng nhất với email ngoài. |
-| [MediaControllerService](https://youngmonkeys.org/ezyplatform/guides/mediacontrollerservice-usage-guide?lang=vi) | Upload/replace/download/delete, metadata, private predicate, adapter storage và event. |
-| [Media modal](https://youngmonkeys.org/ezyplatform/guides/guide-to-using-the-media-modal-in-the-admin-ui?lang=vi) | `showMediaModal`, callback/cách tách nhiều field chọn media. |
-| [MIME](https://youngmonkeys.org/ezyplatform/guides/mime-types-detected-by-ezyplatform?lang=vi) | Danh sách nhóm nhận biết, không phải allowlist nghiệp vụ. |
-| [Giảm dung lượng ảnh](https://youngmonkeys.org/ezyplatform/guides/how-ezyplatform-reduces-image-file-size?lang=vi) | Ngưỡng, xử lý theo định dạng, bản gốc, metadata và adapter ngoài. |
-| [JavascriptService](https://youngmonkeys.org/ezyplatform/guides/guide-to-using-javascriptservice?lang=vi) | Rhino, scope/bean và object result; không nhận script không đáng tin. |
-| [Socket](https://youngmonkeys.org/ezyplatform/guides/overview-of-ezyplatform-socket?lang=vi) | Luồng login theo loại user/admin, hook Socket và JS client mẫu. |
+| [Pagination](https://youngmonkeys.org/ezyplatform/guides/pagination-implementation?lang=vi) | Cursors and offsets, class pairs for sort order, converters, repositories, services, and a generator. |
+| [Reactive](https://youngmonkeys.org/ezyplatform/guides/reactive-usage?lang=vi) | Run independent work in parallel with `multiple` and `single`. This does not replace transactions. |
+| [Admin search](https://youngmonkeys.org/ezyplatform/guides/integrating-admin-global-search?lang=vi) | `AdminSearchService` and `SearchResultModel`. Check the data returned for each caller. |
+| [Settings](https://youngmonkeys.org/ezyplatform/guides/setting-feature?lang=vi) | Data types, cache updates, encryption, and keys prefixed with the plugin name. |
+| [Link table](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-insert-data-to-link-table?lang=vi) | `ezy_links`, `LinkService`, and appenders. Do not index private deep links. |
+| [Random record function](https://youngmonkeys.org/ezyplatform/guides/how-to-install-the-random-record-query-function?lang=vi) | Random skip and limit avoids `ORDER BY RAND` on large data sets. |
+| [Internal events](https://youngmonkeys.org/ezyplatform/guides/create-and-handle-internal-events-in-ezyplatform?lang=vi) | Dispatch by name, priorities, `VoidEvent`, and result-returning handlers. |
+| [AdminDataAppender batch jobs](https://youngmonkeys.org/ezyplatform/guides/guide-to-implementing-batch-jobs-with-admindataappender?lang=vi) | Query, transform, and save, plus checkpoints, batch controls, and lifecycle. |
+| [Cron](https://youngmonkeys.org/ezyplatform/guides/guide-to-using-cron-expressions-supported-by-ezyplatform?lang=vi) | Five or six fields, Sunday is 0, and no `? L W #` syntax or year field. |
+| [Notifications and internal messages](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-send-notification-and-letter?lang=vi) | Templates, services, recipients, and Web APIs and UI. Distinct from external email. |
+| [MediaControllerService](https://youngmonkeys.org/ezyplatform/guides/mediacontrollerservice-usage-guide?lang=vi) | Upload, replace, download, and delete, plus metadata, private predicates, storage adapters, and events. |
+| [Media modal](https://youngmonkeys.org/ezyplatform/guides/guide-to-using-the-media-modal-in-the-admin-ui?lang=vi) | `showMediaModal`, callbacks, and separating multiple media selection fields. |
+| [MIME types](https://youngmonkeys.org/ezyplatform/guides/mime-types-detected-by-ezyplatform?lang=vi) | Recognized type groups, not an application-specific allowlist. |
+| [Reduce image size](https://youngmonkeys.org/ezyplatform/guides/how-ezyplatform-reduces-image-file-size?lang=vi) | Thresholds, format-specific processing, originals, metadata, and external adapters. |
+| [JavascriptService](https://youngmonkeys.org/ezyplatform/guides/guide-to-using-javascriptservice?lang=vi) | Rhino, scope and beans, and object results. Do not accept untrusted scripts. |
+| [Socket](https://youngmonkeys.org/ezyplatform/guides/overview-of-ezyplatform-socket?lang=vi) | Separate user and admin login flows, Socket hooks, and a sample JavaScript client. |
 
-### Cài đặt và vận hành
+### Installation and operations
 
-| Hướng dẫn | Nội dung / lưu ý |
+| Guide | Scope and notes |
 | --- | --- |
-| [Cài EzyPlatform](https://youngmonkeys.org/ezyplatform/guides/install-ezyplatform?lang=vi) | Docker hoặc cài tay; Linux/macOS/Windows, `EZYPLATFORM_HOME`. |
-| [Deploy nhanh](https://youngmonkeys.org/ezyplatform/guides/quickstart-deploy-ezyplatform-to-server?lang=vi) | Hosting hỗ trợ so với tự triển khai; dẫn bài Ubuntu/Docker/học thêm. |
-| [Deploy Ubuntu](https://youngmonkeys.org/ezyplatform/guides/deploy-ezyplatform-on-ubuntu?lang=vi) | Tài nguyên, DB, JDK, Nginx, HTTPS và bảo toàn cấu hình mã hóa; [URL cũ cùng nội dung](https://youngmonkeys.org/ezyplatform/guides/deploy-ezyplatform?lang=vi). |
-| [Deploy Docker](https://youngmonkeys.org/ezyplatform/guides/deploy-ezyplatform-with-docker?lang=vi) | Compose, biến triển khai, volume và load balancer; ưu tiên Compose của stack khi làm dự án này. |
-| [Nhà cung cấp hạ tầng](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-deployment-guide-for-infrastructure-providers?lang=vi) | Quy trình triển khai khi cung cấp nhiều môi trường, quyền vận hành và checklist hạ tầng. |
-| [Thêm plugin](https://youngmonkeys.org/ezyplatform/guides/add-a-plugin-to-your-ezyplatform?lang=vi) | Tìm module, tải/cài, kích hoạt, khởi động lại, xử lý điều kiện phụ thuộc. |
-| [Cập nhật plugin](https://youngmonkeys.org/ezyplatform/guides/update-a-plugin?lang=vi) | Luồng cập nhật theo hệ điều hành; tránh nhầm update module với nâng core. |
-| [Nâng cấp/khôi phục](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-update-and-recovery?lang=vi) | Điểm vào tài liệu cập nhật/khôi phục theo OS và lỗi. |
-| [Cập nhật Windows](https://youngmonkeys.org/ezyplatform/guides/updating-ezyplatform-on-windows-guide?lang=vi) | Tải, chuẩn bị cài đặt theo quy trình Admin. |
-| [Khôi phục khi lỗi](https://youngmonkeys.org/ezyplatform/guides/recover-ezyplatform-when-an-error-occurs?lang=vi) | Xác định JDK hoặc plugin thiếu/không hợp lệ và log trước khi sửa. |
-| [Chuyển máy chủ](https://youngmonkeys.org/ezyplatform/guides/migrate-ezyplatform-from-server-a-to-server-b?lang=vi) | Copy runtime, DB dump/import, đổi DNS/Nginx. |
-| [Nhiều cài đặt và DB](https://youngmonkeys.org/ezyplatform/guides/install-multiple-ezyplatforms-with-a-single-database?lang=vi) | Khóa riêng cho từng instance; tách database, không chia schema tùy tiện. |
-| [Tên miền và SSL](https://youngmonkeys.org/ezyplatform/guides/set-up-domain-and-ssl-for-ezyplatform?lang=vi) | DNS, Nginx, Certbot; EzySupport hoặc thao tác thủ công. |
-| [SSL WebSocket](https://youngmonkeys.org/ezyplatform/guides/set-up-ssl-for-ezyplatform-websocket?lang=vi) | Chứng chỉ, khởi động lại Socket/cập nhật WSS, gia hạn và xử lý lỗi. |
-| [Tối ưu cấu hình](https://youngmonkeys.org/ezyplatform/guides/toi-uu-cau-hinh-cho-ezyplatform?lang=vi) | Có thể tắt Socket; heap/CPU/thread theo từng runtime và tải thực. |
-| [LogbackAppender](https://youngmonkeys.org/ezyplatform/guides/installing-a-log-appender-in-ezyplatform?lang=vi) | Đăng ký và cấu hình appender, tách log vận hành khỏi audit dữ liệu. |
-| [API thống kê](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-statistics-apis?lang=vi) | Events vòng đời server/module; điều khiển qua `allow_send_statistics_data`. |
-| [Nhận diện riêng](https://youngmonkeys.org/ezyplatform/guides/brand-your-ezyplatform?lang=vi) | Chợ, logo, footer, liên hệ và fallback. |
+| [Install EzyPlatform](https://youngmonkeys.org/ezyplatform/guides/install-ezyplatform?lang=vi) | Docker or manual installation on Linux, macOS, or Windows, with `EZYPLATFORM_HOME`. |
+| [Quick deployment](https://youngmonkeys.org/ezyplatform/guides/quickstart-deploy-ezyplatform-to-server?lang=vi) | Managed hosting versus self-hosting, with links to Ubuntu and Docker instructions and further reading. |
+| [Deploy on Ubuntu](https://youngmonkeys.org/ezyplatform/guides/deploy-ezyplatform-on-ubuntu?lang=vi) | Resources, databases, JDK, Nginx, HTTPS, and preserving encryption configuration; [older URL with the same content](https://youngmonkeys.org/ezyplatform/guides/deploy-ezyplatform?lang=vi). |
+| [Deploy with Docker](https://youngmonkeys.org/ezyplatform/guides/deploy-ezyplatform-with-docker?lang=vi) | Compose, deployment variables, volumes, and load balancing. Use this stack's Compose configuration for this project. |
+| [Infrastructure providers](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-deployment-guide-for-infrastructure-providers?lang=vi) | Deploying multiple environments, operational access, and an infrastructure checklist. |
+| [Add a plugin](https://youngmonkeys.org/ezyplatform/guides/add-a-plugin-to-your-ezyplatform?lang=vi) | Find, download, install, and activate a module, restart, and handle dependencies. |
+| [Update a plugin](https://youngmonkeys.org/ezyplatform/guides/update-a-plugin?lang=vi) | Update steps by operating system. Do not confuse module updates with core upgrades. |
+| [Upgrade and recovery](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-update-and-recovery?lang=vi) | Update and recovery entry points by operating system and error. |
+| [Update on Windows](https://youngmonkeys.org/ezyplatform/guides/updating-ezyplatform-on-windows-guide?lang=vi) | Download and prepare the installation using the Admin workflow. |
+| [Recover from a failure](https://youngmonkeys.org/ezyplatform/guides/recover-ezyplatform-when-an-error-occurs?lang=vi) | Identify JDK errors and missing or invalid plugins, and consult logs before making changes. |
+| [Move to a new server](https://youngmonkeys.org/ezyplatform/guides/migrate-ezyplatform-from-server-a-to-server-b?lang=vi) | Copy the runtime, dump and import the database, and update DNS and Nginx. |
+| [Multiple installations and databases](https://youngmonkeys.org/ezyplatform/guides/install-multiple-ezyplatforms-with-a-single-database?lang=vi) | Separate encryption keys per instance. Separate databases and do not share schemas arbitrarily. |
+| [Domain names and SSL](https://youngmonkeys.org/ezyplatform/guides/set-up-domain-and-ssl-for-ezyplatform?lang=vi) | DNS, Nginx, and Certbot via EzySupport or manual setup. |
+| [WebSocket SSL](https://youngmonkeys.org/ezyplatform/guides/set-up-ssl-for-ezyplatform-websocket?lang=vi) | Certificates, restarting Socket and updating WSS, renewals, and error handling. |
+| [Tune configuration](https://youngmonkeys.org/ezyplatform/guides/toi-uu-cau-hinh-cho-ezyplatform?lang=vi) | Socket is optional. Size heap, CPU, and threads by runtime and real load. |
+| [LogbackAppender](https://youngmonkeys.org/ezyplatform/guides/installing-a-log-appender-in-ezyplatform?lang=vi) | Register and configure appenders and separate operational logs from audit data. |
+| [Statistics APIs](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-statistics-apis?lang=vi) | Server and module lifecycle events controlled by `allow_send_statistics_data`. |
+| [Custom branding](https://youngmonkeys.org/ezyplatform/guides/brand-your-ezyplatform?lang=vi) | Marketplace, logo, footer, contact information, and fallbacks. |
 
-## Tài liệu Marketplace có ích cho quyết định thiết kế
+## Marketplace documentation for design decisions
 
-| Ứng viên | Chứng cứ và kết luận |
+| Candidate | Evidence and conclusion |
 | --- | --- |
-| **EzyArticle** | [Tổng quan](https://ezyplatform.com/market/items/ezyarticle/docs/gioi-thieu-plugin-ezyarticle), [tag dữ liệu](https://ezyplatform.com/market/items/ezyarticle/docs/huong-dan-tich-hop-cho-phep-tag-duoc-du-lieu), [bình luận dữ liệu](https://ezyplatform.com/market/items/ezyarticle/docs/gioi-thieu-tinh-nang-binh-luan-du-lieu-voi-ezyarticle), [page fragments](https://ezyplatform.com/market/items/ezyarticle/docs/huong-dan-su-dung-page-fragment). Ngoài CMS, tài liệu có tag tích hợp loại entity và thảo luận nội bộ Admin (luồng, mention, resolve). Đây là pattern có ích, nhưng chưa chứng minh có API Web bảo đảm ACL của ứng dụng, càng không mặc định tính năng tài liệu hiện tại có trong artifact **1.5.6** đã pin. |
-| **EzyLogin / EzyAccount** | [EzyLogin](https://ezyplatform.com/market/items/ezylogin/docs/tong-quan-plugin-ezylogin) mô tả đăng ký/đăng nhập/khôi phục, OAuth/SSO, 2FA và session; [EzyAccount](https://ezyplatform.com/market/items/ezyaccount/docs/mo-ta-chi-tiet-tinh-nang-quan-ly-thong-bao-va-hom-thu) cho người dùng xem thông báo/hộp thư. Là ứng viên cho identity UI và inbox, không sở hữu membership/ACL hay mặc định đã cài. |
-| **EzyMail** | [Tổng quan](https://ezyplatform.com/market/items/ezymail/docs/tong-quan-MjU4): gửi email, mẫu, nháp, theo dõi gửi, thiết lập SMTP. Dùng qua adapter nếu thực sự cần email/invite; notification core là kênh khác. |
-| **Markdown** | [Tổng quan](https://ezyplatform.com/market/items/markdown/docs/tong-quan-plugin-markdown): editor và render cho CMS; có cú pháp HTML trực tiếp nên không mặc định an toàn khi render mô tả do user cung cấp. |
-| **EzyChat / EzyOA / EzyCRM** | [Kiến trúc EzyChat](https://ezyplatform.com/market/items/ezychat/docs/kien-truc-cua-plugin-ezychat) hữu ích khi tham khảo Socket/channel; [EzyOA](https://ezyplatform.com/market/items/ezyoa/docs/tong-quan-plugin-ezyoa) là tích hợp Official Account/webhook; [EzyCRM](https://ezyplatform.com/market/items/ezycrm/docs/tong-quan-MzUw) xoay quanh khách hàng và nhóm người dùng. Chỉ cân nhắc phụ thuộc khi plugin thật sự dùng các tính năng đó. |
+| **EzyArticle** | [Overview](https://ezyplatform.com/market/items/ezyarticle/docs/gioi-thieu-plugin-ezyarticle), [data tags](https://ezyplatform.com/market/items/ezyarticle/docs/huong-dan-tich-hop-cho-phep-tag-duoc-du-lieu), [data comments](https://ezyplatform.com/market/items/ezyarticle/docs/gioi-thieu-tinh-nang-binh-luan-du-lieu-voi-ezyarticle), and [page fragments](https://ezyplatform.com/market/items/ezyarticle/docs/huong-dan-su-dung-page-fragment). In addition to CMS features, the docs cover tags associated with entity types and internal Admin discussions with threads, mentions, and resolution. These are useful patterns, not evidence of a Web API that enforces application ACLs or of feature availability in the pinned **1.5.6** artifact. |
+| **EzyLogin / EzyAccount** | [EzyLogin](https://ezyplatform.com/market/items/ezylogin/docs/tong-quan-plugin-ezylogin) covers registration, sign-in, recovery, OAuth and SSO, 2FA, and sessions. [EzyAccount](https://ezyplatform.com/market/items/ezyaccount/docs/mo-ta-chi-tiet-tinh-nang-quan-ly-thong-bao-va-hom-thu) lets users view notifications and their inbox. These are options for identity UI and inbox features; they do not own membership or ACLs or come installed by default. |
+| **EzyMail** | [Overview](https://ezyplatform.com/market/items/ezymail/docs/tong-quan-MjU4): email delivery, templates, drafts, delivery tracking, and SMTP setup. Use an adapter if email or invitations are needed. Core notifications are a separate channel. |
+| **Markdown** | [Overview](https://ezyplatform.com/market/items/markdown/docs/tong-quan-plugin-markdown): editing and rendering for CMS content. Direct HTML syntax means rendering user-supplied descriptions is not inherently safe. |
+| **EzyChat / EzyOA / EzyCRM** | The [EzyChat architecture](https://ezyplatform.com/market/items/ezychat/docs/kien-truc-cua-plugin-ezychat) illustrates Socket and channels. [EzyOA](https://ezyplatform.com/market/items/ezyoa/docs/tong-quan-plugin-ezyoa) integrates Official Accounts and webhooks. [EzyCRM](https://ezyplatform.com/market/items/ezycrm/docs/tong-quan-MzUw) covers customers and user groups. Consider dependencies only when the plugin needs those features. |
 
-Không kiểm tra nội dung cần tài khoản/mua, các video khóa học ngoài website, phiên bản tài liệu không còn được liên kết hoặc hành vi thực tế của các plugin.
+We did not review content that requires an account or purchase, off-site course videos, unlinked documentation versions, or actual plugin behavior.

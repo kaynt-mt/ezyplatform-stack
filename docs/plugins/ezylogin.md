@@ -1,23 +1,23 @@
 # ezylogin
 
-Đăng nhập, cấu hình nhà cung cấp và phiên.
+Sign-in, provider configuration, and sessions.
 
-- **Bản Marketplace trên core 1.5.9:** `0.4.7`.
-- **Module đã xác minh:** `admin-plugin`, `web-plugin`.
-- **Cài đặt:** Đạt. Xem môi trường và các giới hạn chung trong [báo cáo kiểm thử](test-report.md).
+- **Marketplace version on core 1.5.9:** `0.4.7`.
+- **Verified modules:** `admin-plugin`, `web-plugin`.
+- **Installation:** Passed. See the environment and general limitations in the [test report](test-report.md).
 
-## Bản đồ module
+## Module map
 
-| Lane / thư mục | Package khai báo | Phụ thuộc runtime khai báo |
+| Lane / directory | Declared package | Declared runtime dependencies |
 |---|---|---|
 | `admin-plugin` — `admin/plugins/ezylogin` | `org.youngmonkeys.ezylogin` | [ezyarticle](ezyarticle.md), [ezymail](ezymail.md) |
 | `web-plugin` — `web/plugins/ezylogin` | `org.youngmonkeys.ezylogin` | [ezyarticle](ezyarticle.md), [ezymail](ezymail.md) |
 
-## HTTP, UI và tài nguyên
+## HTTP, UI, and resources
 
-Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố khi mount module và quyền truy cập có thể khác giữa các lane; các URL đã gọi thật nằm ở mục kiểm thử.
+The paths below come from annotations in the JAR. Mount prefixes and access permissions may differ by lane; the URLs that were actually called are listed in the testing section.
 
-**admin-plugin** — 75 tổ hợp phương thức/URI đọc được; mẫu đại diện:
+**admin-plugin** — 75 method/URI combinations identified; representative sample:
 
 | Annotation HTTP | Class |
 |---|---|
@@ -41,7 +41,7 @@ Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố
 | `DELETE /api/v1/users/{username}/2fa` | `AdminApiUserTwoFactorController` |
 | `DELETE /api/v1/settings/{providerName}` | `AdminApiSettingController` |
 
-**web-plugin** — 65 tổ hợp phương thức/URI đọc được; mẫu đại diện:
+**web-plugin** — 65 method/URI combinations identified; representative sample:
 
 | Annotation HTTP | Class |
 |---|---|
@@ -62,48 +62,48 @@ Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố
 | `DELETE /ezylogin/api/v1/sso/user/clients/{clientId}` | `WebApiAuth20ClientController` |
 | `DELETE /ezylogin/api/v1/sso/user/clients/{clientId}/redirect-uris/{redirectUri}` | `WebApiAuth20ClientController` |
 
-- **admin-plugin – Menu (khóa cuối và path trong menus.properties):** `ezylogin: /`, `regular_settings: /settings/regular`, `ezyplatform_settings: /settings/ezyplatform`, `google_settings: /settings/google`, `facebook_settings: /settings/facebook`, `other_oauth20_settings: /settings/oauth20` (+11).
+- **admin-plugin – Menus (final keys and paths in menus.properties):** `ezylogin: /`, `regular_settings: /settings/regular`, `ezyplatform_settings: /settings/ezyplatform`, `google_settings: /settings/google`, `facebook_settings: /settings/facebook`, `other_oauth20_settings: /settings/oauth20` (+11).
 
 - **admin-plugin – Template:** `ezylogin/admin-sso/consent.html`, `ezylogin/admins/fragments/profile-2fa.html`, `ezylogin/admins/fragments/profile-add-admin-access-token.html`, `ezylogin/admins/fragments/profile-admin-access-tokens.html`, `ezylogin/admins/fragments/profile-auto-renew-access-token.html`, `ezylogin/admins/fragments/profile-edit-admin-access-token.html`, `ezylogin/admins/fragments/profile.html` (+14).
 
-- **admin-plugin – Tài nguyên tĩnh:** `ezylogin/css/icon.css`, `ezylogin/css/style.css`, `ezylogin/js/qrcode.min.js`.
+- **admin-plugin – Static resources:** `ezylogin/css/icon.css`, `ezylogin/css/style.css`, `ezylogin/js/qrcode.min.js`.
 
 - **web-plugin – Template:** `ezylogin/activation.html`, `ezylogin/cli-consent.html`, `ezylogin/forgot-password.html`, `ezylogin/login.html`, `ezylogin/oauth20-approval.html`, `ezylogin/register-success.html`, `ezylogin/register.html` (+3).
 
-- **web-plugin – Tài nguyên tĩnh:** `ezylogin/css/style.css`, `ezylogin/js/ezylogin.js`, `ezylogin/js/qrcode.min.js`.
+- **web-plugin – Static resources:** `ezylogin/css/style.css`, `ezylogin/js/ezylogin.js`, `ezylogin/js/qrcode.min.js`.
 
-## Dữ liệu và migration
+## Data and migrations
 
-- **Bảng trong DDL đóng gói (6):** `ezylogin_oauth20_client_id_redirect_uris`, `ezylogin_oauth20_client_ids`, `ezylogin_oauth20_user_access_tokens`, `ezylogin_oauth20_user_refresh_tokens`, `ezylogin_oauth20_users`, `ezylogin_user_sessions`.
-- **Class có chỉ dấu JPA Entity/MappedSuperclass (6):** `Oauth20ClientId`, `Oauth20ClientIdRedirectUri`, `Oauth20User`, `Oauth20UserAccessToken`, `Oauth20UserRefreshToken`, `UserSession`.
-- **SQL admin-plugin (4 tệp):** `resources/scripts/scripts.sql`, `resources/scripts/user_session.sql`, `resources/scripts/alter_oath_tables.sql`, `resources/scripts/alter_user_sessions_add_user_id_created_at_index.sql`.
+- **Table in the DDL package (6):** `ezylogin_oauth20_client_id_redirect_uris`, `ezylogin_oauth20_client_ids`, `ezylogin_oauth20_user_access_tokens`, `ezylogin_oauth20_user_refresh_tokens`, `ezylogin_oauth20_users`, `ezylogin_user_sessions`.
+- **Class with JPA Entity/MappedSuperclass (6):** `Oauth20ClientId`, `Oauth20ClientIdRedirectUri`, `Oauth20User`, `Oauth20UserAccessToken`, `Oauth20UserRefreshToken`, `UserSession`.
+- **SQL admin-plugin (4 files):** `resources/scripts/scripts.sql`, `resources/scripts/user_session.sql`, `resources/scripts/alter_oath_tables.sql`, `resources/scripts/alter_user_sessions_add_user_id_created_at_index.sql`.
 
-## JAR, cấu hình và điểm mở rộng
+## JARs, configuration, and extension points
 
 ### admin-plugin
 
-- **JAR kiểm tra:** `ezylogin-admin-plugin-0.4.7.jar`, `ezylogin-sdk-0.4.7.jar`; 268 class cấp cao nhất sau khi bỏ trùng theo tên package/class trong lane. SDK có thể lặp giữa các lane.
-- **Package nổi bật:** `org.youngmonkeys.ezylogin.model`, `org.youngmonkeys.ezylogin.admin.service`, `org.youngmonkeys.ezylogin.entity` (+32).
-- **Controller/service/repository (mẫu):** `AdminAdminAccessTokenControllerService`, `AdminApiAdminAdminAccessTokenController`, `AdminApiAdminTwoFactorController`, `AdminApiCliAuthorizationController`, `AdminAdminAccessTokenControllerService`, `AdminCliAuthorizationCodeService`, `AdminCliAuthorizationControllerService`, `AdminCliAuthorizationValidator`, `AdminCustomerPortraitChangesFetcher`.
-- **Class cấu hình/quyền (mẫu):** `AdminEzyLoginAdminSsoConfig`, `AdminEzyLoginCliConfig`, `AdminEzyLoginCustomerPortraitConfig`, `AdminEzyLoginPageFragmentConfig`, `AdminEzyLoginSettingConfig`, `AdminEzyLoginTwoFactorConfig`, `AdminEzyLoginUserRoleConfig` (+1).
-- **Điểm mở rộng tiềm năng theo tên class:** `AdminAdminAccessTokenStatusManager`, `AdminAdminAccessTokenTypeManager`, `AdminOauth20ApplicationTypeManager`, `AdminOauth20ClientApprovalPromptManager`, `AdminOauth20ClientStatusManager`, `AdminOauth20ClientTargetManager`, `AdminOauth20ClientTypeManager`, `Oauth20ApplicationTypeManager`, `Oauth20ClientApprovalPromptManager` (+3).
+- **JARs inspected:** `ezylogin-admin-plugin-0.4.7.jar`, `ezylogin-sdk-0.4.7.jar`; 268 top-level classes after deduplicating by package and class name within the lane. The SDK can appear in multiple lanes.
+- **Notable packages:** `org.youngmonkeys.ezylogin.model`, `org.youngmonkeys.ezylogin.admin.service`, `org.youngmonkeys.ezylogin.entity` (+32).
+- **Controllers, services, and repositories (sample):** `AdminAdminAccessTokenControllerService`, `AdminApiAdminAdminAccessTokenController`, `AdminApiAdminTwoFactorController`, `AdminApiCliAuthorizationController`, `AdminAdminAccessTokenControllerService`, `AdminCliAuthorizationCodeService`, `AdminCliAuthorizationControllerService`, `AdminCliAuthorizationValidator`, `AdminCustomerPortraitChangesFetcher`.
+- **Configuration and permission classes (sample):** `AdminEzyLoginAdminSsoConfig`, `AdminEzyLoginCliConfig`, `AdminEzyLoginCustomerPortraitConfig`, `AdminEzyLoginPageFragmentConfig`, `AdminEzyLoginSettingConfig`, `AdminEzyLoginTwoFactorConfig`, `AdminEzyLoginUserRoleConfig` (+1).
+- **Potential extension points based on class names:** `AdminAdminAccessTokenStatusManager`, `AdminAdminAccessTokenTypeManager`, `AdminOauth20ApplicationTypeManager`, `AdminOauth20ClientApprovalPromptManager`, `AdminOauth20ClientStatusManager`, `AdminOauth20ClientTargetManager`, `AdminOauth20ClientTypeManager`, `Oauth20ApplicationTypeManager`, `Oauth20ClientApprovalPromptManager` (+3).
 
 ### web-plugin
 
-- **JAR kiểm tra:** `ezylogin-sdk-0.4.7.jar`, `ezylogin-web-plugin-0.4.7.jar`; 260 class cấp cao nhất sau khi bỏ trùng theo tên package/class trong lane. SDK có thể lặp giữa các lane.
-- **Package nổi bật:** `org.youngmonkeys.ezylogin.web.service`, `org.youngmonkeys.ezylogin.model`, `org.youngmonkeys.ezylogin.entity` (+34).
-- **Controller/service/repository (mẫu):** `CliAuthorizationControllerService`, `SsoTokenControllerService`, `WebAccessTokenControllerService`, `WebApiAnonymousAuthenticationController`, `AbstractLoginOauth20Service`, `CliAuthorizationCodeService`, `CliAuthorizationControllerService`, `CliAuthorizationValidator`, `EzyLoginSettingService`.
-- **Class cấu hình/quyền (mẫu):** `AdminEzyLoginPageFragmentConfig`, `EzyLoginPageFragmentConfig`.
-- **Điểm mở rộng tiềm năng theo tên class:** `EzyLoginAuthenticationInterceptor`, `Oauth20ApplicationTypeManager`, `Oauth20ClientApprovalPromptManager`, `Oauth20ClientStatusManager`, `Oauth20ClientTargetManager`, `Oauth20ClientTypeManager`, `WebCreateAnonymousUserEventHandler`, `WebEzyLoginExceptionHandler`, `WebSetUserAccessTokenCookiesEventHandler`.
+- **JARs inspected:** `ezylogin-sdk-0.4.7.jar`, `ezylogin-web-plugin-0.4.7.jar`; 260 top-level classes after deduplicating by package and class name within the lane. The SDK can appear in multiple lanes.
+- **Notable packages:** `org.youngmonkeys.ezylogin.web.service`, `org.youngmonkeys.ezylogin.model`, `org.youngmonkeys.ezylogin.entity` (+34).
+- **Controllers, services, and repositories (sample):** `CliAuthorizationControllerService`, `SsoTokenControllerService`, `WebAccessTokenControllerService`, `WebApiAnonymousAuthenticationController`, `AbstractLoginOauth20Service`, `CliAuthorizationCodeService`, `CliAuthorizationControllerService`, `CliAuthorizationValidator`, `EzyLoginSettingService`.
+- **Configuration and permission classes (sample):** `AdminEzyLoginPageFragmentConfig`, `EzyLoginPageFragmentConfig`.
+- **Potential extension points based on class names:** `EzyLoginAuthenticationInterceptor`, `Oauth20ApplicationTypeManager`, `Oauth20ClientApprovalPromptManager`, `Oauth20ClientStatusManager`, `Oauth20ClientTargetManager`, `Oauth20ClientTypeManager`, `WebCreateAnonymousUserEventHandler`, `WebEzyLoginExceptionHandler`, `WebSetUserAccessTokenCookiesEventHandler`.
 
-Class và resource xác nhận có cấu trúc mở rộng trong bản đóng gói, không cam kết API ổn định hoặc handler đã chạy qua mọi nhánh.
+Classes and resources show that extension points are packaged; they do not establish API stability or confirm that every handler path has run.
 
-## Quan sát trên sandbox
+## Sandbox observations
 
-Admin `/ezylogin/settings/regular` → 200; chưa kết nối OAuth/SSO bên ngoài.
+Admin `/ezylogin/settings/regular` returned 200. External OAuth or SSO was not connected.
 
-## Lưu ý khi tích hợp
+## Integration notes
 
-Tận dụng danh tính/phiên core nếu phù hợp; quyền tài nguyên vẫn độc lập. Kiểm login, redirect theo theme và OAuth/2FA trong sandbox.
+Reuse core identity and sessions where appropriate, but keep resource authorization separate. Test sign-in, theme-specific redirects, OAuth, and 2FA in a sandbox.
 
-[Về chỉ mục plugin](README.md)
+[Back to the plugin index](README.md)

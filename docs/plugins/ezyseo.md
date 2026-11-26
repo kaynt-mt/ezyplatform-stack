@@ -1,23 +1,23 @@
 # ezyseo
 
-Sitemap, liên kết và robots.
+Sitemaps, links, and robots directives.
 
-- **Bản Marketplace trên core 1.5.9:** `0.1.2`.
-- **Module đã xác minh:** `admin-plugin`, `web-plugin`.
-- **Cài đặt:** Đạt. Xem môi trường và các giới hạn chung trong [báo cáo kiểm thử](test-report.md).
+- **Marketplace version on core 1.5.9:** `0.1.2`.
+- **Verified modules:** `admin-plugin`, `web-plugin`.
+- **Installation:** Passed. See the environment and general limitations in the [test report](test-report.md).
 
-## Bản đồ module
+## Module map
 
-| Lane / thư mục | Package khai báo | Phụ thuộc runtime khai báo |
+| Lane / directory | Declared package | Declared runtime dependencies |
 |---|---|---|
 | `admin-plugin` — `admin/plugins/ezyseo` | `org.youngmonkeys.ezyseo` | [ezyarticle](ezyarticle.md) |
 | `web-plugin` — `web/plugins/ezyseo` | `org.youngmonkeys.ezyseo` | [ezyarticle](ezyarticle.md) |
 
-## HTTP, UI và tài nguyên
+## HTTP, UI, and resources
 
-Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố khi mount module và quyền truy cập có thể khác giữa các lane; các URL đã gọi thật nằm ở mục kiểm thử.
+The paths below come from annotations in the JAR. Mount prefixes and access permissions may differ by lane; the URLs that were actually called are listed in the testing section.
 
-**admin-plugin** — 13 tổ hợp phương thức/URI đọc được; mẫu đại diện:
+**admin-plugin** — 13 method/URI combinations identified; representative sample:
 
 | Annotation HTTP | Class |
 |---|---|
@@ -34,7 +34,7 @@ Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố
 | `PUT /api/v1/links/{linkId}` | `AdminApiLinkController` |
 | `DELETE /api/v1/links/{linkId}` | `AdminApiLinkController` |
 
-**web-plugin** — 3 tổ hợp phương thức/URI đọc được; mẫu đại diện:
+**web-plugin** — 3 method/URI combinations identified; representative sample:
 
 | Annotation HTTP | Class |
 |---|---|
@@ -42,43 +42,43 @@ Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố
 | `GET /api/v1/sitemaps` | `ApiSitemapController` |
 | `GET /api/v1/sitemaps/{linkType}` | `ApiSitemapController` |
 
-- **admin-plugin – Menu (khóa cuối và path trong menus.properties):** `ezyseo: /`, `sitemaps: /sitemaps`, `links: /links`, `links_add: ~/links/add`, `links_edit: ~/links/{linkId}/edit`, `settings: /settings`.
+- **admin-plugin – Menus (final keys and paths in menus.properties):** `ezyseo: /`, `sitemaps: /sitemaps`, `links: /links`, `links_add: ~/links/add`, `links_edit: ~/links/{linkId}/edit`, `settings: /settings`.
 
 - **admin-plugin – Template:** `ezyseo/links/add-new-type.html`, `ezyseo/links/add.html`, `ezyseo/links/edit.html`, `ezyseo/links/list.html`, `ezyseo/links/scripts.html`, `ezyseo/setting/index.html`, `ezyseo/sitemaps/list.html`.
 
-- **admin-plugin – Tài nguyên tĩnh:** `css/ezyseo.css`.
+- **admin-plugin – Static resources:** `css/ezyseo.css`.
 
-- **web-plugin – Tài nguyên tĩnh:** `css/ezyseo/style.css`.
+- **web-plugin – Static resources:** `css/ezyseo/style.css`.
 
-## Dữ liệu và migration
+## Data and migrations
 
-- Không tìm thấy `CREATE TABLE` trong các tệp SQL rời của gói; không suy ra module không lưu dữ liệu hoặc không dùng schema của core.
+- No occurrence of `CREATE TABLE` was found in the package’s standalone SQL files; this does not mean the module stores no data or does not use the core schema.
 
-## JAR, cấu hình và điểm mở rộng
+## JARs, configuration, and extension points
 
 ### admin-plugin
 
-- **JAR kiểm tra:** `ezyseo-admin-plugin-0.1.2.jar`, `ezyseo-sdk-0.1.2.jar`; 41 class cấp cao nhất sau khi bỏ trùng theo tên package/class trong lane. SDK có thể lặp giữa các lane.
-- **Package nổi bật:** `org.youngmonkeys.ezyseo.admin.response`, `org.youngmonkeys.ezyseo.admin.serializer`, `org.youngmonkeys.ezyseo.admin.controller.view` (+15).
-- **Controller/service/repository (mẫu):** `AdminApiLinkController`, `AdminApiSettingController`, `AdminApiSitemapController`, `AdminIndexController`, `AdminEzySeoLinkService`, `AdminEzySeoLinkValidator`, `AdminEzySeoSettingService`, `AdminEzySeoSettingValidator`, `AdminLinkControllerService`.
-- **Class cấu hình/quyền (mẫu):** `AdminScheduledSitemapConfig`.
-- **Điểm mở rộng tiềm năng theo tên class:** `AdminEzySeoFileSystemManager`, `EzySeoFileSystemManager`.
+- **JARs inspected:** `ezyseo-admin-plugin-0.1.2.jar`, `ezyseo-sdk-0.1.2.jar`; 41 top-level classes after deduplicating by package and class name within the lane. The SDK can appear in multiple lanes.
+- **Notable packages:** `org.youngmonkeys.ezyseo.admin.response`, `org.youngmonkeys.ezyseo.admin.serializer`, `org.youngmonkeys.ezyseo.admin.controller.view` (+15).
+- **Controllers, services, and repositories (sample):** `AdminApiLinkController`, `AdminApiSettingController`, `AdminApiSitemapController`, `AdminIndexController`, `AdminEzySeoLinkService`, `AdminEzySeoLinkValidator`, `AdminEzySeoSettingService`, `AdminEzySeoSettingValidator`, `AdminLinkControllerService`.
+- **Configuration and permission classes (sample):** `AdminScheduledSitemapConfig`.
+- **Potential extension points based on class names:** `AdminEzySeoFileSystemManager`, `EzySeoFileSystemManager`.
 
 ### web-plugin
 
-- **JAR kiểm tra:** `ezyseo-sdk-0.1.2.jar`, `ezyseo-web-plugin-0.1.2.jar`; 9 class cấp cao nhất sau khi bỏ trùng theo tên package/class trong lane. SDK có thể lặp giữa các lane.
-- **Package nổi bật:** `org.youngmonkeys.ezyseo.common.constant`, `org.youngmonkeys.ezyseo.web.controller.api`, `org.youngmonkeys.ezyseo.common.service` (+4).
-- **Controller/service/repository (mẫu):** `ApiRobotsController`, `ApiSitemapController`, `EzySeoSettingService`, `WebEzySeoSettingService`.
-- **Điểm mở rộng tiềm năng theo tên class:** `EzySeoFileSystemManager`, `WebEzySeoFileSystemManager`.
+- **JARs inspected:** `ezyseo-sdk-0.1.2.jar`, `ezyseo-web-plugin-0.1.2.jar`; 9 top-level classes after deduplicating by package and class name within the lane. The SDK can appear in multiple lanes.
+- **Notable packages:** `org.youngmonkeys.ezyseo.common.constant`, `org.youngmonkeys.ezyseo.web.controller.api`, `org.youngmonkeys.ezyseo.common.service` (+4).
+- **Controllers, services, and repositories (sample):** `ApiRobotsController`, `ApiSitemapController`, `EzySeoSettingService`, `WebEzySeoSettingService`.
+- **Potential extension points based on class names:** `EzySeoFileSystemManager`, `WebEzySeoFileSystemManager`.
 
-Class và resource xác nhận có cấu trúc mở rộng trong bản đóng gói, không cam kết API ổn định hoặc handler đã chạy qua mọi nhánh.
+Classes and resources show that extension points are packaged; they do not establish API stability or confirm that every handler path has run.
 
-## Quan sát trên sandbox
+## Sandbox observations
 
-Admin `/ezyseo/sitemaps`, Web `/robots.txt` và `/api/v1/sitemaps` → 200.
+Admin `/ezyseo/sitemaps` and Web `/robots.txt` and `/api/v1/sitemaps` returned 200.
 
-## Lưu ý khi tích hợp
+## Integration notes
 
-Mẫu xuất XML/text cho dữ liệu công khai. Không đưa URL riêng tư vào sitemap hoặc dùng robots.txt thay ACL.
+See the XML and text export patterns for public data. Do not include private URLs in sitemaps or use robots.txt in place of ACLs.
 
-[Về chỉ mục plugin](README.md)
+[Back to the plugin index](README.md)

@@ -1,24 +1,24 @@
 # graphql
 
-Cấu hình endpoint và schema GraphQL.
+GraphQL endpoint and schema configuration.
 
-- **Bản Marketplace trên core 1.5.9:** `0.3.1`.
-- **Module đã xác minh:** `admin-plugin`, `web-plugin`, `socket-plugin`.
-- **Cài đặt:** Đạt. Xem môi trường và các giới hạn chung trong [báo cáo kiểm thử](test-report.md).
+- **Marketplace version on core 1.5.9:** `0.3.1`.
+- **Verified modules:** `admin-plugin`, `web-plugin`, `socket-plugin`.
+- **Installation:** Passed. See the environment and general limitations in the [test report](test-report.md).
 
-## Bản đồ module
+## Module map
 
-| Lane / thư mục | Package khai báo | Phụ thuộc runtime khai báo |
+| Lane / directory | Declared package | Declared runtime dependencies |
 |---|---|---|
 | `admin-plugin` — `admin/plugins/graphql` | `org.youngmonkeys.graphql` | [ezyarticle](ezyarticle.md), [ecommerce](ecommerce.md) |
 | `web-plugin` — `web/plugins/graphql` | `org.youngmonkeys.graphql` | [ezyarticle](ezyarticle.md), [ecommerce](ecommerce.md) |
 | `socket-plugin` — `socket/plugins/graphql` | `org.youngmonkeys.graphql.socket.plugin` | [ecommerce](ecommerce.md) |
 
-## HTTP, UI và tài nguyên
+## HTTP, UI, and resources
 
-Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố khi mount module và quyền truy cập có thể khác giữa các lane; các URL đã gọi thật nằm ở mục kiểm thử.
+The paths below come from annotations in the JAR. Mount prefixes and access permissions may differ by lane; the URLs that were actually called are listed in the testing section.
 
-**admin-plugin** — 52 tổ hợp phương thức/URI đọc được; mẫu đại diện:
+**admin-plugin** — 52 method/URI combinations identified; representative sample:
 
 | Annotation HTTP | Class |
 |---|---|
@@ -37,7 +37,7 @@ Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố
 | `PUT /api/v1/system-endpoints/{id}` | `AdminGraphQLApiSystemEndpointController` |
 | `DELETE /api/v1/system-endpoints/{id}` | `AdminGraphQLApiSystemEndpointController` |
 
-**web-plugin** — 19 tổ hợp phương thức/URI đọc được; mẫu đại diện:
+**web-plugin** — 19 method/URI combinations identified; representative sample:
 
 | Annotation HTTP | Class |
 |---|---|
@@ -50,66 +50,66 @@ Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố
 | `GET /api/v1/graphql/schema.graphql` | `WebApiGraphQLSchemaController` |
 | `POST /graphql/mcp` | `WebMcpServerController` |
 
-- **admin-plugin – Menu (khóa cuối và path trong menus.properties):** `graphql: /`, `system_endpoints: /system-endpoints`, `api_types: /api-types`, `settings: /settings`.
+- **admin-plugin – Menus (final keys and paths in menus.properties):** `graphql: /`, `system_endpoints: /system-endpoints`, `api_types: /api-types`, `settings: /settings`.
 
 - **admin-plugin – Template:** `graphql/api-type/index.html`, `graphql/schema/index.html`, `graphql/setting/index.html`, `graphql/swagger/swagger.html`, `graphql/system-endpoint/index.html`.
 
-- **admin-plugin – Tài nguyên tĩnh:** `graphql/css/swagger-ui.css`, `graphql/js/swagger-ui-bundle.js`.
+- **admin-plugin – Static resources:** `graphql/css/swagger-ui.css`, `graphql/js/swagger-ui-bundle.js`.
 
-- **admin-plugin – Tài nguyên cấu hình/mẫu:** `graphql.properties`.
+- **admin-plugin – Configuration and template resources:** `graphql.properties`.
 
 - **web-plugin – Template:** `graphql/schema.html`, `graphql/swagger.html`.
 
-- **web-plugin – Tài nguyên tĩnh:** `graphql/css/swagger-ui.css`, `graphql/js/swagger-ui-bundle.js`.
+- **web-plugin – Static resources:** `graphql/css/swagger-ui.css`, `graphql/js/swagger-ui-bundle.js`.
 
-- **web-plugin – Tài nguyên cấu hình/mẫu:** `graphql.properties`.
+- **Web-plugin – Configuration/Sample Resource:** `graphql.properties`.
 
-## Dữ liệu và migration
+## Data and migrations
 
-- Không tìm thấy `CREATE TABLE` trong các tệp SQL rời của gói; không suy ra module không lưu dữ liệu hoặc không dùng schema của core.
+- No occurrence of `CREATE TABLE` was found in the package’s standalone SQL files; this does not mean the module stores no data or does not use the core schema.
 
-## JAR, cấu hình và điểm mở rộng
+## JARs, configuration, and extension points
 
 ### admin-plugin
 
-- **JAR kiểm tra:** `graphql-admin-plugin-0.3.1.jar`, `graphql-sdk-0.3.1.jar`; 334 class cấp cao nhất sau khi bỏ trùng theo tên package/class trong lane. SDK có thể lặp giữa các lane.
-- **Package nổi bật:** `org.youngmonkeys.graphql.admin.event`, `org.youngmonkeys.graphql.admin.controller.api`, `org.youngmonkeys.graphql.event` (+26).
-- **JAR thư viện khác:** `ezyhttp-server-graphql-1.6.5.jar`.
-- **Controller/service/repository (mẫu):** `AdminApiMcpToolsController`, `AdminApiTypeController`, `AdminGraphQLApiClassSchemaController`, `AdminGraphQLApiContentTypeDescriptionController`, `AdminEventHandlerAuthoringService`, `AdminGraphQLDataFetchingService`, `AdminGraphQLDataRepository`, `AdminGraphQLDataService`, `AdminGraphQLFetcherAuthoringService`.
-- **Class cấu hình/quyền (mẫu):** `AdminGraphQLConfig`, `AdminGraphQLPostConfig`.
-- **Khóa cấu hình/mẫu từ resource (không trích giá trị):** `graphql.authenticated`, `graphql.enable`.
-- **Điểm mở rộng tiềm năng theo tên class:** `AbstractGraphQLMcpSkillLibraryToolEventHandler`, `AdminEzySystemEventHandler`, `AdminGraphQLConfigFileManager`, `AdminGraphQLFetchPostTypeDescriptionEventHandler`, `AdminGraphQLObjectMapperProvider`, `AdminGraphQLSqlScriptFilesInputStreamFactory`, `AdminMcpAdminDataFetchingGuideResourceEventHandler`, `AdminMcpAdminDataFetchingGuideResourceSchemaEventHandler`, `AdminMcpAdminGraphQLDataFetchingToolEventHandler` (+212).
+- **JARs inspected:** `graphql-admin-plugin-0.3.1.jar`, `graphql-sdk-0.3.1.jar`; 334 top-level classes after deduplicating by package and class name within the lane. The SDK can appear in multiple lanes.
+- **Notable packages:** `org.youngmonkeys.graphql.admin.event`, `org.youngmonkeys.graphql.admin.controller.api`, `org.youngmonkeys.graphql.event` (+26).
+- **Other library JARs:** `ezyhttp-server-graphql-1.6.5.jar`.
+- **Controllers, services, and repositories (sample):** `AdminApiMcpToolsController`, `AdminApiTypeController`, `AdminGraphQLApiClassSchemaController`, `AdminGraphQLApiContentTypeDescriptionController`, `AdminEventHandlerAuthoringService`, `AdminGraphQLDataFetchingService`, `AdminGraphQLDataRepository`, `AdminGraphQLDataService`, `AdminGraphQLFetcherAuthoringService`.
+- **Configuration and permission classes (sample):** `AdminGraphQLConfig`, `AdminGraphQLPostConfig`.
+- **Configuration and template keys from resources (values omitted):** `graphql.authenticated`, `graphql.enable`.
+- **Potential extension points based on class names:** `AbstractGraphQLMcpSkillLibraryToolEventHandler`, `AdminEzySystemEventHandler`, `AdminGraphQLConfigFileManager`, `AdminGraphQLFetchPostTypeDescriptionEventHandler`, `AdminGraphQLObjectMapperProvider`, `AdminGraphQLSqlScriptFilesInputStreamFactory`, `AdminMcpAdminDataFetchingGuideResourceEventHandler`, `AdminMcpAdminDataFetchingGuideResourceSchemaEventHandler`, `AdminMcpAdminGraphQLDataFetchingToolEventHandler` (+212).
 
 ### web-plugin
 
-- **JAR kiểm tra:** `graphql-sdk-0.3.1.jar`, `graphql-web-plugin-0.3.1.jar`; 129 class cấp cao nhất sau khi bỏ trùng theo tên package/class trong lane. SDK có thể lặp giữa các lane.
-- **Package nổi bật:** `org.youngmonkeys.graphql.event`, `org.youngmonkeys.graphql.web.event`, `org.youngmonkeys.graphql.web.controller.api` (+21).
-- **JAR thư viện khác:** `ezyhttp-server-graphql-1.6.5.jar`.
-- **Controller/service/repository (mẫu):** `WebApiGraphQLClassSchemaManagementController`, `WebApiGraphQLEventSchemaManagementController`, `WebApiGraphQLEzyFunctionSchemaManagementController`, `WebApiGraphQLRestSwaggerController`, `GraphQLDataRepository`, `GraphQLDataService`, `GraphQLPostRepository`, `GraphQLSettingService`, `GraphQLSkillLibraryToolService`.
-- **Class cấu hình/quyền (mẫu):** `WebGraphQLConfig`, `WebGraphQLControllerConfig`.
-- **Khóa cấu hình/mẫu từ resource (không trích giá trị):** `graphql.enable`.
-- **Điểm mở rộng tiềm năng theo tên class:** `AbstractGraphQLMcpSkillLibraryToolEventHandler`, `GraphQLDataFetcherListingProvider`, `GraphQLMcpCompletionCompleteMethodEventHandler`, `GraphQLMcpCreateProductCheckoutLinkToolEventHandler`, `GraphQLMcpCreateProductCheckoutLinkToolSchemaEventHandler`, `GraphQLMcpFetchProductPriceToolEventHandler`, `GraphQLMcpFetchProductPriceToolSchemaEventHandler`, `GraphQLMcpGenerateCheckoutLinkPromptEventHandler`, `GraphQLMcpGenerateCheckoutLinkPromptSchemaEventHandler` (+45).
+- **JARs inspected:** `graphql-sdk-0.3.1.jar`, `graphql-web-plugin-0.3.1.jar`; 129 top-level classes after deduplicating by package and class name within the lane. The SDK can appear in multiple lanes.
+- **Notable packages:** `org.youngmonkeys.graphql.event`, `org.youngmonkeys.graphql.web.event`, `org.youngmonkeys.graphql.web.controller.api` (+21).
+- **Other library JARs:** `ezyhttp-server-graphql-1.6.5.jar`.
+- **Controllers, services, and repositories (sample):** `WebApiGraphQLClassSchemaManagementController`, `WebApiGraphQLEventSchemaManagementController`, `WebApiGraphQLEzyFunctionSchemaManagementController`, `WebApiGraphQLRestSwaggerController`, `GraphQLDataRepository`, `GraphQLDataService`, `GraphQLPostRepository`, `GraphQLSettingService`, `GraphQLSkillLibraryToolService`.
+- **Configuration and permission classes (sample):** `WebGraphQLConfig`, `WebGraphQLControllerConfig`.
+- **Configuration and template keys from resources (values omitted):** `graphql.enable`.
+- **Potential extension points based on class names:** `AbstractGraphQLMcpSkillLibraryToolEventHandler`, `GraphQLDataFetcherListingProvider`, `GraphQLMcpCompletionCompleteMethodEventHandler`, `GraphQLMcpCreateProductCheckoutLinkToolEventHandler`, `GraphQLMcpCreateProductCheckoutLinkToolSchemaEventHandler`, `GraphQLMcpFetchProductPriceToolEventHandler`, `GraphQLMcpFetchProductPriceToolSchemaEventHandler`, `GraphQLMcpGenerateCheckoutLinkPromptEventHandler`, `GraphQLMcpGenerateCheckoutLinkPromptSchemaEventHandler` (+45).
 
 ### socket-plugin
 
-- **JAR kiểm tra:** `graphql-sdk-0.3.1.jar`, `graphql-socket-plugin-0.3.1.jar`; 78 class cấp cao nhất sau khi bỏ trùng theo tên package/class trong lane. SDK có thể lặp giữa các lane.
-- **Package nổi bật:** `org.youngmonkeys.graphql.event`, `org.youngmonkeys.graphql.result`, `org.youngmonkeys.graphql.socket.plugin.event` (+11).
-- **JAR thư viện khác:** `ezyhttp-server-graphql-1.6.5.jar`.
-- **Controller/service/repository (mẫu):** `GraphQLDataRepository`, `GraphQLDataService`, `GraphQLPostRepository`, `GraphQLSettingService`, `GraphQLSkillLibraryToolService`.
-- **Điểm mở rộng tiềm năng theo tên class:** `AbstractGraphQLMcpSkillLibraryToolEventHandler`, `GraphQLDataFetcherListingProvider`, `GraphQLMcpCompletionCompleteMethodEventHandler`, `GraphQLMcpCreateProductCheckoutLinkToolEventHandler`, `GraphQLMcpCreateProductCheckoutLinkToolSchemaEventHandler`, `GraphQLMcpFetchProductPriceToolEventHandler`, `GraphQLMcpFetchProductPriceToolSchemaEventHandler`, `GraphQLMcpGenerateCheckoutLinkPromptEventHandler`, `GraphQLMcpGenerateCheckoutLinkPromptSchemaEventHandler` (+28).
+- **JARs inspected:** `graphql-sdk-0.3.1.jar`, `graphql-socket-plugin-0.3.1.jar`; 78 top-level classes after deduplicating by package and class name within the lane. The SDK can appear in multiple lanes.
+- **Notable packages:** `org.youngmonkeys.graphql.event`, `org.youngmonkeys.graphql.result`, `org.youngmonkeys.graphql.socket.plugin.event` (+11).
+- **Other library JARs:** `ezyhttp-server-graphql-1.6.5.jar`.
+- **Controllers, services, and repositories (sample):** `GraphQLDataRepository`, `GraphQLDataService`, `GraphQLPostRepository`, `GraphQLSettingService`, `GraphQLSkillLibraryToolService`.
+- **Potential extension points based on class names:** `AbstractGraphQLMcpSkillLibraryToolEventHandler`, `GraphQLDataFetcherListingProvider`, `GraphQLMcpCompletionCompleteMethodEventHandler`, `GraphQLMcpCreateProductCheckoutLinkToolEventHandler`, `GraphQLMcpCreateProductCheckoutLinkToolSchemaEventHandler`, `GraphQLMcpFetchProductPriceToolEventHandler`, `GraphQLMcpFetchProductPriceToolSchemaEventHandler`, `GraphQLMcpGenerateCheckoutLinkPromptEventHandler`, `GraphQLMcpGenerateCheckoutLinkPromptSchemaEventHandler` (+28).
 - **Zone / entry loader:** `chat` / `org.youngmonkeys.graphql.socket.plugin.PluginEntryLoader`.
-- **Class controller/handler/event/request (mẫu):** `AbstractGraphQLMcpSkillLibraryToolEventHandler`, `GraphQLMcpCompletionCompleteMethodEventHandler`, `GraphQLMcpCreateProductCheckoutLinkToolEventHandler`, `GraphQLMcpCreateProductCheckoutLinkToolSchemaEventHandler`, `GraphQLMcpFetchProductPriceToolEventHandler`, `GraphQLMcpFetchProductPriceToolSchemaEventHandler`, `GraphQLMcpGenerateCheckoutLinkPromptEventHandler`, `GraphQLMcpGenerateCheckoutLinkPromptSchemaEventHandler`, `GraphQLMcpGetSkillToolEventHandler`, `GraphQLMcpGetSkillToolSchemaEventHandler` (+23).
+- **Controller, handler, event, and request classes (sample):** `AbstractGraphQLMcpSkillLibraryToolEventHandler`, `GraphQLMcpCompletionCompleteMethodEventHandler`, `GraphQLMcpCreateProductCheckoutLinkToolEventHandler`, `GraphQLMcpCreateProductCheckoutLinkToolSchemaEventHandler`, `GraphQLMcpFetchProductPriceToolEventHandler`, `GraphQLMcpFetchProductPriceToolSchemaEventHandler`, `GraphQLMcpGenerateCheckoutLinkPromptEventHandler`, `GraphQLMcpGenerateCheckoutLinkPromptSchemaEventHandler`, `GraphQLMcpGetSkillToolEventHandler`, `GraphQLMcpGetSkillToolSchemaEventHandler` (+23).
 
-Class và resource xác nhận có cấu trúc mở rộng trong bản đóng gói, không cam kết API ổn định hoặc handler đã chạy qua mọi nhánh.
+Classes and resources show that extension points are packaged; they do not establish API stability or confirm that every handler path has run.
 
-## Quan sát trên sandbox
+## Sandbox observations
 
-Admin `/graphql/system-endpoints` → 200; `/rest/swagger` và URL schema đã thử trả trang “Not found” trên Freestyle. Chưa chạy truy vấn GraphQL.
+Admin `/graphql/system-endpoints` returned 200; `/rest/swagger` and the schema URLs tested showed a “Not found” page in Freestyle. No GraphQL queries were run.
 
-Xem bằng chứng nạp module và cổng TCP trong [kiểm thử Socket](test-report.md#gói-cài-được-và-kiểm-thử-http). Không kiểm chứng trao đổi Socket bằng client.
+See module-loading and TCP port evidence in the [Socket checks](test-report.md#installable-packages-and-http-tests). Socket communication was not verified with a client.
 
-## Lưu ý khi tích hợp
+## Integration notes
 
-Tham khảo schema/fetcher; cân nhắc dependency Ecommerce, quyền resolver và số query trước khi bật.
+See the schema and fetcher patterns. Check the Ecommerce dependency, resolver permissions, and query counts before enabling the module.
 
-[Về chỉ mục plugin](README.md)
+[Back to the plugin index](README.md)

@@ -1,22 +1,22 @@
 # semi-theme
 
-Module Admin hỗ trợ giao diện; không có Web theme.
+Admin module for interface support; no Web theme.
 
-- **Bản Marketplace trên core 1.5.9:** `1.0.2`. Metadata module báo `1.0.1`.
-- **Module đã xác minh:** `admin-plugin`.
-- **Cài đặt:** Đạt. Xem môi trường và các giới hạn chung trong [báo cáo kiểm thử](test-report.md).
+- **Marketplace version on core 1.5.9:** `1.0.2`. Module metadata reports `1.0.1`.
+- **Verified modules:** `admin-plugin`.
+- **Installation:** Passed. See the environment and general limitations in the [test report](test-report.md).
 
-## Bản đồ module
+## Module map
 
-| Lane / thư mục | Package khai báo | Phụ thuộc runtime khai báo |
+| Lane / directory | Declared package | Declared runtime dependencies |
 |---|---|---|
-| `admin-plugin` — `admin/plugins/semi-theme` | `org.ltl.semi_theme` | Không khai báo |
+| `admin-plugin` — `admin/plugins/semi-theme` | `org.ltl.semi_theme` | Not declared |
 
-## HTTP, UI và tài nguyên
+## HTTP, UI, and resources
 
-Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố khi mount module và quyền truy cập có thể khác giữa các lane; các URL đã gọi thật nằm ở mục kiểm thử.
+The paths below come from annotations in the JAR. Mount prefixes and access permissions may differ by lane; the URLs that were actually called are listed in the testing section.
 
-**admin-plugin** — 1 tổ hợp phương thức/URI đọc được; mẫu đại diện:
+**admin-plugin** — 1 method/URI combination identified; representative sample:
 
 | Annotation HTTP | Class |
 |---|---|
@@ -24,28 +24,28 @@ Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố
 
 - **admin-plugin – Template:** `modules/list.html`, `semi-theme/dashboards/admin.html`, `semi-theme/dashboards/scripts.html`, `semi-theme/dashboards/socket.html`, `semi-theme/dashboards/web.html`, `semi-theme/settings.html`.
 
-- **admin-plugin – Tài nguyên tĩnh:** `css/newsemiv4/index.css`, `css/newsemiv4/index.min.css`, `css/recursive.css`, `css/semi/index.css` (+6).
+- **admin-plugin – Static resources:** `css/newsemiv4/index.css`, `css/newsemiv4/index.min.css`, `css/recursive.css`, `css/semi/index.css` (+6).
 
-## Dữ liệu và migration
+## Data and migrations
 
-- Không tìm thấy `CREATE TABLE` trong các tệp SQL rời của gói; không suy ra module không lưu dữ liệu hoặc không dùng schema của core.
+- No occurrence of `CREATE TABLE` was found in the package’s standalone SQL files; this does not mean the module stores no data or does not use the core schema.
 
-## JAR, cấu hình và điểm mở rộng
+## JARs, configuration, and extension points
 
 ### admin-plugin
 
-- **JAR kiểm tra:** `semi-theme-admin-plugin-1.0.1.jar`; 3 class cấp cao nhất sau khi bỏ trùng theo tên package/class trong lane. SDK có thể lặp giữa các lane.
-- **Package nổi bật:** `org.ltl.semi_theme.admin.controller.view`.
-- **Controller/service/repository (mẫu):** `AdminSettingsController`, `IndexController`.
+- **JARs inspected:** `semi-theme-admin-plugin-1.0.1.jar`; 3 top-level classes after deduplicating by package and class name within the lane. The SDK can appear in multiple lanes.
+- **Notable packages:** `org.ltl.semi_theme.admin.controller.view`.
+- **Controllers, services, and repositories (sample):** `AdminSettingsController`, `IndexController`.
 
-Class và resource xác nhận có cấu trúc mở rộng trong bản đóng gói, không cam kết API ổn định hoặc handler đã chạy qua mọi nhánh.
+Classes and resources show that extension points are packaged; they do not establish API stability or confirm that every handler path has run.
 
-## Quan sát trên sandbox
+## Sandbox observations
 
-Admin `/semi-theme/` → 200; ZIP `1.0.2` khai `version=1.0.1` trong `module.properties`; đây là module Admin chứ không có Web theme.
+Admin `/semi-theme/` → 200; ZIP `1.0.2` declares `version=1.0.1` in `module.properties`. This is an Admin module, not a Web theme.
 
-## Lưu ý khi tích hợp
+## Integration notes
 
-Đối chiếu tên thương mại, bản ZIP và lane thực tế; trang Admin có tiêu đề Unknown không chứng minh theme đã render.
+Compare the Marketplace name, ZIP version, and actual module type. An Admin page titled “Unknown” does not prove that a theme rendered.
 
-[Về chỉ mục plugin](README.md)
+[Back to the plugin index](README.md)

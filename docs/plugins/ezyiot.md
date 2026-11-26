@@ -1,24 +1,24 @@
 # ezyiot
 
-Thiết bị, cấu hình và lane Socket.
+Devices, configuration, and a Socket module.
 
-- **Bản Marketplace trên core 1.5.9:** `0.0.3`.
-- **Module đã xác minh:** `admin-plugin`, `web-plugin`, `socket-plugin`.
-- **Cài đặt:** Đạt. Xem môi trường và các giới hạn chung trong [báo cáo kiểm thử](test-report.md).
+- **Marketplace version on core 1.5.9:** `0.0.3`.
+- **Verified modules:** `admin-plugin`, `web-plugin`, `socket-plugin`.
+- **Installation:** Passed. See the environment and general limitations in the [test report](test-report.md).
 
-## Bản đồ module
+## Module map
 
-| Lane / thư mục | Package khai báo | Phụ thuộc runtime khai báo |
+| Lane / directory | Declared package | Declared runtime dependencies |
 |---|---|---|
 | `admin-plugin` — `admin/plugins/ezyiot` | `org.youngmonkeys.ezyiot` | [ecommerce](ecommerce.md) |
-| `web-plugin` — `web/plugins/ezyiot` | `org.youngmonkeys.ezyiot` | Không khai báo |
-| `socket-plugin` — `socket/plugins/ezyiot` | `org.youngmonkeys.ezyiot` | Không khai báo |
+| `web-plugin` — `web/plugins/ezyiot` | `org.youngmonkeys.ezyiot` | Not declared |
+| `socket-plugin` — `socket/plugins/ezyiot` | `org.youngmonkeys.ezyiot` | Not declared |
 
-## HTTP, UI và tài nguyên
+## HTTP, UI, and resources
 
-Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố khi mount module và quyền truy cập có thể khác giữa các lane; các URL đã gọi thật nằm ở mục kiểm thử.
+The paths below come from annotations in the JAR. Mount prefixes and access permissions may differ by lane; the URLs that were actually called are listed in the testing section.
 
-**admin-plugin** — 7 tổ hợp phương thức/URI đọc được; mẫu đại diện:
+**admin-plugin** — 7 method/URI combinations identified; representative sample:
 
 | Annotation HTTP | Class |
 |---|---|
@@ -30,55 +30,55 @@ Các đường dẫn dưới đây đến từ annotation trong JAR. Tiền tố
 | `PUT /api/v1/devices/{id}` | `AdminApiEzyIoTDeviceController` |
 | `DELETE /api/v1/devices` | `AdminApiEzyIoTDeviceController` |
 
-- **admin-plugin – Menu (khóa cuối và path trong menus.properties):** `ezyiot: /`, `dashboard: /dashboard`, `devices: /devices`, `settings: /settings`.
+- **admin-plugin – Menus (final keys and paths in menus.properties):** `ezyiot: /`, `dashboard: /dashboard`, `devices: /devices`, `settings: /settings`.
 
 - **admin-plugin – Template:** `ezyiot/device/list.html`, `ezyiot/device/save-modal.html`, `ezyiot/settings.html`.
 
-- **admin-plugin – Tài nguyên tĩnh:** `ezyiot/css/style.css`.
+- **admin-plugin – Static resources:** `ezyiot/css/style.css`.
 
-## Dữ liệu và migration
+## Data and migrations
 
-- **Bảng trong DDL đóng gói (1):** `ezyiot_devices`.
-- **Class có chỉ dấu JPA Entity/MappedSuperclass (1):** `EzyIoTDevice`.
-- **SQL admin-plugin (1 tệp):** `resources/scripts/scripts.sql`.
+- **Table in the DDL package (1):** `ezyiot_devices`.
+- **Class with JPA Entity/MappedSuperclass indication (1):** `EzyIoTDevice`.
+- **SQL admin-plugin (1 file):** `resources/scripts/scripts.sql`.
 
-## JAR, cấu hình và điểm mở rộng
+## JARs, configuration, and extension points
 
 ### admin-plugin
 
-- **JAR kiểm tra:** `ezyiot-admin-plugin-0.0.3.jar`, `ezyiot-sdk-0.0.3.jar`; 50 class cấp cao nhất sau khi bỏ trùng theo tên package/class trong lane. SDK có thể lặp giữa các lane.
-- **Package nổi bật:** `org.youngmonkeys.ezyiot.pagination`, `org.youngmonkeys.ezyiot.mqtt`, `org.youngmonkeys.ezyiot.admin.converter` (+19).
-- **JAR thư viện khác:** `ezyfox-server-java-client-1.3.1.jar`.
-- **Controller/service/repository (mẫu):** `AdminApiEzyIoTDeviceController`, `AdminApiSettingController`, `AdminEzyIoTDeviceController`, `AdminEzyIoTDeviceControllerService`, `AdminEzyIoTDeviceControllerService`, `AdminEzyIoTDeviceRepository`, `AdminEzyIoTDeviceService`, `AdminEzyIoTDeviceValidator`, `AdminPaginationEzyIoTDeviceRepository`.
-- **Điểm mở rộng tiềm năng theo tên class:** `AdminEzyIoTSocketConnectorManager`, `EzyIoTMqttMessageListener`.
+- **JARs inspected:** `ezyiot-admin-plugin-0.0.3.jar`, `ezyiot-sdk-0.0.3.jar`; 50 top-level classes after deduplicating by package and class name within the lane. The SDK can appear in multiple lanes.
+- **Notable packages:** `org.youngmonkeys.ezyiot.pagination`, `org.youngmonkeys.ezyiot.mqtt`, `org.youngmonkeys.ezyiot.admin.converter` (+19).
+- **Other library JARs:** `ezyfox-server-java-client-1.3.1.jar`.
+- **Controllers, services, and repositories (sample):** `AdminApiEzyIoTDeviceController`, `AdminApiSettingController`, `AdminEzyIoTDeviceController`, `AdminEzyIoTDeviceControllerService`, `AdminEzyIoTDeviceControllerService`, `AdminEzyIoTDeviceRepository`, `AdminEzyIoTDeviceService`, `AdminEzyIoTDeviceValidator`, `AdminPaginationEzyIoTDeviceRepository`.
+- **Potential extension points based on class names:** `AdminEzyIoTSocketConnectorManager`, `EzyIoTMqttMessageListener`.
 
 ### web-plugin
 
-- **JAR kiểm tra:** `ezyiot-sdk-0.0.3.jar`, `ezyiot-web-plugin-0.0.3.jar`; 28 class cấp cao nhất sau khi bỏ trùng theo tên package/class trong lane. SDK có thể lặp giữa các lane.
-- **Package nổi bật:** `org.youngmonkeys.ezyiot.pagination`, `org.youngmonkeys.ezyiot.mqtt`, `org.youngmonkeys.ezyiot.entity` (+6).
-- **Controller/service/repository (mẫu):** `EzyIoTDeviceRepository`, `EzyIoTDeviceService`, `PaginationEzyIoTDeviceRepository`, `PaginationEzyIoTDeviceService`.
-- **Điểm mở rộng tiềm năng theo tên class:** `EzyIoTMqttMessageListener`.
+- **JARs inspected:** `ezyiot-sdk-0.0.3.jar`, `ezyiot-web-plugin-0.0.3.jar`; 28 top-level classes after deduplicating by package and class name within the lane. The SDK can appear in multiple lanes.
+- **Notable packages:** `org.youngmonkeys.ezyiot.pagination`, `org.youngmonkeys.ezyiot.mqtt`, `org.youngmonkeys.ezyiot.entity` (+6).
+- **Controllers, services, and repositories (sample):** `EzyIoTDeviceRepository`, `EzyIoTDeviceService`, `PaginationEzyIoTDeviceRepository`, `PaginationEzyIoTDeviceService`.
+- **Potential extension points based on class names:** `EzyIoTMqttMessageListener`.
 
 ### socket-plugin
 
-- **JAR kiểm tra:** `ezyiot-sdk-0.0.3.jar`, `ezyiot-socket-plugin-0.0.3.jar`; 74 class cấp cao nhất sau khi bỏ trùng theo tên package/class trong lane. SDK có thể lặp giữa các lane.
-- **Package nổi bật:** `org.youngmonkeys.ezyiot.socket.plugin.mqtt`, `org.youngmonkeys.ezyiot.pagination`, `org.youngmonkeys.ezyiot.mqtt` (+16).
-- **Controller/service/repository (mẫu):** `SessionRemovedController`, `SocketEzyIoTConnectorController`, `SocketMqttController`, `UserAddedController`, `EzyIoTDeviceRepository`, `EzyIoTDeviceService`, `PaginationEzyIoTDeviceRepository`, `PaginationEzyIoTDeviceService`, `SocketEzyIoTConnectorValidator`.
-- **Class cấu hình/quyền (mẫu):** `MqttProperties`, `SocketEzyIoTDeviceConfig`.
-- **Điểm mở rộng tiềm năng theo tên class:** `EzyIoTMqttMessageListener`, `PluginEntryLoader`, `SocketMqttClient`.
+- **JARs inspected:** `ezyiot-sdk-0.0.3.jar`, `ezyiot-socket-plugin-0.0.3.jar`; 74 top-level classes after deduplicating by package and class name within the lane. The SDK can appear in multiple lanes.
+- **Notable packages:** `org.youngmonkeys.ezyiot.socket.plugin.mqtt`, `org.youngmonkeys.ezyiot.pagination`, `org.youngmonkeys.ezyiot.mqtt` (+16).
+- **Controllers, services, and repositories (sample):** `SessionRemovedController`, `SocketEzyIoTConnectorController`, `SocketMqttController`, `UserAddedController`, `EzyIoTDeviceRepository`, `EzyIoTDeviceService`, `PaginationEzyIoTDeviceRepository`, `PaginationEzyIoTDeviceService`, `SocketEzyIoTConnectorValidator`.
+- **Configuration and permission classes (sample):** `MqttProperties`, `SocketEzyIoTDeviceConfig`.
+- **Potential extension points based on class names:** `EzyIoTMqttMessageListener`, `PluginEntryLoader`, `SocketMqttClient`.
 - **Zone / entry loader:** `iot` / `org.youngmonkeys.ezyiot.socket.plugin.PluginEntryLoader`.
-- **Class controller/handler/event/request (mẫu):** `SessionRemovedController`, `SocketEzyIoTConnectorController`, `SocketMqttController`, `UserAddedController`, `UserLoginController`, `UserRemovedController`, `SocketDisconnectDevicesRequest`, `SocketMqttConnectRequest`, `SocketMqttPublishRequest`, `SocketMqttSubscribeRequest` (+3).
+- **Controller, handler, event, and request classes (sample):** `SessionRemovedController`, `SocketEzyIoTConnectorController`, `SocketMqttController`, `UserAddedController`, `UserLoginController`, `UserRemovedController`, `SocketDisconnectDevicesRequest`, `SocketMqttConnectRequest`, `SocketMqttPublishRequest`, `SocketMqttSubscribeRequest` (+3).
 
-Class và resource xác nhận có cấu trúc mở rộng trong bản đóng gói, không cam kết API ổn định hoặc handler đã chạy qua mọi nhánh.
+Classes and resources show that extension points are packaged; they do not establish API stability or confirm that every handler path has run.
 
-## Quan sát trên sandbox
+## Sandbox observations
 
-Admin `/ezyiot/devices` → 200; chưa thử thiết bị vật lý.
+Admin `/ezyiot/devices` returned 200. No physical device was tested.
 
-Xem bằng chứng nạp module và cổng TCP trong [kiểm thử Socket](test-report.md#gói-cài-được-và-kiểm-thử-http). Không kiểm chứng trao đổi Socket bằng client.
+See module-loading and TCP port evidence in the [Socket checks](test-report.md#installable-packages-and-http-tests). Socket communication was not verified with a client.
 
-## Lưu ý khi tích hợp
+## Integration notes
 
-Ví dụ Admin cấu hình thiết bị và xử lý sự kiện. Không suy giao thức thiết bị hoạt động chỉ từ danh sách Admin.
+See how Admin configures devices and handles events. The Admin list alone does not prove the device protocol works.
 
-[Về chỉ mục plugin](README.md)
+[Back to the plugin index](README.md)
