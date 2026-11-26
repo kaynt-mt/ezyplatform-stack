@@ -59,6 +59,55 @@ class SkillPackageTests(unittest.TestCase):
                 self.assertFalse(destination.exists())
 
 
+class EzySnapshotTests(unittest.TestCase):
+    def test_refresh_replaces_only_managed_snapshot_with_complete_sources(self):
+        body, checksum = package(("SKILL.md", "library skill"), ("scripts/tool.py", "tool"))
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            plugins = root / "plugins"
+            make_skill(plugins / "core" / "skills", "ezy-guide", "cppai skill")
+            shared = plugins / "core" / "skills" / "ezy-shared"
+            shared.mkdir()
+            (shared / "helper.py").write_text("helper")
+            (plugins / "LICENSE").write_text("CPPAI license")
+            make_skill(root / ".agents" / "skills", "ak-plan")
+            snapshot = root / "skills" / "upstream"
+            make_skill(snapshot, "stale")
+            (snapshot / SYNC.MANAGED).touch()
+            make_skill(root / "skills", "stack-guide")
+
+            with mock.patch.object(SYNC, "urlopen", return_value=io.BytesIO(body)) as download:
+                SYNC.refresh_ezy_skills(plugins, {"42": ["ezyplatform-example", checksum]}, root=root)
+
+            download.assert_called_once_with("https://ezyplatform.com/api/v1/skill-library/skills/42/package", timeout=30)
+            self.assertEqual({p.parent.name for p in snapshot.glob("*/SKILL.md")}, {"ezy-guide", "ezyplatform-example"})
+            self.assertEqual((snapshot / "ezyplatform-example" / "scripts" / "tool.py").read_text(), "tool")
+            self.assertEqual((snapshot / "ezy-shared" / "helper.py").read_text(), "helper")
+            self.assertEqual((snapshot / "LICENSE-CPPAI").read_text(), "CPPAI license")
+            self.assertTrue((snapshot / SYNC.MANAGED).is_file())
+            self.assertTrue((root / ".agents" / "skills" / "ak-plan" / "SKILL.md").is_file())
+            self.assertTrue((root / "skills" / "stack-guide" / "SKILL.md").is_file())
+
+    def test_refresh_rejects_unmanaged_snapshot_and_preserves_snapshot_on_checksum_failure(self):
+        body, _ = package(("SKILL.md", "library skill"))
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            plugins = root / "plugins"
+            snapshot = root / "skills" / "upstream"
+            original = make_skill(snapshot, "original", "keep")
+            packages = {"42": ["ezyplatform-example", "0" * 64]}
+            with mock.patch.object(SYNC, "urlopen") as download:
+                with self.assertRaisesRegex(ValueError, "not managed"):
+                    SYNC.refresh_ezy_skills(plugins, packages, root=root)
+                download.assert_not_called()
+
+            (snapshot / SYNC.MANAGED).touch()
+            with mock.patch.object(SYNC, "urlopen", return_value=io.BytesIO(body)):
+                with self.assertRaisesRegex(ValueError, "SHA-256 mismatch"):
+                    SYNC.refresh_ezy_skills(plugins, packages, root=root)
+            self.assertEqual((original / "SKILL.md").read_text(), "keep")
+
+
 class AgentKitSyncTests(unittest.TestCase):
     def test_merges_agentkit_skills_and_deduplicates_identical_overlap(self):
         with tempfile.TemporaryDirectory() as temp:
