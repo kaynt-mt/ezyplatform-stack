@@ -177,10 +177,25 @@ def sync_agentkit(config, require=False, root=ROOT):
         for name, version in validated_kits
     }
     all_cached = all(kit_pin_matches(kits_root / name, pins[name]) for name, _ in validated_kits)
-    if all_cached and ak_version_matches(ak_bin, cli_version):
+    has_ak = ak_version_matches(ak_bin, cli_version)
+    if all_cached and has_ak:
         for name, version in validated_kits:
             print(f"agentkit/{name}: {version} (cached)")
         return [kits_root / name / "skills" for name, _ in validated_kits]
+
+    if not all_cached and not has_ak and not os.environ.get("AGENTKIT_API_KEY") and not (Path.home() / ".agentkit").is_dir():
+        message = "AgentKit not authenticated: set AGENTKIT_API_KEY or run './scripts/ak login'"
+        if require:
+            raise ValueError(message)
+        print(f"Notice: {message}; skipping AgentKit skills.", file=sys.stderr)
+        return []
+
+    if not has_ak and sys.platform == "win32":
+        message = "AgentKit POSIX installer is unsupported on Windows"
+        if require:
+            raise ValueError(message)
+        print(f"Notice: {message}; skipping AgentKit skills.", file=sys.stderr)
+        return []
 
     ak_bin = ensure_ak_cli(cli_version, installer_sha256, root=root)
     if all_cached:

@@ -184,10 +184,35 @@ class AgentKitSyncTests(unittest.TestCase):
                 "kits": {"engineer": "3.2.0"},
             }
             fake_bin = root / ".upstream" / "agentkit" / "bin" / "ak"
-            with mock.patch.object(SYNC, "ensure_ak_cli", return_value=fake_bin), \
+            with mock.patch.dict("os.environ", {"AGENTKIT_API_KEY": "dummy"}), \
+                 mock.patch.object(SYNC, "ensure_ak_cli", return_value=fake_bin), \
                  mock.patch.object(SYNC, "ensure_ak_auth", return_value=(False, set())):
                 self.assertEqual(SYNC.sync_agentkit(config, require=False, root=root), [])
                 with self.assertRaisesRegex(ValueError, "AgentKit not authenticated"):
+                    SYNC.sync_agentkit(config, require=True, root=root)
+
+    def test_skips_installer_without_credentials_or_on_windows(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            config = {
+                "cli_version": "3.2.0",
+                "installer_sha256": "a" * 64,
+                "channel": "stable",
+                "target": "portable",
+                "kits": {"engineer": "3.2.0"},
+            }
+            fake_home = root / "empty-home"
+            fake_home.mkdir()
+            with mock.patch.dict("os.environ", {}, clear=True), \
+                 mock.patch.object(SYNC.Path, "home", return_value=fake_home), \
+                 mock.patch.object(SYNC, "ensure_ak_cli", side_effect=AssertionError("should not install")):
+                self.assertEqual(SYNC.sync_agentkit(config, require=False, root=root), [])
+
+            with mock.patch.dict("os.environ", {"AGENTKIT_API_KEY": "dummy"}), \
+                 mock.patch.object(SYNC.sys, "platform", "win32"), \
+                 mock.patch.object(SYNC, "ensure_ak_cli", side_effect=AssertionError("should not install on win32")):
+                self.assertEqual(SYNC.sync_agentkit(config, require=False, root=root), [])
+                with self.assertRaisesRegex(ValueError, "unsupported on Windows"):
                     SYNC.sync_agentkit(config, require=True, root=root)
 
     def test_skips_unlicensed_kit_without_blocking_licensed_kit(self):
@@ -210,7 +235,8 @@ class AgentKitSyncTests(unittest.TestCase):
                 "version": "3.2.0",
             }))
 
-            with mock.patch.object(SYNC, "ensure_ak_cli", return_value=fake_bin), \
+            with mock.patch.dict("os.environ", {"AGENTKIT_API_KEY": "dummy"}), \
+                 mock.patch.object(SYNC, "ensure_ak_cli", return_value=fake_bin), \
                  mock.patch.object(SYNC, "ensure_ak_auth", return_value=(True, {"engineer"})):
                 dirs = SYNC.sync_agentkit(config, require=False, root=root)
             self.assertEqual(dirs, [kit_dir / "skills"])
