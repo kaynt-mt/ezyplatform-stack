@@ -1,105 +1,135 @@
 ---
 name: ezy-build-plugin
-description: Tạo, lập trình, build, đóng gói, cài thử hoặc nâng cấp một plugin Java mới trên EzyPlatform Core Stack. Dùng khi cần scaffold Admin/Web, thêm API, menu, view, phân quyền, i18n, migration hoặc chuẩn bị phát hành plugin lên Marketplace.
+description: Scaffold, develop, build, package, install, or upgrade a Java plugin for EzyPlatform Core Stack. Use for Admin/Web modules, APIs, menus, views, permissions, i18n, migrations, and Marketplace releases.
 ---
 
-# Tạo plugin EzyPlatform mới
+# Build an EzyPlatform plugin
 
-Đây là skill hướng dẫn riêng cho **stack này**, không thay các skill upstream. App nằm ở repo riêng; repo core giữ runtime và công cụ. Nếu chỉ sửa bài viết, giao diện low-code hoặc nội dung EzyArticle, dùng nhóm skill nội dung bên dưới, không tạo plugin Java.
+This stack-specific skill complements the upstream skills. Keep the app in a separate repository; the core repo provides the runtime and tooling. For articles, low-code UI, or EzyArticle content, choose a content skill instead of creating a Java plugin.
 
-## 1. Chọn đúng skill
+## 1. Choose a skill
 
-Xem [danh mục đủ 19 skill Ezy](../README.md) để đồng bộ, tìm file `SKILL.md` và phân biệt plugin Java với nội dung EzyArticle hoặc tùy biến Admin qua EzySupport. Sau khi đọc `ezy-guide`, chọn **một** quy trình Java: `ezy-develop` (wrapper `ezy dev` của stack, dùng bên dưới) hoặc `ezyplatform-develop` (script Young Monkeys). Đọc `ezyplatform-install` nếu thiếu môi trường native và `ezy-market-submit` hoặc `ezyplatform-market-submit` nếu cần nộp plugin lên chợ.
+Use the [catalog of 19 Ezy skills](../README.md) to sync skills and choose the relevant `SKILL.md`. After reading `ezy-guide`, choose one Java workflow: `ezy-develop` (the `ezy dev` workflow below) or `ezyplatform-develop` (Young Monkeys scripts). Use `ezyplatform-install` to prepare a native environment, and `ezy-market-submit` or `ezyplatform-market-submit` for Marketplace releases.
 
-## 2. Tạo project Maven trong môi trường build native
+## 2. Scaffold in a native build environment
 
-Đừng nhầm `./scripts/ezy new` với generator plugin: `new --mode live|local|both` tạo **project nội dung** có `environment.json`; không tạo module Java. `./scripts/ezy dev create` gọi **SDK** `ezy.sh create` và cần một `EZYPLATFORM_HOME` native có `cli.sh`, JDK 8, Maven, SDK và thư viện phát triển. Không trỏ `--home` vào checkout của core hoặc đường dẫn volume Compose. Dùng **native riêng để build** và **Docker của stack để chạy nghiệm thu**. Không cài native lên máy hoặc động vào môi trường dùng chung nếu chưa được phép.
+`ezy new --mode live|local|both` creates a **content project** with `environment.json`, not a Java plugin. Scaffold Java modules using the SDK's `ezy.sh create` via the stack helper below. Build in a **separate native install** and test the result in the stack's **Docker runtime**. Do not install native tooling or change shared environments without approval.
 
-Ví dụ Linux/WSL/macOS, thay hai đường dẫn tuyệt đối trước khi chạy. Nếu chưa có EzyPlatform native, đọc `ezyplatform-install` và [hướng dẫn cài môi trường phát triển](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-setup-development-environment?lang=vi) để chuẩn bị một môi trường riêng, tương thích với core đích; không thay bản Compose đang dùng. Kiểm tra các phiên bản runtime, SDK, artifact core trong POM và dependency thực sự cần. Stack hiện pin runtime **1.5.9**, **Java 11**, **MySQL 8.0**; SDK/CLI là các công cụ có version riêng. Windows dùng hướng dẫn PowerShell của skill upstream. Nếu chạy native và Compose trên cùng máy, tách cổng Admin/Web và dùng DB riêng.
+Follow `ezyplatform-install` and the [development environment guide](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-setup-development-environment?lang=vi). The native build needs JDK 8, Maven, the development SDK, and development libraries matching the target runtime. The Docker stack pins EzyPlatform **1.5.9**, container Java **11**, and MySQL **8.0**; the SDK and CLI have independent versions. If native and Docker run on the same machine, use separate Admin/Web ports and databases.
+
+Use **`--dir` with the installation root** if the native installer was run with `install --dir`. For instance, pass `--dir /path/to/native-install` when the runtime is `/path/to/native-install/ezyplatform` and its JDK is `/path/to/native-install/jdk`; setup will use the matching `dev/` directory. **`--home` identifies a runtime home containing `cli.sh`**; it does not select the enclosing custom installation root and may use the default development tools directory. Do not pass the core checkout or a Compose volume as either flag.
+
+Example for Linux, WSL, or macOS (replace the paths). On Windows, use the upstream PowerShell instructions for native installation and WSL for the Bash workflow below.
 
 ```bash
-STACK=/duong/dan/ezyplatform-stack
-NATIVE_HOME=/duong/dan/runtime-native-rieng
+STACK=/path/to/ezyplatform-stack
+NATIVE_DIR=/path/to/native-install
+NATIVE_HOME="$NATIVE_DIR/ezyplatform"
 OUT="$(dirname "$STACK")"
 
-"$STACK/scripts/ezy" dev check --home "$NATIVE_HOME"
-# Chỉ chạy setup nếu thiếu tool; có thể tải JDK/Maven/SDK và cài artifact vào ~/.m2.
-"$STACK/scripts/ezy" dev setup --home "$NATIVE_HOME" --no-profile
-"$STACK/scripts/ezy" dev create example-plugin --home "$NATIVE_HOME" \
+"$STACK/scripts/ezy" dev check --dir "$NATIVE_DIR"
+# Only run setup if tools or libraries are missing; it can download tools and install Maven artifacts.
+"$STACK/scripts/ezy" dev setup --dir "$NATIVE_DIR" --no-profile
+python3 "$STACK/scripts/ezy-plugin.py" create example-plugin --dir "$NATIVE_DIR" \
   --group com.example --package com.example.plugin \
   --modules admin-plugin,web-plugin --out "$OUT"
 cd "$OUT/example-plugin"
 ```
 
-Dùng group/package do dự án sở hữu. Chọn thư mục mới, không ghi đè project có sẵn. Nếu gọi SDK trực tiếp trong môi trường đã cài, lệnh tương đương là `ezy.sh cp example-plugin -g com.example -p com.example.plugin -i admin-plugin,web-plugin -o "$OUT"`. Xem [quickstart](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-plugin-development-quickstart?lang=vi) và [lệnh SDK](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-sdk-commands?lang=vi).
+Use a group and package you own. The helper refuses to overwrite an existing project, creates the empty target expected by SDK 0.2.8, and corrects generated `assembly.xml` exclusions from the project group to `org.youngmonkeys:ezyplatform-*`. If scaffold fails, inspect the newly created directory and use a fresh target when you retry. See the [quickstart](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-plugin-development-quickstart?lang=vi) and [SDK commands](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-sdk-commands?lang=vi).
 
-| Thư mục/file | Công việc |
-| --- | --- |
-| Root `pom.xml`, `export.sh`/`export.bat` | Maven reactor, version/profiles, quy trình build và export theo scaffold. Đọc script thực tế trước khi chạy. |
-| `<project>-sdk` | Phần **common** của plugin: entity, repository, domain service/policy, DTO/enum dùng chung. Không phải module cài riêng; không tạo thêm `*-common` nếu chưa có lý do và không nhầm với `ezyplatform-common` của core. |
-| `<project>-admin-plugin` | Controller/view vận hành, cấu hình module, menu và SQL script do Admin áp dụng. |
-| `<project>-web-plugin` | Controller/API cho user, Web auth, view/fragment tương thích với theme và static files nếu cần. |
-| Module triển khai | `module.properties` chứa loại và dependency runtime; `assembly.xml` điều khiển bundle; `src/main/resources/{templates,static,messages}` cho UI. `menus.properties` ở root Admin module. Theme và Socket là tùy chọn, không bật nếu không cần; mỗi Web runtime chỉ có một theme active. |
+### Maven download and cache troubleshooting
 
-Xem [cấu trúc plugin](https://youngmonkeys.org/ezyplatform/guides/the-structure-of-a-plugin-project?lang=vi) và [book-store mẫu](https://github.com/youngmonkeys/ezyplatform-examples/tree/main/book-store). Với plugin phụ thuộc module đã quản lý, đối chiếu cả dependency/version ở POM, `dependencies` trong `module.properties` và `@ComponentsScan` của startup test. Chỉ khi được phép, dùng `"$STACK/scripts/ezy" dev link <tên-plugin> --home "$NATIVE_HOME" -m admin-plugin,web-plugin` với module thực sự sử dụng. **Lệnh có thể tải/cài/kích hoạt dependency còn thiếu**; không chạy khi chỉ đang tra cứu. [Hướng dẫn liên kết](https://youngmonkeys.org/ezyplatform/guides/link-a-plugin?lang=vi).
-
-## 3. Lập trình một lát cắt hoàn chỉnh
-
-1. **Schema và Java:** đặt entity JPA, repository theo EzyData (ví dụ `@EzyRepository` và `EzyDatabaseRepository`), service và policy ở SDK. Luồng ghi: DTO → validate → kiểm quyền → transaction → response DTO. Đặt điều kiện phạm vi truy cập ngay trong query, index theo bộ lọc thực tế và tái sử dụng core User làm danh tính khi phù hợp. [Nghiên cứu EzyPlatform](../../docs/research/ezyplatform-deep-research.md).
-   - Dùng `@EzyQuery` cho join/sort/projection; nếu dùng `Next` cho offset/limit, đặt ở đối số cuối. Với mutation nhiều bước, đừng coi các write query tự sinh là cùng transaction: kiểm đường `EzyJpaRepository`/một `EntityManager` trên SDK đã pin và test rollback giữa các bước. [EzyData](../../docs/research/youngmonkeys/ezydata.md).
-   - Để runtime inject service không giữ state request, kiểm package scan và thứ tự cấu hình → bean → after-config bằng startup test; không tạo context standalone trong plugin. [EzyFox Bean](../../docs/research/youngmonkeys/ezyfox-library.md).
-2. **Migration:** đặt SQL có prefix của plugin ở `<project>-admin-plugin/src/main/resources/scripts/`; xem [SQL mẫu](https://github.com/youngmonkeys/ezyplatform-examples/tree/main/personal/personal-admin-plugin/src/main/resources/scripts). Skill phát triển mô tả script áp dụng một lần theo tên file; giữ nguyên file đã phát hành, mỗi thay đổi thêm file riêng. Kiểm chứng cài mới và nâng từ bản trước; đừng giả định migration tự rollback hoặc Web-only plugin tự chạy script Admin. Sao lưu cả DB và runtime trước khi ghi vào môi trường có dữ liệu; dùng quy trình expand–migrate–contract nếu thay đổi không tương thích.
-3. **Admin:** thêm `menus.properties` cho menu và khai báo route ẩn theo convention của mẫu nếu đó là màn chi tiết; đặt template dưới `templates/<project>/`, dùng controller EzyHTTP trả `View`. Kiểm tra prefix thực tế của plugin. Dùng `@Authenticated`, `@AdminId` và `@EzyFeature` cho quyền Admin; ẩn nút bằng UI không phải kiểm quyền server. [Trang Admin](https://youngmonkeys.org/ezyplatform/guides/create-an-admin-page?lang=vi) · [Menu](https://youngmonkeys.org/ezyplatform/guides/create-menus-for-admin-plugin?lang=vi).
-   - Khi cần đóng góp vào layout chung, dùng fragment và `ViewDecorator` thay vì sửa template core. Ví dụ toolbar phải nhận tên fragment qua `rightToolbarToolFragments`, render region `content`; vẫn phải bảo vệ API đằng sau nút. [Toolbar Admin](https://youngmonkeys.org/ezyplatform/guides/add-admin-right-toolbar-tool?lang=vi).
-4. **Web:** controller API dùng danh tính `@UserId` sau khi xác nhận Web auth interceptor được đăng ký cho route của mình; nếu có view, dùng namespace riêng, Thymeleaf/fragment hoặc mount UI qua điểm mở rộng của theme đang dùng. Kiểm tra quyền theo user và tài nguyên ở service, kể cả download, search và count; không cấp quyền hệ thống Admin cho thành viên. Test anonymous, sai role, tài nguyên ngoài phạm vi, thành viên hợp lệ và sau khi thu hồi quyền. [Xác thực Web](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-web-authentication?lang=vi) · [Phân quyền](https://youngmonkeys.org/ezyplatform/guides/permission-in-ezyplatform?lang=vi) · [Theme/plugin](https://youngmonkeys.org/ezyplatform/guides/understanding-ezyplatform-themes-and-plugins?lang=vi).
-   - Bind DTO theo path/query/body; chọn `View` cho HTML và DTO/`ResponseEntity` cho API; kiểm lỗi xác thực/phân quyền không rơi vào handler nghiệp vụ. Hoãn Socket tới sau MVP HTTP, rồi test subscribe/reconnect và quyền fan-out. [EzyHTTP](../../docs/research/youngmonkeys/ezyhttp.md) · [EzyFox Server](../../docs/research/youngmonkeys/ezyfox-server.md).
-5. **i18n và static:** đưa nhãn menu, lỗi form và chuỗi mặc định vào `messages/messages.properties`, thêm `messages_vi.properties` và ngôn ngữ cần hỗ trợ. Template dùng key thay text hardcode; chỉ expose key cần cho JS. `static/` có thể truy cập qua HTTP, không để cấu hình bí mật bên trong. [Đa ngôn ngữ](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-multi-languages?lang=vi).
-
-## 4. Test, build, export và kiểm ZIP
-
-Từ repo plugin, kiểm tra các Maven profile và địa chỉ DB dành cho test; chỉ dùng DB dev. Chạy kiểm tra/test bằng Maven trong môi trường của helper, sau đó dùng script scaffold để đóng gói. Với các dự án mẫu, profile export có thể tắt test nên lần export thành công **không thay** lần chạy suite test riêng.
+The pinned upstream `ezy dev setup` helper owns the Maven distribution download. If Maven Central returns HTTP 429, provision Maven separately and put its `bin` directory first on `PATH` before running setup. For Maven 3.9.16, the pilot used the same distribution and SHA-512 from a Maven Central mirror. Run this in a scratch directory outside the stack, and extract only after verification succeeds:
 
 ```bash
-"$STACK/scripts/ezy" dev run --home "$NATIVE_HOME" -- mvn clean verify
-"$STACK/scripts/ezy" dev run --home "$NATIVE_HOME" -- bash export.sh
+archive=apache-maven-3.9.16-bin.tar.gz
+mirror=https://maven-central.storage-download.googleapis.com/maven2/org/apache/maven/apache-maven/3.9.16
+curl -fLO "$mirror/$archive" &&
+  curl -fLO "$mirror/$archive.sha512" &&
+  printf '%s  %s\n' "$(tr -d '[:space:]' < "$archive.sha512")" "$archive" | sha512sum -c - &&
+  tar -xzf "$archive" &&
+  export PATH="$PWD/apache-maven-3.9.16/bin:$PATH"
 ```
 
-Theo [script mẫu](https://github.com/youngmonkeys/ezyplatform-examples/blob/main/book-store/export.sh), script build từng module theo profile của POM → `ezy.sh package` → `ezy.sh export`. Export ghi vào **native**; lệnh trên không tự kích hoạt/restart. Nếu muốn package mà không ghi vào native runtime, dùng các bước Maven của chính scaffold đến trước dòng export và gọi `ezy.sh package` (không chạy riêng package khi chưa có artifact Maven). Nếu dùng `ezy dev export` thay thế, helper **tự kích hoạt module native và mặc định restart**, có thể đổi theme active. Chỉ dùng trong sandbox nếu đó là hành vi mong muốn.
+Use your approved mirror in Maven's `settings.xml` if artifact downloads also hit the rate limit (for the pilot, a mirror with `mirrorOf` set to `central` and URL `https://maven-central.storage-download.googleapis.com/maven2` worked). To use a non-default local cache, configure **both** Maven and the helper's independent cache check, before setup, verify, and export:
 
-Lấy ZIP project trong `target/project/` theo output thật. Kiểm tra cấu trúc và nội dung ZIP: module đúng loại/version, có templates/messages/SQL dự kiến, không có test config, token, core JAR trùng hay file thay cấu hình nền tảng. Lưu tên artifact, version và SHA-256 dùng để chuyển sang Docker. [Lệnh package/export](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-sdk-commands?lang=vi).
+```bash
+export MAVEN_LOCAL_REPO=/absolute/path/to/maven-cache
+export MAVEN_ARGS="-Dmaven.repo.local=$MAVEN_LOCAL_REPO"
+# If needed, append this using the path to your Maven settings file:
+# export MAVEN_ARGS="$MAVEN_ARGS -s /absolute/path/to/settings.xml"
+```
 
-## 5. Cài artifact của chính mình vào Docker dev
-
-1. Ở repo core, làm theo [README](../../README.md): `./scripts/up.sh`; nếu mới hoàn toàn, vào `http://127.0.0.1:9090/setup-admin`, tạo super admin rồi đăng nhập `/login`. Web mặc định ở `http://127.0.0.1:8080/`; nếu đổi cổng, dùng URL script báo. Không dùng Admin production.
-2. Trong **Modules** ở Admin local, chọn **Upload Project** cho ZIP project của mình, kiểm tra tên/version rồi **Active** đúng loại Admin/Web. Không dùng Upload Project thay đường cài Marketplace có kiểm chữ ký cho plugin bên thứ ba; `cli.sh "install <name>"` tra Marketplace, không phải lệnh cài ZIP local. Không tự chép JAR vào volume hoặc chỉnh plugin đã cài.
-3. Khi UI đã lưu việc kích hoạt và không tự restart, chạy `docker compose restart ezyplatform` từ repo core. Dùng `docker compose ps` và `docker compose logs --tail=100 ezyplatform mysql` để xác nhận; nếu UI báo còn chờ **Apply**, xử lý theo UI trước khi coi module đã chạy. Sau đó kiểm tra version active, menu/view Admin, route Web, lược đồ và dữ liệu; HTTP 200 ở trang chủ chỉ là kiểm tra core sống. [Cài, kích hoạt module](https://youngmonkeys.org/ezyplatform/guides/add-a-plugin-to-your-ezyplatform?lang=vi). [Báo cáo thử 37 plugin](../../docs/plugins/test-report.md#thứ-tự-phụ-thuộc-đáng-lưu-ý) ghi nhận lỗi thiếu bảng khi bật hàng loạt và Admin/Web khởi động song song: kiểm dependency trước, rồi xác nhận migration từ log và lược đồ trước khi kết luận Web hoạt động.
-
-Compose chỉ tự khởi động Admin/Web. Nếu chọn thêm module Socket, phải bật và khởi động Socket rồi kiểm riêng kết nối/giao thức; Admin/Web lên không chứng minh Socket hoạt động.
-
-## 6. Gỡ lỗi, nâng cấp và phát hành
-
-| Triệu chứng | Kiểm tra trước |
+| Path | Purpose |
 | --- | --- |
-| Thiếu parent/Test SDK hoặc không thấy `systemPath` | Kiểm `ezy dev check --home …`, JDK/Maven/SDK, native path và version JAR. `ezy dev sync-versions --home …` cập nhật version của dependency **đã cài**; xem diff, không tự nâng core. |
-| Không thấy menu/JS/i18n, 404 | Kiểm ZIP, active/version theo loại module, prefix controller và menu, namespace template, asset/message bundle. Với `*StartupTest` trong IDE đặt working dir là module; tránh trùng cổng với runtime đang chạy. |
-| 401/403 hoặc Web lấy user ID rỗng | Kiểm interceptor/theme và annotation; chạy lại cả ca có quyền lẫn không quyền, không bỏ xác thực để né lỗi. |
-| App không lên sau cài, DB lỗi, lỗi class/linkage | Xem log Admin/Web trước, đối chiếu SQL/migration, `dependencies`, version, JAR core bị đóng gói trùng. Không xóa volume để “sửa” dữ liệu. [Lỗi build/export](https://youngmonkeys.org/ezyplatform/guides/nhung-ly-do-khien-ban-khong-the-build-chay-va-export-duoc-du-an-plugin-ezyplatform?lang=vi). |
+| Root `pom.xml`, `export.sh` / `export.bat` | Maven reactor, versions, profiles, and generated build/export workflow. Read the actual script before running it. |
+| `<project>-sdk` | Shared entities, repositories, services, policies, DTOs, and enums. This is not a separately installed module or the platform's `ezyplatform-common`. |
+| `<project>-admin-plugin` | Admin controllers/views, module configuration, menus, and SQL scripts applied by Admin. |
+| `<project>-web-plugin` | User-facing controllers/APIs, Web auth, views/fragments compatible with the active theme, and static assets. |
+| Deployable module | Runtime type/dependencies in `module.properties`, bundle rules in `assembly.xml`, and templates, static assets, and messages in `src/main/resources/`. `menus.properties` is at the Admin module root. Theme and Socket are optional; only one theme can be active per Web runtime. |
 
-Trên native, các lệnh chẩn đoán chạy qua `"$STACK/scripts/ezy" dev <lệnh> --home "$NATIVE_HOME"`:
+See the [plugin structure guide](https://youngmonkeys.org/ezyplatform/guides/the-structure-of-a-plugin-project?lang=vi) and [book-store example](https://github.com/youngmonkeys/ezyplatform-examples/tree/main/book-store). For managed dependencies, verify the POM coordinates/version, `dependencies` in `module.properties`, and startup test `@ComponentsScan`. Only with approval, use `"$STACK/scripts/ezy" dev link <plugin-name> --dir "$NATIVE_DIR" -m admin-plugin,web-plugin` with the modules that actually need it. This can download, install, and activate missing dependencies. See [linking a plugin](https://youngmonkeys.org/ezyplatform/guides/link-a-plugin?lang=vi).
 
-- `status` để xem URL, trạng thái Admin/Web và module active; xem thêm `$NATIVE_HOME/logs/{admin,web}-server.log`. `restart` khởi động lại Admin/Web native, không điều khiển Compose.
-- `tables core` hoặc `tables <tên-plugin>` chỉ lập danh mục SQL tạo bảng, không đọc lược đồ DB đã migrate.
-- `find-class <tên-lớp>` chỉ ra JAR chứa lớp; `decompile <tên-đầy-đủ-hoặc-đường-dẫn-JAR>` chỉ dùng với artifact cục bộ có quyền kiểm tra, ưu tiên public SDK/source. Không sao chép mã giải biên dịch vào plugin.
+## 3. Implement a complete slice
 
-**Nâng cấp local:** tăng version của bundle, chạy test fresh install và upgrade có dữ liệu mẫu; sao lưu DB/runtime. Trong Admin chọn **Update Manually**, tải ZIP mới, **Apply** theo [hướng dẫn cập nhật](https://youngmonkeys.org/ezyplatform/guides/update-a-plugin?lang=vi), rồi xác nhận phiên bản thực tế, schema và quyền. Rebuild image không thay plugin trong volume cũ. Rollback artifact không đảo ngược migration; nếu không tương thích, khôi phục cặp DB/runtime đã kiểm tra.
+1. **Schema and Java:** Use JPA entities and EzyData repositories (for example, `@EzyRepository` and `EzyDatabaseRepository`), plus SDK services and policies. Sequence writes as DTO → validate → authorize → transaction → response DTO. Scope access in queries, index actual filters, and reuse core User identities when appropriate. See [EzyPlatform research](../../docs/research/ezyplatform-deep-research.md).
+   - Use `@EzyQuery` for joins, sorting, and projections; pass `Next` last for offset/limit. Do not assume generated write queries share a transaction: verify the pinned SDK's `EzyJpaRepository` and single-`EntityManager` path, and test rollback between writes. See [EzyData](../../docs/research/youngmonkeys/ezydata.md).
+   - Verify package scanning and the configuration → bean → after-config order with a startup test. Keep request state out of injected runtime services and do not create a standalone plugin context. See [EzyFox Bean](../../docs/research/youngmonkeys/ezyfox-library.md).
+2. **Migration:** Put plugin-prefixed SQL in `<project>-admin-plugin/src/main/resources/scripts/`; see the [example SQL](https://github.com/youngmonkeys/ezyplatform-examples/tree/main/personal/personal-admin-plugin/src/main/resources/scripts). Scripts are applied once by filename. Keep released files unchanged and add a file for each change. Test fresh installs and upgrades; do not assume automatic rollback or that Web-only plugins run Admin migrations. Back up DB and runtime before changes to environments containing data; use expand–migrate–contract for incompatible changes.
+3. **Admin:** Define menus in `menus.properties` and use the example convention for hidden detail routes. Place templates under `templates/<project>/` and return a `View` from an EzyHTTP controller. Verify the actual plugin prefix. Use `@Authenticated`, `@AdminId`, and `@EzyFeature` for Admin permissions; hiding UI controls is not server-side authorization. See [Admin pages](https://youngmonkeys.org/ezyplatform/guides/create-an-admin-page?lang=vi) and [menus](https://youngmonkeys.org/ezyplatform/guides/create-menus-for-admin-plugin?lang=vi).
+   - Use fragments and `ViewDecorator` to extend layout rather than editing core templates. For example, a toolbar uses `rightToolbarToolFragments` and renders the `content` region; still protect its API. See [Admin toolbar](https://youngmonkeys.org/ezyplatform/guides/add-admin-right-toolbar-tool?lang=vi).
+4. **Web:** Use `@UserId` after verifying that the Web auth interceptor covers your route. Namespace views and use Thymeleaf/fragments or the active theme's extension points. Scope service access by user and resource, including downloads, searches, and counts. Do not grant Admin permissions to members. Test anonymous requests, wrong roles, out-of-scope resources, valid members, and revoked access. See [Web authentication](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-web-authentication?lang=vi), [permissions](https://youngmonkeys.org/ezyplatform/guides/permission-in-ezyplatform?lang=vi), and [themes/plugins](https://youngmonkeys.org/ezyplatform/guides/understanding-ezyplatform-themes-and-plugins?lang=vi).
+   - Bind DTOs from path/query/body; return `View` for HTML and a DTO or `ResponseEntity` for APIs. Confirm unauthorized requests do not reach business handlers. Defer Socket until after the HTTP MVP, then test subscription, reconnect, and fan-out permissions. See [EzyHTTP](../../docs/research/youngmonkeys/ezyhttp.md) and [EzyFox Server](../../docs/research/youngmonkeys/ezyfox-server.md).
+5. **i18n and static assets:** Put menu labels, form errors, and default strings in `messages/messages.properties`; add `messages_vi.properties` and other required locales. Use keys in templates and expose only the keys JS needs. `static/` is accessible via HTTP, so never store secrets there. See [multilingual support](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-multi-languages?lang=vi).
 
-**Marketplace:** chỉ làm khi được yêu cầu và có quyền; xin duyệt riêng trước mỗi thao tác ghi. Đọc [FAQ](https://ezyplatform.com/faq) và `ezy-market-submit` hoặc `ezyplatform-market-submit`. Kiểm tra tương thích từ Java 8, i18n, license tài nguyên, namespace dành riêng, kích thước và nội dung bundle; đối chiếu giới hạn thực tế của server. Chuẩn bị icon/banner, metadata và release notes, ZIP tên `<url-name>-<X.Y.Z>.zip`. Với wrapper, quy trình là `ezy market login` (người dùng phê duyệt trong trình duyệt) → `projects`/`categories` → `create --json …` nếu chưa có project → `upload-version --name … --version … --zip … --notes-file …` → `status --name …` → `release --name …` **chỉ sau khi** bản đạt `RELEASABLE` và được duyệt phát hành. Mỗi lệnh đều đi qua `"$STACK/scripts/ezy"`.
+## 4. Verify, export, and check the ZIP
 
-Nếu Marketplace yêu cầu mã nguồn, chỉ nộp bản đã được phép chia sẻ bằng `upload-source --name … --version … --zip … --notes-file …`, với ZIP `<url-name>-<version>-sources.zip`. Viết hướng dẫn cài đặt, cấu hình, quyền và nâng cấp trong mục Docs của project (`/account/projects/<url-name>/docs`). CLI lưu token ở `~/.ezyplatform/credentials.json`; không đưa file này, token, mật khẩu, cookie hay DB dump vào log, ZIP hoặc Git. Tài liệu này không yêu cầu login hoặc publish thật.
+From the plugin repo, review Maven profiles and test database endpoints; use only a dev database. Run the test suite separately because export profiles may skip tests. Read the generated export script and use the ZIP path printed by export:
 
-### Checklist bàn giao
+```bash
+"$STACK/scripts/ezy" dev run --dir "$NATIVE_DIR" -- mvn clean verify
+"$STACK/scripts/ezy" dev run --dir "$NATIVE_DIR" -- bash export.sh
+ZIP=target/project/example-plugin-1.0.0.zip
+python3 "$STACK/scripts/ezy-plugin.py" check-zip "$ZIP"
+```
 
-- [ ] Repo plugin riêng; module/dependency/version đúng; các lệnh chạy đúng môi trường native hay Docker.
-- [ ] Test domain, phân quyền chéo scope và migration mới/nâng cấp; không dựa vào kết quả build hay trang chủ.
-- [ ] ZIP sạch; cài đúng version ở sandbox; kiểm Admin và Web, i18n, log, rollback.
-- [ ] Báo đường dẫn artifact, version, SHA-256, kết quả đã chứng minh và phần chưa kiểm. Chỉ đưa lên Marketplace khi có phê duyệt riêng.
+The [example export script](https://github.com/youngmonkeys/ezyplatform-examples/blob/main/book-store/export.sh) runs Maven module builds followed by `ezy.sh package` and `ezy.sh export`. This writes to the **native** runtime without implicitly activating or restarting modules. To package without writing to that runtime, run the generated Maven steps and `ezy.sh package`, stopping before `ezy.sh export`. Do not package before building Maven artifacts. The alternative `ezy dev export` **activates native modules and restarts by default**, which can change the active theme; use it only if wanted in a sandbox. See [SDK package/export commands](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-sdk-commands?lang=vi).
+
+The ZIP helper checks integrity and rejects bundled EzyPlatform core JARs, including `ezyplatform-*-sdk`. Also inspect module types and versions, expected templates/messages/SQL, and the absence of test configuration, secrets, or files overriding platform configuration. Record the artifact path, version, and SHA-256 before installing it in Docker.
+
+## 5. Install your artifact in Docker dev
+
+1. From the stack repo, follow the [README](../../README.md) and run `./scripts/up.sh`. For a fresh runtime, create a super admin at <http://127.0.0.1:9090/setup-admin>, then sign in at `/login`. The default Web URL is <http://127.0.0.1:8080/>; use the printed URL if you changed ports. Do not use production Admin.
+2. In Admin, go to **Plugins → Add New → Upload** and select your project ZIP. Check the name/version, then **Activate** each intended module (for example, Admin and Web). Verify the action has changed to **Deactivate**; follow any **Apply** prompt before continuing. Use the signature-checked Marketplace workflow for third-party plugins instead. `cli.sh "install <name>"` searches the Marketplace; it does not install a local ZIP. Do not copy JARs into the volume or modify installed plugins directly.
+3. Once activation is saved, run `docker compose restart ezyplatform` from the stack repo (using the same Compose project as startup). Confirm readiness with `docker compose ps` and `docker compose logs --tail=100 ezyplatform mysql`. Verify the active version, actual Admin menu/view, actual Web route, schema, and data. HTTP 200 on the default home page only shows the core is up. See [installing and activating a plugin](https://youngmonkeys.org/ezyplatform/guides/add-a-plugin-to-your-ezyplatform?lang=vi) and the [37-plugin test report](../../docs/plugins/test-report.md#thứ-tự-phụ-thuộc-đáng-lưu-ý): check dependencies and migration logs/schema before concluding that Web works.
+
+On a first boot, Web `/` can temporarily return 404 even after Admin is ready. Wait for `up.sh` to finish its readiness and restart checks; see the [README](../../README.md). This differs from a plugin route that still returns 404 after activation and restart. Compose starts only Admin/Web by default; enable and start Socket separately if your project uses it, and test the Socket connection and protocol directly.
+
+## 6. Troubleshoot, upgrade, and release
+
+| Symptom | First checks |
+| --- | --- |
+| Missing parent/Test SDK or `systemPath` | Run `ezy dev check --dir …` and verify JDK/Maven/SDK, native paths, and JAR versions. `ezy dev sync-versions --dir …` updates versions of **installed** dependencies; review the diff and do not upgrade core automatically. |
+| Missing menu/JS/i18n or route 404 | Check ZIP, active module type/version, route and menu prefixes, template namespaces, and assets/messages. For IDE `*StartupTest` runs use the module as working directory and avoid runtime port conflicts. |
+| 401/403 or absent Web user ID | Check interceptor/theme and annotations. Retest with and without access; do not bypass authentication. |
+| Startup, database, class, or linkage errors after install | Check Admin/Web logs, migrations, `dependencies`, versions, and duplicate core JARs. Do not delete volumes to fix data. See [build/export troubleshooting](https://youngmonkeys.org/ezyplatform/guides/nhung-ly-do-khien-ban-khong-the-build-chay-va-export-duoc-du-an-plugin-ezyplatform?lang=vi). |
+
+For native diagnostics, use `"$STACK/scripts/ezy" dev <command> --dir "$NATIVE_DIR"`:
+
+- `status` shows URLs, Admin/Web status, and active modules; see also `$NATIVE_HOME/logs/{admin,web}-server.log`. `restart` restarts native Admin/Web, not Compose.
+- `tables core` or `tables <plugin-name>` lists SQL definitions, not the migrated database schema.
+- `find-class <class-name>` locates a class in a JAR. Use `decompile <qualified-name-or-JAR-path>` only for local artifacts you are authorized to inspect; prefer public SDK/source and do not copy decompiled code into a plugin.
+
+**Local upgrades:** Bump the bundle version, test fresh install and upgrade with sample data, and back up DB/runtime. In Admin, choose **Update Manually**, upload the new ZIP, and **Apply** as described in the [upgrade guide](https://youngmonkeys.org/ezyplatform/guides/update-a-plugin?lang=vi). Check version, schema, and permissions. An image rebuild does not replace plugins stored in an existing runtime volume. Rolling back the artifact does not roll back migrations; restore the verified DB/runtime pair if incompatible.
+
+**Marketplace:** Publish only when requested and authorized; obtain separate approval before each write. Read the [FAQ](https://ezyplatform.com/faq) and `ezy-market-submit` or `ezyplatform-market-submit`. Check Java 8 compatibility, locales, asset licenses, reserved namespaces, bundle size/content, and server limits. Prepare icon/banner, metadata, release notes, and `<url-name>-<X.Y.Z>.zip`. Run each wrapper command via `"$STACK/scripts/ezy"`: `market login` (user approves in their browser) → `market projects` / `market categories` → `market create --json …` if needed → `market upload-version --name … --version … --zip … --notes-file …` → `market status --name …` → `market release --name …` **only after** status is `RELEASABLE` and release is approved.
+
+If source is required, submit only an authorized copy via `market upload-source --name … --version … --zip … --notes-file …` as `<url-name>-<version>-sources.zip`. Document installation, configuration, permissions, and upgrades in project Docs (`/account/projects/<url-name>/docs`). The CLI stores its token in `~/.ezyplatform/credentials.json`; keep that file, tokens, passwords, cookies, and database dumps out of logs, ZIPs, and Git. This workflow does not require logging in or publishing.
+
+### Handoff checklist
+
+- [ ] Separate plugin repo; correct modules, dependencies, and versions; commands use the correct native or Docker environment.
+- [ ] Domain, cross-scope permissions, fresh migrations, and upgrades tested; not just build success or home-page availability.
+- [ ] Clean ZIP and correct installed version in the sandbox; Admin, Web, i18n, logs, and rollback checked.
+- [ ] Report artifact path, version, SHA-256, evidence, and anything unverified. Publish only with separate approval.

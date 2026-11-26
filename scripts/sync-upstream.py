@@ -10,6 +10,7 @@ import stat
 import subprocess
 import sys
 import tempfile
+import time
 from contextlib import contextmanager
 from pathlib import Path, PurePosixPath
 from urllib.request import Request, urlopen
@@ -22,6 +23,30 @@ MAX_INSTALLER_SIZE = 2 * 1024 * 1024
 AGENTKIT_INSTALL_URL = "https://agentkit.best/install.sh"
 SAFE_TOKEN = re.compile(r"^[A-Za-z0-9._-]+$")
 SHA256_HEX = re.compile(r"^[0-9a-f]{64}$")
+
+
+@contextmanager
+def upstream_lock(root):
+    lock_path = root / ".upstream" / ".sync.lock"
+    lock_path.parent.mkdir(exist_ok=True)
+    with lock_path.open("a+b") as handle:
+        if os.name == "nt":
+            import errno
+            import msvcrt
+
+            while True:
+                try:
+                    msvcrt.locking(handle.fileno(), msvcrt.LK_NBLCK, 1)
+                    break
+                except OSError as error:
+                    if error.errno not in (errno.EACCES, errno.EDEADLK):
+                        raise
+                    time.sleep(0.1)
+        else:
+            import fcntl
+
+            fcntl.flock(handle, fcntl.LOCK_EX)
+        yield
 
 
 def git(directory, *args):
@@ -342,7 +367,6 @@ def sync_skills(plugins, packages, agentkit_skill_dirs=(), root=ROOT):
 
 
 def main():
-    lock = json.loads((ROOT / "upstream.lock.json").read_text())
     parser = argparse.ArgumentParser()
     parser.add_argument("--runtime-only", action="store_true", help="Sync Docker and CLI only")
     parser.add_argument("--refresh-ezy-skills", action="store_true", help="Refresh only the tracked Ezy skills snapshot")
@@ -351,9 +375,15 @@ def main():
     args = parser.parse_args()
     if args.skip_agentkit and args.require_agentkit:
         raise ValueError("--skip-agentkit and --require-agentkit cannot be combined")
+    if args.refresh_ezy_skills and (args.runtime_only or args.skip_agentkit or args.require_agentkit):
+        parser.error("--refresh-ezy-skills cannot be combined with other sync modes")
+    with upstream_lock(ROOT):
+        sync_upstream(args)
+
+
+def sync_upstream(args):
+    lock = json.loads((ROOT / "upstream.lock.json").read_text())
     if args.refresh_ezy_skills:
-        if args.runtime_only or args.skip_agentkit or args.require_agentkit:
-            parser.error("--refresh-ezy-skills cannot be combined with other sync modes")
         plugins = checkout("agents-plugins", lock["git"]["agents-plugins"])
         refresh_ezy_skills(plugins, lock["skill_library"], root=ROOT)
         return
