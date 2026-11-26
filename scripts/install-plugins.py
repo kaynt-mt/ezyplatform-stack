@@ -179,6 +179,12 @@ def selected_plugins(value, manifest):
     return parse_only(value, manifest) if value is not None else list(manifest)
 
 
+def add_requested_theme(names, theme, manifest):
+    if theme in manifest and theme not in names:
+        return [*names, theme]
+    return names
+
+
 def install_closure(manifest, names, admin, opener):
     graph = {}
     queue = list(names)
@@ -216,7 +222,7 @@ def main():
         jar = http.cookiejar.MozillaCookieJar(str(args.admin_cookie_jar))
         jar.load(ignore_discard=True)
         opener = build_opener(ProxyHandler({}), HTTPCookieProcessor(jar), NoRedirect())
-    names = selected_plugins(args.only, manifest)
+    names = add_requested_theme(selected_plugins(args.only, manifest), args.theme, manifest)
     graph = install_closure(manifest, names, admin, opener)
     order = list(TopologicalSorter(graph).static_order())
     activate(manifest, order, args.theme)

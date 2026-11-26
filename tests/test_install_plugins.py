@@ -15,6 +15,7 @@ MANIFEST = {
     "ezymail": ("0.3.3", "0.3.3", ["admin-plugin", "web-plugin"]),
     "ezylogin": ("0.4.7", "0.4.7", ["admin-plugin", "web-plugin"]),
     "ezysupport": ("0.6.2", "0.6.2", ["admin-plugin", "web-plugin"]),
+    "freestyle": ("0.2.9", "0.2.9", ["admin-plugin", "theme"]),
 }
 
 
@@ -42,6 +43,24 @@ class SelectedPluginsTests(unittest.TestCase):
     def test_empty_value_is_rejected_instead_of_selecting_the_manifest(self):
         with self.assertRaisesRegex(ValueError, "at least one"):
             INSTALL_PLUGINS.selected_plugins("", MANIFEST)
+
+
+class AddRequestedThemeTests(unittest.TestCase):
+    def test_adds_a_requested_marketplace_theme_to_the_install_set(self):
+        self.assertEqual(
+            INSTALL_PLUGINS.add_requested_theme(["ezylogin"], "freestyle", MANIFEST),
+            ["ezylogin", "freestyle"],
+        )
+
+    def test_does_not_duplicate_a_theme_or_add_the_core_welcome_theme(self):
+        self.assertEqual(
+            INSTALL_PLUGINS.add_requested_theme(["ezylogin", "freestyle"], "freestyle", MANIFEST),
+            ["ezylogin", "freestyle"],
+        )
+        self.assertEqual(
+            INSTALL_PLUGINS.add_requested_theme(["ezylogin"], "welcome", MANIFEST),
+            ["ezylogin"],
+        )
 
 
 class InstallClosureTests(unittest.TestCase):
