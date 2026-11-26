@@ -105,7 +105,7 @@ For a work-management plugin inspired by `makeplane/plane`, choose the skills by
 
 | Phase | EzyPlatform resource | AgentKit skills |
 |---|---|---|
-| Research and compare | `docs/research/plane-plugin-design-notes.md`, [Runtime plugin inventory](plugins/README.md) | `ak-research`, `ak-xia`, `ak-brainstorm`, `ak-predict` |
+| Research and compare | [Work-management plugin design notes](https://github.com/kaynt-mt/ezy-task-plugin/blob/main/docs/research/plane-plugin-design-notes.md), [Runtime plugin inventory](plugins/README.md) | `ak-research`, `ak-xia`, `ak-brainstorm`, `ak-predict` |
 | Design and split the work | `ezy-guide`, [EzyPlatform development research](research/ezyplatform-deep-research.md) | `ak-plan --hard`, `ak-plan red-team`, `ak-databases` |
 | Build and deploy locally | [Plugin build skill](../skills/ezy-build-plugin/SKILL.md), `ezy-develop`, `ezyplatform-develop` | `ak-cook`, `ak-debug`, `ak-fix`, `ak-worktree` |
 | Design Admin/Web UI, localization, and media | `ezy-i18n`, `ezy-media`, `ezy-sync` | `ak-frontend-design`, `ak-ui-ux-pro-max`, `ak-enhance-ux-ax` |
