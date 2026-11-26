@@ -448,9 +448,9 @@ def main():
     order = list(TopologicalSorter(graph).static_order())
     if args.browser_auth and "ezylogin" not in graph:
         raise ValueError("--browser-auth requires ezylogin; use --only ezylogin or include it in the installed set")
-    activate(manifest, order, args.theme)
     if args.browser_auth:
         install_browser_auth_fixture()
+    activate(manifest, order, args.theme)
     run([*COMPOSE, "restart", "ezyplatform"], timeout=120)
     wait_for_http(urls)
     if args.browser_auth:
