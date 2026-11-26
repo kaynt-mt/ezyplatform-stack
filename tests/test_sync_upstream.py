@@ -3,6 +3,7 @@ import importlib.util
 import io
 import json
 import stat
+import subprocess
 import tempfile
 import unittest
 from pathlib import Path
@@ -60,16 +61,35 @@ class SkillPackageTests(unittest.TestCase):
 
 
 class EzySnapshotTests(unittest.TestCase):
+    def commit_skill_sources(self, plugins):
+        def git(*args):
+            subprocess.run(["git", "-C", str(plugins), *args], check=True, capture_output=True)
+
+        git("init", "--quiet")
+        git("-c", "core.autocrlf=false", "add", "--", "LICENSE", "core")
+        git("-c", "user.name=Test", "-c", "user.email=test@example.invalid",
+            "-c", "commit.gpgsign=false", "commit", "--quiet", "-m", "Test skill sources")
+
     def test_refresh_replaces_only_managed_snapshot_with_complete_sources(self):
         body, checksum = package(("SKILL.md", "library skill"), ("scripts/tool.py", "tool"))
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
             plugins = root / "plugins"
-            make_skill(plugins / "core" / "skills", "ezy-guide", "cppai skill")
+            guide = make_skill(plugins / "core" / "skills", "ezy-guide")
+            (guide / "SKILL.md").write_bytes(b"cppai skill\n")
             shared = plugins / "core" / "skills" / "ezy-shared"
             shared.mkdir()
             (shared / "helper.py").write_text("helper")
-            (plugins / "LICENSE").write_text("CPPAI license")
+            (plugins / "LICENSE").write_bytes(b"CPPAI license\n")
+            self.commit_skill_sources(plugins)
+            crlf_checkout = root / "crlf-checkout"
+            subprocess.run(["git", "clone", "--quiet", "--no-checkout", str(plugins), str(crlf_checkout)],
+                           check=True, capture_output=True)
+            crlf_git = ["git", "-C", str(crlf_checkout), "-c", "core.autocrlf=true"]
+            subprocess.run([*crlf_git, "checkout", "--quiet", "--detach", "HEAD"], check=True, capture_output=True)
+            self.assertEqual((crlf_checkout / "core" / "skills" / "ezy-guide" / "SKILL.md").read_bytes(),
+                             b"cppai skill\r\n")
+            self.assertEqual(subprocess.check_output([*crlf_git, "status", "--porcelain"]), b"")
             make_skill(root / ".agents" / "skills", "ak-plan")
             snapshot = root / "skills" / "upstream"
             make_skill(snapshot, "stale")
@@ -77,13 +97,14 @@ class EzySnapshotTests(unittest.TestCase):
             make_skill(root / "skills", "stack-guide")
 
             with mock.patch.object(SYNC, "urlopen", return_value=io.BytesIO(body)) as download:
-                SYNC.refresh_ezy_skills(plugins, {"42": ["ezyplatform-example", checksum]}, root=root)
+                SYNC.refresh_ezy_skills(crlf_checkout, {"42": ["ezyplatform-example", checksum]}, root=root)
 
             download.assert_called_once_with("https://ezyplatform.com/api/v1/skill-library/skills/42/package", timeout=30)
             self.assertEqual({p.parent.name for p in snapshot.glob("*/SKILL.md")}, {"ezy-guide", "ezyplatform-example"})
             self.assertEqual((snapshot / "ezyplatform-example" / "scripts" / "tool.py").read_text(), "tool")
             self.assertEqual((snapshot / "ezy-shared" / "helper.py").read_text(), "helper")
-            self.assertEqual((snapshot / "LICENSE-CPPAI").read_text(), "CPPAI license")
+            self.assertEqual((snapshot / "ezy-guide" / "SKILL.md").read_bytes(), b"cppai skill\n")
+            self.assertEqual((snapshot / "LICENSE-CPPAI").read_bytes(), b"CPPAI license\n")
             self.assertTrue((snapshot / SYNC.MANAGED).is_file())
             self.assertTrue((root / ".agents" / "skills" / "ak-plan" / "SKILL.md").is_file())
             self.assertTrue((root / "skills" / "stack-guide" / "SKILL.md").is_file())
@@ -93,6 +114,9 @@ class EzySnapshotTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
             plugins = root / "plugins"
+            make_skill(plugins / "core" / "skills", "ezy-guide")
+            (plugins / "LICENSE").write_text("CPPAI license")
+            self.commit_skill_sources(plugins)
             snapshot = root / "skills" / "upstream"
             original = make_skill(snapshot, "original", "keep")
             packages = {"42": ["ezyplatform-example", "0" * 64]}

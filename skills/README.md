@@ -13,7 +13,7 @@ find .agents/skills -mindepth 2 -maxdepth 2 -name SKILL.md | sort
 
 Kết quả với lock hiện tại là `19 skills in .agents/skills`. Trên workspace đang dùng AgentKit, theo [README của stack](../README.md#cli-plugin-và-skill-cho-agent) thay vì chạy `--skip-agentkit`: lệnh sync tạo lại thư mục skill và tùy chọn đó sẽ không đưa `ak-*` vào lần tạo mới. Bảng dưới trỏ đến bản đọc trực tiếp trên GitHub. Khi chạy agent, đọc bản tương ứng trong `.agents/skills/` và các tài liệu đi kèm; không nạp cả hai bản cùng lúc.
 
-Cập nhật bản trong Git bằng `python3 scripts/sync-upstream.py --refresh-ezy-skills` ở repo core. Lệnh này tạo lại riêng `skills/upstream/` từ các nguồn đã khóa, không cài AgentKit, không thay `.agents/skills/`, và không dùng file nguồn đã chỉnh tay. Kiểm tra diff trước khi commit; không sửa trực tiếp bản snapshot.
+Cập nhật bản trong Git bằng `python3 scripts/sync-upstream.py --refresh-ezy-skills` ở repo core. Lệnh này tạo lại riêng `skills/upstream/` từ các nguồn đã khóa, không cài AgentKit hoặc thay `.agents/skills/`. Bản CPPAI đọc trực tiếp từ Git, không phụ thuộc vào xuống dòng của bản checkout. Kiểm tra diff trước khi commit; không sửa trực tiếp bản snapshot.
 
 Nguồn CPPAI dùng [giấy phép MIT (© 2026 CPPAI Co.,LTD)](upstream/LICENSE-CPPAI); giữ thông báo này nếu phân phối lại. Bảy gói từ Young Monkeys được giữ nguyên nội dung ZIP; không thấy tệp giấy phép riêng trong ZIP, nên không áp giấy phép MIT của CPPAI cho các gói đó.
 

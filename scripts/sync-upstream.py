@@ -271,10 +271,7 @@ def stage_skill_tree(target):
         staged.rename(target)
 
 
-def stage_ezy_skills(plugins, packages, staged):
-    for source in sorted(plugins.glob("*/skills/*")):
-        if source.is_dir():
-            shutil.copytree(source, staged / source.name)
+def stage_library_skills(packages, staged):
     for skill_id, (name, checksum) in packages.items():
         if not skill_id.isdecimal() or name != Path(name).name or name in {"", ".", ".."}:
             raise ValueError(f"Invalid skill lock entry: {skill_id!r}, {name!r}")
@@ -285,18 +282,46 @@ def stage_ezy_skills(plugins, packages, staged):
         extract_skill(body, checksum, staged / name)
 
 
+def stage_pinned_cppai_skills(plugins, staged):
+    tree = subprocess.check_output(["git", "-C", str(plugins), "ls-tree", "-rz", "HEAD"])
+    for entry in tree.split(b"\0"):
+        if not entry:
+            continue
+        metadata, raw_path = entry.split(b"\t", 1)
+        mode, kind, oid = metadata.split()
+        path = PurePosixPath(os.fsdecode(raw_path))
+        if path == PurePosixPath("LICENSE"):
+            destination = staged / "LICENSE-CPPAI"
+        elif len(path.parts) >= 4 and path.parts[1] == "skills":
+            destination = staged.joinpath(*path.parts[2:])
+        else:
+            continue
+        if kind != b"blob" or mode not in {b"100644", b"100755"}:
+            raise ValueError(f"Unsupported CPPAI skill source: {path}")
+        contents = subprocess.check_output(["git", "-C", str(plugins), "cat-file", "blob", oid.decode("ascii")])
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        destination.write_bytes(contents)
+        if mode == b"100755":
+            destination.chmod(0o755)
+    if not (staged / "LICENSE-CPPAI").is_file():
+        raise ValueError("Pinned CPPAI skills are missing LICENSE")
+
+
 def refresh_ezy_skills(plugins, packages, root=ROOT):
     target = root / "skills" / "upstream"
     with stage_skill_tree(target) as staged:
-        stage_ezy_skills(plugins, packages, staged)
-        shutil.copyfile(plugins / "LICENSE", staged / "LICENSE-CPPAI")
+        stage_pinned_cppai_skills(plugins, staged)
+        stage_library_skills(packages, staged)
     print(f"{len(list(target.glob('*/SKILL.md')))} Ezy skills in {target.relative_to(root)}")
 
 
 def sync_skills(plugins, packages, agentkit_skill_dirs=(), root=ROOT):
     target = root / ".agents" / "skills"
     with stage_skill_tree(target) as staged:
-        stage_ezy_skills(plugins, packages, staged)
+        for source in sorted(plugins.glob("*/skills/*")):
+            if source.is_dir():
+                shutil.copytree(source, staged / source.name)
+        stage_library_skills(packages, staged)
         ezy_skills = {entry.name for entry in staged.iterdir() if entry.is_dir()}
         for skills_dir in agentkit_skill_dirs:
             for source in sorted(skills_dir.iterdir()):
@@ -330,8 +355,6 @@ def main():
         if args.runtime_only or args.skip_agentkit or args.require_agentkit:
             parser.error("--refresh-ezy-skills cannot be combined with other sync modes")
         plugins = checkout("agents-plugins", lock["git"]["agents-plugins"])
-        if git(plugins, "status", "--porcelain", "--ignored", "--", ":(glob)*/skills/**"):
-            raise ValueError(f"{plugins}: skill sources contain local files; use a clean upstream checkout")
         refresh_ezy_skills(plugins, lock["skill_library"], root=ROOT)
         return
     sources = {name: checkout(name, revision) for name, revision in lock["git"].items()
