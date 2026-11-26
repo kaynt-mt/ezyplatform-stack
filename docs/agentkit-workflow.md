@@ -1,129 +1,113 @@
 # AgentKit workflow for bots and Devin sessions
 
-This document summarizes a hands-on review of **AgentKit 3.2.0** (the `engineer` and `marketing` kits, exported in `portable` format) as integrated into `ezyplatform-stack`. It sets out how **`chanht_tt`**, the **bots** (`Chief of Staff` and `Upstream Watcher`), and **Devin sessions** work together on EzyPlatform projects.
+This workflow applies to AgentKit **3.2.0** (the `engineer` and `marketing` kits exported for the `portable` target), the stack owner (`chanht_tt`), and the bots and Devin sessions that work on EzyPlatform.
 
----
+## 1. Set up and verify the portable skills
 
-## 1. AgentKit kits installed in the stack
+From the stack checkout, supply an `AGENTKIT_API_KEY` licensed for both kits, or use an existing `ak` login:
 
-After running `python3 scripts/sync-upstream.py` with `AGENTKIT_API_KEY` set or after logging in with `./scripts/ak login`, `.agents/skills/` contains **167 skills**:
+```sh
+python3 scripts/sync-upstream.py --require-agentkit
+./scripts/ak --version
+./scripts/ak kit list-kits --json
+```
 
-| Group | Count | Prefix | Main role |
-|---|---:|---|---|
-| **AgentKit Shared** (`engineer` ∩ `marketing`) | 40 | `ak-*` | Core workflow: `ak-agentkit`, `ak-brainstorm`, `ak-plan`, `ak-cook`, `ak-debug`, `ak-fix`, `ak-test`, `ak-scout`, `ak-git`, `ak-docs`, `ak-journal`, `ak-handoff`, `ak-worktree`, `ak-frontend-design`, `ak-ui-ux-pro-max`, `ak-copywriting`, `ak-design`, `ak-preview`... |
-| **AgentKit Engineer-only** | 65 | `ak-*` | Specialized engineering: `ak-review-pr`, `ak-code-review`, `ak-security`, `ak-ship`, `ak-scenario`, `ak-databases`, `ak-web-testing`, `ak-devops`, `ak-deploy`, `ak-github`, `ak-research`, `ak-xia`, `ak-predict`, `ak-retro`, `ak-advise`, `ak-vibe`, `ak-mcp-builder`, `ak-payment-integration`... |
-| **AgentKit Marketing-only** | 43 | `ak-*` | Product discovery and go-to-market: `ak-play`, `ak-marketing-research`, `ak-competitor`, `ak-marketing-planning`, `ak-brand`, `ak-launch-strategy`, `ak-pricing-strategy`, `ak-seo`, `ak-onboarding-cro`, `ak-form-cro`, `ak-analytics`, `ak-ab-test-setup`, `ak-campaign`, `ak-email`, `ak-social`... |
-| **EzyPlatform Stack** | 19 | `ezy-*`, `ezyplatform-*` | EzyPlatform workflows and tools (`ezy-guide`, `ezy-new`, `ezy-sync`, `ezy-develop`, `ezyplatform-develop`, `ezy-i18n`, `ezy-media`...) plus the local skill `skills/ezy-build-plugin/SKILL.md` |
+On a fresh checkout, verify that sync reports both `agentkit/engineer: 3.2.0` and `agentkit/marketing: 3.2.0`. Sync skips unlicensed kits; a successful exit alone does not prove both are present. With both kits installed, expect `167 skills in .agents/skills`:
 
----
+| Group | Count | Examples |
+|---|---:|---|
+| Shared AgentKit skills (deduplicated) | 40 | `ak-agentkit`, `ak-brainstorm`, `ak-plan`, `ak-cook`, `ak-debug`, `ak-fix`, `ak-test`, `ak-scout`, `ak-journal`, `ak-worktree` |
+| Engineer-only | 65 | `ak-review-pr`, `ak-code-review`, `ak-security`, `ak-ship`, `ak-scenario`, `ak-databases`, `ak-web-testing`, `ak-devops`, `ak-predict` |
+| Marketing-only | 43 | `ak-play`, `ak-marketing-research`, `ak-competitor`, `ak-brand`, `ak-launch-strategy`, `ak-seo`, `ak-campaign` |
+| EzyPlatform skills | 19 | `ezy-guide`, `ezy-new`, `ezy-sync`, `ezy-develop`, `ezyplatform-develop`, `ezy-i18n`, `ezy-media` |
 
-## 2. Key adaptations from the reference workflow
+The stack's own [plugin build skill](../skills/ezy-build-plugin/SKILL.md) is tracked separately and is not part of that count.
 
-The original workflow was written for a traditional team and does **not** always match AgentKit 3.2.0 or Devin's infrastructure. This version adapts it as follows:
+**Skills are agent instructions, not shell commands.** In the coding agent, request the skill by its installed name and give its arguments as part of that request. If the host does not register slash commands, ask it to read and follow `.agents/skills/<name>/SKILL.md`. Start with `ak-agentkit` (or `ak-help`) for routing. Use `./scripts/ak <command> --help` only for actual CLI commands such as `kit list-kits` and `journal create`.
 
-1. **Use the current skill names:**
-   - In 3.2.0, `ak-security-scan` is only a legacy alias. The official name is **`ak-security`**, which supports `--secrets-only`, `--deps-only`, `--red-team`, `--fix`, and `--iterations N`.
-2. **Use the actual team roles, not the names from the example:**
-   - **Owner (`chanht_tt`):** Approves production work, database or volume deletion, changes to `.env` or secrets, high-risk architecture, wide publication, and product decisions.
-   - **Chief of Staff (coordination bot):** Manages Devin Boards, splits and assigns tickets with one writer per repository or branch, tracks progress, verifies evidence, and merges PRs in bot-owned repositories (such as `kaynt-mt/ezyplatform-stack`) after CI and Devin Review pass.
-   - **Upstream Watcher (upstream monitoring bot):** Tracks new releases of EzyPlatform, CPPAI, and AgentKit.
-   - **Devin sessions (Writer / Researcher / Reviewer):** Carry out tickets end to end, run actual tests, and open PRs. They do not merge unless the bot owns the repository and they have been authorized.
-3. **Account for the `portable` export on Devin; avoid Claude Code-only features:**
-   - **`ak-team` and `ak-orchestrate`:** Designed for Claude Code Agent Teams and headless CLI runtimes. Coordinate parallel sessions through **Chief of Staff and Devin Boards**, or **Dynamic Workflows** when there are at least five independent branches. Use **`ak-worktree`** only to isolate multiple branches on the same VM.
-   - **`--advice` (calls the `kongming` subagent) and `--ultra` (wave best-of-five verification):** These are Claude Code extensions; Devin has no `kongming` subagent. When a difficult problem needs critical review, use **`ak-brainstorm`** (compare two or three options and identify the weakest assumption), **`ak-predict`** (architecture, security, performance, UX, and operations), or **`ak-plan red-team`** (four review personas).
-   - **Automatic journaling:** `ak-plan`, `ak-cook`, `ak-fix`, and `ak-ship` suggest `ak-journal` by default (entries go to `plans/journals/YYYY-MM-DD-<slug>.md` via `./scripts/ak journal create`). For small or quick tasks, use `--skip-journal` or omit this step to avoid unnecessary files.
-   - **Plan and report paths:** AgentKit uses `plans/<timestamp>-<slug>/` for plans (`plan.md`, `phase-NN-<name>.md`, `plans/reports/`, `plans/journals/`). Do not commit drafts or temporary reports unless they are official documentation that belongs in `docs/`.
+## 2. Adapt the workflow to Devin
 
----
+- Use `ak-security` when performing a defensive security review; `ak-security-scan` is not a skill in this export.
+- Coordinate multiple sessions through **Chief of Staff and Devin Boards** (or Dynamic Workflows for five or more independent workstreams). Do not use the Claude Code orchestration skills `ak-team` or `ak-orchestrate` for that on Devin. Use `ak-worktree` when isolating branches in one VM.
+- Devin does not provide the Claude Code `kongming` subagent behind `--advice` or the verifier waves behind `--ultra`. Use `ak-brainstorm`, `ak-predict`, or the `red-team` mode of `ak-plan` to challenge a proposal.
+- Plans live under `plans/<timestamp>-<slug>/` (`plan.md` and `phase-NN-<name>.md`); reports and journals go under `plans/reports/` and `plans/journals/`. Do not commit scratch artifacts. For a durable decision, use the `ak-journal` skill or run `./scripts/ak journal create "Decision title"` from the intended project. For small tasks, use `--skip-journal` on the invoking skill where supported.
 
-## 3. Rules for all workflows
+### Roles
 
-1. **LOCAL / DEV only by default:** Any work touching **production**, deleting databases or volumes (`docker compose down -v`), editing real `.env` files or secrets, or sending or publishing at scale requires **separate approval from `chanht_tt`**.
-2. **One writer at a time:** Only one session may write to a branch or repository at a time; other sessions read, research, or review. Split parallel tickets along non-overlapping file boundaries.
-3. **Security and backups:** Create a backup or restore point before publishing or migrating data. Never write or expose tokens, API keys, or passwords in logs, reports, PRs, or chat. If a secret leaks, redact it as `<REDACTED_...>` and request immediate rotation.
-4. **Proportionality Gate (from `ak-agentkit`):** Classify the work using **three criteria** before choosing a workflow:
-   - **Size:** `trivial` (one or two files, at most 30 minutes, no unknowns → proceed without a plan) · `standard` (one deliverable, a few files) · `epic` (multiple modules or phases → use `ak-plan` and split file ownership).
-   - **Risk:** `low` (internal and reversible) · `elevated` (affects users or multiple modules → requires `ak-test` and review) · `high` (auth, security, payments, database migrations, public contracts, destructive actions, or wide publication → requires `ak-test`, `ak-security`, independent review or Devin Review, and approval from `chanht_tt` before any irreversible step).
-   - **Collapse Rule:** Skip any intermediate step that neither produces an artifact for a later step nor contributes to the level of verification required by the risk.
-5. **Iron Laws:**
-   - Start every multistep task with a **Brainstorm Contract** covering four items: *Outcome, Constraints, Non-goals, and Acceptance criteria* (three or four lines for small tasks, full detail for large ones).
-   - **Do not fix a bug until you demonstrate its root cause** (`ak-debug` before `ak-fix`). After three consecutive failed fixes, stop, reassess the architecture, and report to Chief of Staff or `chanht_tt`.
-   - **Do not report completion without evidence from an actual run on the final revision** (test, build, HTTP/Docker output, or a hands-on check). Never weaken tests or assertions to obtain a pass.
+- **Owner (`chanht_tt`):** Approves production work, database/volume deletion, real `.env` or secret changes, high-risk architecture, public releases, and product decisions.
+- **Chief of Staff:** Splits work on Devin Boards, assigns one writer per branch, checks evidence, and merges PRs for bot-owned repositories after CI and Devin Review pass.
+- **Upstream Watcher:** Tracks new versions of EzyPlatform, CPPAI, and AgentKit.
+- **Devin sessions:** Run real checks and open PRs. Do not merge unless explicitly delegated for a bot-owned repository.
 
----
+## 3. Rules for every workflow
 
-## 4. Five standard workflows
+Follow the [model routing rule](model-routing.md) for every Bot and Devin session.
 
-### Workflow 1: Quick or simple tasks (`trivial`, `low` risk, up to about one hour, few files)
+1. Default to **local/dev**. Get separate owner approval before production writes, `docker compose down -v`, changes to real credentials, or public publishing. Back up data before publishing or migrating. Keep credentials out of artifacts, logs, and Git; if one is exposed, redact it and request rotation.
+2. Assign one writer at a time per branch. Parallel tickets must have non-overlapping file ownership.
+3. Before multi-step work, agree on **Outcome, Constraints, Non-goals, and Acceptance criteria**.
+4. Choose the smallest workflow that meets the risk. Skip formal planning for bounded, reversible tasks. Use `ak-plan` and split ownership for multi-phase work. Require tests and review for elevated risk. For high risk (auth, payments, data migration, a public contract, destructive operations, public publishing), add defensive security review, independent review, and owner approval before irreversible steps. Drop intermediate steps that produce no artifact and do not reduce verification.
+5. Prove the root cause before fixing a defect (`ak-debug` before `ak-fix`). Stop and escalate after three failed fix attempts. Do not weaken tests or claim completion without evidence from the final revision.
 
-- **Skill sequence:** `ak-scout` *(if the file locations are unclear)* → `ak-cook --fast --skip-journal` → `ak-test` → `ak-code-review --pending` *(lightweight)*
-- **Steps:**
-  1. Write four short lines covering Outcome, Constraints, Non-goals, and Acceptance criteria.
-  2. Make the smallest change that meets the scope. Preserve out-of-scope behavior.
-  3. Run the narrowest test suite that covers the change. Review the diff with `ak-code-review --pending`.
-  4. Open a PR and wait for CI and Devin Review to pass. Merge it yourself if the bot owns the repository.
+## 4. Choose a workflow
 
-### Workflow 2: Complex, multiphase, or large features (`epic`, `elevated`–`high` risk)
+### Quick task (trivial, low risk)
 
-*Example: Building a `makeplane/plane`-style task management plugin on EzyPlatform.*
+`ak-scout` (if needed) → `ak-cook --fast --skip-journal` → `ak-test` → `ak-code-review --pending`.
 
-- **Skill sequence:** `ak-brainstorm` *(with `ak-research` or `ak-xia` when comparing a reference repository)* → `ak-plan --hard` *(plus `ak-plan validate` or `ak-plan red-team`)* → **Chief of Staff splits phases into Devin Boards tickets** → For each phase: **EzyPlatform domain skill** and `ak-cook <plan-path>` → `ak-test` → `ak-security` *(if touching auth, APIs, databases, or input)* → `ak-code-review` → PR and Devin Review → `ak-journal` *(when an architectural decision is worth recording)*
-- **Steps:**
-  1. Agree on Outcome, Constraints, Non-goals, and Acceptance criteria. Compare up to three options and name the weakest assumption. For high-risk architecture, use `ak-predict` or `ak-plan red-team` and seek approval from `chanht_tt` before coding.
-  2. Use `ak-plan` to produce a phased plan (`plans/<ts>-<slug>/plan.md` and `phase-NN-<name>.md`). State which files and acceptance checks belong to each phase.
-  3. Chief of Staff assigns each phase as an independent Devin Boards ticket. Run phases in parallel only if they do not edit the same files; use `ak-worktree` when branches need to be isolated on one VM.
-  4. Each phase must pass actual tests (unit or integration tests and Admin/Web checks in the Docker development stack for EzyPlatform plugins) and Devin Review before dependent phases proceed.
+Confirm the four contract items, make the smallest change, and run the narrowest check that covers it. Open a PR and wait for CI and Devin Review.
 
-### Workflow 3: Bug fixes and CI incidents (`fix-defect`)
+### Multi-phase feature (epic, elevated or high risk)
 
-- **Skill sequence:** `ak-scout` → `ak-debug` → `ak-fix` → `ak-test` → `ak-security` *(for security defects)* → `ak-code-review --pending`
-- **Steps:**
-  1. Record the symptoms, expected behavior, and reproduction steps (specific commands, logs, or requests).
-  2. Use `ak-debug` to **demonstrate the root cause with logs or tests before fixing it**. Do not guess.
-  3. Use `ak-fix`: add or extend a reproduction test (red to green), fix the root cause, and do not weaken tests.
-  4. Use `ak-test` to check the defect and nearby regressions. For security, auth, injection, or secret issues, also use `ak-security`.
-  5. Report the root cause, changes, and before/after evidence. For a recurring incident or a large set of fixes, use `ak-retro` to learn from Git history.
+`ak-brainstorm` (with `ak-research` or `ak-xia` if comparing reference projects) → `ak-plan --hard` (use `validate` or `red-team` for higher risk) → Chief of Staff splits tickets on Devin Boards. For each phase: EzyPlatform domain skill + `ak-cook <plan-path>` → `ak-test` → `ak-security` if the change touches auth, APIs, the database, or user input → `ak-code-review` → PR and Devin Review.
 
-### Workflow 4: PR review (`review-audit`)
+Compare at most three designs and call out the assumption most likely to fail. Give each phase its files and verification criteria. Run Admin/Web smoke checks on Docker dev for plugin changes; don't start a dependent phase until the previous one passes review. Use `ak-journal` for architectural decisions worth preserving.
 
-- **Skill sequence:** `ak-review-pr <PR>` *(for GitHub PRs)* or `ak-code-review --pending` *(for a local diff or commit)*. Add `ak-security` if the PR touches auth, payments, user input, secrets, or dependencies.
-- **Steps:**
-  1. Read the PR description, ticket or issue, and related plan. Fetch the diff with `gh` or Git tools.
-  2. Review in priority order: correctness and contracts, bugs and regressions, security (what does the PR store, transmit, or expose?), breaking changes, testing, and maintainability.
-  3. Classify feedback as **Blocker / Should fix / Suggestion**. Include `file:line`, evidence, and reasoning for each finding.
-  4. Run local tests or builds for high-risk changes or changes to public contracts.
-  5. Conclude with **Approve / Request changes / Comment**. Reviews are read-only by default: do **not** use `--fix`, `--reply`, or `--merge` unless explicitly assigned in the ticket or command.
+### Bug or CI failure
 
-### Workflow 5: Product discovery, marketing, and go-to-market (`discover-validate`, `plan-campaign`, `create-content`)
+`ak-scout` → `ak-debug` → `ak-fix` → `ak-test` → `ak-security` for security-sensitive fixes → `ak-code-review --pending`.
 
-Use the 43 `marketing` skills and 40 `shared` skills when preparing a product, positioning, or launch materials:
+Record actual versus expected behavior, reproduce it locally, and prove the root cause. Where possible, show the regression test fail before the fix and pass after it. Report the before/after evidence; use `ak-retro` for recurring issues or after a substantial repair.
 
-- **Discover and validate ideas:** `ak-play create <name> --template product-discovery` (or `ak-marketing-research` → `ak-competitor` → `ak-brainstorm` → `ak-marketing-planning`).
-- **Content, SEO, and launch:** `ak-brand` → `ak-copywriting` / `ak-seo` / `ak-launch-strategy` / `ak-onboarding-cro` / `ak-pricing-strategy`.
-- **Safety gate:** External publishing (social media, bulk email, paid ads) is **high risk**. Stop at a draft or dry run by default and obtain approval from `chanht_tt`.
+### PR review
 
----
+Use `ak-review-pr <PR>` for a GitHub PR or `ak-code-review --pending` for a local diff. Add `ak-security` for changes to auth, payments, user input, secrets, or dependencies.
 
-## 5. Standard closeout report
+Read the PR description, related ticket and diff. Check the contract, regression risk, security, compatibility, tests, and maintainability. Run the necessary local checks for high-risk or public-contract changes. Classify findings as **Blocker / Should fix / Suggestion**, with file and line references and supporting evidence. Recommend **Approve / Request changes / Comment**; do not use `--fix`, `--reply`, or `--merge` unless explicitly authorized.
 
-Each Devin session hands off to Chief of Staff or `chanht_tt` with a short report containing four items:
+### Product discovery, marketing, or launch
 
-- **Status:** `DONE` | `DONE_WITH_CONCERNS` | `BLOCKED`
-- **Outcome and links:** PRs, commits, or files created or updated.
-- **Evidence from actual runs:** Test, build, or hands-on verification commands and their results on the final revision.
-- **Unverified or outstanding:** Clearly state anything that could not be tested or any next step.
+For discovery, ask the coding agent to use `ak-play` with the arguments `create <name> --template product-discovery`. This is **not** `./scripts/ak play`. The pinned portable skill's `references/create.md` shows named flags for its local `manifest.cjs` helper, but that helper expects positional arguments: `create <name> <template-file>`. The agent should still collect the required inputs and ask for approval at the template's gates. Alternatively, use `ak-marketing-research` → `ak-competitor` → `ak-brainstorm` → `ak-marketing-planning`.
 
----
+To verify the template and manifest without publishing anything, use Node.js from a **disposable workspace outside the stack checkout**. Set `STACK` to the absolute path of the synced checkout first:
 
-## 6. Combining AgentKit and EzyPlatform skills for the upcoming Plane-style task management plugin
+```sh
+PLAY="$STACK/.agents/skills/ak-play"
+TEMPLATE="$PLAY/templates/product-discovery.json"
+node "$PLAY/scripts/template-loader.cjs" validate "$TEMPLATE"
+node "$PLAY/scripts/manifest.cjs" create "Fresh clone audit" "$TEMPLATE"
+```
 
-When starting a task management plugin on EzyPlatform Core (using `makeplane/plane` as a reference), combine the relevant skills from both kits:
+This smoke check creates `data/playbooks/fresh-clone-audit/manifest.json`, with template ID `product-discovery@1.0.0` and 10 pending steps. It does not collect inputs or run the playbook. Use the skill to do those steps.
 
-| Phase or area | EzyPlatform skills | AgentKit skills |
+For brand, content, SEO, or launch, use `ak-brand` followed by the relevant skill (`ak-copywriting`, `ak-seo`, `ak-launch-strategy`, `ak-onboarding-cro`, or `ak-pricing-strategy`). Stop at a draft or dry run; public posts, bulk email, and paid ads need owner approval.
+
+## 5. Report the result
+
+- **Status:** `DONE`, `DONE_WITH_CONCERNS`, or `BLOCKED`.
+- **Result:** Links to PRs, commits, or artifacts.
+- **Evidence:** Actual test/build/HTTP results on the final revision.
+- **Not verified:** What was not checked and why.
+
+## 6. Example: planning a work-management plugin
+
+For a work-management plugin inspired by `makeplane/plane`, choose the skills by phase:
+
+| Phase | EzyPlatform resource | AgentKit skills |
 |---|---|---|
-| Research and comparison with `makeplane/plane` | `docs/research/plane-plugin-design-notes.md`, `docs/plugins/` | `ak-research`, `ak-xia`, `ak-brainstorm`, `ak-predict` |
-| Architecture and phase planning | `ezy-guide`, `docs/research/ezyplatform-deep-research.md` | `ak-plan --hard`, `ak-plan red-team`, `ak-databases` |
-| Java plugin development and development builds or deployments | `skills/ezy-build-plugin/SKILL.md`, `ezy-develop`, `ezyplatform-develop` | `ak-cook`, `ak-debug`, `ak-fix`, `ak-worktree` |
-| Admin and Web UI/UX, i18n, and media | `ezy-i18n`, `ezy-media`, `ezy-sync` | `ak-frontend-design`, `ak-ui-ux-pro-max`, `ak-enhance-ux-ax` |
-| Testing, edge cases, and security | Docker development stack (`./scripts/up.sh`), Admin/Web smoke check | `ak-scenario`, `ak-test`, `ak-web-testing`, `ak-security` |
-| Review, documentation, and launch | `AGENTS.md`, `README.md` | `ak-review-pr`, `ak-code-review`, `ak-docs`, `ak-launch-strategy` |
+| Research and compare | `docs/research/plane-plugin-design-notes.md`, [Runtime plugin inventory](plugins/README.md) | `ak-research`, `ak-xia`, `ak-brainstorm`, `ak-predict` |
+| Design and split the work | `ezy-guide`, [EzyPlatform development research](research/ezyplatform-deep-research.md) | `ak-plan --hard`, `ak-plan red-team`, `ak-databases` |
+| Build and deploy locally | [Plugin build skill](../skills/ezy-build-plugin/SKILL.md), `ezy-develop`, `ezyplatform-develop` | `ak-cook`, `ak-debug`, `ak-fix`, `ak-worktree` |
+| Design Admin/Web UI, localization, and media | `ezy-i18n`, `ezy-media`, `ezy-sync` | `ak-frontend-design`, `ak-ui-ux-pro-max`, `ak-enhance-ux-ax` |
+| Test runtime and security | Docker dev (`./scripts/up.sh`), Admin/Web smoke checks | `ak-scenario`, `ak-test`, `ak-web-testing`, `ak-security` |
+| Review, document, and prepare for launch | [Agent instructions](../AGENTS.md), [Stack README](../README.md) | `ak-review-pr`, `ak-code-review`, `ak-docs`, `ak-launch-strategy` |

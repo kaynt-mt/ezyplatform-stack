@@ -9,6 +9,8 @@
 
 ## AgentKit workflow (for Bots and Devin sessions)
 
+Follow the [model routing rule](docs/model-routing.md) for every Bot and Devin session.
+
 See the [AgentKit workflow](docs/agentkit-workflow.md) for details. These rules are mandatory for all sessions:
 
 - **Proportionality gate and iron rule:** Before any multi-step task, agree on four items: *Outcome, Constraints, Non-goals, Acceptance criteria*. Do not fix a bug before proving its root cause (`ak-debug` before `ak-fix`; stop and report after three unsuccessful fix attempts). Do not declare work done without real execution evidence on the final revision; do not weaken tests.

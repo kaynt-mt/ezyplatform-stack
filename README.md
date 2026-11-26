@@ -29,7 +29,13 @@ On a VM, ports bind to loopback only. Open a tunnel from your machine (replace `
 ssh -N -L 9090:127.0.0.1:9090 -L 8080:127.0.0.1:8080 user@vm
 ```
 
-Set `EZY_ADMIN_PORT` or `EZY_WEB_PORT` in `.env` if a host port is taken. For an actual deployment, configure HTTPS and Admin access controls at a separate reverse proxy; do not expose the Admin port directly to the internet.
+Set `EZY_ADMIN_PORT` or `EZY_WEB_PORT` in `.env` if a host port is taken, or override them for one run:
+
+```bash
+EZY_ADMIN_PORT=19090 EZY_WEB_PORT=18080 ./scripts/up.sh
+```
+
+Use the URLs printed by `up.sh`. For an actual deployment, configure HTTPS and Admin access controls at a separate reverse proxy; do not expose the Admin port directly to the internet.
 
 ```bash
 docker compose ps
@@ -40,6 +46,12 @@ docker compose stop   # retain data
 
 Compose stores the database and runtime in separate volumes. Back up both before upgrading; rebuilding the image does not replace core or modules in an existing runtime volume. `docker compose down -v` **deletes** all local data; use only when deliberately starting over.
 
+Run the stack tooling tests from the repository root:
+
+```bash
+python3 -m unittest discover -s tests -v
+```
+
 ## CLI, plugins, and skills for agents
 
 The [catalog of 19 Ezy skills](skills/README.md) explains when to use each skill. All 19 upstream copies are tracked in [`skills/upstream/`](skills/upstream/) for reading on GitHub; the agent copies are synced to `.agents/skills/`.
@@ -47,14 +59,16 @@ The [catalog of 19 Ezy skills](skills/README.md) explains when to use each skill
 ```bash
 python3 scripts/sync-upstream.py
 ./scripts/ezy --version
-./scripts/ak --version
 ```
 
 The CLIs run from pinned source or binaries in `.upstream/`, not from a global install. Sync fetches the full [CPPAI Agents Plugins](https://github.com/cppai-vn/agents-plugins) repository into `.upstream/agents-plugins/`, installs skills from that repository and the [EzyPlatform Skill Library](https://ezyplatform.com/ezyai/skill-library?lang=vi) into `.agents/skills/`, and downloads the pinned [AgentKit](https://docs.agentkit.best/en/stable/getting-started/quickstart) kits (`engineer` and `marketing`, exported as `portable`) into `.upstream/agentkit/` and loads their `ak-*` skills into `.agents/skills/`.
 
-- **AgentKit authentication:** Set `AGENTKIT_API_KEY` or run `./scripts/ak login` once; credentials are stored under `~/.agentkit/`, not in the repo. Use `--require-agentkit` to fail sync if authentication is missing, or `--skip-agentkit` to sync EzyPlatform only.
+- **EzyPlatform only:** Run `python3 scripts/sync-upstream.py --skip-agentkit` instead of the default sync. This rebuilds the agent skill directory without the `ak-*` skills.
+- **AgentKit on a fresh checkout:** Without credentials, the default sync installs the pinned `ak` launcher but skips the kits. Set `AGENTKIT_API_KEY` before syncing, or run `./scripts/ak login` after the initial sync to sign in interactively. Credentials are stored under `~/.agentkit/`, not in the repo. Run `python3 scripts/sync-upstream.py --require-agentkit` when AgentKit is required, then verify the launcher with `./scripts/ak --version`.
 - `.upstream/` and `.agents/skills/` are generated from the lock; do not edit them by hand. Choose **one** way to load skills per agent: the synced `.agents/skills/` directory or the marketplace described by the upstream README, not both. Application runtime plugins are separate from coding agent plugins: the stack includes EzyArticle; install or activate other modules as needed, not all marketplace modules by default.
 - When an agent runs on another VM, configure the Admin URL via an authorized private connection rather than using another machine's loopback address.
+
+See the [runtime plugin catalog](docs/plugins/README.md) and [sandbox installation procedure](docs/plugins/test-report.md) for Marketplace modules, and the [AgentKit workflow](docs/agentkit-workflow.md) for using the installed kits.
 
 ### Update upstream pins
 
@@ -69,12 +83,15 @@ The CLIs run from pinned source or binaries in `.upstream/`, not from a global i
 Keep application source in a separate repo; this stack provides the runtime and toolkit. To create a content project and reuse a running Admin, use CLI `live` mode, which means **connect to an existing Admin**, not necessarily production:
 
 ```bash
-./scripts/ezy new ../my-app --mode live --admin-url http://127.0.0.1:9090
+STACK="$PWD"  # Run from the stack checkout.
+"$STACK/scripts/ezy" new ../my-app --mode live --admin-url http://127.0.0.1:9090
 cd ../my-app
 # Reveal the Access Token at /admins/me and enter it in environment.json privately.
-../ezyplatform-stack/scripts/ezy check
+"$STACK/scripts/ezy" check
 ```
 
-Use `ezy new --mode local` instead if the content project needs its own database and container. For a Java plugin, use the stack's scaffold helper in the [plugin build skill](skills/ezy-build-plugin/SKILL.md), not `ezy new`. The skill covers native builds, packaging, and testing on Docker dev. Do not commit `environment.json`, tokens, or passwords.
+For an independent content sandbox, run `./scripts/ezy new ../my-local-app --mode local` from the stack checkout. This starts the pinned CLI's own Compose project, which currently defaults to `cppai/ezyplatform-app:1.5.4`. Use its printed URLs, create the first Admin, and enter its token before running `check` from the generated project. To test against this stack's 1.5.9 runtime, use `--mode live` against the local core started by `./scripts/up.sh`.
+
+For a Java plugin, use the stack's scaffold helper in the [plugin build skill](skills/ezy-build-plugin/SKILL.md), not `ezy new`. The skill covers native builds, packaging, and testing on Docker dev. Do not commit `environment.json`, tokens, or passwords.
 
 Resources: [EzyPlatform Guide](https://youngmonkeys.org/projects/ezyplatform?tab=guide) · [FAQ](https://ezyplatform.com/faq) · [Blog index and background for agents](docs/research/ezyplatform-blogs/README.md).
