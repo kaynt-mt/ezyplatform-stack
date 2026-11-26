@@ -108,4 +108,6 @@ Reuse core identity and sessions where appropriate, but keep resource authorizat
 
 Activation is transitive: both EzyLogin lanes depend on EzyArticle and EzyMail. Install and activate EzyMail before EzyLogin, or run `python3 scripts/install-plugins.py --only ezylogin` from the stack checkout to resolve the pinned closure. A custom plugin that only uses EzyLogin should declare `dependencies=ezylogin`; it does not need to repeat EzyMail.
 
+EzyLogin 0.4.7 does not register browser routes for `GET /login` or `GET /register`; the templates and page fragments are theme-integration building blocks around the JSON APIs. For disposable browser QA in the local stack, run `python3 scripts/install-plugins.py --only ezylogin --theme freestyle --browser-auth`. This seeds `/login` and `/register` fixture pages on Freestyle, disables local email activation, restarts, and verifies that the forms are rendered. Product UI should integrate authentication in its own theme rather than depend on this QA fixture.
+
 [Back to the plugin index](README.md)

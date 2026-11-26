@@ -77,6 +77,16 @@ The CLIs run from pinned source or binaries in `.upstream/`, not from a global i
 
 See the [runtime plugin catalog](docs/plugins/README.md) and [sandbox installation procedure](docs/plugins/test-report.md) for Marketplace modules, and the [AgentKit workflow](docs/agentkit-workflow.md) for using the installed kits.
 
+### Browser signup/login QA fixture
+
+EzyLogin provides the JSON authentication APIs and page-fragment building blocks, but it does not create browser routes for `GET /login` or `GET /register`; the active theme must render them. For a disposable local QA fixture, run:
+
+```bash
+python3 scripts/install-plugins.py --only ezylogin --theme freestyle --browser-auth
+```
+
+This installs the pinned EzyLogin dependency closure, activates Freestyle, seeds `/login` and `/register` EzyArticle pages that submit to `/ezylogin/api/v1/login` and `/ezylogin/api/v1/register`, disables email activation in the **local** sandbox database, restarts the runtime, and verifies the rendered pages and login settings. Register a unique user on Web `/register`, then sign in on `/login`; both forms report `Access token status: ACTIVATED` on success. Do not use this fixture as a production or product-theme authentication UI.
+
 ### Update upstream pins
 
 1. Verify the desired revisions of the [CLI](https://github.com/cppai-vn/ezyplatform-cli), [Docker](https://github.com/cppai-vn/ezyplatform-docker), and [Agents Plugins](https://github.com/cppai-vn/agents-plugins) (for example, `git ls-remote https://github.com/cppai-vn/agents-plugins.git HEAD`), then update `git` in the lock.
