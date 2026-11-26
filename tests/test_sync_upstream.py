@@ -1,10 +1,12 @@
 import hashlib
 import importlib.util
 import io
+import json
 import stat
 import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 from zipfile import ZipFile, ZipInfo
 
 SCRIPT = Path(__file__).resolve().parents[1] / "scripts" / "sync-upstream.py"
@@ -20,6 +22,13 @@ def package(*entries):
             archive.writestr(name, data)
     body = buffer.getvalue()
     return body, hashlib.sha256(body).hexdigest()
+
+
+def make_skill(root, name, content="skill body"):
+    skill_dir = root / name
+    skill_dir.mkdir(parents=True, exist_ok=True)
+    (skill_dir / "SKILL.md").write_text(content)
+    return skill_dir
 
 
 class SkillPackageTests(unittest.TestCase):
@@ -48,6 +57,105 @@ class SkillPackageTests(unittest.TestCase):
                 with self.assertRaisesRegex(ValueError, "unsafe ZIP path"):
                     SYNC.extract_skill(body, checksum, destination)
                 self.assertFalse(destination.exists())
+
+
+class AgentKitSyncTests(unittest.TestCase):
+    def test_merges_agentkit_skills_and_deduplicates_identical_overlap(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            plugins = root / "plugins"
+            make_skill(plugins / "core" / "skills", "ezy-guide", "ezy")
+
+            eng = root / "ak-eng"
+            make_skill(eng, "ak-plan", "shared plan")
+            make_skill(eng, "ak-cook", "eng only")
+
+            mkt = root / "ak-mkt"
+            make_skill(mkt, "ak-plan", "shared plan")
+            make_skill(mkt, "ak-brand", "mkt only")
+
+            SYNC.sync_skills(plugins, {}, agentkit_skill_dirs=[eng, mkt], root=root)
+            installed = sorted(p.parent.name for p in (root / ".agents" / "skills").glob("*/SKILL.md"))
+            self.assertEqual(installed, ["ak-brand", "ak-cook", "ak-plan", "ezy-guide"])
+
+    def test_rejects_conflicting_agentkit_skill_across_kits(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            plugins = root / "plugins"
+            plugins.mkdir()
+
+            eng = root / "ak-eng"
+            make_skill(eng, "ak-plan", "version A")
+            mkt = root / "ak-mkt"
+            make_skill(mkt, "ak-plan", "version B")
+
+            with self.assertRaisesRegex(ValueError, "Conflicting AgentKit skill"):
+                SYNC.sync_skills(plugins, {}, agentkit_skill_dirs=[eng, mkt], root=root)
+
+    def test_rejects_agentkit_collision_with_ezyplatform_skill(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            plugins = root / "plugins"
+            make_skill(plugins / "core" / "skills", "ezy-guide", "ezy")
+
+            eng = root / "ak-eng"
+            make_skill(eng, "ezy-guide", "spoofed")
+
+            with self.assertRaisesRegex(ValueError, "collides with EzyPlatform skill"):
+                SYNC.sync_skills(plugins, {}, agentkit_skill_dirs=[eng], root=root)
+
+    def test_rejects_invalid_agentkit_lock_tokens(self):
+        with tempfile.TemporaryDirectory() as temp:
+            for bad in (
+                {"cli_version": "../bad", "kits": {"engineer": "3.2.0"}},
+                {"cli_version": "3.2.0", "kits": {"../eng": "3.2.0"}},
+                {"cli_version": "3.2.0", "kits": {"engineer": "3.2.0;rm"}},
+            ):
+                with self.subTest(bad=bad), self.assertRaisesRegex(ValueError, "Invalid"):
+                    SYNC.sync_agentkit(bad, root=Path(temp))
+
+    def test_uses_cached_agentkit_kits_without_network(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            config = {
+                "cli_version": "3.2.0",
+                "channel": "stable",
+                "target": "portable",
+                "kits": {"engineer": "3.2.0"},
+            }
+            ak_bin = root / ".upstream" / "agentkit" / "bin" / "ak"
+            ak_bin.parent.mkdir(parents=True)
+            ak_bin.write_text("#!/bin/sh\necho 'ak 3.2.0'\n")
+            ak_bin.chmod(0o755)
+
+            kit_dir = root / ".upstream" / "agentkit" / "kits" / "engineer"
+            make_skill(kit_dir / "skills", "ak-plan", "cached")
+            (kit_dir / ".pin.json").write_text(json.dumps({
+                "cli_version": "3.2.0",
+                "channel": "stable",
+                "target": "portable",
+                "version": "3.2.0",
+            }))
+
+            with mock.patch.object(SYNC, "ensure_ak_auth", side_effect=AssertionError("should not auth")):
+                dirs = SYNC.sync_agentkit(config, require=True, root=root)
+            self.assertEqual(dirs, [kit_dir / "skills"])
+
+    def test_skips_or_fails_when_unauthenticated(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            config = {
+                "cli_version": "3.2.0",
+                "channel": "stable",
+                "target": "portable",
+                "kits": {"engineer": "3.2.0"},
+            }
+            fake_bin = root / ".upstream" / "agentkit" / "bin" / "ak"
+            with mock.patch.object(SYNC, "ensure_ak_cli", return_value=fake_bin), \
+                 mock.patch.object(SYNC, "ensure_ak_auth", return_value=False):
+                self.assertEqual(SYNC.sync_agentkit(config, require=False, root=root), [])
+                with self.assertRaisesRegex(ValueError, "AgentKit not authenticated"):
+                    SYNC.sync_agentkit(config, require=True, root=root)
 
 
 if __name__ == "__main__":
