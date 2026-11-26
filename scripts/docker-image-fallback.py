@@ -3,13 +3,14 @@
 import argparse
 import os
 import re
+import shlex
 import subprocess
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 IMAGE_DEFAULT = re.compile(r"\$\{([A-Za-z_][A-Za-z0-9_]*IMAGE):-([^}\s]+)\}")
-ENV_KEY = re.compile(r"^\s*(?:export\s+)?([A-Za-z_][A-Za-z0-9_]*)\s*=")
+ENV_ASSIGNMENT = re.compile(r"^\s*(?:export\s+)?([A-Za-z_][A-Za-z0-9_]*)\s*=\s*(.*)$")
 DOCKER_HUB_HOSTS = {"docker.io", "index.docker.io", "registry-1.docker.io"}
 DIGEST = re.compile(r"^[A-Za-z][A-Za-z0-9]*(?:[+._-][A-Za-z][A-Za-z0-9]*)*:[0-9A-Fa-f]{32,}$")
 
@@ -18,8 +19,50 @@ def image_defaults(compose_text):
     return dict(IMAGE_DEFAULT.findall(compose_text))
 
 
-def env_keys(env_text):
-    return {match.group(1) for line in env_text.splitlines() if (match := ENV_KEY.match(line))}
+def env_values(env_text):
+    values = {}
+    for line in env_text.splitlines():
+        match = ENV_ASSIGNMENT.match(line)
+        if not match or line.lstrip().startswith("#"):
+            continue
+        raw = match.group(2).strip()
+        if raw[:1] in ("'", '"'):
+            try:
+                parts = shlex.split(raw, posix=True)
+                value = parts[0] if parts else ""
+            except ValueError:
+                value = raw.strip(raw[0])
+        else:
+            value = re.split(r"\s+#", raw, maxsplit=1)[0].strip()
+        values[match.group(1)] = value
+    return values
+
+
+def compose_env_files(environ, default_path):
+    configured = environ.get("COMPOSE_ENV_FILES", "")
+    if configured:
+        paths = []
+        for entry in configured.split(","):
+            entry = entry.strip()
+            if not entry:
+                continue
+            path = Path(entry).expanduser()
+            paths.append(path if path.is_absolute() else default_path.parent / path)
+        return paths
+    if environ.get("COMPOSE_DISABLE_ENV_FILE", "").lower() in {"1", "true"}:
+        return []
+    return [default_path]
+
+
+def configured_keys(defaults, env_files, environ):
+    values = {}
+    for path in env_files:
+        if path.is_file():
+            values.update(env_values(path.read_text()))
+    for variable in defaults:
+        if variable in environ:
+            values[variable] = environ[variable]
+    return {variable for variable in defaults if values.get(variable, "") != ""}
 
 
 def docker_hub_mirror(reference):
@@ -86,7 +129,7 @@ def buildx_available(runner=subprocess.run):
         return False
 
 
-def select_overrides(defaults, configured_keys, local_exists, remote_exists):
+def select_overrides(defaults, configured_keys, local_exists, remote_exists, docker_hub_failed=False):
     overrides = {}
     notices = []
     for variable, canonical in sorted(defaults.items()):
@@ -96,7 +139,7 @@ def select_overrides(defaults, configured_keys, local_exists, remote_exists):
         if not mirror:
             continue
         try:
-            if local_exists(canonical) or remote_exists(canonical):
+            if not docker_hub_failed and (local_exists(canonical) or remote_exists(canonical)):
                 continue
         except (OSError, subprocess.TimeoutExpired):
             pass
@@ -129,12 +172,16 @@ def main(argv=None):
     parser = argparse.ArgumentParser()
     parser.add_argument("--compose", type=Path, default=ROOT / "compose.yaml")
     parser.add_argument("--env-file", type=Path, default=ROOT / ".env")
+    parser.add_argument(
+        "--docker-hub-failed",
+        action="store_true",
+        help="skip Docker Hub availability probes after Compose has already received a Hub failure",
+    )
     args = parser.parse_args(argv)
 
     defaults = image_defaults(args.compose.read_text())
-    configured = set(os.environ)
-    if args.env_file.is_file():
-        configured.update(env_keys(args.env_file.read_text()))
+    env_files = compose_env_files(os.environ, args.env_file)
+    configured = configured_keys(defaults, env_files, os.environ)
     if not buildx_available():
         print("Notice: docker buildx is unavailable; Docker image mirror fallback disabled.", file=sys.stderr)
         return 0
@@ -144,6 +191,7 @@ def main(argv=None):
         configured,
         local_image_exists,
         remote_image_exists,
+        docker_hub_failed=args.docker_hub_failed,
     )
     for notice in notices:
         print(notice, file=sys.stderr)

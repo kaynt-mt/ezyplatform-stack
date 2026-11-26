@@ -27,7 +27,7 @@ On first startup, Web `/` can temporarily return HTTP 404 while Admin is availab
 
 ### Docker Hub rate limits
 
-External runtime images are digest-pinned. `up.sh` uses a local image when present, otherwise probes Docker Hub before building. If Docker Hub cannot serve a pinned image (for example HTTP 429 on a shared egress IP), that run uses the same digest from Google Cloud's `mirror.gcr.io` cache. The digest is unchanged, so the image content is the same. Set `MYSQL_IMAGE`, `PYTHON_BASE_IMAGE`, or `ECLIPSE_TEMURIN_BASE_IMAGE` before `up.sh` to use an approved internal mirror instead; user-supplied values are never rewritten.
+External runtime images are digest-pinned. `up.sh` uses a local image when present, otherwise probes Docker Hub before building. If Docker Hub cannot serve a pinned image (for example HTTP 429 on a shared egress IP), that run uses the same digest from Google Cloud's `mirror.gcr.io` cache; if Hub rate limiting appears after the initial probe, Compose is retried once with the same mirror. The digest is unchanged, so the image content is the same. Set `MYSQL_IMAGE`, `PYTHON_BASE_IMAGE`, or `ECLIPSE_TEMURIN_BASE_IMAGE` before `up.sh` (including through `COMPOSE_ENV_FILES`) to use an approved internal mirror instead; non-empty user-supplied values are never rewritten.
 
 On a VM, ports bind to loopback only. Open a tunnel from your machine (replace `user@vm` with the VM's SSH address), then visit the URLs above:
 
