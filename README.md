@@ -97,6 +97,8 @@ This installs the pinned EzyLogin dependency closure, activates Freestyle, seeds
 
 ## Create an application on the core
 
+Use the [Admin and Web UI/UX guidelines](docs/ui-ux-guidelines.md) when designing or reviewing an app interface.
+
 Keep application source in a separate repo; this stack provides the runtime and toolkit. To create a content project and reuse a running Admin, use CLI `live` mode, which means **connect to an existing Admin**, not necessarily production:
 
 ```bash
