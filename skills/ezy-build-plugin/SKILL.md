@@ -11,27 +11,40 @@ description: Tạo, lập trình, build, đóng gói, cài thử hoặc nâng c�
 
 Xem [danh mục đủ 19 skill Ezy](../README.md) để đồng bộ, tìm file `SKILL.md` và phân biệt plugin Java với nội dung EzyArticle hoặc tùy biến Admin qua EzySupport. Sau khi đọc `ezy-guide`, chọn **một** quy trình Java: `ezy-develop` (wrapper `ezy dev` của stack, dùng bên dưới) hoặc `ezyplatform-develop` (script Young Monkeys). Đọc `ezyplatform-install` nếu thiếu môi trường native và `ezy-market-submit` hoặc `ezyplatform-market-submit` nếu cần nộp plugin lên chợ.
 
-## 2. Tạo project Maven trong môi trường build native
+## 2. Scaffold a Maven project in a native build environment
 
-Đừng nhầm `./scripts/ezy new` với generator plugin: `new --mode live|local|both` tạo **project nội dung** có `environment.json`; không tạo module Java. `./scripts/ezy dev create` gọi **SDK** `ezy.sh create` và cần một `EZYPLATFORM_HOME` native có `cli.sh`, JDK 8, Maven, SDK và thư viện phát triển. Không trỏ `--home` vào checkout của core hoặc đường dẫn volume Compose. Dùng **native riêng để build** và **Docker của stack để chạy nghiệm thu**. Không cài native lên máy hoặc động vào môi trường dùng chung nếu chưa được phép.
+`ezy new --mode live|local|both` creates a **content project** with `environment.json`, not Java modules. Java projects need a native EzyPlatform home containing `cli.sh`, plus JDK 8, Maven, the SDK, and the development libraries. Do not point `--home` at this checkout or a Docker volume. Build in a dedicated native install and test the exported ZIP in Docker dev.
 
-Ví dụ Linux/WSL/macOS, thay hai đường dẫn tuyệt đối trước khi chạy. Nếu chưa có EzyPlatform native, đọc `ezyplatform-install` và [hướng dẫn cài môi trường phát triển](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-setup-development-environment?lang=vi) để chuẩn bị một môi trường riêng, tương thích với core đích; không thay bản Compose đang dùng. Kiểm tra các phiên bản runtime, SDK, artifact core trong POM và dependency thực sự cần. Stack hiện pin runtime **1.5.9**, **Java 11**, **MySQL 8.0**; SDK/CLI là các công cụ có version riêng. Windows dùng hướng dẫn PowerShell của skill upstream. Nếu chạy native và Compose trên cùng máy, tách cổng Admin/Web và dùng DB riêng.
+For Linux, WSL, or macOS, replace the two absolute paths below. If you need a native install, read `ezyplatform-install` and the [development environment guide](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-setup-development-environment?lang=vi). Match the target EzyPlatform core (**1.5.9** for this stack); SDK and CLI versions are separate. If running native and Docker on the same machine, use separate Admin/Web ports and databases. For Windows, use the upstream PowerShell instructions.
 
 ```bash
-STACK=/duong/dan/ezyplatform-stack
-NATIVE_HOME=/duong/dan/runtime-native-rieng
+STACK=/path/to/ezyplatform-stack
+NATIVE_HOME=/path/to/native-ezyplatform
 OUT="$(dirname "$STACK")"
 
 "$STACK/scripts/ezy" dev check --home "$NATIVE_HOME"
-# Chỉ chạy setup nếu thiếu tool; có thể tải JDK/Maven/SDK và cài artifact vào ~/.m2.
+# Run setup only if tools or development libraries are missing.
 "$STACK/scripts/ezy" dev setup --home "$NATIVE_HOME" --no-profile
 "$STACK/scripts/ezy" dev create example-plugin --home "$NATIVE_HOME" \
   --group com.example --package com.example.plugin \
-  --modules admin-plugin,web-plugin --out "$OUT"
-cd "$OUT/example-plugin"
+  --modules admin-plugin,web-plugin --out "$OUT" &&
+  cd "$OUT/example-plugin"
 ```
 
-Dùng group/package do dự án sở hữu. Chọn thư mục mới, không ghi đè project có sẵn. Nếu gọi SDK trực tiếp trong môi trường đã cài, lệnh tương đương là `ezy.sh cp example-plugin -g com.example -p com.example.plugin -i admin-plugin,web-plugin -o "$OUT"`. Xem [quickstart](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-plugin-development-quickstart?lang=vi) và [lệnh SDK](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-sdk-commands?lang=vi).
+Use a group and package owned by the project. Never overwrite an existing project. If Maven Central rate-limits the Maven bootstrap download, install Maven from [an official Apache distribution](https://maven.apache.org/download.cgi), verify its checksum, and put `mvn` on `PATH` before rerunning setup.
+
+With SDK **0.2.8**, scaffolding can fail with `NoSuchFileException` for the new project's `pom.xml`: the SDK can write the root POM before creating the destination directory. If the failed command left **no** project directory, create a new, empty one and invoke the SDK directly:
+
+```bash
+mkdir "$OUT/example-plugin" &&
+  printf 'yes\n' | "$STACK/scripts/ezy" dev run --home "$NATIVE_HOME" -- \
+    ezy.sh cp example-plugin -g com.example -p com.example.plugin \
+      -i admin-plugin,web-plugin -o "$OUT" &&
+  test -f "$OUT/example-plugin/pom.xml" &&
+  cd "$OUT/example-plugin"
+```
+
+The `yes` is only for the empty directory created by that `mkdir`. If the directory already exists, choose a fresh project name instead. See the [plugin quickstart](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-plugin-development-quickstart?lang=vi) and [SDK command reference](https://youngmonkeys.org/ezyplatform/guides/ezyplatform-sdk-commands?lang=vi).
 
 | Thư mục/file | Công việc |
 | --- | --- |
