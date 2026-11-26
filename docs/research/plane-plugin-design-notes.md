@@ -4,6 +4,8 @@ Tài liệu này mô tả một plugin mới, không phải tính năng EzyPlatf
 
 ## 1. Bài học từ Plane và ranh giới triển khai
 
+Xem [nghiên cứu sâu mã nguồn Plane](plane-deep-study.md) để đối chiếu kiến trúc, quyền, luồng nghiệp vụ và các đề xuất bổ sung cho MVP.
+
 Đối chiếu [Plane](https://github.com/makeplane/plane) ở commit [723bb17](https://github.com/makeplane/plane/tree/723bb178f97b87e80a23df9eed134eb1388d7465/apps/api/plane/db/models) và các trang sản phẩm bên dưới. Tên **work item** trên UI tương ứng `Issue` trong model. Các tính năng trong tài liệu Plane không mặc nhiên thuộc cùng edition, và không phải tiêu chí tương thích cho plugin.
 
 | Plane | Dữ liệu/luồng tham chiếu | Trên EzyPlatform |

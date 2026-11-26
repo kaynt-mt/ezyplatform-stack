@@ -121,7 +121,7 @@ Khi bắt đầu dự án plugin quản lý công việc trên core EzyPlatform 
 
 | Giai đoạn / Hạng mục | Skill EzyPlatform | Skill AgentKit |
 |---|---|---|
-| Nghiên cứu & đối chiếu `makeplane/plane` | `docs/research/plane-plugin-design-notes.md`, `docs/plugins/` | `ak-research`, `ak-xia`, `ak-brainstorm`, `ak-predict` |
+| Nghiên cứu & đối chiếu `makeplane/plane` | [Nghiên cứu mã nguồn Plane](research/plane-deep-study.md), `docs/research/plane-plugin-design-notes.md`, `docs/plugins/` | `ak-research`, `ak-xia`, `ak-brainstorm`, `ak-predict` |
 | Thiết kế kiến trúc & chia phase | `ezy-guide`, `docs/research/ezyplatform-deep-research.md` | `ak-plan --hard`, `ak-plan red-team`, `ak-databases` |
 | Xây dựng plugin Java & build/deploy dev | `skills/ezy-build-plugin/SKILL.md`, `ezy-develop`, `ezyplatform-develop` | `ak-cook`, `ak-debug`, `ak-fix`, `ak-worktree` |
 | UI/UX Admin & Web + i18n/Media | `ezy-i18n`, `ezy-media`, `ezy-sync` | `ak-frontend-design`, `ak-ui-ux-pro-max`, `ak-enhance-ux-ax` |
