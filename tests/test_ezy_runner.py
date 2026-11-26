@@ -26,23 +26,38 @@ SCAFFOLD_SNIPPET = '''create_command() {
 
 
 class ComposeCoreImageTests(unittest.TestCase):
+    def write_compose(self, root, image_line):
+        (root / "compose.yaml").write_text(
+            "services:\n"
+            "  mysql:\n"
+            "    image: mysql:8.0\n"
+            "  ezyplatform:\n"
+            f"    image: {image_line}\n"
+            "    build:\n"
+            "      context: .upstream/ezyplatform-docker\n",
+            encoding="utf-8",
+        )
+
     def test_reads_only_ezyplatform_service_image(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
-            (root / "compose.yaml").write_text(
-                "services:\n"
-                "  mysql:\n"
-                "    image: mysql:8.0\n"
-                "  ezyplatform:\n"
-                "    image: ezyplatform-stack/core:1.5.9-1.5.6-84a5a5d\n"
-                "    build:\n"
-                "      context: .upstream/ezyplatform-docker\n",
-                encoding="utf-8",
-            )
+            self.write_compose(root, "ezyplatform-stack/core:1.5.9-1.5.6-84a5a5d")
             self.assertEqual(
                 RUNNER.compose_core_image(root),
                 "ezyplatform-stack/core:1.5.9-1.5.6-84a5a5d",
             )
+
+    def test_accepts_inline_comments_and_quotes(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            self.write_compose(root, '"ezyplatform-stack/core:1.5.9"  # pinned core')
+            self.assertEqual(RUNNER.compose_core_image(root), "ezyplatform-stack/core:1.5.9")
+
+    def test_hash_inside_unquoted_scalar_is_not_a_comment(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            self.write_compose(root, "example/core:tag#suffix")
+            self.assertEqual(RUNNER.compose_core_image(root), "example/core:tag#suffix")
 
     def test_rejects_compose_without_core_image(self):
         with tempfile.TemporaryDirectory() as temp:
@@ -52,12 +67,26 @@ class ComposeCoreImageTests(unittest.TestCase):
                 RUNNER.compose_core_image(root)
 
 
+class LocalImageNeedTests(unittest.TestCase):
+    def test_only_new_local_or_both_need_the_image_before_prompting(self):
+        self.assertFalse(RUNNER.needs_local_image(["root", "--version"]))
+        self.assertFalse(RUNNER.needs_local_image(["root", "new", "app", "--mode", "live"]))
+        self.assertTrue(RUNNER.needs_local_image(["root", "new", "app", "--mode", "local"]))
+        self.assertTrue(RUNNER.needs_local_image(["root", "new", "app", "--mode=both"]))
+
+
 class EzydevPatchTests(unittest.TestCase):
     def test_precreates_project_directory_and_answers_empty_dir_prompt(self):
         patched = RUNNER.patch_ezydev_script(SCAFFOLD_SNIPPET)
         self.assertIn('mkdir "$out/$name"', patched)
-        self.assertIn('"${cmd[@]}" <<< "yes" >&2', patched)
+        self.assertIn('if ! "${cmd[@]}" <<< "yes" >&2; then', patched)
         self.assertNotIn('"${cmd[@]}" < /dev/null', patched)
+
+    def test_removes_only_empty_project_directory_after_scaffold_failure(self):
+        patched = RUNNER.patch_ezydev_script(SCAFFOLD_SNIPPET)
+        self.assertEqual(patched.count('rmdir "$out/$name" 2>/dev/null || true'), 2)
+        self.assertIn('if [ ! -f "$out/$name/pom.xml" ]; then', patched)
+        self.assertNotIn('[ -f "$out/$name/pom.xml" ] || die', patched)
 
     def test_rejects_changed_upstream_script_instead_of_silently_skipping(self):
         with self.assertRaisesRegex(ValueError, "scaffold patch"):
@@ -75,7 +104,8 @@ class EzydevPatchTests(unittest.TestCase):
             copied = RUNNER.patched_skills_tree(source, root / "temporary")
 
             self.assertEqual((source / "ezy-develop" / "scripts" / "ezydev.sh").read_text(encoding="utf-8"), SCAFFOLD_SNIPPET)
-            self.assertIn('mkdir "$out/$name"', (copied / "ezy-develop" / "scripts" / "ezydev.sh").read_text(encoding="utf-8"))
+            copied_script = (copied / "ezy-develop" / "scripts" / "ezydev.sh").read_text(encoding="utf-8")
+            self.assertIn('mkdir "$out/$name"', copied_script)
             self.assertTrue((copied / "VENDORED.json").is_file())
 
 
@@ -105,22 +135,68 @@ class LauncherIntegrationTests(unittest.TestCase):
         )
         return scripts / "ezy"
 
-    def test_launcher_pins_local_image_and_keeps_user_override(self):
+    def run_ezy(self, ezy, *args, env=None, check=True):
+        env = os.environ.copy() if env is None else env
+        env.pop("EZY_LOCAL_IMAGE", None)
+        return subprocess.run([str(ezy), *args], capture_output=True, text=True, env=env, check=check)
+
+    def test_local_new_pins_local_image_and_keeps_user_override(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp) / "checkout"
             root.mkdir()
             ezy = self.make_checkout(root)
-            env = os.environ.copy()
-            env.pop("EZY_LOCAL_IMAGE", None)
 
-            first = subprocess.run([str(ezy), "--version"], capture_output=True, text=True, env=env, check=True)
+            first = self.run_ezy(ezy, "new", "app", "--mode", "local")
             self.assertIn("image=ezyplatform-stack/core:1.5.9-1.5.6-84a5a5d", first.stdout)
 
+            env = os.environ.copy()
             env["EZY_LOCAL_IMAGE"] = "example/custom:1"
-            second = subprocess.run([str(ezy), "--version"], capture_output=True, text=True, env=env, check=True)
+            second = subprocess.run(
+                [str(ezy), "new", "app", "--mode", "local"],
+                capture_output=True,
+                text=True,
+                env=env,
+                check=True,
+            )
             self.assertIn("image=example/custom:1", second.stdout)
 
-    def test_dev_uses_patched_copy_without_hiding_normal_skills_path(self):
+    def test_unrelated_live_and_override_commands_do_not_read_compose_image(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp) / "checkout"
+            root.mkdir()
+            ezy = self.make_checkout(root)
+            (root / "compose.yaml").write_text("services: {}\n", encoding="utf-8")
+
+            version = self.run_ezy(ezy, "--version")
+            self.assertIn("image=\n", version.stdout)
+            live = self.run_ezy(ezy, "new", "app", "--mode", "live")
+            self.assertIn("image=\n", live.stdout)
+
+            env = os.environ.copy()
+            env["EZY_LOCAL_IMAGE"] = "example/custom:1"
+            override = subprocess.run(
+                [str(ezy), "new", "app", "--mode", "local"],
+                capture_output=True,
+                text=True,
+                env=env,
+                check=True,
+            )
+            self.assertIn("image=example/custom:1", override.stdout)
+
+    def test_local_new_reports_missing_compose_image_without_traceback(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp) / "checkout"
+            root.mkdir()
+            ezy = self.make_checkout(root)
+            (root / "compose.yaml").write_text("services: {}\n", encoding="utf-8")
+
+            result = self.run_ezy(ezy, "new", "app", "--mode", "local", check=False)
+
+            self.assertEqual(result.returncode, 1)
+            self.assertIn("cannot determine the stack's local core image", result.stderr)
+            self.assertNotIn("Traceback", result.stderr)
+
+    def test_only_dev_create_uses_patched_copy(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp) / "checkout"
             root.mkdir()
@@ -129,12 +205,24 @@ class LauncherIntegrationTests(unittest.TestCase):
             env = os.environ.copy()
             env["PRINT_EZYDEV"] = "1"
 
-            dev = subprocess.run([str(ezy), "dev", "create"], capture_output=True, text=True, env=env, check=True)
-            self.assertIn('mkdir "$out/$name"', dev.stdout)
-            patched_path = next(line.removeprefix("skills=") for line in dev.stdout.splitlines() if line.startswith("skills="))
+            create = subprocess.run(
+                [str(ezy), "dev", "create"], capture_output=True, text=True, env=env, check=True,
+            )
+            self.assertIn('mkdir "$out/$name"', create.stdout)
+            patched_path = next(
+                line.removeprefix("skills=") for line in create.stdout.splitlines() if line.startswith("skills=")
+            )
             self.assertNotEqual(patched_path, str(original_skills))
 
-            plain = subprocess.run([str(ezy), "skills-path"], capture_output=True, text=True, env=env, check=True)
+            status = subprocess.run(
+                [str(ezy), "dev", "status"], capture_output=True, text=True, env=env, check=True,
+            )
+            self.assertIn(f"skills={original_skills}", status.stdout)
+            self.assertNotIn('mkdir "$out/$name"', status.stdout)
+
+            plain = subprocess.run(
+                [str(ezy), "skills-path"], capture_output=True, text=True, env=env, check=True,
+            )
             self.assertIn(f"skills={original_skills}", plain.stdout)
             self.assertNotIn('mkdir "$out/$name"', plain.stdout)
 
