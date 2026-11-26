@@ -69,6 +69,6 @@ cd ../my-app
 ../ezyplatform-stack/scripts/ezy check
 ```
 
-Để thử nghiệm với DB/container riêng cho app, dùng `ezy new --mode local` thay vì nối vào core đang chạy. Khi viết theme/plugin Java, đọc skill `ezy-develop` hoặc `ezyplatform-develop` trước; chỉ cài bản đã build vào môi trường phát triển để kiểm tra. Không commit `environment.json`, token hay mật khẩu.
+Để thử nghiệm với DB/container riêng cho app, dùng `ezy new --mode local` thay vì nối vào core đang chạy. Nếu tạo plugin Java mới, dùng `ezy dev create`, không dùng `ezy new`. Xem [skill xây dựng plugin](skills/ezy-build-plugin/SKILL.md) để chuẩn bị môi trường build native, đóng gói và kiểm tra trên Docker dev. Không commit `environment.json`, token hay mật khẩu.
 
 Tài liệu: [EzyPlatform Guide](https://youngmonkeys.org/projects/ezyplatform?tab=guide) · [FAQ](https://ezyplatform.com/faq).
