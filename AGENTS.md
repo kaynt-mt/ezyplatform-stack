@@ -2,9 +2,9 @@
 
 - Chạy `./scripts/up.sh` để khởi động Admin/Web/MySQL. Chạy `python3 scripts/sync-upstream.py` để lấy toàn bộ plugin/skill đã khóa (gồm cả bộ AgentKit `engineer` và `marketing` khi có `AGENTKIT_API_KEY` hoặc đã đăng nhập `ak`); CLI của stack là `./scripts/ezy` và `./scripts/ak`.
 - Bắt đầu tại `.agents/skills/ezy-guide/SKILL.md` cho tác vụ EzyPlatform và `.agents/skills/ak-agentkit/SKILL.md` (hoặc `ak-help`) cho bộ skill AgentKit (`ak-*`). Dùng `ezy-new` và `ezy-sync` cho project nội dung; dùng `ezy-develop` và `ezyplatform-develop` cho theme/plugin. Skill chính thức có tiền tố `ezyplatform-`; có thể thay đổi quy trình nên đọc `SKILL.md` trước khi chạy script kèm theo.
-- Khi tạo plugin Java mới, đọc [skill xây dựng plugin của stack](skills/ezy-build-plugin/SKILL.md) để chọn đúng công cụ, build trên native và kiểm tra artifact trên Docker dev.
+- Tra [danh mục đầy đủ các skill Ezy](skills/README.md) và đọc bản commit trong [`skills/upstream/`](skills/upstream/) để chọn theo tác vụ. Khi tạo plugin Java mới, theo [skill xây dựng plugin của stack](skills/ezy-build-plugin/SKILL.md) để build trên native và kiểm tra artifact trên Docker dev.
 - Đặt ứng dụng mới ở repo riêng. Dùng `ezy new --mode live --admin-url URL` để nối vào core có sẵn hoặc `--mode local` để tạo sandbox độc lập. Dùng quyền tối thiểu, không commit `.env` hay `environment.json`, không chạy tác vụ ghi lên production khi chưa được phép.
-- Không chỉnh file được sinh dưới `.upstream/` hay `.agents/skills/`. Cập nhật pin theo README và kiểm tra Admin/Web trên môi trường dev.
+- Không chỉnh tay file sinh dưới `.upstream/`, `.agents/skills/` hay `skills/upstream/`. Cập nhật pin theo README và kiểm tra Admin/Web trên môi trường dev. Chạy `python3 scripts/sync-upstream.py --refresh-ezy-skills` để cập nhật bản Ezy được commit.
 
 ## Quy trình áp dụng AgentKit (cho Bot và Devin sessions)
 
