@@ -14,7 +14,8 @@ from urllib.request import HTTPCookieProcessor, HTTPRedirectHandler, ProxyHandle
 
 
 ROOT = Path(__file__).resolve().parents[1]
-CORE = "1.6.0"
+CORE = "1.6.1"
+BLOCKED_PLUGINS = frozenset({"semi-theme"})
 MARKET = "https://ezyplatform.com"
 COMPOSE = ["docker", "compose"]
 CONTAINER = [*COMPOSE, "exec", "-T", "ezyplatform"]
@@ -470,11 +471,16 @@ def parse_only(value, manifest):
     unknown = sorted(set(names).difference(manifest))
     if unknown:
         raise ValueError(f"unknown tested plugin(s): {', '.join(unknown)}")
+    blocked = sorted(set(names).intersection(BLOCKED_PLUGINS))
+    if blocked:
+        raise ValueError(f"blocked on EzyPlatform {CORE} (incompatible with Thymeleaf 3.1.7): {', '.join(blocked)}")
     return names
 
 
 def selected_plugins(value, manifest):
-    return parse_only(value, manifest) if value is not None else list(manifest)
+    if value is not None:
+        return parse_only(value, manifest)
+    return [name for name in manifest if name not in BLOCKED_PLUGINS]
 
 
 def add_requested_theme(names, theme, manifest):
