@@ -13,11 +13,11 @@ SPEC.loader.exec_module(INSTALL_PLUGINS)
 
 
 MANIFEST = {
-    "ezyarticle": ("1.5.6", "1.5.6", ["admin-plugin", "web-plugin", "socket-plugin"]),
-    "ezymail": ("0.3.3", "0.3.3", ["admin-plugin", "web-plugin"]),
-    "ezylogin": ("0.4.7", "0.4.7", ["admin-plugin", "web-plugin"]),
-    "ezysupport": ("0.6.2", "0.6.2", ["admin-plugin", "web-plugin"]),
-    "freestyle": ("0.2.9", "0.2.9", ["admin-plugin", "theme"]),
+    "ezyarticle": ("1.5.8", "1.5.8", ["admin-plugin", "web-plugin", "socket-plugin"]),
+    "ezymail": ("0.3.4", "0.3.4", ["admin-plugin", "web-plugin"]),
+    "ezylogin": ("0.4.8", "0.4.8", ["admin-plugin", "web-plugin"]),
+    "ezysupport": ("0.6.3", "0.6.3", ["admin-plugin", "web-plugin"]),
+    "freestyle": ("0.3.0", "0.3.0", ["admin-plugin", "theme"]),
 }
 
 
@@ -41,6 +41,12 @@ class ParseOnlyTests(unittest.TestCase):
 class SelectedPluginsTests(unittest.TestCase):
     def test_none_selects_the_default_manifest(self):
         self.assertEqual(INSTALL_PLUGINS.selected_plugins(None, MANIFEST), list(MANIFEST))
+
+    def test_blocks_semi_theme_on_1_6_1(self):
+        manifest_with_semi = {**MANIFEST, "semi-theme": ("1.0.2", "1.0.1", ["admin-plugin"])}
+        self.assertNotIn("semi-theme", INSTALL_PLUGINS.selected_plugins(None, manifest_with_semi))
+        with self.assertRaisesRegex(ValueError, "blocked on EzyPlatform 1.6.1.*semi-theme"):
+            INSTALL_PLUGINS.parse_only("semi-theme", manifest_with_semi)
 
     def test_empty_value_is_rejected_instead_of_selecting_the_manifest(self):
         with self.assertRaisesRegex(ValueError, "at least one"):

@@ -24,7 +24,7 @@ class ParityScriptTests(unittest.TestCase):
                 (local, overrides.get("local_admin_port", "29100"), overrides.get("local_web_port", "28100")),
             ):
                 (checkout / "scripts").mkdir(parents=True)
-                tsv = overrides.get(f"{checkout.name}_tsv", "ezyarticle\t1.5.6\tadmin-plugin\n")
+                tsv = overrides.get(f"{checkout.name}_tsv", "ezyarticle\t1.5.8\tadmin-plugin\n")
                 (checkout / "scripts" / "plugin-versions.tsv").write_text(tsv, encoding="utf-8")
                 (checkout / ".env").write_text(
                     f"EZY_ADMIN_PORT={admin_port}\nEZY_WEB_PORT={web_port}\n",
@@ -89,7 +89,7 @@ class ParityScriptTests(unittest.TestCase):
                 f.chmod(f.stat().st_mode | stat.S_IXUSR)
 
             default_plugins = (
-                'MOD\tadmin\tplugins\tezyarticle\t1.5.6\n'
+                'MOD\tadmin\tplugins\tezyarticle\t1.5.8\n'
                 'RT\tadmin\tplugins.txt\t[{"name":"ezyarticle","active":true}]\n'
             )
             default_schema = (
